@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  max-width: 1024px;
+  margin: 3.5rem auto;
+  color: #fff;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  img {
+    max-width: 1rem;
+    max-height: 1rem;
+  }
+
+  .box {
+    flex-basis: 30%;
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12px;
+
+    @media (max-width: 767px) {
+      flex-basis: 70%;
+    }
+
+    .titles {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      a {
+        color: rgb(75, 185, 167);
+      }
+    }
+    .curr-box {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+
+      .percentage {
+        color: green;
+      }
+    }
+    .curr-list {
+      display: flex;
+      gap: 0.8rem;
+
+      .coin-wrapper {
+        display: flex;
+        font-weight: bold;
+        gap: 0.5rem;
+      }
+      .alias,
+      .rank {
+        color: #858ca2;
+      }
+    }
+  }
+}

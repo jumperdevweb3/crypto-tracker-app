@@ -5,9 +5,10 @@
   .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 1024px;
     margin: 0 auto;
+    height: 5rem;
   }
 }
 .logo {
@@ -17,10 +18,10 @@
 }
 .links-list {
   display: flex;
+  gap: 0 1.5rem;
 
   li a {
     font-size: 1.1rem;
-    margin-right: 1rem;
     font-weight: 500;
 
     &:hover {
