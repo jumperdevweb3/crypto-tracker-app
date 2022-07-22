@@ -1,0 +1,37 @@
+.header {
+  width: 100%;
+  background-color: #17171a;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.links-list {
+  display: flex;
+
+  li a {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    font-weight: 500;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+}
+
+.active {
+  color: rgb(193, 162, 222);
+}
+li a:hover.active {
+  color: rgb(193, 162, 222);
+}
