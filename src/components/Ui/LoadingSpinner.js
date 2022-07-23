@@ -1,5 +1,9 @@
 import classes from "./LoadingSpinner.module.scss";
 
 export const LoadingSpinner = () => {
-  return <div className={classes.spinner}></div>;
+  return (
+    <div className={classes.spinnerbox}>
+      <div className={classes.spinner}></div>
+    </div>
+  );
 };
