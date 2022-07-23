@@ -1,7 +1,7 @@
 .options {
   display: grid;
   grid-template-columns:
-    minmax(50px, 0.5fr) minmax(9.4rem, 1fr) minmax(6.625rem, 1fr)
+    minmax(20px, 0.2fr) minmax(9rem, 1fr) minmax(5rem, 0.6fr)
     0.6fr 0.6fr 0.6fr 1.2fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
@@ -12,16 +12,20 @@
   margin: 0 auto;
   padding: 0 8px;
   color: #fff;
+  gap: 0 1rem;
+  font-size: 0.9rem;
 
   @media (max-width: 1023px) {
     grid-template-columns:
-      minmax(50px, 0.5fr) minmax(9.4rem, 1fr) minmax(6.625rem, 1fr)
+      minmax(20px, 0.1fr) minmax(9.4rem, 10rem) minmax(5rem, 0.6fr)
       minmax(70px, 0.6fr) minmax(70px, 0.6fr) minmax(70px, 0.6fr);
+    width: 80%;
   }
   @media (max-width: 767px) {
     grid-template-columns:
-      minmax(50px, 0.5fr) minmax(9.4rem, 1fr) minmax(6.625rem, 1fr)
-      minmax(70px, 0.6fr);
+      minmax(20px, 0.1fr) minmax(9.4rem, 10rem) minmax(5rem, 0.3fr)
+      minmax(70px, 0.3fr);
+    justify-content: space-between;
   }
 
   div {

@@ -9,29 +9,29 @@ export const CurrenciesOptions = () => {
     <div className={classes.options}>
       <div className={classes.rank}>
         <p>#</p>
-        <span>^</span>
+        {/* <span>^</span> */}
       </div>
       <div className={classes.name}>
         <p>Name</p>
-        <span>^</span>
+        {/* <span>^</span> */}
       </div>
       <div className={classes.price}>
         <p>Price</p>
-        <span>^</span>
+        {/* <span>^</span> */}
       </div>
       <div className={classes.time}>
         <p>1h %</p>
-        <span>^</span>
+        {/* <span>^</span> */}
       </div>
       {width >= 768 && (
         <Fragment>
           <div className={classes.time}>
             <p>24h %</p>
-            <span>^</span>
+            {/* <span>^</span> */}
           </div>
           <div className={classes.time}>
             <p>7d %</p>
-            <span>^</span>
+            {/* <span>^</span> */}
           </div>
         </Fragment>
       )}
@@ -39,11 +39,11 @@ export const CurrenciesOptions = () => {
         <Fragment>
           <div className={classes["market-cup"]}>
             <p>Market Cup</p>
-            <span>^</span>
+            {/* <span>^</span> */}
           </div>
           <div className={classes.volume}>
             <p>Volume (24h)</p>
-            <span>^</span>
+            {/* <span>^</span> */}
           </div>
         </Fragment>
       )}

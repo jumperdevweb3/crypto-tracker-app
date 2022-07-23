@@ -17,6 +17,20 @@ export const CoinData = (props) => {
     total_volume,
   } = props;
   const interNumberFormat = new Intl.NumberFormat("en-US");
+
+  const timeStyle1h =
+    price_change_1h <= 0
+      ? `${classes.time} ${classes.decr}`
+      : `${classes.time} ${classes.incr}`;
+  const timeStyle24h =
+    price_change_24h <= 0
+      ? `${classes.time} ${classes.decr}`
+      : `${classes.time} ${classes.incr}`;
+  const timeStyle7d =
+    price_change_7d <= 0
+      ? `${classes.time} ${classes.decr}`
+      : `${classes.time} ${classes.incr}`;
+
   return (
     <div className={classes.coin}>
       <div className={classes.rank}>
@@ -30,15 +44,15 @@ export const CoinData = (props) => {
       <div className={classes.price}>
         <p>${interNumberFormat.format(current_price)}</p>
       </div>
-      <div className={classes.time}>
+      <div className={timeStyle1h}>
         <p>{price_change_1h.toFixed(2)}%</p>
       </div>
       {width >= 768 && (
         <Fragment>
-          <div className={classes.time}>
+          <div className={timeStyle24h}>
             <p>{price_change_24h.toFixed(2)}%</p>
           </div>
-          <div className={classes.time}>
+          <div className={timeStyle7d}>
             <p>{price_change_7d.toFixed(2)}%</p>
           </div>
         </Fragment>
