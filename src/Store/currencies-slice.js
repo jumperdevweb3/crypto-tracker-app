@@ -1,32 +1,51 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getInfo } from "../components/Data/getInfo";
+
+const sortCurrencies = (items, { sortType, sortBy }) => {
+  if (sortType === "ascending") {
+    return [...items].sort((a, b) => a[sortBy] - b[sortBy]);
+  }
+  if (sortType === "descending") {
+    return [...items].sort((a, b) => b[sortBy] - a[sortBy]);
+  }
+
+  return items;
+};
 
 const currenciesSlice = createSlice({
   name: "currencies",
   initialState: {
     items: [],
-    sortActive: { sortType: "" },
+    trendingItems: [],
+    losersItems: [],
+    gainersItems: [],
+    sortActive: {
+      sortType: "ascending",
+      sortBy: "market_cap_rank",
+    },
   },
   reducers: {
-    pushItems(state, action) {
-      state.items = action.payload;
+    setItems(state, action) {
+      const items = action.payload.map((item) => getInfo(item));
+      state.items = sortCurrencies(items, state.sortActive);
+      state.trendingItems = sortCurrencies(state.items, {
+        sortType: "descending",
+        sortBy: "price_change_7d",
+      }).slice(0, 3);
+      state.losersItems = sortCurrencies(state.items, {
+        sortType: "ascending",
+        sortBy: "price_change_24h",
+      }).slice(0, 3);
+      state.gainersItems = sortCurrencies(state.items, {
+        sortType: "descending",
+        sortBy: "price_change_24h",
+      }).slice(0, 3);
     },
-    sortData(state, action) {
-      if (action.payload.type === "ascending") {
-        state.sortActive.sortType = action.payload.type;
-        const items = action.payload.items;
-        const sortedData = items
-          .slice()
-          .sort((a, b) => a.market_cap_rank - b.market_cap_rank);
-        state.items = sortedData;
-      }
-      if (action.payload.type === "descending") {
-        state.sortActive.sortType = action.payload.type;
-        const items = action.payload.items;
-        const sortedData = items
-          .slice()
-          .sort((a, b) => b.market_cap_rank - a.market_cap_rank);
-        state.items = sortedData;
-      }
+    sortData(state) {
+      state.items = sortCurrencies(state.items, state.sortActive);
+    },
+    updateSort(state, action) {
+      state.sortActive = action.payload;
     },
   },
 });

@@ -2,20 +2,20 @@ import { Fragment } from "react";
 import { useWindowSize } from "../../Hooks/use-windowSize";
 import classes from "./CoinData.module.scss";
 
-export const CoinData = (props) => {
+export const CoinData = ({
+  image,
+  name,
+  symbol,
+  current_price,
+  market_cap_rank,
+  price_change_1h,
+  price_change_24h,
+  price_change_7d,
+  market_cap,
+  total_volume,
+}) => {
   const { width } = useWindowSize();
-  const {
-    image,
-    name,
-    symbol,
-    current_price,
-    market_cap_rank,
-    price_change_1h,
-    price_change_24h,
-    price_change_7d,
-    market_cap,
-    total_volume,
-  } = props;
+
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
   const timeStyle1h =
