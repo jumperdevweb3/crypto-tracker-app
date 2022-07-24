@@ -1,0 +1,29 @@
+.box {
+  flex-basis: 30%;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: #323546;
+
+  @media (max-width: 767px) {
+    flex-basis: 70%;
+  }
+  img {
+    max-width: 1rem;
+    max-height: 1rem;
+  }
+  .titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: rgb(75, 185, 167);
+    }
+    .title-box {
+      display: flex;
+      gap: 0 0.2rem;
+    }
+  }
+}

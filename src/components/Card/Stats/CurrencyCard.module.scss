@@ -1,0 +1,29 @@
+.curr-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+
+  .curr-list {
+    display: flex;
+    gap: 0.8rem;
+
+    .coin-wrapper {
+      display: flex;
+      font-weight: bold;
+      gap: 0.5rem;
+    }
+    .alias,
+    .rank {
+      color: #858ca2;
+    }
+  }
+  .percentage {
+    color: green;
+  }
+  .percentage.incr {
+    color: green;
+  }
+  .percentage.decr {
+    color: red;
+  }
+}
