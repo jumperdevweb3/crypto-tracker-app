@@ -25,6 +25,7 @@ export const CurrenciesOptions = () => {
   // }
   return (
     <div className={classes.options}>
+      <div></div>
       <div className={classes.rank}>
         <button
           className={classes["option-btn"]}

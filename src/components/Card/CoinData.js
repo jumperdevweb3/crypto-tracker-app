@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useWindowSize } from "../../Hooks/use-windowSize";
 import classes from "./CoinData.module.scss";
+import { BiStar } from "react-icons/bi";
 
 export const CoinData = ({
   image,
@@ -33,6 +34,11 @@ export const CoinData = ({
 
   return (
     <div className={classes.coin}>
+      <div className={classes.star}>
+        <button className={classes.star}>
+          <BiStar color="#8d9904" fontSize="1.1rem" />
+        </button>
+      </div>
       <div className={classes.rank}>
         <p>{market_cap_rank}</p>
       </div>

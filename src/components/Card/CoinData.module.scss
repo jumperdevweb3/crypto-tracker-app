@@ -1,7 +1,10 @@
 .coin {
   display: grid;
   grid-template-columns:
-    minmax(20px, 0.2fr) minmax(9rem, 1fr) minmax(5rem, 0.6fr)
+    minmax(20px, 0.2fr) minmax(20px, 0.2fr) minmax(9rem, 1fr) minmax(
+      5rem,
+      0.6fr
+    )
     minmax(70px, 0.6fr) minmax(70px, 0.6fr) minmax(70px, 0.6fr) 1.2fr 1fr;
   grid-template-rows: 1fr;
   height: 5rem;
@@ -20,13 +23,19 @@
 
   @media (max-width: 1023px) {
     grid-template-columns:
-      minmax(20px, 0.1fr) minmax(9.4rem, 10rem) minmax(5rem, 0.6fr)
+      minmax(20px, 0.2fr) minmax(20px, 0.1fr) minmax(9.4rem, 10rem) minmax(
+        5rem,
+        0.6fr
+      )
       minmax(70px, 0.6fr) minmax(70px, 0.6fr) minmax(70px, 0.6fr);
     width: 80%;
   }
   @media (max-width: 767px) {
     grid-template-columns:
-      minmax(20px, 0.1fr) minmax(9.4rem, 10rem) minmax(5rem, 0.3fr)
+      minmax(1.5rem, 2rem) minmax(20px, 0.1fr) minmax(9.4rem, 10rem) minmax(
+        5rem,
+        0.3fr
+      )
       minmax(70px, 0.3fr);
     justify-content: space-between;
   }
@@ -54,8 +63,12 @@
   .time.decr {
     color: red;
   }
-
   &:hover {
     background-color: #171924;
+  }
+  .star {
+    border: none;
+    background: none;
+    cursor: pointer;
   }
 }
