@@ -11,7 +11,7 @@ export const MainNav = () => {
         <nav>
           <ul className={classes["links-list"]}>
             <li>
-              <NavLink to="/home" activeClassName={classes.active}>
+              <NavLink to="/" activeClassName={classes.active}>
                 Home
               </NavLink>
             </li>

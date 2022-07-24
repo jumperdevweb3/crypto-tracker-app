@@ -1,14 +1,22 @@
 import { Fragment } from "react";
 import { useWindowSize } from "../Hooks/use-windowSize";
+import { currenciesActions } from "../Store/currencies-slice";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import classes from "./CurrenciesOptions.module.scss";
 
 export const CurrenciesOptions = () => {
+  const data = useSelector((state) => state.currencies.items);
+  const dispatch = useDispatch();
   const { width } = useWindowSize();
-
+  const sortByRankHandler = () => {
+    // ascending
+    dispatch(currenciesActions.sortData({ items: data, type: "descending" }));
+  };
   return (
     <div className={classes.options}>
       <div className={classes.rank}>
-        <p>#</p>
+        <button onClick={sortByRankHandler}>#</button>
         {/* <span>^</span> */}
       </div>
       <div className={classes.name}>

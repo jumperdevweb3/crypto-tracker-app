@@ -1,28 +1,40 @@
-import { useEffect, useState } from "react";
-import { useFetchData } from "../Hooks/use-fetchData";
+import { useEffect } from "react";
 import { CurrenciesOptions } from "./CurrenciesOptions";
+import { useDispatch } from "react-redux";
 import { CoinData } from "./Card/CoinData";
 import { LoadingSpinner } from "./Ui/LoadingSpinner";
 import { getInfo } from "./Data/getInfo";
+import { useSelector } from "react-redux";
+import { fetchCurrenciesData } from "../Store/currencies-actions";
+import Notification from "./Ui/Notification";
+
+let isFirstLoading = true;
 
 export const CurrenciesList = () => {
-  const [fetchedData, setFetchedData] = useState([]);
-  const [isLoading, setIsLoading] = useState();
-
-  const data = useFetchData(
-    "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d"
+  const currenciesData = useSelector((state) => state.currencies.items);
+  const isLoading = useSelector((state) => state.uiSlice.isLoading);
+  const notification = useSelector(
+    (state) => state.uiSlice.notification.message
   );
+  const sortState = useSelector(
+    (state) => state.currencies.sortActive.sortType
+  );
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      const result = await data;
-      setFetchedData(result);
-      setIsLoading(false);
+    dispatch(fetchCurrenciesData(isFirstLoading, sortState));
+  }, [dispatch]);
+
+  useEffect(() => {
+    const refreshData = setInterval(() => {
+      dispatch(fetchCurrenciesData(false, sortState));
+    }, 10000);
+    return () => {
+      clearInterval(refreshData);
     };
-    getData();
   }, []);
 
-  const items = fetchedData.map((item) => {
+  const items = currenciesData.map((item) => {
     const info = getInfo(item);
     return <CoinData key={item.id} {...info} />;
   });
@@ -32,6 +44,7 @@ export const CurrenciesList = () => {
       <CurrenciesOptions />
       {items}
       {isLoading && <LoadingSpinner />}
+      {notification !== "" && <Notification message={notification} />}
     </div>
   );
 };
