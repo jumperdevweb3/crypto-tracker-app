@@ -1,7 +1,6 @@
 .box {
   flex-basis: 30%;
   padding: 1rem;
-  border: 1px solid white;
   border-radius: 5px;
   font-size: 12px;
   background-color: #323546;
@@ -18,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
 
-    a {
+    button {
       color: rgb(75, 185, 167);
     }
     .title-box {
