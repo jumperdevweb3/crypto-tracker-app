@@ -11,5 +11,8 @@ export const getInfo = (item) => {
     price_change_7d: item.price_change_percentage_7d_in_currency,
     market_cap: item.market_cap,
     total_volume: item.total_volume,
+    ath: item.ath,
+    last_updated: item.last_updated,
+    ath_change_percentage: item.ath_change_percentage,
   };
 };

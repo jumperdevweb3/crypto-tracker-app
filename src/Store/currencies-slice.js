@@ -19,6 +19,7 @@ const currenciesSlice = createSlice({
     trendingItems: [],
     losersItems: [],
     gainersItems: [],
+    chartData: [],
     sortActive: {
       sortType: "ascending",
       sortBy: "market_cap_rank",
@@ -31,21 +32,24 @@ const currenciesSlice = createSlice({
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",
         sortBy: "price_change_7d",
-      }).slice(0, 3);
+      });
       state.losersItems = sortCurrencies(state.items, {
         sortType: "ascending",
         sortBy: "price_change_24h",
-      }).slice(0, 3);
+      });
       state.gainersItems = sortCurrencies(state.items, {
         sortType: "descending",
         sortBy: "price_change_24h",
-      }).slice(0, 3);
+      });
     },
     sortData(state) {
       state.items = sortCurrencies(state.items, state.sortActive);
     },
     updateSort(state, action) {
       state.sortActive = action.payload;
+    },
+    setChart(state, action) {
+      state.chartData = action.payload;
     },
   },
 });

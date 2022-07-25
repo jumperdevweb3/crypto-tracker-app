@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { CurrenciesOptions } from "./CurrenciesOptions";
 import { useDispatch } from "react-redux";
 import { CoinData } from "../Card/CoinData";
-import { LoadingSpinner } from "../Ui/LoadingSpinner";
+import { LoadingSpinner } from "../UI/LoadingSpinner";
 import { useSelector } from "react-redux";
 import { fetchCurrenciesData } from "../../Store/currencies-actions";
-import Notification from "../Ui/Notification";
+import Notification from "../UI/Notification";
 import { currenciesActions } from "../../Store/currencies-slice";
 
 let isFirstLoading = true;
@@ -13,6 +13,7 @@ const SECOND_TO_REFRESH = 15;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 
 export const CurrenciesList = () => {
+  // console.log("test");
   const currenciesData = useSelector((state) => state.currencies.items);
   const isLoading = useSelector((state) => state.uiSlice.isLoading);
   const notification = useSelector(
