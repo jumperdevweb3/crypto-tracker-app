@@ -7,6 +7,9 @@ const watchlistSlice = createSlice({
     updateItems(state, action) {
       state.watchItems.push(action.payload);
     },
+    removeItem(state, action) {
+      state.watchItems.filter((item) => item.id !== action.payload);
+    },
   },
 });
 
