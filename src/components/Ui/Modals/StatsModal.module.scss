@@ -21,10 +21,35 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
 }
+
 .content {
+  padding: 1.2rem;
+  max-height: 50vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #17171a;
+    border-radius: 14px;
+    border: 2px solid transparent;
+  }
+
   img {
     width: 24px;
     height: 24px;
+  }
+
+  & > div {
+    margin: 1.2rem 0;
+    border-bottom: 1px solid rgb(193, 162, 222);
+    padding: 10px 0;
   }
 }
 @media (min-width: 768px) {

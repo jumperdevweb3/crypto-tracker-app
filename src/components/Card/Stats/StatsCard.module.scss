@@ -1,4 +1,6 @@
 .box {
+  display: flex;
+  flex-direction: column;
   flex-basis: 30%;
   padding: 1rem;
   border-radius: 5px;
@@ -16,6 +18,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 0.2rem 0 0.7rem 0;
 
     button {
       color: rgb(75, 185, 167);
@@ -24,5 +27,9 @@
       display: flex;
       gap: 0 0.2rem;
     }
+  }
+  .empty {
+    margin: 2rem auto;
+    color: rgb(75, 185, 167);
   }
 }

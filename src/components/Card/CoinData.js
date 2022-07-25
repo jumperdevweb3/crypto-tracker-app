@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
+import { FcApproval } from "react-icons/fc";
 import { useWindowSize } from "../../Hooks/use-windowSize";
 import { watchlistActions } from "../../Store/watchlist-slice";
-import { CoinModal } from "../UI/Modals/CoinModal";
+import { CoinModal } from "../Ui/Modals/CoinModal";
 import classes from "./CoinData.module.scss";
 export const CoinData = ({
   id,
@@ -22,25 +23,17 @@ export const CoinData = ({
   ath_change_percentage,
 }) => {
   const [showDetail, setShowDetail] = useState(false);
+  const [isWatch, setIsWatch] = useState(false);
   const { width } = useWindowSize();
   const dispatch = useDispatch();
   const interNumberFormat = new Intl.NumberFormat("en-US");
-  // const data = useSelector((state) => state.watchlist.watchItems);
-  // console.log("data");
-  const timeStyle1h =
-    price_change_1h <= 0
-      ? `${classes.time} ${classes.decr}`
-      : `${classes.time} ${classes.incr}`;
-  const timeStyle24h =
-    price_change_24h <= 0
-      ? `${classes.time} ${classes.decr}`
-      : `${classes.time} ${classes.incr}`;
-  const timeStyle7d =
-    price_change_7d <= 0
-      ? `${classes.time} ${classes.decr}`
-      : `${classes.time} ${classes.incr}`;
+  const watchList = useSelector((state) => state.watchlist.watchItems);
 
   const addToWatchlistHandler = () => {
+    if (watchList.filter((item) => item.id === id)) {
+      dispatch(watchlistActions.removeItem(id));
+      setIsWatch(false);
+    }
     dispatch(
       watchlistActions.updateItems({
         image,
@@ -55,15 +48,34 @@ export const CoinData = ({
         total_volume,
       })
     );
+    setIsWatch(true);
   };
+
   const showCoinDetailHandler = () => {
     setShowDetail((state) => !state);
   };
+
+  const timeStyle1h =
+    price_change_1h <= 0
+      ? `${classes.time} ${classes.decr}`
+      : `${classes.time} ${classes.incr}`;
+  const timeStyle24h =
+    price_change_24h <= 0
+      ? `${classes.time} ${classes.decr}`
+      : `${classes.time} ${classes.incr}`;
+  const timeStyle7d =
+    price_change_7d <= 0
+      ? `${classes.time} ${classes.decr}`
+      : `${classes.time} ${classes.incr}`;
   return (
     <div className={classes.coin}>
       <div className={classes.star}>
         <button className={classes.star} onClick={addToWatchlistHandler}>
-          <BiStar color="#8d9904" fontSize="1.1rem" />
+          {isWatch ? (
+            <FcApproval fontSize="1.1rem" />
+          ) : (
+            <BiStar color="#8d9904" fontSize="1.1rem" />
+          )}
         </button>
       </div>
       <div className={classes.rank}>

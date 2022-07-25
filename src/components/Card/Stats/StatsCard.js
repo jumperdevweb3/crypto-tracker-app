@@ -3,7 +3,7 @@ import { CurrencyCard } from "./CurrencyCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
-import { StatsModal } from "../../UI/Modals/StatsModal";
+import { StatsModal } from "../../Ui/Modals/StatsModal";
 
 export const StatsCard = (props) => {
   const type = props.type;
@@ -22,6 +22,7 @@ export const StatsCard = (props) => {
       return "gainersItems";
     }
   });
+
   const items = useSelector((state) => state.currencies[typeItems]);
   const [modalActive, setModalActive] = useState(false);
 
@@ -67,6 +68,15 @@ export const StatsCard = (props) => {
   const moreStatsHandler = () => {
     setModalActive((state) => !state);
   };
+  let content;
+  if (filterType.length !== 0) {
+    content = modalActive && (
+      <StatsModal onClose={moreStatsHandler}>{moreItems}</StatsModal>
+    );
+  }
+  if (filterType.length === 0) {
+    content = <h3 className={classes.empty}>No items :/</h3>;
+  }
   return (
     <div className={classes.box}>
       <div className={classes.titles}>
@@ -75,10 +85,9 @@ export const StatsCard = (props) => {
           {icon}
         </div>
         <button onClick={moreStatsHandler}>More</button>
-        {modalActive && (
-          <StatsModal onClose={moreStatsHandler}>{moreItems}</StatsModal>
-        )}
       </div>
+      {content}
+
       {topThreeView}
     </div>
   );

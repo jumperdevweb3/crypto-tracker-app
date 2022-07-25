@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { CurrenciesOptions } from "./CurrenciesOptions";
 import { useDispatch } from "react-redux";
 import { CoinData } from "../Card/CoinData";
-import { LoadingSpinner } from "../UI/LoadingSpinner";
+import { LoadingSpinner } from "../Ui/LoadingSpinner";
 import { useSelector } from "react-redux";
 import { fetchCurrenciesData } from "../../Store/currencies-actions";
-import Notification from "../UI/Notification";
+import Notification from "../Ui/Notification";
 import { currenciesActions } from "../../Store/currencies-slice";
 
 let isFirstLoading = true;
