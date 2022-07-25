@@ -3,36 +3,44 @@ import { CurrencyCard } from "./CurrencyCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
+import { StatsModal } from "../../UI/Modals/StatsModal";
 
 export const StatsCard = (props) => {
   const type = props.type;
   let icon;
   let price = "price_change_24h";
-
-  if (type === "trending") {
-    price = "price_change_7d";
-  }
+  let filterType;
 
   const [typeItems, setTypeItems] = useState(() => {
     if (type === "trending") {
-      icon = <FcFlashOn fontSize="1.3rem" />;
       return "trendingItems";
     }
     if (type === "losers") {
-      icon = <FcRightDown fontSize="1.3rem" />;
-
       return "losersItems";
     }
     if (type === "gainers") {
-      icon = <FcRightUp fontSize="1.3rem" />;
-
       return "gainersItems";
     }
   });
-
   const items = useSelector((state) => state.currencies[typeItems]);
+  const [modalActive, setModalActive] = useState(false);
 
-  const topItems = items.map((item, index) => {
+  if (type === "trending") {
+    price = "price_change_7d";
+    icon = <FcFlashOn fontSize="1.3rem" />;
+    filterType = items.filter((item) => item.price_change_7d > 0);
+  }
+
+  if (type === "losers") {
+    icon = <FcRightDown fontSize="1.3rem" />;
+    filterType = items.filter((item) => item.price_change_24h <= 0);
+  }
+  if (type === "gainers") {
+    icon = <FcRightUp fontSize="1.3rem" />;
+    filterType = items.filter((item) => item.price_change_24h > 0.01);
+  }
+
+  const topThreeView = filterType.slice(0, 3).map((item, index) => {
     return (
       <CurrencyCard
         key={item.id}
@@ -44,7 +52,21 @@ export const StatsCard = (props) => {
       />
     );
   });
-
+  const moreItems = filterType.map((item, index) => {
+    return (
+      <CurrencyCard
+        key={item.id}
+        number={index + 1}
+        image={item.image}
+        name={item.name}
+        alias={item.symbol}
+        percentage={item[price]}
+      />
+    );
+  });
+  const moreStatsHandler = () => {
+    setModalActive((state) => !state);
+  };
   return (
     <div className={classes.box}>
       <div className={classes.titles}>
@@ -52,9 +74,12 @@ export const StatsCard = (props) => {
           <h2>{props.title}</h2>
           {icon}
         </div>
-        <a href="/">More</a>
+        <button onClick={moreStatsHandler}>More</button>
+        {modalActive && (
+          <StatsModal onClose={moreStatsHandler}>{moreItems}</StatsModal>
+        )}
       </div>
-      {topItems}
+      {topThreeView}
     </div>
   );
 };
