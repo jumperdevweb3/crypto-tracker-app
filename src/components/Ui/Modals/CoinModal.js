@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
+import { CurrChart } from "../../Currencies/CurrChart";
 import classes from "./CoinModal.module.scss";
-import { createChart } from "lightweight-charts";
 import { fetchChartData } from "../../../Store/currencies-actions";
 import { useDispatch, useSelector } from "react-redux";
 import Notification from "../Notification";
@@ -24,8 +24,7 @@ const portalElement = document.getElementById("currency-detail");
 export const CoinModal = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const chartData = useSelector((state) => state.currencies.chartData);
-
+  console.log("modal");
   const timeStyle =
     props.change24h <= 0
       ? `${classes.time} ${classes.decr}`
@@ -35,31 +34,15 @@ export const CoinModal = (props) => {
       ? `${classes.time} ${classes.decr}`
       : `${classes.time} ${classes.incr}`;
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   const time = setTimeout(() => {
-  //     const chart = createChart(document.getElementById("chart"), {
-  //       width: 500,
-  //       height: 300,
-  //     });
-  //     chart.applyOptions(darkTheme.chart);
-  //     const areaSeries = chart.addAreaSeries({
-  //       topColor: "rgba(33, 150, 243, 0.56)",
-  //       bottomColor: "rgba(33, 150, 243, 0.04)",
-  //       lineColor: "rgba(33, 150, 243, 1)",
-  //       lineWidth: 2,
-  //     });
-  //     areaSeries.applyOptions(darkTheme.series);
-  //     const lineSeries = chart.addLineSeries();
-  //     lineSeries.setData([
-
-  //     ]);
-  //     setIsLoading(false);
-  //   }, 2000);
-  //   return () => {
-  //     clearTimeout(time);
-  //   };
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    const time = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    return () => {
+      clearTimeout(time);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(fetchChartData(props.id));
@@ -102,7 +85,7 @@ export const CoinModal = (props) => {
             </p>
           </div>
           {isLoading && <LoadingSpinner />}
-          <div id="chart"></div>
+          <div id="chart">{!isLoading && <CurrChart />}</div>
         </ModalOverlay>,
         portalElement
       )}

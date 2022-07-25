@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400;600&family=Mochiy+Pop+One&display=swap");
 .backdrop {
   position: fixed;
   top: 0;
@@ -89,10 +91,13 @@
       padding: 10px 0;
     }
   }
-  span {
+  span,
+  .price,
+  .time {
     font-size: 0.9rem;
-    font-family: cursive;
-    font-weight: bold;
+    font-family: "Edu TAS Beginner", cursive;
+    font-family: "Mochiy Pop One", sans-serif;
+    font-weight: 400;
     color: #aaa;
     border: 1px solid #ddd;
     padding: 3px 7px;
