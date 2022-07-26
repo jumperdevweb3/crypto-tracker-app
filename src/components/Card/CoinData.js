@@ -23,19 +23,21 @@ export const CoinData = ({
   ath_change_percentage,
 }) => {
   const [showDetail, setShowDetail] = useState(false);
-  const [isWatch, setIsWatch] = useState(false);
   const { width } = useWindowSize();
   const dispatch = useDispatch();
   const interNumberFormat = new Intl.NumberFormat("en-US");
   const watchList = useSelector((state) => state.watchlist.watchItems);
 
+  const existId = watchList.findIndex((item) => item.id === id);
+  const existItem = watchList[existId];
+  let stateIcon = <BiStar color="#8d9904" fontSize="1.1rem" />;
+  if (existItem) {
+    stateIcon = <FcApproval fontSize="1.1rem" />;
+  }
   const addToWatchlistHandler = () => {
-    if (watchList.filter((item) => item.id === id)) {
-      dispatch(watchlistActions.removeItem(id));
-      setIsWatch(false);
-    }
     dispatch(
       watchlistActions.updateItems({
+        id,
         image,
         name,
         symbol,
@@ -46,9 +48,11 @@ export const CoinData = ({
         price_change_7d,
         market_cap,
         total_volume,
+        ath,
+        last_updated,
+        ath_change_percentage,
       })
     );
-    setIsWatch(true);
   };
 
   const showCoinDetailHandler = () => {
@@ -71,11 +75,7 @@ export const CoinData = ({
     <div className={classes.coin}>
       <div className={classes.star}>
         <button className={classes.star} onClick={addToWatchlistHandler}>
-          {isWatch ? (
-            <FcApproval fontSize="1.1rem" />
-          ) : (
-            <BiStar color="#8d9904" fontSize="1.1rem" />
-          )}
+          {stateIcon}
         </button>
       </div>
       <div className={classes.rank}>
