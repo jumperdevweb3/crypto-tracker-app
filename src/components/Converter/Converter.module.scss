@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 300px;
+  background-color: #323546;
+  border-radius: 15px;
+  margin: 5rem auto;
+
+  .inputs-box {
+    display: flex;
+    width: 100%;
+  }
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 35%;
+  }
+  .convert-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 30%;
+  }
+  .selects {
+    display: flex;
+    gap: 1rem;
+
+    select,
+    input {
+      width: 180px;
+      background-color: #323546;
+      border-radius: 15px;
+      padding: 15px 10px;
+      color: white;
+      text-align: center;
+      border: 2px solid white;
+      appearance: none;
+      cursor: pointer;
+      outline: none;
+    }
+    input {
+      width: 2.5rem;
+      &:disabled {
+        cursor: no-drop;
+      }
+    }
+  }
+
+  .result {
+    margin-top: 3rem;
+    color: white;
+    border: 2px solid rgb(193, 162, 222);
+    border-radius: 10px;
+    padding: 10px 15px;
+  }
+}
