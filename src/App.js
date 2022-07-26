@@ -11,7 +11,7 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/watchlist" exact>
+        <Route path="/watchlist">
           <Watchlist />
         </Route>
       </Layout>
