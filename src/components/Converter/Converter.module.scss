@@ -15,9 +15,19 @@
   }
   .box {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-basis: 35%;
+  }
+  .pricebox {
+    height: 2rem;
+    align-self: flex-end;
+  }
+  .price {
+    color: white;
+    width: 180px;
+    text-align: center;
   }
   .convert-type {
     display: flex;
@@ -28,6 +38,7 @@
   .selects {
     display: flex;
     gap: 1rem;
+    margin: 1rem 0;
 
     select,
     input {
@@ -42,12 +53,16 @@
       cursor: pointer;
       outline: none;
     }
+
     input {
       width: 2.5rem;
       &:disabled {
         cursor: no-drop;
       }
     }
+  }
+  option {
+    color: rgb(193, 162, 222);
   }
 
   .result {

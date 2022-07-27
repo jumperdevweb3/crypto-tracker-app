@@ -1,67 +1,27 @@
-import { fetchCurrenciesData } from "../../Store/currencies-actions";
 import classes from "./Converter.module.scss";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { FaArrowRight } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { ConvertItem } from "./ConvertItem";
 
 export const Converter = () => {
-  const currenciesData = useSelector((state) => state.currencies.items);
-  const dispatch = useDispatch();
+  const result = useSelector((state) => state.convert.result);
+  const resultName = useSelector((state) => state.convert.rightSide.name);
 
-  useEffect(() => {
-    if (currenciesData.length === 0) {
-      dispatch(fetchCurrenciesData());
-    }
-  }, [dispatch]);
-
-  const inputItems = currenciesData.map((item) => (
-    <option value={item.id} key={Math.random() * 100}>
-      {item.name} - {item.symbol.toUpperCase()}
-    </option>
-  ));
   return (
     <div className={classes.container}>
       <div className={classes["inputs-box"]}>
-        <div className={classes.box}>
-          <div className={classes.selects}>
-            <input name="currency" id="currency" placeholder="price" />
-
-            <select name="currency" id="currency">
-              <optgroup label="Fiat">
-                <option value="usd">USD</option>
-                <option value="pln">PLN</option>
-              </optgroup>
-              <optgroup label="Cryptocurrencies">{inputItems}</optgroup>
-            </select>
-          </div>
-        </div>
+        <ConvertItem kind="left" />
         <div className={classes["convert-type"]}>
-          {/* <FaArrowLeft fontSize="3rem" color="rgb(193, 162, 222)" /> */}
           <button>
-            {" "}
             <FaArrowRight fontSize="3rem" color="rgb(193, 162, 222)" />
           </button>
         </div>
-        <div className={classes.box}>
-          <div className={classes.selects}>
-            <input
-              name="currency"
-              id="currency"
-              placeholder="price"
-              disabled={true}
-            />
-            <select name="currency" id="currency">
-              <optgroup label="Fiat">
-                <option value="usd">USD</option>
-                <option value="pln">PLN</option>
-              </optgroup>
-              <optgroup label="Cryptocurrencies">{inputItems}</optgroup>
-            </select>
-          </div>
-        </div>
+        <ConvertItem kind="right" />
       </div>
       <div className={classes.result}>
-        <p>Result</p>
+        <p>
+          You will get {result ? result.toFixed(5) : "result"} {resultName}
+        </p>
       </div>
     </div>
   );
