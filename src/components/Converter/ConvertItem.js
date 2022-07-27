@@ -1,12 +1,12 @@
 import { convertActions } from "../../Store/convert-slice";
-import classes from "./Converter.module.scss";
+import classes from "./ConvertItem.module.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
 export const ConvertItem = (props) => {
   const [showPrice, setShowPrice] = useState(0);
-  const [selval, setSelVal] = useState();
+  const [nameInputValue, setNameInputValue] = useState();
   const currenciesData = useSelector((state) => state.currencies.items);
   const convertLeftState = useSelector((state) => state.convert.leftSide);
   const convertRightState = useSelector((state) => state.convert.rightSide);
@@ -20,7 +20,7 @@ export const ConvertItem = (props) => {
   ));
 
   const selectHandler = (event) => {
-    setSelVal(event.target.value);
+    setNameInputValue(event.target.value);
     const id = event.target.value;
     const item = currenciesData.filter((item) => item.id === id);
     const price = item[0].current_price;
@@ -49,6 +49,7 @@ export const ConvertItem = (props) => {
     <div className={classes.box}>
       <div className={classes.selects}>
         <input
+          type="number"
           name="currency"
           id="currency"
           placeholder="0"
@@ -59,7 +60,7 @@ export const ConvertItem = (props) => {
           name="currency"
           id="currency"
           onChange={selectHandler}
-          value={selval}
+          value={nameInputValue}
         >
           <optgroup label="Fiat">
             <option id="usd">USD</option>
@@ -69,7 +70,7 @@ export const ConvertItem = (props) => {
         </select>
       </div>
       <div className={classes.pricebox}>
-        <p className={classes.price}>{showPrice !== 0 && showPrice}</p>
+        <p className={classes.price}>{showPrice && showPrice}</p>
       </div>
     </div>
   );

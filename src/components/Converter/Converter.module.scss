@@ -12,64 +12,23 @@
   .inputs-box {
     display: flex;
     width: 100%;
-  }
-  .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 35%;
-  }
-  .pricebox {
-    height: 2rem;
-    align-self: flex-end;
-  }
-  .price {
-    color: white;
-    width: 180px;
-    text-align: center;
-  }
-  .convert-type {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-basis: 30%;
-  }
-  .selects {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
 
-    select,
-    input {
-      width: 180px;
-      background-color: #323546;
-      border-radius: 15px;
-      padding: 15px 10px;
-      color: white;
-      text-align: center;
-      border: 2px solid white;
-      appearance: none;
-      cursor: pointer;
-      outline: none;
-    }
-
-    input {
-      width: 2.5rem;
-      &:disabled {
-        cursor: no-drop;
-      }
+    .convert-type {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-basis: 30%;
     }
   }
-  option {
-    color: rgb(193, 162, 222);
-  }
-
   .result {
     margin-top: 3rem;
     color: white;
     border: 2px solid rgb(193, 162, 222);
     border-radius: 10px;
     padding: 10px 15px;
+
+    .result-number {
+      color: rgb(193, 162, 222);
+    }
   }
 }

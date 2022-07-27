@@ -6,7 +6,7 @@ import { ConvertItem } from "./ConvertItem";
 export const Converter = () => {
   const result = useSelector((state) => state.convert.result);
   const resultName = useSelector((state) => state.convert.rightSide.name);
-
+  const interNumberFormat = new Intl.NumberFormat("en-US");
   return (
     <div className={classes.container}>
       <div className={classes["inputs-box"]}>
@@ -20,7 +20,11 @@ export const Converter = () => {
       </div>
       <div className={classes.result}>
         <p>
-          You will get {result ? result.toFixed(5) : "result"} {resultName}
+          You will get{" "}
+          <span className={classes["result-number"]}>
+            {result ? interNumberFormat.format(result) : "result"}
+          </span>{" "}
+          {resultName}
         </p>
       </div>
     </div>

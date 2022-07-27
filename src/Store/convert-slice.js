@@ -27,7 +27,7 @@ export const convertSlice = createSlice({
         state.rightValue = action.payload.value;
       }
     },
-    convertData(state, action) {
+    convertData(state) {
       const leftMultipler = state.leftValue * state.leftSide.price;
       const rightMultipler = state.rightValue * state.rightSide.price;
       state.result = leftMultipler / rightMultipler;
