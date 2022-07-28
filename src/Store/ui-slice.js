@@ -5,6 +5,7 @@ const uiSlice = createSlice({
   initialState: {
     notification: { message: "" },
     isLoading: false,
+    showNav: false,
   },
   reducers: {
     showNotification(state, action) {
@@ -12,6 +13,9 @@ const uiSlice = createSlice({
     },
     showLoading(state, action) {
       state.isLoading = action.payload;
+    },
+    showNavigation(state, action) {
+      state.showNav = action.payload;
     },
   },
 });
