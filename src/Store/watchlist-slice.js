@@ -15,7 +15,10 @@ const watchlistSlice = createSlice({
         );
         return;
       }
-      state.watchItems.push(action.payload);
+      state.watchItems = state.watchItems.concat(action.payload);
+    },
+    setItem(state, action) {
+      state.watchItems = action.payload;
     },
   },
 });
