@@ -6,25 +6,14 @@ import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { StatsModal } from "../../Ui/Modals/StatsModal";
 
 export const StatsCard = (props) => {
+  const [modalActive, setModalActive] = useState(false);
+
   const type = props.type;
   let icon;
   let price = "price_change_24h";
   let filterType;
 
-  const [typeItems, setTypeItems] = useState(() => {
-    if (type === "trending") {
-      return "trendingItems";
-    }
-    if (type === "losers") {
-      return "losersItems";
-    }
-    if (type === "gainers") {
-      return "gainersItems";
-    }
-  });
-
-  const items = useSelector((state) => state.currencies[typeItems]);
-  const [modalActive, setModalActive] = useState(false);
+  const items = useSelector((state) => state.currencies[type + "Items"]);
 
   if (type === "trending") {
     price = "price_change_7d";
@@ -68,6 +57,7 @@ export const StatsCard = (props) => {
   const moreStatsHandler = () => {
     setModalActive((state) => !state);
   };
+
   let content;
   if (filterType.length !== 0) {
     content = modalActive && (

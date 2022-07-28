@@ -7,9 +7,16 @@
   font-size: 12px;
   background-color: #323546;
 
-  @media (max-width: 767px) {
-    flex-basis: 70%;
+  @media (max-width: 1023px) {
+    width: 50%;
+    margin: 0 auto;
   }
+
+  @media (max-width: 767px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+
   img {
     max-width: 1rem;
     max-height: 1rem;

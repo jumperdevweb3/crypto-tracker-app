@@ -11,7 +11,7 @@ export const CurrencyCard = (props) => {
         <span className={classes.rank}>{props.number}</span>
         <div className={classes["coin-wrapper"]}>
           <img src={props.image} />
-          <p>{props.name}</p>
+          <p className={classes.name}>{props.name}</p>
         </div>
         <span className={classes.alias}>{props.alias.toUpperCase()}</span>
       </div>

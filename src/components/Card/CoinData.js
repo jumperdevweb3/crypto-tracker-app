@@ -6,53 +6,22 @@ import { useWindowSize } from "../../Hooks/use-windowSize";
 import { watchlistActions } from "../../Store/watchlist-slice";
 import { CoinModal } from "../Ui/Modals/CoinModal";
 import classes from "./CoinData.module.scss";
-export const CoinData = ({
-  id,
-  image,
-  name,
-  symbol,
-  current_price,
-  market_cap_rank,
-  price_change_1h,
-  price_change_24h,
-  price_change_7d,
-  market_cap,
-  total_volume,
-  ath,
-  last_updated,
-  ath_change_percentage,
-}) => {
+
+export const CoinData = ({ item }) => {
   const [showDetail, setShowDetail] = useState(false);
   const { width } = useWindowSize();
   const dispatch = useDispatch();
   const interNumberFormat = new Intl.NumberFormat("en-US");
   const watchList = useSelector((state) => state.watchlist.watchItems);
-
-  const existId = watchList.findIndex((item) => item.id === id);
-  const existItem = watchList[existId];
+  const existItem = watchList.find((watchItem) => {
+    return watchItem.id === item.id;
+  });
   let stateIcon = <BiStar color="#8d9904" fontSize="1.1rem" />;
   if (existItem) {
     stateIcon = <FcApproval fontSize="1.1rem" />;
   }
   const addToWatchlistHandler = () => {
-    dispatch(
-      watchlistActions.updateItems({
-        id,
-        image,
-        name,
-        symbol,
-        current_price,
-        market_cap_rank,
-        price_change_1h,
-        price_change_24h,
-        price_change_7d,
-        market_cap,
-        total_volume,
-        ath,
-        last_updated,
-        ath_change_percentage,
-      })
-    );
+    dispatch(watchlistActions.updateItems(item));
   };
 
   const showCoinDetailHandler = () => {
@@ -60,15 +29,15 @@ export const CoinData = ({
   };
 
   const timeStyle1h =
-    price_change_1h <= 0
+    item.price_change_1h <= 0
       ? `${classes.time} ${classes.decr}`
       : `${classes.time} ${classes.incr}`;
   const timeStyle24h =
-    price_change_24h <= 0
+    item.price_change_24h <= 0
       ? `${classes.time} ${classes.decr}`
       : `${classes.time} ${classes.incr}`;
   const timeStyle7d =
-    price_change_7d <= 0
+    item.price_change_7d <= 0
       ? `${classes.time} ${classes.decr}`
       : `${classes.time} ${classes.incr}`;
   return (
@@ -79,65 +48,45 @@ export const CoinData = ({
         </button>
       </div>
       <div className={classes.rank}>
-        <p>{market_cap_rank}</p>
+        <p>{item.market_cap_rank}</p>
       </div>
       <div className={classes.name}>
-        <img src={image} alt="" />
+        <img src={item.image} alt="" />
         <button
           className={classes["details-btn"]}
           onClick={showCoinDetailHandler}
         >
-          {name}
+          {item.name}
         </button>
-        <span>{symbol.toUpperCase()}</span>
+        <span>{item.symbol.toUpperCase()}</span>
       </div>
       <div className={classes.price}>
-        <p>${interNumberFormat.format(current_price)}</p>
+        <p>${interNumberFormat.format(item.current_price)}</p>
       </div>
       <div className={timeStyle1h}>
-        <p>{price_change_1h.toFixed(2)}%</p>
+        <p>{item.price_change_1h.toFixed(2)}%</p>
       </div>
       {width >= 768 && (
         <>
           <div className={timeStyle24h}>
-            <p>{price_change_24h.toFixed(2)}%</p>
+            <p>{item.price_change_24h.toFixed(2)}%</p>
           </div>
           <div className={timeStyle7d}>
-            <p>{price_change_7d.toFixed(2)}%</p>
+            <p>{item.price_change_7d.toFixed(2)}%</p>
           </div>
         </>
       )}
       {width >= 1024 && (
         <>
           <div className={classes["market-cup"]}>
-            <p>${interNumberFormat.format(market_cap)}</p>
+            <p>${interNumberFormat.format(item.market_cap)}</p>
           </div>
           <div className={classes.volume}>
-            <p>${interNumberFormat.format(total_volume)}</p>
+            <p>${interNumberFormat.format(item.total_volume)}</p>
           </div>
         </>
       )}
-      {showDetail && (
-        <CoinModal
-          id={id}
-          onClose={showCoinDetailHandler}
-          image={image}
-          name={name}
-          symbol={symbol}
-          price={interNumberFormat.format(current_price)}
-          rank={market_cap_rank}
-          change1h={price_change_1h}
-          change24h={price_change_24h}
-          change7d={price_change_7d}
-          marketCap={interNumberFormat.format(market_cap)}
-          ath={interNumberFormat.format(ath)}
-          athChange={ath_change_percentage.toFixed(2)}
-          updated={last_updated.replace(
-            /(\d{4})-(\d{2})-(\d{2})T(.{8}).*/,
-            "$2 $3 $1, $4"
-          )}
-        />
-      )}
+      {showDetail && <CoinModal onClose={showCoinDetailHandler} item={item} />}
     </div>
   );
 };
