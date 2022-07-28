@@ -3,11 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const convertSlice = createSlice({
   name: "convert",
   initialState: {
-    leftValue: 0,
-    rightValue: 0,
+    leftValue: 1,
+    rightValue: 1,
     leftSide: { price: 0, id: "", name: "" },
     rightSide: { price: 0, id: "", name: "" },
     result: 0,
+    warning: false,
   },
   reducers: {
     setValue(state, action) {
@@ -31,6 +32,9 @@ export const convertSlice = createSlice({
       const leftMultipler = state.leftValue * state.leftSide.price;
       const rightMultipler = state.rightValue * state.rightSide.price;
       state.result = leftMultipler / rightMultipler;
+    },
+    setWarning(state, action) {
+      state.warning = action.payload;
     },
   },
 });

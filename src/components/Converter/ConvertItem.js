@@ -8,9 +8,10 @@ export const ConvertItem = (props) => {
   const [showPrice, setShowPrice] = useState(0);
   const [nameInputValue, setNameInputValue] = useState();
   const currenciesData = useSelector((state) => state.currencies.items);
-  const convertLeftState = useSelector((state) => state.convert.leftSide);
-  const convertRightState = useSelector((state) => state.convert.rightSide);
+  const leftVal = useSelector((state) => state.convert.leftValue);
+  const rightVal = useSelector((state) => state.convert.rightValue);
   const stateChanges = useSelector((state) => state.convert);
+
   const dispatch = useDispatch();
 
   const inputItems = currenciesData.map((item) => (
@@ -33,17 +34,21 @@ export const ConvertItem = (props) => {
     );
   };
   const updateValue = (event) => {
-    dispatch(
-      convertActions.setMultiplier({
-        kind: props.kind,
-        value: event.target.value,
-      })
-    );
+    if (event.target.value <= 1_000_000) {
+      dispatch(convertActions.setWarning(false));
+
+      dispatch(
+        convertActions.setMultiplier({
+          kind: props.kind,
+          value: event.target.value,
+        })
+      );
+    } else {
+      dispatch(convertActions.setWarning(true));
+    }
   };
   useEffect(() => {
-    if (convertLeftState.price !== 0 && convertRightState.price !== 0) {
-      dispatch(convertActions.convertData());
-    }
+    dispatch(convertActions.convertData());
   }, [stateChanges]);
   return (
     <div className={classes.box}>
@@ -53,6 +58,8 @@ export const ConvertItem = (props) => {
           name="currency"
           id="currency"
           placeholder="0"
+          max="10"
+          value={props.kind === "left" ? leftVal : rightVal}
           onChange={updateValue}
         />
 
