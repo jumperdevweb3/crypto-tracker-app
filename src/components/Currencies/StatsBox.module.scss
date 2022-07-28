@@ -6,8 +6,7 @@
   margin: 3.5rem auto;
   color: #fff;
 
-  @media (max-width: 767px) {
-    justify-content: center;
-    flex-wrap: wrap;
+  @media (max-width: 1023px) {
+    flex-direction: column;
   }
 }
