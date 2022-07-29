@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
 import { FcApproval } from "react-icons/fc";
+import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { useWindowSize } from "../../Hooks/use-windowSize";
 import { watchlistActions } from "../../Store/watchlist-slice";
 import { CoinModal } from "../Ui/Modals/CoinModal";
@@ -40,6 +41,14 @@ export const CoinData = ({ item }) => {
     item.price_change_7d <= 0
       ? `${classes.time} ${classes.decr}`
       : `${classes.time} ${classes.incr}`;
+
+  const timeIcon1h =
+    item.price_change_1h <= 0 ? <FaAngleDown /> : <FaAngleUp />;
+  const timeIcon24h =
+    item.price_change_24h <= 0 ? <FaAngleDown /> : <FaAngleUp />;
+  const timeIcon7d =
+    item.price_change_7d <= 0 ? <FaAngleDown /> : <FaAngleUp />;
+
   return (
     <div className={classes.coin}>
       <div className={classes.star}>
@@ -64,15 +73,17 @@ export const CoinData = ({ item }) => {
         <p>${interNumberFormat.format(item.current_price)}</p>
       </div>
       <div className={timeStyle1h}>
-        <p>{item.price_change_1h.toFixed(2)}%</p>
+        <p>{Math.abs(item.price_change_1h.toFixed(2))}%</p>
+        {timeIcon1h}
       </div>
       {width >= 768 && (
         <>
           <div className={timeStyle24h}>
-            <p>{item.price_change_24h.toFixed(2)}%</p>
+            <p>{Math.abs(item.price_change_24h.toFixed(2))}%</p> {timeIcon24h}
           </div>
           <div className={timeStyle7d}>
-            <p>{item.price_change_7d.toFixed(2)}%</p>
+            <p>{Math.abs(item.price_change_7d.toFixed(2))}%</p>
+            {timeIcon7d}
           </div>
         </>
       )}

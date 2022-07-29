@@ -7,8 +7,6 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Filler,
-  Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { useSelector } from "react-redux";
@@ -59,7 +57,12 @@ export function CurrChart() {
     <Line
       options={options}
       data={data}
-      style={{ width: "600px", height: "500px" }}
+      style={{
+        maxWidth: "600px",
+        maxHeight: "500px",
+        minHeight: "200px",
+        minWidth: "300px",
+      }}
     />
   );
 }

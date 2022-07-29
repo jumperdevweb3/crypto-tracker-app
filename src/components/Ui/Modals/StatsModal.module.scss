@@ -9,10 +9,11 @@
 }
 
 .modal {
+  box-sizing: border-box;
   position: fixed;
   top: 15vh;
-  left: 5%;
-  width: 90%;
+  left: 0;
+  width: 100%;
   color: #fff;
   background: linear-gradient(to right, #323742, #3f4246);
   padding: 1rem;
@@ -23,8 +24,9 @@
 }
 
 .content {
-  padding: 1.2rem;
-  max-height: 50vh;
+  position: relative;
+  padding: 1rem;
+  max-height: 70vh;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {

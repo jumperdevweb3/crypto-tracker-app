@@ -12,6 +12,9 @@ const Backdrop = (props) => {
 const ModalOverlay = (props) => {
   return (
     <div className={classes.modal}>
+      <span className="close-button" onClick={props.onClose}>
+        X
+      </span>
       <div className={classes.content}>{props.children}</div>
     </div>
   );
@@ -19,25 +22,6 @@ const ModalOverlay = (props) => {
 const portalElement = document.getElementById("currency-detail");
 
 export const CoinModal = (props) => {
-  // id={id}
-
-  //           image={image}
-  //           name={name}
-  //           symbol={symbol}
-  //           rank={market_cap_rank}
-  //           change1h={price_change_1h}
-  //           change24h={price_change_24h}
-  //           change7d={price_change_7d}
-
-  //           price={interNumberFormat.format(current_price)}
-  //           marketCap={interNumberFormat.format(market_cap)}
-  //           athChange={ath_change_percentage.toFixed(2)}
-  //           ath={interNumberFormat.format(ath)}
-  //           updated={last_updated.replace(
-  //             /(\d{4})-(\d{2})-(\d{2})T(.{8}).*/,
-  //             "$2 $3 $1, $4"
-  //           )}
-
   const {
     id,
     image,
@@ -45,9 +29,7 @@ export const CoinModal = (props) => {
     symbol,
     current_price,
     market_cap_rank,
-    price_change_1h,
     price_change_24h,
-    price_change_7d,
     market_cap,
     ath,
     ath_change_percentage,
@@ -77,7 +59,7 @@ export const CoinModal = (props) => {
         portalElement
       )}
       {ReactDOM.createPortal(
-        <ModalOverlay>
+        <ModalOverlay onClose={props.onClose}>
           <div className={classes.box}>
             <div className={classes.data}>
               <img src={image} />
