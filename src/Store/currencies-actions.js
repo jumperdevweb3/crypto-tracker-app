@@ -51,9 +51,38 @@ export const fetchChartData = (id) => {
     } catch (error) {
       dispatch(
         uiActions.showNotification({
-          message: "Fetch data faild!!",
+          message: "Fetch chart data faild!!",
         })
       );
     }
   };
 };
+
+//in future
+// export const fetchFiatCurrencies = () => {
+//   return async (dispatch) => {
+//     const fetchData = async () => {
+//       const response = await fetch(
+//         `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.REACT_APP_FIAT_KEY}&currencies=EUR%2CUSD%2CPLN`
+//       );
+//       if (!response.ok) {
+//         throw new Error(
+//           "Could not fetch fiat data, try later or slow down (5 rq per sec)."
+//         );
+//       }
+//       const data = await response.json();
+
+//       return data;
+//     };
+//     try {
+//       const fiatData = await fetchData();
+//       dispatch(convertActions.setFiatData(fiatData.data));
+//     } catch (error) {
+//       dispatch(
+//         uiActions.showNotification({
+//           message: "Fetch fiat data faild!",
+//         })
+//       );
+//     }
+//   };
+// };
