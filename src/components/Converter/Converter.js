@@ -11,6 +11,12 @@ export const Converter = () => {
 
   return (
     <div className={classes.container}>
+      <div className={classes.title}>
+        <p>
+          Let's get convert some
+          <span className={classes["sub-title"]}> data :)</span>{" "}
+        </p>
+      </div>
       <div className={classes["inputs-box"]}>
         <ConvertItem kind="left" />
         <div className={classes["convert-type"]}>

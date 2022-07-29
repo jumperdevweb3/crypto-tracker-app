@@ -5,7 +5,6 @@
   align-items: center;
   width: 80%;
   max-width: 1024px;
-  max-height: 27.5rem;
   background-color: #323546;
   border-radius: 15px;
   margin: 5rem auto;
@@ -26,7 +25,8 @@
       flex-basis: 30%;
     }
   }
-  .result {
+  .result,
+  .title {
     margin: 3rem 0;
     color: white;
     border: 2px solid rgb(193, 162, 222);
@@ -34,6 +34,13 @@
     padding: 10px 15px;
 
     .result-number {
+      color: rgb(193, 162, 222);
+    }
+  }
+  .title {
+    margin: 2rem 0 1rem 0;
+    border: none;
+    .sub-title {
       color: rgb(193, 162, 222);
     }
   }
