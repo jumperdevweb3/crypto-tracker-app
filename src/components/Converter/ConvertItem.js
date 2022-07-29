@@ -50,6 +50,7 @@ export const ConvertItem = (props) => {
   useEffect(() => {
     dispatch(convertActions.convertData());
   }, [stateChanges]);
+
   return (
     <div className={classes.box}>
       <div className={classes.selects}>
@@ -70,11 +71,10 @@ export const ConvertItem = (props) => {
             onChange={selectHandler}
             value={nameInputValue}
           >
-            <optgroup label="Fiat">
-              <option id="usd">USD</option>
-              <option id="pln">PLN</option>
+            <optgroup label="Cryptocurrencies">
+              <option value=""></option>
+              {inputItems}
             </optgroup>
-            <optgroup label="Cryptocurrencies">{inputItems}</optgroup>
           </select>
           <p className={classes.price}>{showPrice && showPrice}</p>
         </div>
