@@ -63,21 +63,21 @@ export const ConvertItem = (props) => {
           onChange={updateValue}
         />
 
-        <select
-          name="currency"
-          id="currency"
-          onChange={selectHandler}
-          value={nameInputValue}
-        >
-          <optgroup label="Fiat">
-            <option id="usd">USD</option>
-            <option id="pln">PLN</option>
-          </optgroup>
-          <optgroup label="Cryptocurrencies">{inputItems}</optgroup>
-        </select>
-      </div>
-      <div className={classes.pricebox}>
-        <p className={classes.price}>{showPrice && showPrice}</p>
+        <div className={classes["select-box"]}>
+          <select
+            name="currency"
+            id="currency"
+            onChange={selectHandler}
+            value={nameInputValue}
+          >
+            <optgroup label="Fiat">
+              <option id="usd">USD</option>
+              <option id="pln">PLN</option>
+            </optgroup>
+            <optgroup label="Cryptocurrencies">{inputItems}</optgroup>
+          </select>
+          <p className={classes.price}>{showPrice && showPrice}</p>
+        </div>
       </div>
     </div>
   );
