@@ -8,6 +8,8 @@ import { Convert } from "./components/Pages/Convert";
 import { Home } from "./components/Pages/Home";
 import { Watchlist } from "./components/Pages/Watchlist";
 import { watchlistActions } from "./Store/watchlist-slice";
+import { WalletTracker } from "./components/Pages/WalletTracker";
+
 let isFirstLoading = true;
 
 function App() {
@@ -48,6 +50,9 @@ function App() {
         </Route>
         <Route path="/convert">
           <Convert />
+        </Route>
+        <Route path="/wallet-tracker">
+          <WalletTracker />
         </Route>
       </Layout>
     </div>
