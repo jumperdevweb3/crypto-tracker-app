@@ -38,7 +38,6 @@ export const CoinModal = (props) => {
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
   const dispatch = useDispatch();
-  console.log("modal");
   const timeStyle =
     price_change_24h <= 0
       ? `${classes.time} ${classes.decr}`

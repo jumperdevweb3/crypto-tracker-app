@@ -61,3 +61,16 @@ button {
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 2;
 }
+
+#currency-detail {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  z-index: -2;
+
+  &.show {
+    z-index: 2;
+  }
+}

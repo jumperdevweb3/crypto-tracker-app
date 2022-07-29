@@ -13,9 +13,9 @@
 .modal {
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 15vh;
-  left: 2%;
+  // position: fixed;
+  // top: 15vh;
+  // left: 2%;
   width: 90%;
   max-height: 80vh;
   background: #373b44;
@@ -28,14 +28,14 @@
   color: white;
   overflow-y: scroll;
 
-  @media (max-width: 767px) {
-    top: 5vh;
-    left: 1%;
-  }
-  @media (min-width: 768px) {
-    width: 40rem;
-    left: calc(50% - 20rem);
-  }
+  // @media (max-width: 767px) {
+  //   top: 5vh;
+  //   left: 1%;
+  // }
+  // @media (min-width: 768px) {
+  //   width: 40rem;
+  //   left: calc(50% - 20rem);
+  // }
 
   .content {
     display: flex;

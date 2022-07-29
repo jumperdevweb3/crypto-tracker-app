@@ -7,6 +7,7 @@ import { useWindowSize } from "../../Hooks/use-windowSize";
 import { watchlistActions } from "../../Store/watchlist-slice";
 import { CoinModal } from "../Ui/Modals/CoinModal";
 import classes from "./CoinData.module.scss";
+const currencyDetail = document.getElementById("currency-detail");
 
 export const CoinData = ({ item }) => {
   const [showDetail, setShowDetail] = useState(false);
@@ -27,6 +28,13 @@ export const CoinData = ({ item }) => {
 
   const showCoinDetailHandler = () => {
     setShowDetail((state) => !state);
+
+    if (!showDetail) {
+      currencyDetail.classList.add("show");
+    }
+    if (showDetail) {
+      currencyDetail.classList.remove("show");
+    }
   };
 
   const timeStyle1h =
