@@ -47,4 +47,17 @@ button {
 }
 #chart {
   margin: 1rem auto;
+  max-width: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 2rem;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 2;
 }
