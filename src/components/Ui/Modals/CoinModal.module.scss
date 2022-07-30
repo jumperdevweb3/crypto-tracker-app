@@ -13,10 +13,8 @@
 .modal {
   display: flex;
   flex-direction: column;
-  // position: fixed;
-  // top: 15vh;
-  // left: 2%;
   width: 90%;
+  max-width: 768px;
   max-height: 80vh;
   background: #373b44;
   background: linear-gradient(to right, #323742, #3f4246);
@@ -26,16 +24,10 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   color: white;
-  overflow-y: scroll;
 
-  // @media (max-width: 767px) {
-  //   top: 5vh;
-  //   left: 1%;
-  // }
-  // @media (min-width: 768px) {
-  //   width: 40rem;
-  //   left: calc(50% - 20rem);
-  // }
+  @media (max-width: 767px) {
+    overflow-y: scroll;
+  }
 
   .content {
     display: flex;

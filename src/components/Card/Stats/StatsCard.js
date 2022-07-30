@@ -65,7 +65,7 @@ export const StatsCard = (props) => {
     );
   }
   if (filterType.length === 0) {
-    content = <h3 className={classes.empty}>No items :/</h3>;
+    content = <h3 className={classes.empty}>No {type}</h3>;
   }
   return (
     <div className={classes.box}>

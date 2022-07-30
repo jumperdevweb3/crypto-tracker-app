@@ -55,11 +55,12 @@ button {
   top: 0.5rem;
   right: 2rem;
   font-weight: bold;
-  border: 1px solid white;
+  border: 1px solid rgb(193, 162, 222);
+  color: rgb(193, 162, 222);
   padding: 5px 10px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.75);
   z-index: 2;
+  cursor: pointer;
 }
 
 #currency-detail {
