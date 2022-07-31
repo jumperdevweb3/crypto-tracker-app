@@ -11,12 +11,12 @@ const SECOND_TO_REFRESH = 15;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 
 export const CurrenciesList = () => {
-  const currenciesData = useSelector((state) => state.currencies.items);
+  const currenciesItems = useSelector((state) => state.currencies.items);
   const isLoading = useSelector((state) => state.uiSlice.isLoading);
   const notification = useSelector(
     (state) => state.uiSlice.notification.message
   );
-  const typeSort = useSelector((state) => state.currencies.sortActive);
+  const sortActive = useSelector((state) => state.currencies.sortActive);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export const CurrenciesList = () => {
 
   useEffect(() => {
     dispatch(currenciesActions.sortData());
-  }, [dispatch, typeSort]);
+  }, [dispatch, sortActive]);
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -43,7 +43,7 @@ export const CurrenciesList = () => {
   return (
     <div className="market-list">
       <CurrenciesOptions />
-      {currenciesData.map((item) => {
+      {currenciesItems.map((item) => {
         return <CoinCard key={item.id} item={item} />;
       })}
     </div>

@@ -10,11 +10,11 @@ export const ConvertItem = (props) => {
   const currenciesData = useSelector((state) => state.currencies.items);
   const leftVal = useSelector((state) => state.convert.leftValue);
   const rightVal = useSelector((state) => state.convert.rightValue);
-  const stateChanges = useSelector((state) => state.convert);
+  const convertState = useSelector((state) => state.convert);
 
   const dispatch = useDispatch();
 
-  const inputItems = currenciesData.map((item) => (
+  const optionItems = currenciesData.map((item) => (
     <option value={item.id} key={Math.random() * 100}>
       {item.name} - {item.symbol.toUpperCase()}
     </option>
@@ -22,14 +22,18 @@ export const ConvertItem = (props) => {
 
   const selectHandler = (event) => {
     setNameInputValue(event.target.value);
+
     const id = event.target.value;
-    const item = currenciesData.filter((item) => item.id === id);
-    const price = item[0].current_price;
-    setShowPrice(price);
+    const item = currenciesData.find((item) => item.id === id);
+
+    if (!item) return;
+
+    setShowPrice(item.current_price);
+
     dispatch(
       convertActions.setValue({
         kind: props.kind,
-        item: { id, price: price.toFixed(2), name: item[0].name },
+        item: { id, price: item.current_price.toFixed(2), name: item.name },
       })
     );
   };
@@ -49,7 +53,7 @@ export const ConvertItem = (props) => {
   };
   useEffect(() => {
     dispatch(convertActions.convertData());
-  }, [stateChanges]);
+  }, [convertState]);
 
   return (
     <div className={classes.box}>
@@ -73,10 +77,12 @@ export const ConvertItem = (props) => {
           >
             <optgroup label="Cryptocurrencies">
               <option value=""></option>
-              {inputItems}
+              {optionItems}
             </optgroup>
           </select>
-          <p className={classes.price}>{showPrice && showPrice}</p>
+          <p className={classes.price}>
+            {showPrice !== 0 ? `$${showPrice}` : "$0"}
+          </p>
         </div>
       </div>
     </div>

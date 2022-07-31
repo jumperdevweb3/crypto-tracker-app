@@ -5,10 +5,9 @@ import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { StatsModal } from "../../ui/Modals/StatsModal";
 
-export const StatsCard = (props) => {
+export const StatsCard = ({ type, title }) => {
   const [modalActive, setModalActive] = useState(false);
 
-  const type = props.type;
   let icon;
   let price = "price_change_24h";
   let filterType;
@@ -58,25 +57,25 @@ export const StatsCard = (props) => {
     setModalActive((state) => !state);
   };
 
-  let content;
+  let boxContent;
   if (filterType.length !== 0) {
-    content = modalActive && (
+    boxContent = modalActive && (
       <StatsModal onClose={moreStatsHandler}>{moreItems}</StatsModal>
     );
   }
   if (filterType.length === 0) {
-    content = <h3 className={classes.empty}>No {type}</h3>;
+    boxContent = <h3 className={classes.empty}>No {type}</h3>;
   }
   return (
     <div className={classes.box}>
       <div className={classes.titles}>
         <div className={classes["title-box"]}>
-          <h2>{props.title}</h2>
+          <h2>{title}</h2>
           {icon}
         </div>
         <button onClick={moreStatsHandler}>More</button>
       </div>
-      {content}
+      {boxContent}
 
       {topThreeView}
     </div>

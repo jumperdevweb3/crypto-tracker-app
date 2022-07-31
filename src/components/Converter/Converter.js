@@ -13,8 +13,8 @@ export const Converter = () => {
     <div className={classes.container}>
       <div className={classes.title}>
         <p>
-          Let's get convert some
-          <span className={classes["sub-title"]}> data :)</span>{" "}
+          You can convert selected
+          <span className={classes["sub-title"]}> currencies.</span>{" "}
         </p>
       </div>
       <div className={classes["inputs-box"]}>
@@ -28,10 +28,11 @@ export const Converter = () => {
       </div>
       <div className={classes.result}>
         <p>
-          {!warning ? "You will get" : "Ops"}{" "}
+          {!warning ? "Convert result is" : "Ops"}{" "}
           <span className={classes["result-number"]}>
             {warning && "Incorrect value!"}
-            {!warning && (result ? interNumberFormat.format(result) : "result")}
+            {!warning &&
+              (result ? interNumberFormat.format(result) : "select data")}
           </span>{" "}
           {!warning && resultName}
         </p>
