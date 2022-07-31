@@ -24,12 +24,7 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem("currencies", JSON.stringify(currenciesData));
-  }, [currenciesData]);
-
-  useEffect(() => {
     const local = localStorage.getItem("watchlist");
-
     if (local !== null) {
       dispatch(watchlistActions.setItem(JSON.parse(local)));
     }
