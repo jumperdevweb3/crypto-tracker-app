@@ -5,10 +5,10 @@
   width: 80%;
   height: 20rem;
   max-width: 1024px;
-  max-height: 17.5rem;
   background-color: #323546;
   border-radius: 15px;
   margin: 5rem auto;
+  word-wrap: break-word;
 
   .box {
     display: flex;
@@ -50,14 +50,24 @@
     background-color: rgb(34, 37, 49);
     border-radius: 10px;
     width: 70%;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 10px 15px;
+    color: white;
 
-    p {
-      color: white;
-    }
     .amount {
       color: rgb(193, 162, 222);
     }
+  }
+
+  .description,
+  .error {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #fff;
+    margin: 0 0.5rem;
+  }
+  .error {
+    color: red;
+    font-weight: bold;
   }
 }
