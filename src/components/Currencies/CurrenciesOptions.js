@@ -7,9 +7,7 @@ export const CurrenciesOptions = () => {
   const dispatch = useDispatch();
   const { width } = useWindowSize();
   const sortType = useSelector((state) => state.currencies.sortActive.sortType);
-  // const currentType = useSelector(
-  //   (state) => state.currencies.sortActive.sortBy
-  // );
+
   const sortByRankHandler = (name) => {
     return () => {
       dispatch(
@@ -20,9 +18,7 @@ export const CurrenciesOptions = () => {
       );
     };
   };
-  // if (currentType) {
-  //   const active = `${classes["option-btn"]} ${classes["active"]}`;
-  // }
+
   return (
     <div className={classes.options}>
       <div></div>
@@ -33,11 +29,9 @@ export const CurrenciesOptions = () => {
         >
           #
         </button>
-        {/* <span>^</span> */}
       </div>
       <div className={classes.name}>
         <p>Name</p>
-        {/* <span>^</span> */}
       </div>
       <div className={classes.price}>
         <button
@@ -46,7 +40,6 @@ export const CurrenciesOptions = () => {
         >
           Price
         </button>
-        {/* <span>^</span> */}
       </div>
       <div className={classes.time}>
         <button
@@ -55,7 +48,6 @@ export const CurrenciesOptions = () => {
         >
           1h %
         </button>
-        {/* <span>^</span> */}
       </div>
       {width >= 768 && (
         <>
@@ -66,7 +58,6 @@ export const CurrenciesOptions = () => {
             >
               24h %
             </button>
-            {/* <span>^</span> */}
           </div>
           <div className={classes.time}>
             <button
@@ -75,7 +66,6 @@ export const CurrenciesOptions = () => {
             >
               7d %
             </button>
-            {/* <span>^</span> */}
           </div>
         </>
       )}
@@ -88,7 +78,6 @@ export const CurrenciesOptions = () => {
             >
               Market Cap
             </button>
-            {/* <span>^</span> */}
           </div>
           <div className={classes.volume}>
             <button
@@ -97,7 +86,6 @@ export const CurrenciesOptions = () => {
             >
               Total Volume
             </button>
-            {/* <span>^</span> */}
           </div>
         </>
       )}
