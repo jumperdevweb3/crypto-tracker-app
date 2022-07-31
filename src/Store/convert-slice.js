@@ -18,7 +18,6 @@ export const convertSlice = createSlice({
       if (action.payload.kind === "right") {
         state.rightSide = action.payload.item;
       }
-      console.log(action.payload);
     },
     setMultiplier(state, action) {
       if (action.payload.kind === "left") {
