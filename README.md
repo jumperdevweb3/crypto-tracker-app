@@ -1,3 +1,5 @@
+Live version - https://cryptocurrencies-tracker-app.netlify.app/
+
 #### To use this project:
 #### *git clone https://github.com/skoczy01/crypto-tracker-app.git
 #### *npm install
