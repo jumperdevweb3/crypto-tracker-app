@@ -1,5 +1,6 @@
 import { currenciesActions } from "./currencies-slice";
 import { uiActions } from "./ui-slice";
+import { scannerActions } from "./etherscan-slice";
 
 export const fetchCurrenciesData = (isFirstLoading) => {
   return async (dispatch) => {
@@ -54,6 +55,39 @@ export const fetchChartData = (id) => {
           message: "Fetch chart data faild!!",
         })
       );
+    }
+  };
+};
+
+export const fetchEtherScanData = (address) => {
+  return async (dispatch) => {
+    const fetchData = async () => {
+      dispatch(scannerActions.setIsLoading(true));
+      const response = await fetch(
+        `https://api.etherscan.io/api?module=account&action=balance&address=${address}&tag=latest&apikey=${process.env.REACT_APP_SCAN_API}`
+      );
+      if (!response.ok) {
+        throw new Error(
+          "Could not fetch ether scan data, try later or slow down (5 rq per sec)."
+        );
+      }
+      const data = await response.json();
+
+      return data;
+    };
+    try {
+      const scanData = await fetchData();
+      if (scanData.status === "1") {
+        dispatch(scannerActions.setErrorMsg(""));
+        dispatch(scannerActions.setResult(scanData.result));
+      }
+      if (scanData.status === "0") {
+        dispatch(scannerActions.setErrorMsg(scanData.result));
+      }
+      dispatch(scannerActions.setIsLoading(false));
+    } catch (error) {
+      dispatch(scannerActions.setErrorMsg(error.message));
+      dispatch(scannerActions.setIsLoading(false));
     }
   };
 };
