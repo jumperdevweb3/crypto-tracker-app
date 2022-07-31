@@ -1,5 +1,5 @@
-import { StatsBox } from "../Currencies/StatsBox";
-import { CurrenciesList } from "../Currencies/CurrenciesList";
+import { StatsBox } from "../currencies/StatsBox";
+import { CurrenciesList } from "../currencies/CurrenciesList";
 
 export const Home = () => {
   return (

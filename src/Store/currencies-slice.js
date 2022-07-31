@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getInfo } from "../components/Data/getInfo";
+import { getApiData } from "../components/utils/getApiData";
 
 const sortCurrencies = (items, { sortType, sortBy }) => {
   if (sortType === "ascending") {
@@ -27,7 +27,7 @@ const currenciesSlice = createSlice({
   },
   reducers: {
     setItems(state, action) {
-      const items = action.payload.map((item) => getInfo(item));
+      const items = action.payload.map((item) => getApiData(item));
       state.items = sortCurrencies(items, state.sortActive);
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",

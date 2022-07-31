@@ -1,5 +1,5 @@
 import classes from "./Converter.module.scss";
-import { FaArrowRight, FaArrowDown } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { ConvertItem } from "./ConvertItem";
 

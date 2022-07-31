@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCurrenciesData } from "./Store/currencies-actions";
+import { fetchCurrenciesData } from "./store/currencies-actions";
 import { Route } from "react-router-dom";
 import "./App.scss";
-import { Layout } from "./components/Layout/Layout";
-import { Convert } from "./components/Pages/Convert";
-import { Home } from "./components/Pages/Home";
-import { Watchlist } from "./components/Pages/Watchlist";
-import { watchlistActions } from "./Store/watchlist-slice";
-import { WalletTracker } from "./components/Pages/WalletTracker";
+import { Layout } from "./components/layout/Layout";
+import { Convert } from "./components/pages/Convert";
+import { Home } from "./components/pages/Home";
+import { Watchlist } from "./components/pages/Watchlist";
+import { watchlistActions } from "./store/watchlist-slice";
+import { WalletTracker } from "./components/pages/WalletTracker";
 
 let isFirstLoading = true;
 

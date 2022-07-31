@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { CoinData } from "../Card/CoinData";
+import { CoinCard } from "../cards/coinCard/CoinCard";
 
 export const Watchlist = () => {
   const data = useSelector((state) => state.watchlist.watchItems);
@@ -10,7 +10,7 @@ export const Watchlist = () => {
         <>
           <h2 className="center-item">Your's watch list items.</h2>
           {data.map((item) => {
-            return <CoinData key={Math.random() * 100} item={item} />;
+            return <CoinCard key={Math.random() * 100} item={item} />;
           })}
         </>
       )}

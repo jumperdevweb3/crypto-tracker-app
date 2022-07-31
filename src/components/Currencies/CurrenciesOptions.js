@@ -1,5 +1,5 @@
-import { useWindowSize } from "../../Hooks/use-windowSize";
-import { currenciesActions } from "../../Store/currencies-slice";
+import { useWindowSize } from "../../hooks/use-windowSize";
+import { currenciesActions } from "../../store/currencies-slice";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./CurrenciesOptions.module.scss";
 

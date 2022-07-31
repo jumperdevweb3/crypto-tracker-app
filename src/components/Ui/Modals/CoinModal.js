@@ -1,8 +1,8 @@
 import { Fragment, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { CurrChart } from "../../Currencies/CurrChart";
+import { CurrChart } from "../../currencies/CurrChart";
 import classes from "./CoinModal.module.scss";
-import { fetchChartData } from "../../../Store/currencies-actions";
+import { fetchChartData } from "../../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 
 const Backdrop = (props) => {

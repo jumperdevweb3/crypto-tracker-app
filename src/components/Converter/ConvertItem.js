@@ -1,4 +1,4 @@
-import { convertActions } from "../../Store/convert-slice";
+import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";

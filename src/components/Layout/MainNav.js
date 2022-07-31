@@ -1,8 +1,8 @@
 import { NavLink, Link } from "react-router-dom";
 import classes from "./MainNav.module.scss";
-import { uiActions } from "../../Store/ui-slice";
+import { uiActions } from "../../store/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
-import { useWindowSize } from "../../Hooks/use-windowSize";
+import { useWindowSize } from "../../hooks/use-windowSize";
 export const MainNav = () => {
   const showNav = useSelector((state) => state.uiSlice.showNav);
   const dispatch = useDispatch();

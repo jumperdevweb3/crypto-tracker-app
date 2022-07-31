@@ -2,8 +2,8 @@ import classes from "./Tracker.module.scss";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaSearch } from "react-icons/fa";
-import { fetchEtherScanData } from "../../Store/currencies-actions";
-import { LoadingSpinner } from "../Ui/LoadingSpinner";
+import { fetchEtherScanData } from "../../store/currencies-actions";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 export const Tracker = () => {
   const fetchResult = useSelector((state) => state.scanner.result);

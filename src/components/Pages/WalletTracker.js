@@ -1,4 +1,4 @@
-import { Tracker } from "../WalletTracker/Tracker";
+import { Tracker } from "../walletTracker/Tracker";
 
 export const WalletTracker = () => {
   return (

@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
 import { FcApproval } from "react-icons/fc";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
-import { useWindowSize } from "../../Hooks/use-windowSize";
-import { watchlistActions } from "../../Store/watchlist-slice";
-import { CoinModal } from "../Ui/Modals/CoinModal";
-import classes from "./CoinData.module.scss";
+import { useWindowSize } from "../../../hooks/use-windowSize";
+import { watchlistActions } from "../../../store/watchlist-slice";
+import { CoinModal } from "../../ui/Modals/CoinModal";
+import classes from "./CoinCard.module.scss";
 const currencyDetail = document.getElementById("currency-detail");
 
-export const CoinData = ({ item }) => {
+export const CoinCard = ({ item }) => {
   const [showDetail, setShowDetail] = useState(false);
   const { width } = useWindowSize();
   const dispatch = useDispatch();

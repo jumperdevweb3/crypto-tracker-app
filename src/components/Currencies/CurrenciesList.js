@@ -1,12 +1,11 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCurrenciesData } from "../../store/currencies-actions";
+import { currenciesActions } from "../../store/currencies-slice";
 import { CurrenciesOptions } from "./CurrenciesOptions";
-import { useDispatch } from "react-redux";
-import { CoinData } from "../Card/CoinData";
-import { LoadingSpinner } from "../Ui/LoadingSpinner";
-import { useSelector } from "react-redux";
-import { fetchCurrenciesData } from "../../Store/currencies-actions";
-import Notification from "../Ui/Notification";
-import { currenciesActions } from "../../Store/currencies-slice";
+import { CoinCard } from "../cards/coinCard/CoinCard";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
+import Notification from "../ui/Notification";
 
 const SECOND_TO_REFRESH = 15;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
@@ -45,7 +44,7 @@ export const CurrenciesList = () => {
     <div className="market-list">
       <CurrenciesOptions />
       {currenciesData.map((item) => {
-        return <CoinData key={item.id} item={item} />;
+        return <CoinCard key={item.id} item={item} />;
       })}
     </div>
   );

@@ -1,4 +1,4 @@
-export const getInfo = (item) => {
+export const getApiData = (item) => {
   return {
     id: item.id,
     image: item.image,
