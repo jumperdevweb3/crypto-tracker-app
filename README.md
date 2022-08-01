@@ -1,7 +1,7 @@
 Live version - https://cryptocurrencies-tracker-app.netlify.app/
 
 #### To use this project:
-#### *git clone https://github.com/skoczy01/crypto-tracker-app.git
-#### *npm install
-#### *U need ethercan api key.
+#### - git clone https://github.com/skoczy01/crypto-tracker-app.git
+#### - npm install
+#### * U need ethercan api key.
 
