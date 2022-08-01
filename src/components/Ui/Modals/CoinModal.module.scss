@@ -61,19 +61,19 @@
       padding: 5px 10px;
       font-size: 0.8rem;
       border-radius: 10px;
-      color: #fff;
+      color: rgb(255, 255, 255);
       margin: 0 0.5rem;
       border: none;
     }
     .time.incr {
-      background-color: green;
+      background-color: #008000;
     }
     .time.decr {
-      background-color: red;
+      background-color: #ea3943;
     }
     .price {
       position: relative;
-      border: 1px solid #ddd;
+      border: 1px solid #fff;
       padding: 1px 7px;
       border-radius: 5px;
     }
@@ -104,11 +104,10 @@
     span,
     .price,
     .time {
-      font-size: 0.9rem;
-      font-family: "Edu TAS Beginner", cursive;
-      font-family: "Mochiy Pop One", sans-serif;
-      font-weight: 400;
-      color: #aaa;
+      font-size: 1rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      color: #fff;
       border: 1px solid #ddd;
       padding: 3px 7px;
       border-radius: 5px;
