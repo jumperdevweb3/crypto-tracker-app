@@ -8,15 +8,15 @@ export const Watchlist = () => {
     <>
       {data.length !== 0 && (
         <>
-          <h2 className="center-item">Your's watch list items.</h2>
+          <h2 className="center-item">Your watch list items.</h2>
           {data.map((item) => {
-            return <CoinCard key={Math.random() * 100} item={item} />;
+            return <CoinCard key={item.id} item={item} />;
           })}
         </>
       )}
       {data.length === 0 && (
         <h2 className="center-item">
-          No items, add some coin to your watchlist!
+          No items, you can add coin from Home Page to Watchlist.
         </h2>
       )}
     </>
