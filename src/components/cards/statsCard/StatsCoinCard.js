@@ -1,6 +1,6 @@
-import classes from "./CurrencyCard.module.scss";
+import classes from "./StatsCoinCard.module.scss";
 
-export const CurrencyCard = (props) => {
+export const StatsCoinCard = (props) => {
   const valueStyle =
     props.percentage <= 0
       ? `${classes.percentage} ${classes.decr}`

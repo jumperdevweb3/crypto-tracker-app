@@ -1,5 +1,5 @@
 import classes from "./StatsCard.module.scss";
-import { CurrencyCard } from "./CurrencyCard";
+import { StatsCoinCard } from "./StatsCoinCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
@@ -31,7 +31,7 @@ export const StatsCard = ({ type, title }) => {
 
   const topThreeView = filterType.slice(0, 3).map((item, index) => {
     return (
-      <CurrencyCard
+      <StatsCoinCard
         key={item.id}
         number={index + 1}
         image={item.image}
@@ -43,7 +43,7 @@ export const StatsCard = ({ type, title }) => {
   });
   const moreItems = filterType.map((item, index) => {
     return (
-      <CurrencyCard
+      <StatsCoinCard
         key={item.id}
         number={index + 1}
         image={item.image}
