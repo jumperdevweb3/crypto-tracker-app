@@ -9,6 +9,7 @@ import { Home } from "./components/pages/Home";
 import { Watchlist } from "./components/pages/Watchlist";
 import { watchlistActions } from "./store/watchlist-slice";
 import { WalletTracker } from "./components/pages/WalletTracker";
+import { Footer } from "./components/ui/Footer";
 
 let isFirstLoading = true;
 
@@ -39,6 +40,7 @@ function App() {
       <Layout>
         <Route path="/" exact>
           <Home />
+          <Footer />
         </Route>
         <Route path="/watchlist">
           <Watchlist />
