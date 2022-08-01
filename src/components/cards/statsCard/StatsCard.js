@@ -3,7 +3,7 @@ import { StatsCoinCard } from "./StatsCoinCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
-import { StatsModal } from "../../ui/Modals/StatsModal";
+import { StatsModal } from "../../ui/modals/StatsModal";
 
 export const StatsCard = ({ type, title }) => {
   const [modalActive, setModalActive] = useState(false);

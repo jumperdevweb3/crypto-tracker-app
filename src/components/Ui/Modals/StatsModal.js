@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import ReactDOM from "react-dom";
 
 import classes from "./StatsModal.module.scss";
@@ -22,7 +21,7 @@ const portalElement = document.getElementById("overlays");
 
 export const StatsModal = (props) => {
   return (
-    <Fragment>
+    <>
       {ReactDOM.createPortal(
         <Backdrop onClose={props.onClose} />,
         portalElement
@@ -31,6 +30,6 @@ export const StatsModal = (props) => {
         <ModalOverlay onClose={props.onClose}>{props.children}</ModalOverlay>,
         portalElement
       )}
-    </Fragment>
+    </>
   );
 };

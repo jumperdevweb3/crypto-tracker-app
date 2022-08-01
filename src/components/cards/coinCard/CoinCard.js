@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import classes from "./CoinCard.module.scss";
 import { useWindowSize } from "../../../hooks/use-windowSize";
 import { watchlistActions } from "../../../store/watchlist-slice";
-import { CoinModal } from "../../ui/Modals/CoinModal";
+import { CoinModal } from "../../ui/modals/CoinModal";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 

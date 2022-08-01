@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CurrChart } from "../../currencies/CurrChart";
 import classes from "./CoinModal.module.scss";
@@ -52,7 +52,7 @@ export const CoinModal = (props) => {
   }, [dispatch]);
 
   return (
-    <Fragment>
+    <>
       {ReactDOM.createPortal(
         <Backdrop onClose={props.onClose} />,
         portalElement
@@ -103,6 +103,6 @@ export const CoinModal = (props) => {
         </ModalOverlay>,
         portalElement
       )}
-    </Fragment>
+    </>
   );
 };
