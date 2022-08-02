@@ -64,7 +64,8 @@ button {
   cursor: pointer;
 }
 
-#currency-detail {
+#currency-detail,
+#stats-modal {
   position: fixed;
   display: flex;
   align-items: center;

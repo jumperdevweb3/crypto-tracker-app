@@ -8,9 +8,8 @@ import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 
 const currencyDetail = document.getElementById("currency-detail");
-
 export const CoinCard = ({ item }) => {
-  const [showDetail, setShowDetail] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
   const { width } = useWindowSize();
   const dispatch = useDispatch();
   const interNumberFormat = new Intl.NumberFormat("en-US");
@@ -20,11 +19,11 @@ export const CoinCard = ({ item }) => {
   };
 
   const showCoinDetailHandler = () => {
-    setShowDetail((state) => !state);
-    if (!showDetail) {
+    setModalActive((state) => !state);
+    if (!modalActive) {
       currencyDetail.classList.add("show");
     }
-    if (showDetail) {
+    if (modalActive) {
       currencyDetail.classList.remove("show");
     }
   };
@@ -69,7 +68,7 @@ export const CoinCard = ({ item }) => {
           </div>
         </>
       )}
-      {showDetail && <CoinModal onClose={showCoinDetailHandler} item={item} />}
+      {modalActive && <CoinModal onClose={showCoinDetailHandler} item={item} />}
     </div>
   );
 };

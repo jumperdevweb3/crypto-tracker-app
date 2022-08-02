@@ -5,6 +5,8 @@ import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { StatsModal } from "../../ui/modals/StatsModal";
 
+const statsModal = document.getElementById("stats-modal");
+
 export const StatsCard = ({ type, title }) => {
   const [modalActive, setModalActive] = useState(false);
 
@@ -55,6 +57,12 @@ export const StatsCard = ({ type, title }) => {
   });
   const moreStatsHandler = () => {
     setModalActive((state) => !state);
+    if (!modalActive) {
+      statsModal.classList.add("show");
+    }
+    if (modalActive) {
+      statsModal.classList.remove("show");
+    }
   };
 
   let boxContent;

@@ -1,14 +1,14 @@
 .container {
   display: flex;
   justify-content: space-around;
-  gap: 1rem;
+  gap: 1.5rem;
   max-width: 1024px;
-  margin: 3.5rem auto;
   color: #fff;
   padding: 0 1rem;
+  margin: 2.5rem auto;
 
   @media (max-width: 1023px) {
     flex-direction: column;
-    width: 80%;
+    width: 90%;
   }
 }
