@@ -30,6 +30,7 @@ export const CoinCard = ({ item }) => {
 
   return (
     <div className={classes.coin}>
+      <div className={classes.overlay} onClick={showCoinDetailHandler}></div>
       <WatchlistButton
         classes={classes}
         onClick={addToWatchlistHandler}
@@ -40,12 +41,7 @@ export const CoinCard = ({ item }) => {
       </div>
       <div className={classes.name}>
         <img src={item.image} alt="" />
-        <button
-          className={classes["details-btn"]}
-          onClick={showCoinDetailHandler}
-        >
-          {item.name}
-        </button>
+        <p className={classes.title}>{item.name}</p>
         <span>{item.symbol.toUpperCase()}</span>
       </div>
       <div className={classes.price}>
