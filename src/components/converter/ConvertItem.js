@@ -10,6 +10,8 @@ export const ConvertItem = (props) => {
   const quantity = useSelector((state) => state.convert.quantity);
   const convertState = useSelector((state) => state.convert);
 
+
+
   const dispatch = useDispatch();
 
   const optionItems = currenciesData.map((item) => (
@@ -50,9 +52,8 @@ export const ConvertItem = (props) => {
 
   return (
     <div className={classes.box}>
-      {props.kind === "to" && (
         <div className={classes.selects}>
-          <label htmlFor="currency">To:</label>
+          <label htmlFor="currency">{props.kind === 'to' ? 'To:':'From:'}</label>
           <select
             name="currency"
             id="currency"
@@ -65,36 +66,6 @@ export const ConvertItem = (props) => {
             </optgroup>
           </select>
         </div>
-      )}
-      {props.kind === "from" && (
-        <div className={classes.selects}>
-          <label htmlFor="currency">From:</label>
-          <select
-            name="currency"
-            id="currency"
-            onChange={selectHandler}
-            value={nameInputValue}
-          >
-            <optgroup label="Cryptocurrencies">
-              <option></option>
-              {optionItems}
-            </optgroup>
-          </select>
-        </div>
-      )}
-      {props.kind === "amount" && (
-        <div className={classes.selects}>
-          <label htmlFor="amount">Amount:</label>
-          <input
-            name="amount"
-            id="amount"
-            type="number"
-            value={quantity}
-            onChange={quantityChangeHandler}
-            className={classes.amount}
-          />
-        </div>
-      )}
     </div>
   );
 };
