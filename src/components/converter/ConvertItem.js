@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 export const ConvertItem = (props) => {
   const [nameInputValue, setNameInputValue] = useState();
   const currenciesData = useSelector((state) => state.currencies.items);
-  const valueFrom = useSelector((state) => state.convert.quantityFrom);
-  const valueTo = useSelector((state) => state.convert.quantityTo);
+  const quantity = useSelector((state) => state.convert.quantity);
   const convertState = useSelector((state) => state.convert);
 
   const dispatch = useDispatch();
@@ -21,7 +20,6 @@ export const ConvertItem = (props) => {
 
   const selectHandler = (event) => {
     setNameInputValue(event.target.value);
-    console.log(event.target.value);
     const id = event.target.value;
     const item = currenciesData.find((item) => item.id === id);
 
@@ -34,51 +32,69 @@ export const ConvertItem = (props) => {
       })
     );
   };
-  const updateValue = (event) => {
-    if (event.target.value <= 10_000_000 && event.target.value >= 0) {
-      dispatch(convertActions.setWarning(false));
 
-      dispatch(
-        convertActions.setMultiplier({
-          kind: props.kind,
-          value: event.target.value,
-        })
-      );
-    } else {
-      dispatch(convertActions.setWarning(true));
-    }
-  };
   useEffect(() => {
-    if (true) {
-      dispatch(convertActions.convertData(props.kind));
+    if (
+      quantity !== 0 &&
+      convertState.itemFrom.price &&
+      convertState.itemTo.price
+    ) {
+      dispatch(convertActions.convertData());
     }
-  }, [convertState]);
+  }, [quantity, convertState.itemFrom, convertState.itemTo]);
+
+  const quantityChangeHandler = (event) => {
+    const value = event.target.value;
+    dispatch(convertActions.changeQuantity(+value));
+  };
 
   return (
     <div className={classes.box}>
-      <div className={classes.selects}>
-        <select
-          name="currency"
-          id="currency"
-          onChange={selectHandler}
-          value={nameInputValue}
-        >
-          <optgroup label="Cryptocurrencies">
-            <option value=""></option>
-            {optionItems}
-          </optgroup>
-        </select>
-
-        <input
-          type="number"
-          name="currency"
-          id="currency"
-          placeholder="0"
-          max="10"
-          value={props.kind === "from" ? valueFrom : valueTo}
-          onChange={updateValue}
-        />
-      </div>
+      {props.kind === "to" && (
+        <div className={classes.selects}>
+          <label htmlFor="currency">To:</label>
+          <select
+            name="currency"
+            id="currency"
+            onChange={selectHandler}
+            value={nameInputValue}
+          >
+            <optgroup label="Cryptocurrencies">
+              <option></option>
+              {optionItems}
+            </optgroup>
+          </select>
+        </div>
+      )}
+      {props.kind === "from" && (
+        <div className={classes.selects}>
+          <label htmlFor="currency">From:</label>
+          <select
+            name="currency"
+            id="currency"
+            onChange={selectHandler}
+            value={nameInputValue}
+          >
+            <optgroup label="Cryptocurrencies">
+              <option></option>
+              {optionItems}
+            </optgroup>
+          </select>
+        </div>
+      )}
+      {props.kind === "amount" && (
+        <div className={classes.selects}>
+          <label htmlFor="amount">Amount:</label>
+          <input
+            name="amount"
+            id="amount"
+            type="number"
+            value={quantity}
+            onChange={quantityChangeHandler}
+            className={classes.amount}
+          />
+        </div>
+      )}
     </div>
   );
 };

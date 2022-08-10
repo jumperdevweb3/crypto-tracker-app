@@ -1,14 +1,22 @@
 import classes from "./Converter.module.scss";
-import { BiTransfer } from "react-icons/bi";
 import { useSelector } from "react-redux";
-import { ConvertItem } from "./ConvertItem";
+import { ConvertTools } from "./ConvertTools";
 
 export const Converter = () => {
-  const result = useSelector((state) => state.convert.result);
-  const resultName = useSelector((state) => state.convert.priceTo.name);
   const interNumberFormat = new Intl.NumberFormat("en-US");
   const warning = useSelector((state) => state.convert.warning);
+  const itemFromData = useSelector((state) => state.convert.itemFrom);
+  const itemToData = useSelector((state) => state.convert.itemTo);
+  const amount = useSelector((state) => state.convert.quantity);
+  const result = useSelector((state) => state.convert.result);
 
+  const resultView =
+    itemFromData.price && itemToData.price && amount !== 0
+      ? `${amount} 
+        ${itemFromData.name} =
+        ${interNumberFormat.format(result)} 
+        ${itemToData.name}`
+      : "Please Select Data";
   return (
     <div className={classes.container}>
       <div className={classes.title}>
@@ -17,23 +25,11 @@ export const Converter = () => {
           <span className={classes["sub-title"]}> currencies.</span>{" "}
         </p>
       </div>
-      <div className={classes["inputs-box"]}>
-        <ConvertItem kind="from" />
-        <div className={classes["convert-type"]}>
-          <button>
-            <BiTransfer fontSize="2rem" color="rgb(193, 162, 222)" />
-          </button>
-        </div>
-        <ConvertItem kind="to" />
+      <ConvertTools />
+      <div className={classes.result}>
+        <p>Converted Amount:</p>
+        <p className={classes["result-number"]}>{resultView}</p>
       </div>
-      {warning && (
-        <div className={classes.result}>
-          <p>
-            Ops
-            <span className={classes["result-number"]}> Incorrect value!</span>
-          </p>
-        </div>
-      )}
     </div>
   );
 };
