@@ -50,7 +50,6 @@ export const ConvertItem = (props) => {
   };
   useEffect(() => {
     if (true) {
-      console.log("robie cos");
       dispatch(convertActions.convertData(props.kind));
     }
   }, [convertState]);
