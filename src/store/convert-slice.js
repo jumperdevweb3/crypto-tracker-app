@@ -3,34 +3,39 @@ import { createSlice } from "@reduxjs/toolkit";
 export const convertSlice = createSlice({
   name: "convert",
   initialState: {
-    leftValue: 1,
-    rightValue: 1,
-    leftSide: { price: 0, id: "", name: "" },
-    rightSide: { price: 0, id: "", name: "" },
+    quantityFrom: "",
+    quantityTo: "",
+    priceFrom: {},
+    priceTo: {},
     result: 0,
     warning: false,
   },
   reducers: {
     setValue(state, action) {
-      if (action.payload.kind === "left") {
-        state.leftSide = action.payload.item;
+      if (action.payload.kind === "from") {
+        state.priceFrom = action.payload.item;
       }
-      if (action.payload.kind === "right") {
-        state.rightSide = action.payload.item;
+      if (action.payload.kind === "to") {
+        state.priceTo = action.payload.item;
       }
     },
     setMultiplier(state, action) {
-      if (action.payload.kind === "left") {
-        state.leftValue = action.payload.value;
+      if (action.payload.kind === "from") {
+        state.quantityFrom = action.payload.value;
       }
-      if (action.payload.kind === "right") {
-        state.rightValue = action.payload.value;
+      if (action.payload.kind === "to") {
+        state.quantityTo = action.payload.value;
       }
     },
-    convertData(state) {
-      const leftMultipler = state.leftValue * state.leftSide.price;
-      const rightMultipler = state.rightValue * state.rightSide.price;
-      state.result = leftMultipler / rightMultipler;
+    convertData(state, action) {
+      const priceFromMultipler = state.quantityFrom * state.priceFrom.price;
+      const priceToMultipler = state.quantityTo * state.priceTo.price;
+      // if (action.payload === "from") {
+      //   state.quantityFrom = priceFromMultipler;
+      // }
+      // if (action.payload === "to") {
+      //   state.quantityTo = priceToMultipler;
+      // }
     },
     setWarning(state, action) {
       state.warning = action.payload;

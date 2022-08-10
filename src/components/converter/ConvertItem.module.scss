@@ -9,15 +9,16 @@
 
 .selects {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
   margin: 1rem 0;
   max-width: 100%;
 
   select,
   input {
-    max-width: 180px;
+    box-sizing: border-box;
+    height: 3rem;
     background-color: rgb(50, 52, 63);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 15px 10px;
     color: white;
     text-align: center;
@@ -25,21 +26,27 @@
     appearance: none;
     cursor: pointer;
     outline: none;
+    font-size: 0.8rem;
   }
 
   input {
-    max-width: 3rem;
-    max-height: 1rem;
+    text-align: right;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
     &:disabled {
       cursor: no-drop;
     }
+    &:hover {
+      appearance: none;
+    }
+  }
+  select {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    max-width: 25%;
   }
 
-  .select-box {
-    display: flex;
-    flex-direction: column;
-    max-width: 60%;
-  }
   .price {
     color: white;
     text-align: center;
@@ -48,4 +55,13 @@
 }
 option {
   color: rgb(193, 162, 222);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }

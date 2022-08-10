@@ -5,11 +5,10 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
 export const ConvertItem = (props) => {
-  const [showPrice, setShowPrice] = useState(0);
   const [nameInputValue, setNameInputValue] = useState();
   const currenciesData = useSelector((state) => state.currencies.items);
-  const leftVal = useSelector((state) => state.convert.leftValue);
-  const rightVal = useSelector((state) => state.convert.rightValue);
+  const valueFrom = useSelector((state) => state.convert.quantityFrom);
+  const valueTo = useSelector((state) => state.convert.quantityTo);
   const convertState = useSelector((state) => state.convert);
 
   const dispatch = useDispatch();
@@ -22,13 +21,11 @@ export const ConvertItem = (props) => {
 
   const selectHandler = (event) => {
     setNameInputValue(event.target.value);
-
+    console.log(event.target.value);
     const id = event.target.value;
     const item = currenciesData.find((item) => item.id === id);
 
     if (!item) return;
-
-    setShowPrice(item.current_price);
 
     dispatch(
       convertActions.setValue({
@@ -38,7 +35,7 @@ export const ConvertItem = (props) => {
     );
   };
   const updateValue = (event) => {
-    if (event.target.value <= 1_000_000) {
+    if (event.target.value <= 10_000_000 && event.target.value >= 0) {
       dispatch(convertActions.setWarning(false));
 
       dispatch(
@@ -52,38 +49,36 @@ export const ConvertItem = (props) => {
     }
   };
   useEffect(() => {
-    dispatch(convertActions.convertData());
+    if (true) {
+      console.log("robie cos");
+      dispatch(convertActions.convertData(props.kind));
+    }
   }, [convertState]);
 
   return (
     <div className={classes.box}>
       <div className={classes.selects}>
+        <select
+          name="currency"
+          id="currency"
+          onChange={selectHandler}
+          value={nameInputValue}
+        >
+          <optgroup label="Cryptocurrencies">
+            <option value=""></option>
+            {optionItems}
+          </optgroup>
+        </select>
+
         <input
           type="number"
           name="currency"
           id="currency"
           placeholder="0"
           max="10"
-          value={props.kind === "left" ? leftVal : rightVal}
+          value={props.kind === "from" ? valueFrom : valueTo}
           onChange={updateValue}
         />
-
-        <div className={classes["select-box"]}>
-          <select
-            name="currency"
-            id="currency"
-            onChange={selectHandler}
-            value={nameInputValue}
-          >
-            <optgroup label="Cryptocurrencies">
-              <option value=""></option>
-              {optionItems}
-            </optgroup>
-          </select>
-          <p className={classes.price}>
-            {showPrice !== 0 ? `$${showPrice}` : "$0"}
-          </p>
-        </div>
       </div>
     </div>
   );
