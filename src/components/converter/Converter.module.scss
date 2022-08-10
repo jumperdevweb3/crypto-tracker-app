@@ -11,6 +11,8 @@
 
   .inputs-box {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin-top: 3.5rem;
 
@@ -22,7 +24,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-basis: 30%;
+      width: 15%;
+
+      button {
+        margin-top: 20%;
+      }
     }
   }
   .result,
@@ -33,10 +39,10 @@
     border-radius: 10px;
     padding: 10px 15px;
     text-align: center;
-
-    .result-number {
-      color: rgb(193, 162, 222);
-    }
+  }
+  .result-number {
+    color: rgb(193, 162, 222);
+    margin: 0.5rem 0;
   }
   .title {
     margin: 2rem 0 1rem 0;
