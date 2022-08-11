@@ -9,7 +9,9 @@
   &:nth-of-type(1) {
     width: 40%;
   }
-
+  @media (max-width: 767px) {
+    width: 75% !important;
+  }
   .selects {
     display: flex;
     flex-direction: column;
@@ -52,6 +54,10 @@
     }
     .amount {
       width: 70%;
+
+      @media (max-width: 767px) {
+        width: 100%;
+      }
     }
   }
 }
