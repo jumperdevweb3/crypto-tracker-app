@@ -4,15 +4,17 @@ import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
 
 export const ConvertAmount = () => {
-  const interNumberFormat = new Intl.NumberFormat("en-US");
-
   const amount = useSelector((state) => state.convert.quantity);
   const dispatch = useDispatch();
 
   const inputChangeHandler = (event) => {
     const value = event.target.value;
 
-    if (value < 0 || value.length >= "11") return;
+    if (value < 0 || value.length >= "11") {
+      dispatch(convertActions.setWarning(true));
+      return;
+    }
+    dispatch(convertActions.setWarning(false));
     dispatch(convertActions.changeQuantity(+value));
   };
   return (
