@@ -8,15 +8,16 @@ export const ConvertAmount = () => {
   const dispatch = useDispatch();
 
   const inputChangeHandler = (event) => {
-    const value = event.target.value;
+    const value = event.target.value.replace(/^0+/, "");
 
-    if (value < 0 || value.length >= "11") {
+    if (+value <= 0 || value.length >= "11") {
       dispatch(convertActions.setWarning(true));
       return;
     }
     dispatch(convertActions.setWarning(false));
-    dispatch(convertActions.changeQuantity(+value));
+    dispatch(convertActions.changeQuantity(value));
   };
+
   return (
     <div className={classes.box}>
       <div className={classes.selects}>

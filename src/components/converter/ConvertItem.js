@@ -58,7 +58,7 @@ export const ConvertItem = (props) => {
           value={nameInputValue}
         >
           <optgroup label="Cryptocurrencies">
-            {!wasSelected && <option value=""></option>}
+            {!wasSelected && <option value="">Select</option>}
             {optionItems}
           </optgroup>
         </select>

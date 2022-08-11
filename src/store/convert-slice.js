@@ -32,13 +32,14 @@ export const convertSlice = createSlice({
     convertData(state) {
       const totalQuantity = state.itemFrom.price * state.quantity;
       const result = totalQuantity / state.itemTo.price;
-      state.result = result;
+      state.result = result.toFixed(4).replace(/\.?0+$/, "");
     },
     swap(state) {
       const prev = state.itemFrom;
+
       state.itemFrom = state.itemTo;
       state.itemTo = prev;
-      state.quantity = state.result;
+      state.quantity = state.result <= 0 ? 1 : state.result;
     },
     setWarning(state, action) {
       state.warning = action.payload;
