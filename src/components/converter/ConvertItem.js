@@ -10,7 +10,8 @@ export const ConvertItem = (props) => {
   const currenciesData = useSelector((state) => state.currencies.items);
   const quantity = useSelector((state) => state.convert.quantity);
   const convertState = useSelector((state) => state.convert);
-
+  const wasSelected =
+    convertState.itemFrom.id !== "" && convertState.itemTo.id !== "";
   const dispatch = useDispatch();
 
   const optionItems = currenciesData.map((item) => (
@@ -57,7 +58,7 @@ export const ConvertItem = (props) => {
           value={nameInputValue}
         >
           <optgroup label="Cryptocurrencies">
-            <option></option>
+            {!wasSelected && <option value=""></option>}
             {optionItems}
           </optgroup>
         </select>
