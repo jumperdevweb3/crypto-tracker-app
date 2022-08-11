@@ -1,11 +1,12 @@
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
 
 export const ConvertItem = (props) => {
-  const [nameInputValue, setNameInputValue] = useState();
+  const nameInputValue = useSelector((state) =>
+    props.kind === "from" ? state.convert.itemFrom.id : state.convert.itemTo.id
+  );
   const currenciesData = useSelector((state) => state.currencies.items);
   const quantity = useSelector((state) => state.convert.quantity);
   const convertState = useSelector((state) => state.convert);
@@ -19,8 +20,8 @@ export const ConvertItem = (props) => {
   ));
 
   const selectHandler = (event) => {
-    setNameInputValue(event.target.value);
     const id = event.target.value;
+    dispatch(convertActions.onOptionChange({ kind: props.kind, id }));
     const item = currenciesData.find((item) => item.id === id);
 
     if (!item) return;
@@ -43,58 +44,24 @@ export const ConvertItem = (props) => {
     }
   }, [quantity, convertState.itemFrom, convertState.itemTo]);
 
-  const quantityChangeHandler = (event) => {
-    const value = event.target.value;
-    dispatch(convertActions.changeQuantity(+value));
-  };
-
   return (
     <div className={classes.box}>
-      {props.kind === "to" && (
-        <div className={classes.selects}>
-          <label htmlFor="currency">To:</label>
-          <select
-            name="currency"
-            id="currency"
-            onChange={selectHandler}
-            value={nameInputValue}
-          >
-            <optgroup label="Cryptocurrencies">
-              <option></option>
-              {optionItems}
-            </optgroup>
-          </select>
-        </div>
-      )}
-      {props.kind === "from" && (
-        <div className={classes.selects}>
-          <label htmlFor="currency">From:</label>
-          <select
-            name="currency"
-            id="currency"
-            onChange={selectHandler}
-            value={nameInputValue}
-          >
-            <optgroup label="Cryptocurrencies">
-              <option></option>
-              {optionItems}
-            </optgroup>
-          </select>
-        </div>
-      )}
-      {props.kind === "amount" && (
-        <div className={classes.selects}>
-          <label htmlFor="amount">Amount:</label>
-          <input
-            name="amount"
-            id="amount"
-            type="number"
-            value={quantity}
-            onChange={quantityChangeHandler}
-            className={classes.amount}
-          />
-        </div>
-      )}
+      <div className={classes.selects}>
+        <label htmlFor="currency">
+          {props.kind === "from" ? "From:" : "To:"}
+        </label>
+        <select
+          name="currency"
+          id="currency"
+          onChange={selectHandler}
+          value={nameInputValue}
+        >
+          <optgroup label="Cryptocurrencies">
+            <option></option>
+            {optionItems}
+          </optgroup>
+        </select>
+      </div>
     </div>
   );
 };

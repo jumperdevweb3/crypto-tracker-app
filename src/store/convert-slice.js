@@ -13,6 +13,14 @@ export const convertSlice = createSlice({
     changeQuantity(state, action) {
       state.quantity = action.payload;
     },
+    onOptionChange(state, action) {
+      if (action.payload.kind === "to") {
+        state.itemTo.id = action.payload.id;
+      }
+      if (action.payload.kind === "from") {
+        state.itemFrom.id = action.payload.id;
+      }
+    },
     setValue(state, action) {
       if (action.payload.kind === "from") {
         state.itemFrom = action.payload.item;
@@ -23,10 +31,14 @@ export const convertSlice = createSlice({
     },
     convertData(state) {
       const totalQuantity = state.itemFrom.price * state.quantity;
-      console.log(totalQuantity);
-
       const result = totalQuantity / state.itemTo.price;
       state.result = result;
+    },
+    swap(state) {
+      const prev = state.itemFrom;
+      state.itemFrom = state.itemTo;
+      state.itemTo = prev;
+      state.quantity = state.result;
     },
   },
 });

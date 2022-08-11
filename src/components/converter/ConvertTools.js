@@ -1,20 +1,23 @@
 import { ConvertItem } from "./ConvertItem";
 import { BiTransfer } from "react-icons/bi";
 import classes from "./Converter.module.scss";
-import { useState } from "react";
+import { ConvertAmount } from "./ConvertAmount";
+import { useDispatch } from "react-redux";
+import { convertActions } from "../../store/convert-slice";
 
 export const ConvertTools = () => {
-  const [reverse, setReverse] = useState(false);
-  const reverseHandler = () => {
-    setReverse((state) => !state);
+  const dispatch = useDispatch();
+
+  const swapCurrenciesHandler = () => {
+    dispatch(convertActions.swap());
   };
 
   return (
     <div className={classes["inputs-box"]}>
-      <ConvertItem kind="amount" />
+      <ConvertAmount />
       <ConvertItem kind="from" />
       <div className={classes["convert-type"]}>
-        <button onClick={reverseHandler}>
+        <button onClick={swapCurrenciesHandler}>
           <BiTransfer fontSize="2rem" color="rgb(193, 162, 222)" />
         </button>
       </div>
