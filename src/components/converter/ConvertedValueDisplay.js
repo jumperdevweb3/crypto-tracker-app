@@ -20,8 +20,15 @@ export const ConvertedValueDisplay = () => {
 
   return (
     <div className={classes.result}>
-      <p>Converted Amount:</p>
-      <p className={classes["result-number"]}>{resultView}</p>
+      <p>Converted Result:</p>
+      <p className={classes["result-number"]}>
+        {warning ? "Incorrect value!" : resultView}
+      </p>
+      {warning && (
+        <p className={classes["result-warning"]}>
+          {` * Max length amount = 8 and Number can't be < 0.`}
+        </p>
+      )}
     </div>
   );
 };
