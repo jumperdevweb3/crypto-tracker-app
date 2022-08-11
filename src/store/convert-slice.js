@@ -14,20 +14,12 @@ export const convertSlice = createSlice({
       state.quantity = action.payload;
     },
     onOptionChange(state, action) {
-      if (action.payload.kind === "to") {
-        state.itemTo.id = action.payload.id;
-      }
-      if (action.payload.kind === "from") {
-        state.itemFrom.id = action.payload.id;
-      }
+      if (action.payload.kind === "to") state.itemTo.id = action.payload.id;
+      if (action.payload.kind === "from") state.itemFrom.id = action.payload.id;
     },
     setValue(state, action) {
-      if (action.payload.kind === "from") {
-        state.itemFrom = action.payload.item;
-      }
-      if (action.payload.kind === "to") {
-        state.itemTo = action.payload.item;
-      }
+      if (action.payload.kind === "from") state.itemFrom = action.payload.item;
+      if (action.payload.kind === "to") state.itemTo = action.payload.item;
     },
     convertData(state) {
       const totalQuantity = state.itemFrom.price * state.quantity;
@@ -39,7 +31,7 @@ export const convertSlice = createSlice({
 
       state.itemFrom = state.itemTo;
       state.itemTo = prev;
-      state.quantity = state.result <= 0 ? 1 : state.result;
+      state.quantity = state.result < 0 ? 1 : state.result;
     },
     setWarning(state, action) {
       state.warning = action.payload;

@@ -8,9 +8,9 @@ export const ConvertAmount = () => {
   const dispatch = useDispatch();
 
   const inputChangeHandler = (event) => {
-    const value = event.target.value.replace(/^0+/, "");
-
-    if (+value <= 0 || value.length >= "11") {
+    const value = event.target.value;
+    // .replace(/^0+/, "");
+    if (+value < 0 || value.length >= "11") {
       dispatch(convertActions.setWarning(true));
       return;
     }
