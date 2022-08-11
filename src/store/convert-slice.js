@@ -40,6 +40,9 @@ export const convertSlice = createSlice({
       state.itemTo = prev;
       state.quantity = state.result;
     },
+    setWarning(state, action) {
+      state.warning = action.payload;
+    },
   },
 });
 
