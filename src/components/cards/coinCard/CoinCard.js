@@ -40,7 +40,7 @@ export const CoinCard = ({ item }) => {
         <p>{item.market_cap_rank}</p>
       </div>
       <div className={classes.name}>
-        <img src={item.image} alt="" />
+        <img src={item.image} alt="" aria-hidden={true} />
         <p className={classes.title}>{item.name}</p>
         <span>{item.symbol.toUpperCase()}</span>
       </div>
