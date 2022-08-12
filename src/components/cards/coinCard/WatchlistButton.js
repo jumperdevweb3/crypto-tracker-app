@@ -9,9 +9,9 @@ export const WatchlistButton = ({ classes, onClick, id }) => {
     return watchItem.id === id;
   });
 
-  let isWatchIcon = <BiStar color="#8d9904" fontSize="1.1rem" />;
+  let isWatchIcon = <BiStar color="#8d9904" fontSize="1.25rem" />;
   if (isItemWatch) {
-    isWatchIcon = <FcApproval fontSize="1.1rem" />;
+    isWatchIcon = <FcApproval fontSize="1.25rem" />;
   }
   return (
     <button className={classes.star} onClick={onClick}>
