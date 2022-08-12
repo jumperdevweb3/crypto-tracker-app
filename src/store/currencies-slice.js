@@ -3,12 +3,21 @@ import { getApiData } from "../components/utils/getApiData";
 
 const sortCurrencies = (items, { sortType, sortBy }) => {
   if (sortType === "ascending") {
+    if (sortBy === "name") {
+      return [...items].sort((a, b) =>
+        (b[sortBy] || "").toString().localeCompare((a[sortBy] || "").toString())
+      );
+    }
     return [...items].sort((a, b) => a[sortBy] - b[sortBy]);
   }
   if (sortType === "descending") {
+    if (sortBy === "name") {
+      return [...items].sort((a, b) =>
+        (a[sortBy] || "").toString().localeCompare((b[sortBy] || "").toString())
+      );
+    }
     return [...items].sort((a, b) => b[sortBy] - a[sortBy]);
   }
-
   return items;
 };
 

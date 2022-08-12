@@ -31,7 +31,12 @@ export const CurrenciesOptions = () => {
         </button>
       </div>
       <div className={classes.name}>
-        <p>Name</p>
+        <button
+          className={classes["option-btn"]}
+          onClick={sortByRankHandler("name")}
+        >
+          Name
+        </button>
       </div>
       <div className={classes.price}>
         <button
