@@ -44,6 +44,11 @@ button {
   margin: 5rem auto 3rem auto;
   text-align: center;
   color: rgb(193, 162, 222);
+
+  &.xl {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
 }
 #chart {
   margin: 1rem auto;

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { CoinCard } from "../cards/coinCard/CoinCard";
+import { Link } from "react-router-dom";
 
 export const Watchlist = () => {
   const data = useSelector((state) => state.watchlist.watchItems);
@@ -15,9 +16,10 @@ export const Watchlist = () => {
         </>
       )}
       {data.length === 0 && (
-        <h2 className="center-item">
-          No items, you can add coin from Home Page to Watchlist.
-        </h2>
+        <p className="center-item xl">
+          No items, you can add coin from <Link to="/">Home Page</Link> to your
+          watchlist.
+        </p>
       )}
     </>
   );
