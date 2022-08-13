@@ -32,7 +32,7 @@ npm run start
 👤 **Skoczy01**
 
 - Github: [@skoczy01](https://github.com/skoczy01)
-- LinkedIn: [@https:\/\/https://www.linkedin.com/in/filip-skoczylas-a89662200/\/](https://www.linkedin.com/in/filip-skoczylas-a89662200/ /)
+- LinkedIn: [(https://www.linkedin.com/in/filip-skoczylas-a89662200/)
 
 ## Show your support
 
