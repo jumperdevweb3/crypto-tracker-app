@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { CurrChart } from "../../currencies/CurrChart";
 import classes from "./CoinModal.module.scss";
 import { fetchChartData } from "../../../store/currencies-actions";
 import { useDispatch } from "react-redux";
+import { TradingViewChart } from "../../currencies/TradingViewChart";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;
@@ -98,7 +98,7 @@ export const CoinModal = (props) => {
             </p>
           </div>
           <div id="chart">
-            <CurrChart />
+            <TradingViewChart />
           </div>
         </ModalOverlay>,
         portalElement

@@ -89,5 +89,9 @@
     cursor: pointer;
     z-index: 2;
     padding: 0.5rem 0;
+
+    svg:hover {
+      color: rgb(193, 162, 222) !important;
+    }
   }
 }
