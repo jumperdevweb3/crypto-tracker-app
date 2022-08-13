@@ -1,9 +1,6 @@
 <h1 align="center">Welcome to crypto-tracker-app 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://www.coingecko.com/en/api/documentation" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
 </p>
 
 > App with currently cryptocurrencies stats, subpages with usefull tools in crypto.
