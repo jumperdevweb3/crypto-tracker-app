@@ -55,6 +55,9 @@
     align-items: center;
     justify-content: space-around;
 
+    @media (max-width: 767px) {
+      grid-template-columns: 0.2fr 0.7fr;
+    }
     .title {
       font-weight: bold;
       font-size: 0.8rem;

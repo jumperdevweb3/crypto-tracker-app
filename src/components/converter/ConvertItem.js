@@ -16,7 +16,7 @@ export const ConvertItem = (props) => {
 
   const optionItems = currenciesData.map((item) => (
     <option value={item.id} key={Math.random() * 100}>
-      {item.name} - {item.symbol.toUpperCase()}
+      {item.name}
     </option>
   ));
 
