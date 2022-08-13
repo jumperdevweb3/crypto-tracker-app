@@ -17,6 +17,7 @@ export const Tracker = () => {
   };
   const fetchDataHandler = (event) => {
     event.preventDefault();
+    if (!inputValue || inputValue.length < 18) return;
     dispatch(fetchEtherScanData(inputValue));
     setInputValue("");
   };
