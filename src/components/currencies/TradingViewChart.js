@@ -6,11 +6,16 @@ import dayjs from "dayjs";
 export const TradingViewChart = () => {
   const chartData = useSelector((state) => state.currencies.chartData);
 
-  const filterChartData = chartData.filter((item, index) =>
-    chartData.findIndex((searchItem) => {
-      return (item[0] === searchItem[0]) === index;
-    })
+  const filterChartData = chartData.filter(
+    (item, index) =>
+      chartData.findIndex((searchItem) => {
+        return (
+          dayjs(item[0]).format("YYYY-MM-DD") ===
+          dayjs(searchItem[0]).format("YYYY-MM-DD")
+        );
+      }) === index
   );
+
   const renderData = filterChartData.map((item) => {
     const formatDate = dayjs(item[0]).format("YYYY-MM-DD");
     return {
