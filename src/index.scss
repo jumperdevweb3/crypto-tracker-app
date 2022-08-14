@@ -84,3 +84,17 @@ button {
     z-index: 2;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #3e4146;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(193, 162, 222);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(75, 115, 171);
+}

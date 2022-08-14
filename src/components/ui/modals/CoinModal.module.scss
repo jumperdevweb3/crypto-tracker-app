@@ -24,12 +24,10 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   color: white;
+  overflow-y: scroll;
 
   @media (min-width: 1024px) {
     max-width: 1440px;
-  }
-  @media (max-width: 767px) {
-    overflow-y: scroll;
   }
 
   .content {
