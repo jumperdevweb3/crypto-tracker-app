@@ -28,7 +28,7 @@
   }
   @media (max-width: 450px) {
     grid-template-columns:
-      1.7rem minmax(1.5rem, 0.1fr) 8rem 4rem
+      1.7rem 2.2rem 6rem 4rem
       3.5rem;
     gap: 0;
     width: 90%;
@@ -41,7 +41,7 @@
   }
 
   .rank {
-    grid-template-columns: 1rem 1rem;
+    grid-template-columns: 1rem 1.2rem;
   }
   .name {
     grid-template-columns: 3rem 1rem;
@@ -52,17 +52,20 @@
   .time {
     grid-template-columns: 3.2rem 1rem;
   }
-  .market-cup,
+  .market-cap,
   .volume {
     grid-template-columns: 6.3rem 1rem;
   }
-
+  svg {
+    color: rgb(222, 195, 246);
+  }
   .option-btn {
     color: rgb(193, 162, 222);
     text-align: left;
 
-    &.active {
-      color: red;
-    }
+    // &.sort-active {
+    //   font-weight: bold;
+    //   color: rgb(222, 195, 246) !important;
+    // }
   }
 }
