@@ -4,6 +4,11 @@
 </p>
 
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
+> Data is refreshed in real time
+> I decided to use Redux for practice and I am satisfied with this method of managing the state in app with a lot of data it's really clean and simple
+
+> In the future I plan to add a subpage with crypto news but i'm still looking for a good api
+
 
 ### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/)
 
