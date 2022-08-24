@@ -24,7 +24,7 @@ export const convertSlice = createSlice({
     convertData(state) {
       const totalQuantity = state.itemFrom.price * state.quantity;
       const result = totalQuantity / state.itemTo.price;
-      state.result = result.toFixed(4).replace(/\.?0+$/, "");
+      state.result = +result.toFixed(4).replace(/\.?0+$/, "");
     },
     swap(state) {
       const prev = state.itemFrom;

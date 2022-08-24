@@ -1,6 +1,12 @@
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-export const PriceTimeChange = ({ time, classes }) => {
+export const PriceTimeChange = ({
+  time,
+  classes,
+}: {
+  time: any;
+  classes: any;
+}) => {
   const timeStyle =
     time <= 0
       ? `${classes.time} ${classes.decr}`

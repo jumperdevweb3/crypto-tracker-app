@@ -1,10 +1,39 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getApiData } from "../components/utils/getApiData";
 
-const sortCurrencies = (items, { sortType, sortBy }) => {
+interface Items {
+  id: string;
+  image: string;
+  name: string;
+  symbol: string;
+  current_price: string | number;
+  market_cap_rank: string | number;
+  price_change_1h: string | number;
+  price_change_24h: string | number;
+  price_change_7d: string | number;
+  market_cap: string | number;
+  total_volume: string | number;
+  ath: string | number;
+}
+
+interface S {
+  items: {}[];
+  trendingItems: {}[];
+  losersItems: {}[];
+  gainersItems: {}[];
+  chartData: {}[];
+  sortActive: {
+    sortType: {};
+    sortBy: {};
+  };
+}
+const sortCurrencies = (
+  items: Items[],
+  { sortType, sortBy }: { sortType: string; sortBy: string }
+) => {
   if (sortType === "ascending") {
     if (sortBy === "name") {
-      return [...items].sort((a, b) =>
+      return [...items].sort((a: any, b: any): any =>
         (b[sortBy] || "").toString().localeCompare((a[sortBy] || "").toString())
       );
     }
@@ -12,7 +41,7 @@ const sortCurrencies = (items, { sortType, sortBy }) => {
   }
   if (sortType === "descending") {
     if (sortBy === "name") {
-      return [...items].sort((a, b) =>
+      return [...items].sort((a: any, b: any): any =>
         (a[sortBy] || "").toString().localeCompare((b[sortBy] || "").toString())
       );
     }
@@ -33,10 +62,10 @@ const currenciesSlice = createSlice({
       sortType: "ascending",
       sortBy: "market_cap_rank",
     },
-  },
+  } as S,
   reducers: {
     setItems(state, action) {
-      const items = action.payload.map((item) => getApiData(item));
+      const items = action.payload.map((item: {}) => getApiData(item));
       state.items = sortCurrencies(items, state.sortActive);
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",

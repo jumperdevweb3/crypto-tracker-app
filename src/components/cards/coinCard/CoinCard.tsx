@@ -7,10 +7,10 @@ import { CoinModal } from "../../ui/modals/CoinModal";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 
-const currencyDetail = document.getElementById("currency-detail");
-export const CoinCard = ({ item }) => {
+const currencyDetail: any = document.getElementById("currency-detail");
+export const CoinCard = ({ item }: any) => {
   const [modalActive, setModalActive] = useState(false);
-  const { width } = useWindowSize();
+  const { width }: { width: any } = useWindowSize();
   const dispatch = useDispatch();
   const interNumberFormat = new Intl.NumberFormat("en-US");
 

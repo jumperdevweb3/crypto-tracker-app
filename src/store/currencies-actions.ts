@@ -1,9 +1,10 @@
 import { currenciesActions } from "./currencies-slice";
 import { uiActions } from "./ui-slice";
 import { scannerActions } from "./etherscan-slice";
+import { AppDispatch } from "./index";
 
-export const fetchCurrenciesData = (isFirstLoading) => {
-  return async (dispatch) => {
+export const fetchCurrenciesData = (isFirstLoading: boolean) => {
+  return async (dispatch: AppDispatch) => {
     if (isFirstLoading) {
       dispatch(uiActions.showLoading(true));
     }
@@ -33,8 +34,8 @@ export const fetchCurrenciesData = (isFirstLoading) => {
   };
 };
 
-export const fetchChartData = (id) => {
-  return async (dispatch) => {
+export const fetchChartData = (id: string) => {
+  return async (dispatch: AppDispatch) => {
     const fetchData = async () => {
       const response = await fetch(
         `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
@@ -59,8 +60,8 @@ export const fetchChartData = (id) => {
   };
 };
 
-export const fetchEtherScanData = (address) => {
-  return async (dispatch) => {
+export const fetchEtherScanData = (address: string) => {
+  return async (dispatch: AppDispatch) => {
     const fetchData = async () => {
       dispatch(scannerActions.setIsLoading(true));
       const response = await fetch(
@@ -85,8 +86,9 @@ export const fetchEtherScanData = (address) => {
         dispatch(scannerActions.setErrorMsg(scanData.result));
       }
       dispatch(scannerActions.setIsLoading(false));
-    } catch (error) {
-      dispatch(scannerActions.setErrorMsg(error.message));
+    } catch (error: unknown) {
+      if (error instanceof Error)
+        dispatch(scannerActions.setErrorMsg(error.message));
       dispatch(scannerActions.setIsLoading(false));
     }
   };
