@@ -17,15 +17,20 @@ interface Items {
 }
 
 interface S {
-  items: {}[];
-  trendingItems: {}[];
-  losersItems: {}[];
-  gainersItems: {}[];
-  chartData: {}[];
+  items: Items[];
+  trendingItems: Items[];
+  losersItems: Items[];
+  gainersItems: Items[];
+  chartData: Items[];
   sortActive: {
-    sortType: {};
-    sortBy: {};
+    sortType: string;
+    sortBy: string;
   };
+}
+export interface Asd {
+  trendingItems: Items[];
+  losersItems: Items[];
+  gainersItems: Items[];
 }
 const sortCurrencies = (
   items: Items[],
@@ -37,7 +42,9 @@ const sortCurrencies = (
         (b[sortBy] || "").toString().localeCompare((a[sortBy] || "").toString())
       );
     }
-    return [...items].sort((a, b) => a[sortBy] - b[sortBy]);
+    return [...items].sort(
+      (a, b) => a[sortBy as keyof {}] - b[sortBy as keyof {}]
+    );
   }
   if (sortType === "descending") {
     if (sortBy === "name") {
@@ -45,7 +52,9 @@ const sortCurrencies = (
         (a[sortBy] || "").toString().localeCompare((b[sortBy] || "").toString())
       );
     }
-    return [...items].sort((a, b) => b[sortBy] - a[sortBy]);
+    return [...items].sort(
+      (a, b) => b[sortBy as keyof {}] - a[sortBy as keyof {}]
+    );
   }
   return items;
 };
