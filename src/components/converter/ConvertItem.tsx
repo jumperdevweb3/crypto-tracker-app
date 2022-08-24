@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { FormEvent, useEffect } from "react";
 import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
+//types
+import { AppDispatch } from "../../store";
 import { RootState } from "../../store";
 
 export const ConvertItem = ({ kind }: { kind: string }) => {
@@ -15,7 +17,7 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
   const convertState = useSelector((state: RootState) => state.convert);
   const wasSelected =
     convertState.itemFrom.id !== "" && convertState.itemTo.id !== "";
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const optionItems = currenciesData.map((item) => (
     <option value={item.id} key={Math.random() * 100}>

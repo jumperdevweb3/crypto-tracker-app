@@ -9,10 +9,9 @@ export const CurrenciesOptions = () => {
   const [sortActiveIcon, setSortActiveIcon] = useState({
     sortBy: "market_cap_rank",
     sortTypeIcon: <FaAngleDown />,
-    // extraStyles: `${classes["option-btn"]} ${classes["sort-active"]}`,
   });
   const dispatch = useDispatch();
-  const { width }: any = useWindowSize();
+  const { width } = useWindowSize();
   const sortType = useSelector(
     (state: RootState) => state.currencies.sortActive.sortType
   );

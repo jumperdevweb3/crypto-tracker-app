@@ -4,7 +4,7 @@ export const PriceTimeChange = ({
   time,
   classes,
 }: {
-  time: any;
+  time: number;
   classes: any;
 }) => {
   const timeStyle =
@@ -14,7 +14,7 @@ export const PriceTimeChange = ({
   const timeIcon = time <= 0 ? <FaAngleDown /> : <FaAngleUp />;
   return (
     <div className={timeStyle}>
-      <p>{Math.abs(time.toFixed(2))}%</p>
+      <p>{Math.abs(+time.toFixed(2))}%</p>
       {timeIcon}
     </div>
   );

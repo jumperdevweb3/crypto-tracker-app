@@ -4,12 +4,16 @@ import classes from "./CoinModal.module.scss";
 import { fetchChartData } from "../../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 import { TradingViewChart } from "../../currencies/TradingViewChart";
+//types
+import { AppDispatch } from "../../../store";
+import { CurrencyItem } from "../../types/types";
+import { ModalTypes } from "../../types/types";
 
-const Backdrop = (props: any) => {
+const Backdrop = (props: { onClose: () => void }) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;
 };
 
-const ModalOverlay = (props: any) => {
+const ModalOverlay = (props: ModalTypes) => {
   return (
     <div className={classes.modal}>
       <span className="close-button" onClick={props.onClose}>
@@ -21,7 +25,10 @@ const ModalOverlay = (props: any) => {
 };
 const portalElement = document.getElementById("currency-detail") as HTMLElement;
 
-export const CoinModal = (props: any) => {
+export const CoinModal = (props: {
+  item: CurrencyItem;
+  onClose: () => void;
+}) => {
   const {
     id,
     image,
@@ -37,7 +44,7 @@ export const CoinModal = (props: any) => {
   } = props.item;
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
-  const dispatch: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const timeStyle =
     price_change_24h <= 0
       ? `${classes.time} ${classes.decr}`

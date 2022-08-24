@@ -1,5 +1,5 @@
 import { createChart, ColorType } from "lightweight-charts";
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { RootState } from "../../store";

@@ -4,23 +4,18 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { StatsModal } from "../../ui/modals/StatsModal";
+//types
 import { RootState } from "../../../store";
-const statsModal: any = document.getElementById("stats-modal");
+import { CurrencyItem } from "../../types/types";
+
+const statsModal = document.getElementById("stats-modal") as HTMLElement;
 
 export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
   const [modalActive, setModalActive] = useState(false);
 
-  interface I {
-    id: string;
-    image: string;
-    name: string;
-    symbol: string;
-    price: string;
-  }
-
   let icon;
   let price = "price_change_24h";
-  let filterType: [] | any;
+  let filterType: CurrencyItem[] = [];
 
   const items = useSelector((state: RootState) => {
     if (kind === "trending") return state.currencies.trendingItems;
@@ -49,7 +44,7 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
     );
   }
 
-  const topThreeView = filterType.slice(0, 3).map((item: I, index: number) => {
+  const topThreeView = filterType.slice(0, 3).map((item, index: number) => {
     return (
       <StatsCoinCard
         key={item.id}
@@ -57,11 +52,11 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
         image={item.image}
         name={item.name}
         alias={item.symbol}
-        percentage={item[price as keyof I]}
+        percentage={item[price as keyof CurrencyItem]}
       />
     );
   });
-  const moreItems = filterType.map((item: I, index: number) => {
+  const moreItems = filterType.map((item, index: number) => {
     return (
       <StatsCoinCard
         key={item.id}
@@ -69,7 +64,7 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
         image={item.image}
         name={item.name}
         alias={item.symbol}
-        percentage={item[price as keyof I]}
+        percentage={item[price as keyof CurrencyItem]}
       />
     );
   });

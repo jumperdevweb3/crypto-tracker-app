@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaSearch } from "react-icons/fa";
 import { fetchEtherScanData } from "../../store/currencies-actions";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
+//types
+import { AppDispatch } from "../../store";
 import { RootState } from "../../store";
 
 export const Tracker = () => {
@@ -13,7 +15,7 @@ export const Tracker = () => {
   );
   const isLoading = useSelector((state: RootState) => state.scanner.isLoading);
   const [inputValue, setInputValue] = useState("");
-  const dispatch: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const inputChangeHandler = (event: FormEvent<HTMLInputElement>) => {
     setInputValue(event.currentTarget.value);

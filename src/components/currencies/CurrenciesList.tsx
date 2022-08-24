@@ -6,7 +6,10 @@ import { CurrenciesOptions } from "./CurrenciesOptions";
 import { CoinCard } from "../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 import Notification from "../ui/Notification";
+//types
 import { RootState } from "../../store";
+import { AppDispatch } from "../../store";
+
 const SECOND_TO_REFRESH = 15;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 
@@ -21,7 +24,7 @@ export const CurrenciesList = () => {
   const sortActive = useSelector(
     (state: RootState) => state.currencies.sortActive
   );
-  const dispatch: any = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const refreshData = setInterval(() => {

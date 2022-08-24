@@ -1,35 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getApiData } from "../components/utils/getApiData";
-
-interface Items {
-  id: string;
-  image: string;
-  name: string;
-  symbol: string;
-  current_price: number;
-  market_cap_rank: string | number;
-  price_change_1h: string | number;
-  price_change_24h: string | number;
-  price_change_7d: string | number;
-  market_cap: string | number;
-  total_volume: string | number;
-  ath: string | number;
-}
-
-interface S {
-  items: Items[];
-  trendingItems: Items[] | [] | any;
-  losersItems: Items[] | [] | any;
-  gainersItems: Items[] | [] | any;
-  chartData: Items[];
-  sortActive: {
-    sortType: string;
-    sortBy: string;
-  };
-}
+import { CurrenciesState } from "../components/types/types";
+import { CurrencyItem } from "../components/types/types";
 
 const sortCurrencies = (
-  items: Items[],
+  items: CurrencyItem[],
   { sortType, sortBy }: { sortType: string; sortBy: string }
 ) => {
   if (sortType === "ascending") {
@@ -67,10 +42,12 @@ const currenciesSlice = createSlice({
       sortType: "ascending",
       sortBy: "market_cap_rank",
     },
-  } as S,
+  } as CurrenciesState,
   reducers: {
     setItems(state, action) {
-      const items = action.payload.map((item: {}) => getApiData(item));
+      const items = action.payload.map((item: CurrencyItem) =>
+        getApiData(item)
+      );
       state.items = sortCurrencies(items, state.sortActive);
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",
