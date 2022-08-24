@@ -20,9 +20,9 @@ export interface CurrencyItem {
 
 export interface CurrenciesState {
   items: CurrencyItem[];
-  trendingItems: CurrencyItem[] | [] | any;
-  losersItems: CurrencyItem[] | [] | any;
-  gainersItems: CurrencyItem[] | [] | any;
+  trendingItems: CurrencyItem[];
+  losersItems: CurrencyItem[];
+  gainersItems: CurrencyItem[];
   chartData: CurrencyItem[];
   sortActive: {
     sortType: string;
