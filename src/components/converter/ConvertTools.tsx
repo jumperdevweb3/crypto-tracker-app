@@ -4,9 +4,10 @@ import classes from "./Converter.module.scss";
 import { ConvertAmount } from "./ConvertAmount";
 import { useDispatch } from "react-redux";
 import { convertActions } from "../../store/convert-slice";
-
+//types
+import { AppDispatch } from "../../store";
 export const ConvertTools = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const swapCurrenciesHandler = () => {
     dispatch(convertActions.swap());

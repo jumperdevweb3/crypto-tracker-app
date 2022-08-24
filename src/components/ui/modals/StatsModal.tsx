@@ -1,12 +1,12 @@
 import ReactDOM from "react-dom";
-
 import classes from "./StatsModal.module.scss";
+import { ModalTypes } from "../../types/types";
 
-const Backdrop = (props) => {
+const Backdrop = (props: { onClose: () => void }) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;
 };
 
-const ModalOverlay = (props) => {
+const ModalOverlay = (props: ModalTypes) => {
   return (
     <div className={classes.modal}>
       <span className="close-button" onClick={props.onClose}>
@@ -17,9 +17,9 @@ const ModalOverlay = (props) => {
   );
 };
 
-const portalElement = document.getElementById("stats-modal");
+const portalElement = document.getElementById("stats-modal") as HTMLElement;
 
-export const StatsModal = (props) => {
+export const StatsModal = (props: ModalTypes) => {
   return (
     <>
       {ReactDOM.createPortal(

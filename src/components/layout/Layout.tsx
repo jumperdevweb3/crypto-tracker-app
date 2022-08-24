@@ -1,7 +1,11 @@
 import { MainNav } from "./MainNav";
 import classes from "./Layout.module.scss";
+import { ReactNode } from "react";
 
-export const Layout = ({ children }) => {
+type Props = {
+  children: ReactNode;
+};
+export const Layout = ({ children }: Props) => {
   return (
     <>
       <MainNav />

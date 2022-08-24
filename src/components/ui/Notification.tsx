@@ -1,6 +1,6 @@
 import classes from "./Notification.module.scss";
 
-const Notification = (props) => {
+const Notification = (props: { message: string }) => {
   const cssClasses = classes.notification;
 
   return (

@@ -6,12 +6,18 @@ import { watchlistActions } from "../../../store/watchlist-slice";
 import { CoinModal } from "../../ui/modals/CoinModal";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
+//types
+import { CurrencyItem } from "../../types/types";
+import { AppDispatch } from "../../../store";
 
-const currencyDetail = document.getElementById("currency-detail");
-export const CoinCard = ({ item }) => {
+const currencyDetail = document.getElementById(
+  "currency-detail"
+) as HTMLElement;
+
+export const CoinCard = ({ item }: { item: CurrencyItem }) => {
   const [modalActive, setModalActive] = useState(false);
   const { width } = useWindowSize();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
   const addToWatchlistHandler = () => {

@@ -1,6 +1,12 @@
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-export const PriceTimeChange = ({ time, classes }) => {
+export const PriceTimeChange = ({
+  time,
+  classes,
+}: {
+  time: number;
+  classes: any;
+}) => {
   const timeStyle =
     time <= 0
       ? `${classes.time} ${classes.decr}`
@@ -8,7 +14,7 @@ export const PriceTimeChange = ({ time, classes }) => {
   const timeIcon = time <= 0 ? <FaAngleDown /> : <FaAngleUp />;
   return (
     <div className={timeStyle}>
-      <p>{Math.abs(time.toFixed(2))}%</p>
+      <p>{Math.abs(+time.toFixed(2))}%</p>
       {timeIcon}
     </div>
   );

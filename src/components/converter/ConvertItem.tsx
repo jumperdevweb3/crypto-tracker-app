@@ -1,18 +1,23 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { FormEvent, useEffect } from "react";
 import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
+//types
+import { AppDispatch } from "../../store";
+import { RootState } from "../../store";
 
-export const ConvertItem = (props) => {
-  const nameInputValue = useSelector((state) =>
-    props.kind === "from" ? state.convert.itemFrom.id : state.convert.itemTo.id
+export const ConvertItem = ({ kind }: { kind: string }) => {
+  const nameInputValue = useSelector((state: RootState) =>
+    kind === "from" ? state.convert.itemFrom.id : state.convert.itemTo.id
   );
-  const currenciesData = useSelector((state) => state.currencies.items);
-  const quantity = useSelector((state) => state.convert.quantity);
-  const convertState = useSelector((state) => state.convert);
+  const currenciesData = useSelector(
+    (state: RootState) => state.currencies.items
+  );
+  const quantity = useSelector((state: RootState) => state.convert.quantity);
+  const convertState = useSelector((state: RootState) => state.convert);
   const wasSelected =
     convertState.itemFrom.id !== "" && convertState.itemTo.id !== "";
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const optionItems = currenciesData.map((item) => (
     <option value={item.id} key={Math.random() * 100}>
@@ -20,16 +25,16 @@ export const ConvertItem = (props) => {
     </option>
   ));
 
-  const selectHandler = (event) => {
-    const id = event.target.value;
-    dispatch(convertActions.onOptionChange({ kind: props.kind, id }));
+  const selectHandler = (event: FormEvent<HTMLSelectElement>) => {
+    const id = event.currentTarget.value;
+    dispatch(convertActions.onOptionChange({ kind: kind, id }));
     const item = currenciesData.find((item) => item.id === id);
 
     if (!item) return;
 
     dispatch(
       convertActions.setValue({
-        kind: props.kind,
+        kind: kind,
         item: { id, price: item.current_price.toFixed(2), name: item.name },
       })
     );
@@ -48,9 +53,7 @@ export const ConvertItem = (props) => {
   return (
     <div className={classes.box}>
       <div className={classes.selects}>
-        <label htmlFor="currency">
-          {props.kind === "from" ? "From:" : "To:"}
-        </label>
+        <label htmlFor="currency">{kind === "from" ? "From:" : "To:"}</label>
         <select
           name="currency"
           id="currency"

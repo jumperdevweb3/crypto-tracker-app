@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
 import classes from "./Converter.module.scss";
-
+import { RootState } from "../../store";
 export const ConvertedValueDisplay = () => {
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
-  const warning = useSelector((state) => state.convert.warning);
-  const itemFromData = useSelector((state) => state.convert.itemFrom);
-  const itemToData = useSelector((state) => state.convert.itemTo);
-  const amount = useSelector((state) => state.convert.quantity);
-  const result = useSelector((state) => state.convert.result);
+  const warning = useSelector((state: RootState) => state.convert.warning);
+  const itemFromData = useSelector(
+    (state: RootState) => state.convert.itemFrom
+  );
+  const itemToData = useSelector((state: RootState) => state.convert.itemTo);
+  const amount = useSelector((state: RootState) => state.convert.quantity);
+  const result = useSelector((state: RootState) => state.convert.result);
 
   const resultView =
     itemFromData.price && itemToData.price && amount !== 0

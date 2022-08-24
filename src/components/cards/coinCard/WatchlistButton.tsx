@@ -1,11 +1,22 @@
 import { useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
 import { FcApproval } from "react-icons/fc";
+import { RootState } from "../../../store";
 
-export const WatchlistButton = ({ classes, onClick, id }) => {
-  const watchList = useSelector((state) => state.watchlist.watchItems);
+export const WatchlistButton = ({
+  classes,
+  onClick,
+  id,
+}: {
+  classes: any;
+  onClick: () => void;
+  id: string;
+}) => {
+  const watchList = useSelector(
+    (state: RootState) => state.watchlist.watchItems
+  );
 
-  const isItemWatch = watchList.find((watchItem) => {
+  const isItemWatch = watchList.find((watchItem: { id: string }) => {
     return watchItem.id === id;
   });
 

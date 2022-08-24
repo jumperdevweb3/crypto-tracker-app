@@ -6,12 +6,12 @@ const watchlistSlice = createSlice({
   reducers: {
     updateItems(state, action) {
       const existId = state.watchItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item: { id: string }) => item.id === action.payload.id
       );
       const existitem = state.watchItems[existId];
       if (existitem) {
         state.watchItems = state.watchItems.filter(
-          (item) => action.payload.id !== item.id
+          (item: { id: string }) => action.payload.id !== item.id
         );
         return;
       }

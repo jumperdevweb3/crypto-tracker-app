@@ -1,4 +1,6 @@
-export const getApiData = (item) => {
+import { CurrencyItem } from "../types/types";
+
+export const getApiData = (item: CurrencyItem) => {
   return {
     id: item.id,
     image: item.image,
