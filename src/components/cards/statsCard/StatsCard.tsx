@@ -5,7 +5,6 @@ import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { StatsModal } from "../../ui/modals/StatsModal";
 import { RootState } from "../../../store";
-
 const statsModal: any = document.getElementById("stats-modal");
 
 export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
@@ -21,11 +20,13 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
 
   let icon;
   let price = "price_change_24h";
-  let filterType;
+  let filterType: [] | any;
 
-  const items = useSelector(
-    (state: RootState) => state.currencies[kind + "Items"]
-  );
+  const items = useSelector((state: RootState) => {
+    if (kind === "trending") return state.currencies.trendingItems;
+    if (kind === "losers") return state.currencies.losersItems;
+    if (kind === "gainers") return state.currencies.gainersItems;
+  });
 
   if (kind === "trending") {
     price = "price_change_7d";

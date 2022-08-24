@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classes from "./CurrenciesOptions.module.scss";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { useState } from "react";
-
+import { RootState } from "../../store";
 export const CurrenciesOptions = () => {
   const [sortActiveIcon, setSortActiveIcon] = useState({
     sortBy: "market_cap_rank",
@@ -12,10 +12,12 @@ export const CurrenciesOptions = () => {
     // extraStyles: `${classes["option-btn"]} ${classes["sort-active"]}`,
   });
   const dispatch = useDispatch();
-  const { width } = useWindowSize();
-  const sortType = useSelector((state) => state.currencies.sortActive.sortType);
+  const { width }: any = useWindowSize();
+  const sortType = useSelector(
+    (state: RootState) => state.currencies.sortActive.sortType
+  );
 
-  const sortByRankHandler = (name) => {
+  const sortByRankHandler = (name: string) => {
     return () => {
       setSortActiveIcon({
         sortBy: name,

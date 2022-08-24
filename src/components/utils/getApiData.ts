@@ -1,4 +1,4 @@
-export const getApiData = (item) => {
+export const getApiData = (item: any) => {
   return {
     id: item.id,
     image: item.image,

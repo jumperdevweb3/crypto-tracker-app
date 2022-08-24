@@ -1,7 +1,7 @@
 import { MainNav } from "./MainNav";
 import classes from "./Layout.module.scss";
 
-export const Layout = ({ children }) => {
+export const Layout = ({ children }: any) => {
   return (
     <>
       <MainNav />

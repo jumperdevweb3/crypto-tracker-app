@@ -6,18 +6,22 @@ import { CurrenciesOptions } from "./CurrenciesOptions";
 import { CoinCard } from "../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 import Notification from "../ui/Notification";
-
+import { RootState } from "../../store";
 const SECOND_TO_REFRESH = 15;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 
 export const CurrenciesList = () => {
-  const currenciesItems = useSelector((state) => state.currencies.items);
-  const isLoading = useSelector((state) => state.uiSlice.isLoading);
-  const notification = useSelector(
-    (state) => state.uiSlice.notification.message
+  const currenciesItems = useSelector(
+    (state: RootState) => state.currencies.items
   );
-  const sortActive = useSelector((state) => state.currencies.sortActive);
-  const dispatch = useDispatch();
+  const isLoading = useSelector((state: RootState) => state.uiSlice.isLoading);
+  const notification = useSelector(
+    (state: RootState) => state.uiSlice.notification.message
+  );
+  const sortActive = useSelector(
+    (state: RootState) => state.currencies.sortActive
+  );
+  const dispatch: any = useDispatch();
 
   useEffect(() => {
     const refreshData = setInterval(() => {

@@ -1,6 +1,12 @@
 import classes from "./StatsCoinCard.module.scss";
 
-export const StatsCoinCard = (props) => {
+export const StatsCoinCard = (props: {
+  percentage: any;
+  number: number;
+  name: string;
+  alias: string;
+  image: string;
+}) => {
   const valueStyle =
     props.percentage <= 0
       ? `${classes.percentage} ${classes.decr}`

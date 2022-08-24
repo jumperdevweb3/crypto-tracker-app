@@ -2,13 +2,15 @@ import { createChart, ColorType } from "lightweight-charts";
 import React, { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
-
+import { RootState } from "../../store";
 export const TradingViewChart = () => {
-  const chartData = useSelector((state) => state.currencies.chartData);
+  const chartData = useSelector(
+    (state: RootState) => state.currencies.chartData
+  );
 
   const filterChartData = chartData.filter(
-    (item, index) =>
-      chartData.findIndex((searchItem) => {
+    (item: any, index) =>
+      chartData.findIndex((searchItem: any) => {
         return (
           dayjs(item[0]).format("YYYY-MM-DD") ===
           dayjs(searchItem[0]).format("YYYY-MM-DD")
@@ -16,7 +18,7 @@ export const TradingViewChart = () => {
       }) === index
   );
 
-  const renderData = filterChartData.map((item) => {
+  const renderData = filterChartData.map((item: any) => {
     const formatDate = dayjs(item[0]).format("YYYY-MM-DD");
     return {
       time: formatDate,
@@ -35,7 +37,7 @@ export const TradingViewChart = () => {
     },
   };
 
-  const chartContainerRef = useRef();
+  const chartContainerRef: any = useRef();
 
   useEffect(() => {
     const handleResize = () => {

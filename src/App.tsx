@@ -10,13 +10,15 @@ import { Watchlist } from "./components/pages/Watchlist";
 import { watchlistActions } from "./store/watchlist-slice";
 import { WalletTracker } from "./components/pages/WalletTracker";
 import { Footer } from "./components/ui/Footer";
-
+import { RootState } from "./store/index";
 let isFirstLoading = true;
 
 function App() {
-  const currenciesData = useSelector((state) => state.currencies.items);
-  const data = useSelector((state) => state.watchlist.watchItems);
-  const dispatch = useDispatch();
+  const currenciesData = useSelector(
+    (state: RootState) => state.currencies.items
+  );
+  const data = useSelector((state: RootState) => state.watchlist.watchItems);
+  const dispatch: any = useDispatch();
 
   useEffect(() => {
     if (currenciesData.length === 0) {

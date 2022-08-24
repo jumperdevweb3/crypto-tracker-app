@@ -6,7 +6,7 @@ interface Items {
   image: string;
   name: string;
   symbol: string;
-  current_price: string | number;
+  current_price: number;
   market_cap_rank: string | number;
   price_change_1h: string | number;
   price_change_24h: string | number;
@@ -18,20 +18,16 @@ interface Items {
 
 interface S {
   items: Items[];
-  trendingItems: Items[];
-  losersItems: Items[];
-  gainersItems: Items[];
+  trendingItems: Items[] | [] | any;
+  losersItems: Items[] | [] | any;
+  gainersItems: Items[] | [] | any;
   chartData: Items[];
   sortActive: {
     sortType: string;
     sortBy: string;
   };
 }
-export interface Asd {
-  trendingItems: Items[];
-  losersItems: Items[];
-  gainersItems: Items[];
-}
+
 const sortCurrencies = (
   items: Items[],
   { sortType, sortBy }: { sortType: string; sortBy: string }

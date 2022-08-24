@@ -3,10 +3,12 @@ import classes from "./MainNav.module.scss";
 import { uiActions } from "../../store/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../hooks/use-windowSize";
+import { RootState } from "../../store";
+
 export const MainNav = () => {
-  const showNav = useSelector((state) => state.uiSlice.showNav);
+  const showNav = useSelector((state: RootState) => state.uiSlice.showNav);
   const dispatch = useDispatch();
-  const { width } = useWindowSize();
+  const { width }: { width: any } = useWindowSize();
 
   const links = [
     { name: "Home", path: "/" },

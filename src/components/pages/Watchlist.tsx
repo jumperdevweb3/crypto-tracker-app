@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
 import { CoinCard } from "../cards/coinCard/CoinCard";
 import { Link } from "react-router-dom";
+import { RootState } from "../../store";
 
 export const Watchlist = () => {
-  const data = useSelector((state) => state.watchlist.watchItems);
+  const data = useSelector((state: RootState) => state.watchlist.watchItems);
 
   return (
     <>
       {data.length !== 0 && (
         <>
           <h2 className="center-item">Your watch list items.</h2>
-          {data.map((item) => {
+          {data.map((item: { id: string }) => {
             return <CoinCard key={item.id} item={item} />;
           })}
         </>

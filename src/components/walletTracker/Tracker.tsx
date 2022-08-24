@@ -1,21 +1,24 @@
 import classes from "./Tracker.module.scss";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaSearch } from "react-icons/fa";
 import { fetchEtherScanData } from "../../store/currencies-actions";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
+import { RootState } from "../../store";
 
 export const Tracker = () => {
-  const fetchResult = useSelector((state) => state.scanner.result);
-  const fetchErrorMessage = useSelector((state) => state.scanner.errorMessage);
-  const isLoading = useSelector((state) => state.scanner.isLoading);
+  const fetchResult = useSelector((state: RootState) => state.scanner.result);
+  const fetchErrorMessage = useSelector(
+    (state: RootState) => state.scanner.errorMessage
+  );
+  const isLoading = useSelector((state: RootState) => state.scanner.isLoading);
   const [inputValue, setInputValue] = useState("");
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
 
-  const inputChangeHandler = (event) => {
-    setInputValue(event.target.value);
+  const inputChangeHandler = (event: FormEvent<HTMLInputElement>) => {
+    setInputValue(event.currentTarget.value);
   };
-  const fetchDataHandler = (event) => {
+  const fetchDataHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!inputValue || inputValue.length < 18) return;
     dispatch(fetchEtherScanData(inputValue));

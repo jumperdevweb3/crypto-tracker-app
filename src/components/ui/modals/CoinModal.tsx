@@ -5,11 +5,11 @@ import { fetchChartData } from "../../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 import { TradingViewChart } from "../../currencies/TradingViewChart";
 
-const Backdrop = (props) => {
+const Backdrop = (props: any) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;
 };
 
-const ModalOverlay = (props) => {
+const ModalOverlay = (props: any) => {
   return (
     <div className={classes.modal}>
       <span className="close-button" onClick={props.onClose}>
@@ -19,9 +19,9 @@ const ModalOverlay = (props) => {
     </div>
   );
 };
-const portalElement = document.getElementById("currency-detail");
+const portalElement = document.getElementById("currency-detail") as HTMLElement;
 
-export const CoinModal = (props) => {
+export const CoinModal = (props: any) => {
   const {
     id,
     image,
@@ -37,7 +37,7 @@ export const CoinModal = (props) => {
   } = props.item;
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
-  const dispatch = useDispatch();
+  const dispatch: any = useDispatch();
   const timeStyle =
     price_change_24h <= 0
       ? `${classes.time} ${classes.decr}`
