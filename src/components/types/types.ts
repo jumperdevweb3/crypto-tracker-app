@@ -1,3 +1,5 @@
+import React, { ReactNode } from "react";
+
 export interface CurrencyItem {
   id: string;
   ath: number;
@@ -32,5 +34,5 @@ export interface CurrenciesState {
 
 export interface ModalTypes {
   onClose: () => void;
-  children: any;
+  children: ReactNode;
 }
