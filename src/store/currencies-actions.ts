@@ -65,7 +65,9 @@ export const fetchEtherScanData = (address: string) => {
     const fetchData = async () => {
       dispatch(scannerActions.setIsLoading(true));
       const response = await fetch(
-        `https://api.etherscan.io/api?module=account&action=balance&address=${address}&tag=latest&apikey=${process.env.REACT_APP_SCAN_API}`
+        `https://api.etherscan.io/api?module=account&action=balance&address=${address}&tag=latest&apikey=${
+          import.meta.env.VITE_SCAN_API
+        }`
       );
       if (!response.ok) {
         throw new Error(
@@ -99,7 +101,7 @@ export const fetchEtherScanData = (address: string) => {
 //   return async (dispatch) => {
 //     const fetchData = async () => {
 //       const response = await fetch(
-//         `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.REACT_APP_FIAT_KEY}&currencies=EUR%2CUSD%2CPLN`
+//         `https://api.freecurrencyapi.com/v1/latest?apikey=${import.meta.env.VITE_FIAT_KEY}&currencies=EUR%2CUSD%2CPLN`
 //       );
 //       if (!response.ok) {
 //         throw new Error(
