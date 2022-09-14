@@ -1,29 +1,13 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { CoinCard } from "../../components/cards/coinCard/CoinCard";
 import Link from "next/link";
-import { fetchCurrenciesData } from "../../store/currencies-actions";
-import { useEffect } from "react";
-import { watchlistActions } from "../../store/watchlist-slice";
+
 //types
-import { AppDispatch } from "../../store";
 import { RootState } from "../../store";
 import { CurrencyItem } from "../../components/types/types";
 
 export default function WatchlistPage() {
-  const dispatch = useDispatch<AppDispatch>();
-
   const data = useSelector((state: RootState) => state.watchlist.watchItems);
-
-  useEffect(() => {
-    const local = localStorage.getItem("watchlist");
-    if (local !== null) {
-      dispatch(watchlistActions.setItem(JSON.parse(local)));
-    }
-  }, [dispatch]);
-
-  useEffect(() => {
-    localStorage.setItem("watchlist", JSON.stringify(data));
-  }, [data]);
 
   return (
     <>

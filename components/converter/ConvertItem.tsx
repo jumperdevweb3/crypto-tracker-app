@@ -5,25 +5,19 @@ import classes from "./ConvertItem.module.scss";
 //types
 import { AppDispatch } from "../../store";
 import { RootState } from "../../store";
-import { fetchCurrenciesData } from "../../store/currencies-actions";
 
 export const ConvertItem = ({ kind }: { kind: string }) => {
+  const dispatch = useDispatch<AppDispatch>();
   const nameInputValue = useSelector((state: RootState) =>
     kind === "from" ? state.convert.itemFrom.id : state.convert.itemTo.id
   );
   const currenciesData = useSelector(
     (state: RootState) => state.currencies.items
   );
-  useEffect(() => {
-    if (currenciesData.length === 0) {
-      dispatch(fetchCurrenciesData(false));
-    }
-  }, []);
   const quantity = useSelector((state: RootState) => state.convert.quantity);
   const convertState = useSelector((state: RootState) => state.convert);
   const wasSelected =
     convertState.itemFrom.id !== "" && convertState.itemTo.id !== "";
-  const dispatch = useDispatch<AppDispatch>();
 
   const optionItems = currenciesData.map((item) => (
     <option value={item.id} key={Math.random() * 100}>
