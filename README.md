@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to crypto-tracker-app migrated NextJS👋</h1>
+<h1 align="center">Welcome to crypto-tracker-app 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.1-blue.svg?cacheSeconds=2592000" />
 </p>
@@ -14,7 +14,7 @@
 > I added news subpage with fetched data from Messari.io
 
 
-<!-- ### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/) -->
+### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/) 
 
 ## Install
 
