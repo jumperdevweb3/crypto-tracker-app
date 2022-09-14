@@ -14,7 +14,7 @@
 > I added news subpage with fetched data from Messari.io
 
 
-### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/) 
+### ✨ [Demo](https://crypto-tracker-app-2.netlify.app/) 
 
 ## Install
 
