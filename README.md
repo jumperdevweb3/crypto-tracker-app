@@ -1,48 +1,34 @@
-<h1 align="center">Welcome to crypto-tracker-app 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
-</p>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-> App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
+## Getting Started
 
-> Data is refreshed in real time
+First, run the development server:
 
-> I decided to use Redux for practice and I am satisfied with this method of managing the state in app with a lot of data it's really clean and simple
-
-> In the future I plan to add a subpage with crypto news but i'm still looking for a good api
-
-
-### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/)
-
-## Install
-
-```sh
-npm install
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-## Usage
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```sh
-npm run start
-```
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### What u need
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-```sh
-* Etherscan API KEY: https://etherscan.io/apis
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-* CoinGeco Public Api: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d
-```
+## Learn More
 
-## Author
+To learn more about Next.js, take a look at the following resources:
 
-👤 **Skoczy01**
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- Github: [@skoczy01](https://github.com/skoczy01)
-- LinkedIn: https://www.linkedin.com/in/filipskoczylas/
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Show your support
+## Deploy on Vercel
 
-Give a ⭐️ if this project helped you!
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

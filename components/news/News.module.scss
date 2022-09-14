@@ -1,0 +1,80 @@
+.title {
+  text-align: center;
+  color: #fff;
+  margin: 3rem 0;
+
+  span {
+    color: rgb(193, 162, 222);
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  color: #fff;
+}
+.news-box {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  gap: 2rem;
+  padding: 1rem;
+  border: 2px solid rgb(193, 162, 222);
+  border-radius: 10px;
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    .time {
+      text-align: right;
+      margin: 0.5rem 0;
+    }
+    .title {
+      margin: 1rem 0;
+      color: rgb(193, 162, 222);
+    }
+  }
+  a {
+    color: #aaa;
+    text-decoration: underline;
+    text-align: center;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+
+    .info {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      .author {
+        font-weight: bold;
+        color: rgb(79, 125, 132);
+      }
+      .keywords {
+        font-weight: bold;
+        font-style: italic;
+        color: rgb(79, 125, 132);
+      }
+    }
+  }
+  .btn {
+    border: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
+    width: 10rem;
+    padding: 10px 1rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgb(174, 131, 174);
+    }
+  }
+}
