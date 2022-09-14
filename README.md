@@ -1,7 +1,9 @@
-<h1 align="center">Welcome to crypto-tracker-app 👋</h1>
+<h1 align="center">Welcome to crypto-tracker-app migrated NextJS👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.1-blue.svg?cacheSeconds=2592000" />
 </p>
+
+<h3>*Still working on bugs*</h3>
 
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
 
@@ -9,10 +11,10 @@
 
 > I decided to use Redux for practice and I am satisfied with this method of managing the state in app with a lot of data it's really clean and simple
 
-> In the future I plan to add a subpage with crypto news but i'm still looking for a good api
+> I added news subpage with fetched data from Messari.io
 
 
-### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/)
+<!-- ### ✨ [Demo](https://cryptocurrencies-tracker-app.netlify.app/) -->
 
 ## Install
 
