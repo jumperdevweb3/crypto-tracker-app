@@ -76,7 +76,8 @@ export const CurrenciesDetail = ({
               </span>
             </p>
           </div>
-          <div id="chart">{<TradingViewChart />}</div>
+          {/* <div id="chart">{<TradingViewChart />}</div> */}
+          <p className="center">Chart will be addes soon.</p>
         </div>
       </div>
     </>
