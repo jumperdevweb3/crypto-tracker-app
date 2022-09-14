@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to crypto-tracker-app migrated NextJS👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-2.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.1-blue.svg?cacheSeconds=2592000" />
 </p>
-
+<h3>Still working on bugs</h3>
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
 
 > Data is refreshed in real time
