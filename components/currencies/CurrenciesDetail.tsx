@@ -1,15 +1,25 @@
-import { TradingViewChart } from "./TradingViewChart";
-//types
+import dynamic from "next/dynamic";
 import { CurrencyItem } from "../types/types";
+import { useSelector, useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "../../store";
+import { useEffect } from "react";
+import { fetchChartData } from "../../store/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";
+
+const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
+  ssr: false,
+});
 
 export const CurrenciesDetail = ({
   item,
 }: {
   item: CurrencyItem | undefined;
 }) => {
+  const dispatch = useDispatch<AppDispatch>();
   if (typeof item === "undefined") return <h2>Faild load coin data</h2>;
-
+  const chartData = useSelector(
+    (state: RootState) => state.currencies.chartData
+  );
   const {
     id,
     image,
@@ -33,6 +43,10 @@ export const CurrenciesDetail = ({
     ath_change_percentage <= 0
       ? `${classes.time} ${classes.decr}`
       : `${classes.time} ${classes.incr}`;
+
+  useEffect(() => {
+    dispatch(fetchChartData(id));
+  }, [dispatch]);
 
   return (
     <>
@@ -76,8 +90,11 @@ export const CurrenciesDetail = ({
               </span>
             </p>
           </div>
-          {/* <div id="chart">{<TradingViewChart />}</div> */}
-          <p className="center">Chart will be addes soon.</p>
+          <div id="chart">
+            {chartData.length !== 0 && (
+              <TradingViewChart chartData={chartData} />
+            )}
+          </div>
         </div>
       </div>
     </>

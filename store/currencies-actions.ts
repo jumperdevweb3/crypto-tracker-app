@@ -51,11 +51,7 @@ export const fetchChartData = (id: string) => {
       const chartData = await fetchData();
       dispatch(currenciesActions.setChart(chartData.prices));
     } catch (error) {
-      dispatch(
-        uiActions.showNotification({
-          message: "Fetch chart data faild!!",
-        })
-      );
+      dispatch(currenciesActions.setChart([]));
     }
   };
 };

@@ -6,11 +6,11 @@ import { AppDispatch, RootState } from "../../store";
 import { fetchCurrenciesData } from "../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { watchlistActions } from "../../store/watchlist-slice";
 
 type Props = {
   children: ReactNode;
 };
-import { watchlistActions } from "../../store/watchlist-slice";
 
 export const Layout = ({ children }: Props) => {
   const dispatch = useDispatch<AppDispatch>();
