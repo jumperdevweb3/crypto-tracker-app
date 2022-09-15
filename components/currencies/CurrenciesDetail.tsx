@@ -10,16 +10,12 @@ const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
 });
 
-export const CurrenciesDetail = ({
-  item,
-}: {
-  item: CurrencyItem | undefined;
-}) => {
+export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
   const dispatch = useDispatch<AppDispatch>();
-  if (typeof item === "undefined") return <h2>Faild load coin data</h2>;
   const chartData = useSelector(
     (state: RootState) => state.currencies.chartData
   );
+
   const {
     id,
     image,
