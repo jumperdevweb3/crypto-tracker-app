@@ -1,4 +1,4 @@
-import ReactDOM, { createPortal } from "react-dom";
+import { createPortal } from "react-dom";
 import classes from "./StatsModal.module.scss";
 import { ModalTypes } from "../../types/types";
 
@@ -9,7 +9,7 @@ const Backdrop = (props: { onClose: () => void }) => {
 const ModalOverlay = (props: ModalTypes) => {
   return (
     <div className={classes.modal}>
-      <span className="close-button" onClick={props.onClose}>
+      <span className={classes["close-button"]} onClick={props.onClose}>
         X
       </span>
       <div className={classes.content}>{props.children}</div>

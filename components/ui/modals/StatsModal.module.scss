@@ -5,7 +5,7 @@
   width: 100%;
   height: 100vh;
   z-index: 20;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.35);
 }
 
 .modal {
@@ -14,46 +14,64 @@
   width: 80%;
   max-width: 600px;
   color: #fff;
-  background: #323742;
-  padding: 1rem;
+  background: #282d3a;
+  padding: 1.5rem 1rem;
   border-radius: 14px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   font-size: 0.8rem;
-}
 
-.content {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  padding: 1rem;
-  max-height: 70vh;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 8px;
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-weight: bold;
+    border: 2px solid rgb(193, 162, 222);
+    color: rgb(193, 162, 222);
+    background-color: #323742;
+    padding: 5px 10px;
+    border-radius: 10px;
+    z-index: 2;
+    cursor: pointer;
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    max-height: 70vh;
+    overflow-y: scroll;
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #17171a;
-    border-radius: 14px;
-    border: 2px solid transparent;
-  }
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
 
-  img {
-    width: 24px;
-    height: 24px;
-  }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
 
-  & > div {
-    margin: 1.2rem 0;
-    border-bottom: 1px solid rgb(193, 162, 222);
-    padding: 10px 0;
+    &::-webkit-scrollbar-thumb {
+      background-color: #17171a;
+      border-radius: 14px;
+      border: 2px solid transparent;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+
+    & > div {
+      margin: 1.2rem 0;
+      border-bottom: 2px solid rgb(193, 162, 222);
+      padding: 10px 0;
+
+      div {
+        font-weight: bold;
+      }
+    }
   }
 }
 
