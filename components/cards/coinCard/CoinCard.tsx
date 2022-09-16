@@ -4,6 +4,7 @@ import { useWindowSize } from "../../../hooks/use-windowSize";
 import { watchlistActions } from "../../../store/watchlist-slice";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
+import Image from "next/image";
 import Link from "next/link";
 //types
 import { CurrencyItem } from "../../types/types";
@@ -17,16 +18,6 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
   const addToWatchlistHandler = () => {
     dispatch(watchlistActions.updateItems(item));
   };
-
-  // const showCoinDetailHandler = () => {
-  //   setModalActive((state) => !state);
-  //   if (!modalActive) {
-  //     currencyDetail.classList.add("show");
-  //   }
-  //   if (modalActive) {
-  //     currencyDetail.classList.remove("show");
-  //   }
-  // };
 
   return (
     <div className={classes.coin}>
@@ -42,7 +33,14 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
         <p>{item.market_cap_rank}</p>
       </div>
       <div className={classes.name}>
-        <img src={item.image} alt="" aria-hidden={true} />
+        <Image
+          unoptimized
+          src={item.image}
+          alt="Token img"
+          aria-hidden={true}
+          width={20.5}
+          height={20.5}
+        />
         <p className={classes.title}>{item.name}</p>
         {width >= 768 && <span>{item.symbol.toUpperCase()}</span>}
       </div>
@@ -66,7 +64,6 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
           </div>
         </>
       )}
-      {/* {modalActive && <CoinModal onClose={showCoinDetailHandler} item={item} />} */}
     </div>
   );
 };
