@@ -61,12 +61,15 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
           value={nameInputValue}
         >
           <optgroup label="Cryptocurrencies">
-            {!wasSelected && (
+            {!wasSelected && currenciesData.length !== 0 && (
               <option className={classes.option} value="">
                 Please select currency
               </option>
             )}
-            {optionItems}
+            {currenciesData && optionItems}
+            {currenciesData.length === 0 && (
+              <option value={0}>{"Data load problem"}</option>
+            )}
           </optgroup>
         </select>
       </div>
