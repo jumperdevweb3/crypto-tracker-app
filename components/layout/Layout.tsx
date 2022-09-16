@@ -23,7 +23,7 @@ export const Layout = ({ children }: Props) => {
     if (currenciesData.length === 0) {
       dispatch(fetchCurrenciesData(false));
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     const local = localStorage.getItem("watchlist");
