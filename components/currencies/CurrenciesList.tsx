@@ -6,6 +6,7 @@ import { CurrenciesOptions } from "./CurrenciesOptions";
 import { CoinCard } from "../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 import Notification from "../ui/Notification";
+import classes from "./CurrenciesList.module.scss";
 //types
 import { RootState } from "../../store";
 import { AppDispatch } from "../../store";
@@ -47,8 +48,9 @@ export const CurrenciesList = () => {
   if (notification !== "") {
     return <Notification message={notification} />;
   }
+
   return (
-    <div className="market-list">
+    <div className={classes["market-list"]}>
       <CurrenciesOptions />
       {currenciesItems.map((item) => {
         return <CoinCard key={item.id} item={item} />;

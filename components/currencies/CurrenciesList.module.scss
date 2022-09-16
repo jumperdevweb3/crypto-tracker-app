@@ -1,0 +1,19 @@
+.market-list {
+  display: flex;
+  flex-direction: column;
+
+  .load-btn {
+    margin: 2rem auto;
+    padding: 10px 15px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: #ddd;
+      color: #000;
+    }
+  }
+}
