@@ -8,10 +8,10 @@ export const fetchCurrenciesData = (isFirstLoading: boolean) => {
     if (isFirstLoading) {
       dispatch(uiActions.showLoading(true));
     }
+    const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d`;
+
     const fetchData = async () => {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d"
-      );
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error("Could not fetch cart data!");
       }
@@ -23,11 +23,17 @@ export const fetchCurrenciesData = (isFirstLoading: boolean) => {
     };
     try {
       const currenciesData = await fetchData();
-      dispatch(currenciesActions.setItems(currenciesData));
-    } catch (error) {
       dispatch(
         uiActions.showNotification({
-          message: "Fetch data faild!!",
+          message: "",
+        })
+      );
+      dispatch(currenciesActions.setItems(currenciesData));
+    } catch (error) {
+      dispatch(uiActions.showLoading(false));
+      dispatch(
+        uiActions.showNotification({
+          message: `Problem: ${error}`,
         })
       );
     }
@@ -65,7 +71,7 @@ export const fetchEtherScanData = (address: string) => {
       );
       if (!response.ok) {
         throw new Error(
-          "Could not fetch ether scan data, try later or slow down (5 rq per sec)."
+          "Could not fetch ether scan data, try later or slow down (5 req per sec)."
         );
       }
       const data = await response.json();
