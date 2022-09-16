@@ -20,7 +20,9 @@ export const News = ({ items }: NewsTypes) => {
           <p className={classes.time}>{time}</p>
           <h2 className={classes.title}>{item.title}</h2>
         </div>
-        <a href={item.url}>Source link</a>
+        <Link href={item.url} passHref>
+          <a target="_blank">Source link</a>
+        </Link>
         <div className={classes.footer}>
           <p className={classes.info}>
             Author:
@@ -33,7 +35,7 @@ export const News = ({ items }: NewsTypes) => {
           ) : null}
         </div>
         <Link href={link}>
-          <button className={classes.btn}>Show Article</button>
+          <a className={classes.btn}>Show Article</a>
         </Link>
       </div>
     );
