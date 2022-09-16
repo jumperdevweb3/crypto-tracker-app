@@ -87,8 +87,10 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
             </p>
           </div>
           <div id="chart">
-            {chartData.length !== 0 && (
+            {chartData.length !== 0 ? (
               <TradingViewChart chartData={chartData} />
+            ) : (
+              <p className="center">Faild load chart</p>
             )}
           </div>
         </div>
