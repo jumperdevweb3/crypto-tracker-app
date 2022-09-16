@@ -7,12 +7,9 @@ import { fetchCurrenciesData } from "../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { watchlistActions } from "../../store/watchlist-slice";
+import { PropsChildren } from "../types/types";
 
-type Props = {
-  children: ReactNode;
-};
-
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ children }: PropsChildren) => {
   const dispatch = useDispatch<AppDispatch>();
   const currenciesData = useSelector(
     (state: RootState) => state.currencies.items

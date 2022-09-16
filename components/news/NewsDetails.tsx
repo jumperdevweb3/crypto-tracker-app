@@ -3,11 +3,9 @@ import ReactMarkdown from "react-markdown";
 import { fetchNewsContent } from "../../helpers/api-utils";
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
+//types
+import { PropsDetials } from "../types/types";
 
-interface PropsDetials {
-  id: string;
-  title: string;
-}
 export const NewsDetails = (props: PropsDetials) => {
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
