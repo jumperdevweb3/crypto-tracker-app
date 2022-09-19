@@ -5,15 +5,16 @@ import { FaSearch } from "react-icons/fa";
 import { fetchEtherScanData } from "../../store/currencies-actions";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 //types
-import { AppDispatch } from "../../store";
-import { RootState } from "../../store";
+import { AppDispatch } from "../../store/store";
+import { RootState } from "../../store/store";
 
 export const Tracker = () => {
-  const fetchResult = useSelector((state: RootState) => state.scanner.result);
-  const fetchErrorMessage = useSelector(
-    (state: RootState) => state.scanner.errorMessage
-  );
-  const isLoading = useSelector((state: RootState) => state.scanner.isLoading);
+  const {
+    isLoading,
+    errorMessage: fetchErrorMessage,
+    result: fetchResult,
+  } = useSelector((state: RootState) => state.scanner);
+
   const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch<AppDispatch>();
 

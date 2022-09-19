@@ -3,21 +3,20 @@ import { FormEvent, useEffect } from "react";
 import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
 //types
-import { AppDispatch } from "../../store";
-import { RootState } from "../../store";
+import { AppDispatch } from "../../store/store";
+import { RootState } from "../../store/store";
 
 export const ConvertItem = ({ kind }: { kind: string }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const nameInputValue = useSelector((state: RootState) =>
-    kind === "from" ? state.convert.itemFrom.id : state.convert.itemTo.id
+
+  const { itemFrom, itemTo, quantity } = useSelector(
+    (state: RootState) => state.convert
   );
   const currenciesData = useSelector(
     (state: RootState) => state.currencies.items
   );
-  const quantity = useSelector((state: RootState) => state.convert.quantity);
-  const convertState = useSelector((state: RootState) => state.convert);
-  const wasSelected =
-    convertState.itemFrom.id !== "" && convertState.itemTo.id !== "";
+  const nameInputValue = kind === "from" ? itemFrom.id : itemTo.id;
+  const wasSelected = itemFrom.id !== "" && itemTo.id !== "";
 
   const optionItems = currenciesData.map((item) => (
     <option value={item.id} key={Math.random() * 100}>
@@ -41,14 +40,10 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
   };
 
   useEffect(() => {
-    if (
-      quantity !== 0 &&
-      convertState.itemFrom.price &&
-      convertState.itemTo.price
-    ) {
+    if (quantity !== 0 && itemFrom.price && itemTo.price) {
       dispatch(convertActions.convertData());
     }
-  }, [quantity, convertState.itemFrom, convertState.itemTo]);
+  }, [quantity, itemFrom, itemTo]);
 
   return (
     <div className={classes.box}>

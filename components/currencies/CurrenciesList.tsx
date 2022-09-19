@@ -8,22 +8,18 @@ import { LoadingSpinner } from "../ui/LoadingSpinner";
 import Notification from "../ui/Notification";
 import classes from "./CurrenciesList.module.scss";
 //types
-import { RootState } from "../../store";
-import { AppDispatch } from "../../store";
+import { RootState } from "../../store/store";
+import { AppDispatch } from "../../store/store";
 
 const SECOND_TO_REFRESH = 15;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 
 export const CurrenciesList = () => {
-  const currenciesItems = useSelector(
-    (state: RootState) => state.currencies.items
+  const { notification, isLoading } = useSelector(
+    (state: RootState) => state.uiSlice
   );
-  const isLoading = useSelector((state: RootState) => state.uiSlice.isLoading);
-  const notification = useSelector(
-    (state: RootState) => state.uiSlice.notification.message
-  );
-  const sortActive = useSelector(
-    (state: RootState) => state.currencies.sortActive
+  const { sortActive, items: currenciesItems } = useSelector(
+    (state: RootState) => state.currencies
   );
   const dispatch = useDispatch<AppDispatch>();
 
@@ -45,8 +41,8 @@ export const CurrenciesList = () => {
     return <LoadingSpinner />;
   }
 
-  if (notification !== "") {
-    return <Notification message={notification} />;
+  if (notification.message !== "") {
+    return <Notification message={notification.message} />;
   }
 
   return (
