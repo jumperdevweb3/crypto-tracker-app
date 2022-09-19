@@ -3,7 +3,7 @@ import { CoinCard } from "../../components/cards/coinCard/CoinCard";
 import Link from "next/link";
 
 //types
-import { RootState } from "../../store";
+import { RootState } from "../../store/store";
 import { CurrencyItem } from "../../components/types/types";
 
 export default function WatchlistPage() {

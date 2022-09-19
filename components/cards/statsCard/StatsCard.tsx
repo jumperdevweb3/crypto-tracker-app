@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { StatsModal } from "../../ui/modals/StatsModal";
 //types
-import { RootState } from "../../../store";
+import { RootState } from "../../../store/store";
 import { CurrencyItem } from "../../types/types";
 
 export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {

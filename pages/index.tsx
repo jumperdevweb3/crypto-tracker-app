@@ -5,8 +5,8 @@ import { Footer } from "../components/ui/Footer";
 import { StatsBox } from "../components/currencies/StatsBox";
 import { CurrenciesList } from "../components/currencies/CurrenciesList";
 //types
-import { AppDispatch } from "../store/index";
-import { RootState } from "../store/index";
+import { AppDispatch } from "../store/store";
+import { RootState } from "../store/store";
 
 let isFirstLoading = true;
 

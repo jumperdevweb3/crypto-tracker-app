@@ -5,7 +5,7 @@ import { ConvertAmount } from "./ConvertAmount";
 import { useDispatch } from "react-redux";
 import { convertActions } from "../../store/convert-slice";
 //types
-import { AppDispatch } from "../../store";
+import { AppDispatch } from "../../store/store";
 export const ConvertTools = () => {
   const dispatch = useDispatch<AppDispatch>();
 

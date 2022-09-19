@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
 import { FcApproval } from "react-icons/fc";
-import { RootState } from "../../../store";
+import { RootState } from "../../../store/store";
 
 export const WatchlistButton = ({
   classes,

@@ -1,7 +1,7 @@
 import { currenciesActions } from "./currencies-slice";
 import { uiActions } from "./ui-slice";
 import { scannerActions } from "./etherscan-slice";
-import { AppDispatch } from "./index";
+import { AppDispatch } from "./store";
 
 export const fetchCurrenciesData = (isFirstLoading: boolean) => {
   return async (dispatch: AppDispatch) => {

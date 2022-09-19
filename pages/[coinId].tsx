@@ -1,6 +1,6 @@
 import { CurrenciesDetail } from "../components/currencies/CurrenciesDetail";
 import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import { RootState } from "../store/store";
 import { useRouter } from "next/router";
 import { CurrencyItem } from "../components/types/types";
 export default function CoinDetailPage() {

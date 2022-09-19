@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../hooks/use-windowSize";
 import { useRouter } from "next/router";
 //types
-import { AppDispatch } from "../../store";
-import { RootState } from "../../store";
+import { AppDispatch } from "../../store/store";
+import { RootState } from "../../store/store";
 
 export const MainNav = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);

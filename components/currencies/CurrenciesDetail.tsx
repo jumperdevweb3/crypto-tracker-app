@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { CurrencyItem } from "../types/types";
 import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../store";
+import { AppDispatch, RootState } from "../../store/store";
 import { useEffect } from "react";
 import { fetchChartData } from "../../store/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";

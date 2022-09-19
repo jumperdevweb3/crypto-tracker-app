@@ -2,7 +2,7 @@ import { MainNav } from "./MainNav";
 import classes from "./Layout.module.scss";
 import { ReactNode } from "react";
 import { useEffect } from "react";
-import { AppDispatch, RootState } from "../../store";
+import { AppDispatch, RootState } from "../../store/store";
 import { fetchCurrenciesData } from "../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";

@@ -3,8 +3,8 @@ import { convertActions } from "../../store/convert-slice";
 import classes from "./ConvertItem.module.scss";
 import { FormEvent } from "react";
 //types
-import { AppDispatch } from "../../store";
-import { RootState } from "../../store";
+import { AppDispatch } from "../../store/store";
+import { RootState } from "../../store/store";
 
 export const ConvertAmount = () => {
   const amount = useSelector((state: RootState) => state.convert.quantity);

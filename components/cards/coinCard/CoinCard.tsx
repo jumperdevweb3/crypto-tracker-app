@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 //types
 import { CurrencyItem } from "../../types/types";
-import { AppDispatch } from "../../../store";
+import { AppDispatch } from "../../../store/store";
 
 export const CoinCard = ({ item }: { item: CurrencyItem }) => {
   const { width } = useWindowSize();
