@@ -1,8 +1,9 @@
 .options {
   display: grid;
   grid-template-columns:
-    2.5rem minmax(20px, 0.2fr) minmax(9rem, 1fr) minmax(5rem, 0.6fr)
-    0.6fr 0.6fr 0.6fr 1.2fr 1fr;
+    2.5rem minmax(20px, 0.2fr) minmax(11rem, 1fr) minmax(5rem, 0.6fr)
+    4.5rem 4.5rem 4.5rem 8.1rem
+    1fr;
   grid-template-rows: 1fr;
   height: 2rem;
   align-items: center;
@@ -50,7 +51,7 @@
     grid-template-columns: 2.5rem 1rem;
   }
   .time {
-    grid-template-columns: 3.2rem 1rem;
+    grid-template-columns: 2.5rem 1rem;
   }
   .market-cap,
   .volume {

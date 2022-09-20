@@ -2,8 +2,9 @@
   position: relative;
   display: grid;
   grid-template-columns:
-    2.5rem minmax(20px, 0.2fr) minmax(9rem, 1fr) minmax(5rem, 0.6fr)
-    minmax(70px, 0.6fr) minmax(70px, 0.6fr) minmax(70px, 0.6fr) 1.2fr 1fr;
+    2.5rem minmax(20px, 0.2fr) minmax(11rem, 1fr) minmax(5rem, 0.6fr)
+    4.5rem 4.5rem 4.5rem 8.1rem
+    1fr;
   grid-template-rows: 1fr;
   height: 5rem;
   align-items: center;
@@ -51,7 +52,7 @@
 
   .name {
     display: grid;
-    grid-template-columns: 0.2fr 0.7fr 2.3rem;
+    grid-template-columns: 1.6rem 5rem 2.5rem;
     align-items: center;
     justify-content: space-around;
 
@@ -63,11 +64,12 @@
       font-size: 0.8rem;
       color: #fff;
       text-align: left;
+      word-wrap: break-word;
     }
     img {
       width: 1.3rem;
       height: 1.3rem;
-      margin-right: 0.2rem;
+      margin-right: 0.5rem;
     }
     span {
       color: #ddd;
