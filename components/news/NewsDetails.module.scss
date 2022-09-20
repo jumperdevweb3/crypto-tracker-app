@@ -1,12 +1,14 @@
-.title {
-  text-align: center;
-}
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1rem;
   color: #fff;
+
+  .title {
+    text-align: center;
+    color: rgb(91, 60, 214);
+  }
 
   h2,
   h3,
@@ -52,5 +54,21 @@
   }
   img {
     max-width: 100%;
+  }
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  margin-bottom: 5rem;
+  img {
+    margin: 0 auto;
+  }
+  p:has(img) {
+    display: flex;
+    justify-content: center;
   }
 }

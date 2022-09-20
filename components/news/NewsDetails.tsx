@@ -26,7 +26,12 @@ export const NewsDetails = (props: PropsDetials) => {
       <div key={id} className={classes.content}>
         <h2 className={classes.title}>{title}</h2>
         {isLoading && <LoadingSpinner />}
-        {!isLoading && <ReactMarkdown>{content}</ReactMarkdown>}
+        {!isLoading && (
+          <article className={classes.article}>
+            {" "}
+            <ReactMarkdown>{content}</ReactMarkdown>
+          </article>
+        )}
       </div>
     </div>
   );
