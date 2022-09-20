@@ -29,11 +29,40 @@ const sortCurrencies = (
   }
   return items;
 };
+const sliceVisivleItems = (
+  passedItems: CurrencyItem[],
+  page: string | undefined
+) => {
+  let slicedItems = [] as CurrencyItem[];
+  if (!page) {
+    slicedItems = passedItems.slice(0, 50);
+  }
+  if (page === undefined || page === "/") {
+    slicedItems = passedItems.slice(0, 50);
+  }
+  if (page === "/?page=1") {
+    slicedItems = passedItems.slice(0, 50);
+  }
+  if (page === "/?page=2") {
+    slicedItems = passedItems.slice(51, 100);
+  }
+  if (page === "/?page=3") {
+    slicedItems = passedItems.slice(101, 150);
+  }
+  if (page === "/?page=4") {
+    slicedItems = passedItems.slice(151, 200);
+  }
+  if (page === "/?page=5") {
+    slicedItems = passedItems.slice(201, 250);
+  }
+  return slicedItems;
+};
 
 const currenciesSlice = createSlice({
   name: "currencies",
   initialState: {
     items: [],
+    visibleItems: [],
     trendingItems: [],
     losersItems: [],
     gainersItems: [],
@@ -62,8 +91,12 @@ const currenciesSlice = createSlice({
         sortBy: "price_change_24h",
       });
     },
+    setVisibleItems(state, action) {
+      const { items, page } = action.payload;
+      state.visibleItems = sliceVisivleItems(items, page);
+    },
     sortData(state) {
-      state.items = sortCurrencies(state.items, state.sortActive);
+      state.visibleItems = sortCurrencies(state.visibleItems, state.sortActive);
     },
     updateSort(state, action) {
       state.sortActive = action.payload;
