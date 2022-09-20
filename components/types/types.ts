@@ -22,6 +22,7 @@ export interface CurrencyItem {
 
 export interface CurrenciesState {
   items: CurrencyItem[];
+  visibleItems: CurrencyItem[];
   trendingItems: CurrencyItem[];
   losersItems: CurrencyItem[];
   gainersItems: CurrencyItem[];
