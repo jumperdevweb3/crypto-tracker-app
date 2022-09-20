@@ -1,9 +1,10 @@
-import { getNewsDetail, fetchNewsData } from "../../helpers/api-utils";
+import { getNewsDetail } from "../../helpers/api-utils";
 import { NewsDetails } from "../../components/news/NewsDetails";
 import { NewsItems } from "../../components/types/types";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { InferGetStaticPropsType } from "next";
+import { fetchSubpageId } from "../../helpers/api-utils";
 
 const DetialPage: NextPage = ({
   selectedNews,
@@ -38,9 +39,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const news = await fetchNewsData();
+  const fetchedPaths: { id: string }[] = await fetchSubpageId();
 
-  const paths = news.map((newsItem) => ({ params: { id: newsItem.id } }));
+  const paths = fetchedPaths.map((item) => ({ params: { id: item.id } }));
 
   return {
     paths: paths,
