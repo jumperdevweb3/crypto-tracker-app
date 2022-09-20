@@ -15,10 +15,16 @@
       gap: 0.4rem;
       align-items: center;
 
-      .alias,
       .rank {
         color: #858ca2;
       }
+      .name {
+        word-wrap: break-word;
+        width: 6rem;
+      }
+    }
+    .alias {
+      word-break: break-all;
     }
   }
   .percentage {

@@ -52,7 +52,7 @@
 
   .name {
     display: grid;
-    grid-template-columns: 1.6rem 5rem 2.5rem;
+    grid-template-columns: 1.6rem 5rem 3.5rem;
     align-items: center;
     justify-content: space-around;
 
@@ -72,6 +72,7 @@
       margin-right: 0.5rem;
     }
     span {
+      word-wrap: break-word;
       color: #ddd;
     }
   }
