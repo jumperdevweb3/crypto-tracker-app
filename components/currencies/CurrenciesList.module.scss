@@ -16,4 +16,41 @@
       color: #000;
     }
   }
+
+  .pages {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    margin: 2rem 0;
+
+    .link,
+    .home-page {
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 0.4rem 0.8rem;
+      font-weight: bold;
+      transition: 0.2s;
+
+      &:hover {
+        border: 2px solid rgb(193, 162, 222);
+      }
+    }
+    .link:hover,
+    .home-page:hover {
+      color: #aaa;
+    }
+    .active,
+    .home-page:nth-of-type(1) {
+      background-color: rgb(193, 162, 222);
+      border-radius: 10px;
+      color: #000;
+      transition: 0.2s;
+
+      &:hover {
+        border: 2px solid rgb(193, 162, 222);
+        background-color: transparent;
+        color: #fff;
+      }
+    }
+  }
 }
