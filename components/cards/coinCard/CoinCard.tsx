@@ -21,7 +21,7 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
 
   return (
     <div className={classes.coin}>
-      <Link href={`/${item.id}`}>
+      <Link href={`/currency/${item.id}`}>
         <div className={classes.overlay}></div>
       </Link>
       <WatchlistButton
