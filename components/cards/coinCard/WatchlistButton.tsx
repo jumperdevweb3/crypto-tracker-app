@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
-import { FcApproval } from "react-icons/fc";
 import { RootState } from "../../../store/store";
-
+import { AiFillStar } from "react-icons/ai";
 export const WatchlistButton = ({
   classes,
   onClick,
@@ -22,7 +21,7 @@ export const WatchlistButton = ({
 
   let isWatchIcon = <BiStar color="#8d9904" fontSize="1.25rem" />;
   if (isItemWatch) {
-    isWatchIcon = <FcApproval fontSize="1.25rem" />;
+    isWatchIcon = <AiFillStar fontSize="1.25rem" fill="gold" />;
   }
   return (
     <button className={classes.star} onClick={onClick}>
