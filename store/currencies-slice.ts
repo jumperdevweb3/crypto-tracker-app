@@ -77,7 +77,7 @@ const currenciesSlice = createSlice({
       const items = action.payload.map((item: CurrencyItem) =>
         getApiData(item)
       );
-      state.items = sortCurrencies(items, state.sortActive);
+      state.items = items;
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",
         sortBy: "price_change_7d",
@@ -93,7 +93,8 @@ const currenciesSlice = createSlice({
     },
     setVisibleItems(state, action) {
       const { items, page } = action.payload;
-      state.visibleItems = sliceVisivleItems(items, page);
+      const slicedItems = sliceVisivleItems(items, page);
+      state.visibleItems = sortCurrencies(slicedItems, state.sortActive);
     },
     sortData(state) {
       state.visibleItems = sortCurrencies(state.visibleItems, state.sortActive);
