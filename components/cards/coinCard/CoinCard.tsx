@@ -4,7 +4,6 @@ import { useWindowSize } from "../../../hooks/use-windowSize";
 import { watchlistActions } from "../../../store/watchlist-slice";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
-import Image from "next/image";
 import Link from "next/link";
 //types
 import { CurrencyItem } from "../../types/types";
@@ -38,7 +37,12 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
         {width >= 768 && <span>{item.symbol.toUpperCase()}</span>}
       </div>
       <div className={classes.price}>
-        <p>${interNumberFormat.format(item.current_price)}</p>
+        <p>
+          $
+          {interNumberFormat.format(item.current_price) === "0"
+            ? item.current_price.toFixed(9)
+            : interNumberFormat.format(item.current_price)}
+        </p>
       </div>
       <PriceTimeChange time={item.price_change_1h} classes={classes} />
       {width >= 768 && (
