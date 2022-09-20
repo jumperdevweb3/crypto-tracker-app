@@ -26,6 +26,25 @@ export const fetchNewsData = async () => {
   }
 };
 
+export const fetchSubpageId = async () => {
+  try {
+    const response = await fetch(
+      "https://data.messari.io/api/v1/news?fields=id"
+    );
+    if (!response.ok) throw new Error("Fail fetch data");
+    const data = await response.json();
+    const items = data.data;
+    return items;
+  } catch (e) {
+    if (typeof e === "string") {
+      console.log(e.toUpperCase());
+    } else if (e instanceof Error) {
+      console.log(e.message);
+    }
+    return [];
+  }
+};
+
 export const fetchNewsContent = async (id: string) => {
   try {
     const response = await fetch(
