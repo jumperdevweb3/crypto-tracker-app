@@ -56,7 +56,7 @@ export default function TradingViewChart({ chartData }: { chartData: any }) {
         },
       },
       width: chartContainerRef.current.clientWidth,
-      height: 300,
+      height: 450,
     });
     chart.timeScale().fitContent();
 
