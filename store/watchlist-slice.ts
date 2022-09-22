@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sortCurrencies } from "./currencies-slice";
+import { sortCurrencies } from "./currencies-actions";
 //types
 import { WatchlistState } from "../components/types/types";
 
