@@ -59,7 +59,10 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
             <p className={classes.rank}>Rank #{market_cap_rank}</p>
             <div className={classes["second-data"]}>
               <p className={classes.price}>
-                {interNumberFormat.format(current_price)}$
+                {interNumberFormat.format(current_price) === "0"
+                  ? current_price.toFixed(7)
+                  : interNumberFormat.format(current_price)}
+                $
               </p>
               <p className={timeStyle}>{price_change_24h.toFixed(2)}%</p>
             </div>
@@ -69,7 +72,13 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
               Market Cap: <span>${interNumberFormat.format(market_cap)}</span>
             </p>
             <p>
-              All Time High: <span>${interNumberFormat.format(ath)}</span>
+              All Time High:{" "}
+              <span>
+                $
+                {interNumberFormat.format(ath) === "0"
+                  ? ath.toFixed(7)
+                  : interNumberFormat.format(ath)}
+              </span>
             </p>
             <p>
               Price change from ATH:
