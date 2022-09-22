@@ -2,6 +2,7 @@ import { currenciesActions } from "./currencies-slice";
 import { uiActions } from "./ui-slice";
 import { scannerActions } from "./etherscan-slice";
 import { AppDispatch } from "./store";
+import { CurrencyItem } from "../components/types/types";
 
 export const fetchCurrenciesData = (isFirstLoading: boolean) => {
   return async (dispatch: AppDispatch) => {
@@ -42,9 +43,10 @@ export const fetchCurrenciesData = (isFirstLoading: boolean) => {
 
 export const fetchChartData = (id: string) => {
   return async (dispatch: AppDispatch) => {
+    dispatch(currenciesActions.setLoading(true));
     const fetchData = async () => {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`
+        `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=450&interval=daily`
       );
       if (!response.ok) {
         throw new Error("Could not fetch chart data, try later.");
@@ -56,7 +58,9 @@ export const fetchChartData = (id: string) => {
     try {
       const chartData = await fetchData();
       dispatch(currenciesActions.setChart(chartData.prices));
+      dispatch(currenciesActions.setLoading(false));
     } catch (error) {
+      dispatch(currenciesActions.setLoading(false));
       dispatch(currenciesActions.setChart([]));
     }
   };
@@ -96,6 +100,32 @@ export const fetchEtherScanData = (address: string) => {
   };
 };
 
+export const sortCurrencies = (
+  items: CurrencyItem[],
+  { sortType, sortBy }: { sortType: string; sortBy: string }
+) => {
+  if (sortType === "ascending") {
+    if (sortBy === "name") {
+      return [...items].sort((a: any, b: any): any =>
+        (b[sortBy] || "").toString().localeCompare((a[sortBy] || "").toString())
+      );
+    }
+    return [...items].sort(
+      (a, b) => a[sortBy as keyof {}] - b[sortBy as keyof {}]
+    );
+  }
+  if (sortType === "descending") {
+    if (sortBy === "name") {
+      return [...items].sort((a: any, b: any): any =>
+        (a[sortBy] || "").toString().localeCompare((b[sortBy] || "").toString())
+      );
+    }
+    return [...items].sort(
+      (a, b) => b[sortBy as keyof {}] - a[sortBy as keyof {}]
+    );
+  }
+  return items;
+};
 //in future
 // export const fetchFiatCurrencies = () => {
 //   return async (dispatch) => {
@@ -105,7 +135,7 @@ export const fetchEtherScanData = (address: string) => {
 //       );
 //       if (!response.ok) {
 //         throw new Error(
-//           "Could not fetch fiat data, try later or slow down (5 rq per sec)."
+//           "Could not fetch fiat data"
 //         );
 //       }
 //       const data = await response.json();
