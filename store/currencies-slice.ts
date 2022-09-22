@@ -3,7 +3,7 @@ import { getApiData } from "../components/utils/getApiData";
 import { CurrenciesState } from "../components/types/types";
 import { CurrencyItem } from "../components/types/types";
 
-const sortCurrencies = (
+export const sortCurrencies = (
   items: CurrencyItem[],
   { sortType, sortBy }: { sortType: string; sortBy: string }
 ) => {
