@@ -17,7 +17,7 @@ export default function TradingViewChart({ chartData }: { chartData: any }) {
     const formatDate = dayjs(item[0]).format("YYYY-MM-DD");
     return {
       time: formatDate,
-      value: item[1].toFixed(2),
+      value: item[1],
     };
   });
 
@@ -33,7 +33,11 @@ export default function TradingViewChart({ chartData }: { chartData: any }) {
   };
 
   const chartContainerRef: any = useRef();
-
+  const currentLocale = window.navigator.languages[0];
+  const myPriceFormatter = Intl.NumberFormat(currentLocale, {
+    style: "currency",
+    currency: "USD",
+  }).format;
   useEffect(() => {
     const handleResize = () => {
       chart.applyOptions({ width: chartContainerRef.current.clientWidth });
@@ -57,6 +61,9 @@ export default function TradingViewChart({ chartData }: { chartData: any }) {
       },
       width: chartContainerRef.current.clientWidth,
       height: 450,
+      localization: {
+        priceFormatter: myPriceFormatter,
+      },
     });
     chart.timeScale().fitContent();
 
