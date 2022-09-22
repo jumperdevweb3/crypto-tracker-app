@@ -1,4 +1,4 @@
-import { NewsItems } from "../components/types/types";
+import { NewsItems } from "../types/types";
 
 export const fetchNewsData = async () => {
   try {

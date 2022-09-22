@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { CurrencyItem } from "../types/types";
+import { CurrencyItem } from "../../types/types";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../store/store";
 import { useEffect } from "react";

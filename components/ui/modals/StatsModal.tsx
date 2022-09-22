@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import classes from "./StatsModal.module.scss";
-import { ModalTypes } from "../../types/types";
+import { ModalTypes } from "../../../types/types";
 
 const Backdrop = (props: { onClose: () => void }) => {
   return <div className={classes.backdrop} onClick={props.onClose} />;

@@ -7,7 +7,7 @@ import { watchlistActions } from "../../store/watchlist-slice";
 import { useEffect } from "react";
 //types
 import { AppDispatch, RootState } from "../../store/store";
-import { CurrencyItem } from "../types/types";
+import { CurrencyItem } from "../../types/types";
 
 export const Watchlist = () => {
   const dispatch = useDispatch<AppDispatch>();

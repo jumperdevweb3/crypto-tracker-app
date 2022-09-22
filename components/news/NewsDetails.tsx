@@ -4,7 +4,7 @@ import { fetchNewsContent } from "../../helpers/api-utils";
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "../ui/LoadingSpinner";
 //types
-import { PropsDetials } from "../types/types";
+import { PropsDetials } from "../../types/types";
 
 export const NewsDetails = (props: PropsDetials) => {
   const [content, setContent] = useState("");

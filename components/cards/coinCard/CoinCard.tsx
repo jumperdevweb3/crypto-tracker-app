@@ -5,7 +5,7 @@ import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
 //types
-import { CurrencyItem } from "../../types/types";
+import { CurrencyItem } from "../../../types/types";
 import { AppDispatch } from "../../../store/store";
 
 export const CoinCard = ({ item }: { item: CurrencyItem }) => {

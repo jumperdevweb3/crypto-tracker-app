@@ -1,4 +1,4 @@
-import { CurrencyItem } from "../types/types";
+import { CurrencyItem } from "../../types/types";
 
 export const getApiData = (item: CurrencyItem) => {
   return {

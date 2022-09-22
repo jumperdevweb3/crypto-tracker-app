@@ -1,6 +1,6 @@
 import { News } from "../../components/news/News";
 import { fetchNewsData } from "../../helpers/api-utils";
-import { NewsItems } from "../../components/types/types";
+import { NewsItems } from "../../types/types";
 import { GetStaticProps } from "next";
 import { fetchSubpageId } from "../../helpers/api-utils";
 import { useEffect } from "react";

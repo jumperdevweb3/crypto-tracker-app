@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getApiData } from "../components/utils/getApiData";
 import { sortCurrencies } from "./currencies-actions";
-import { CurrenciesState } from "../components/types/types";
-import { CurrencyItem } from "../components/types/types";
+import { CurrenciesState } from "../types/types";
+import { CurrencyItem } from "../types/types";
 
 const sliceVisivleItems = (
   passedItems: CurrencyItem[],

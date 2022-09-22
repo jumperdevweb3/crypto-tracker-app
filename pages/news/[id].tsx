@@ -1,6 +1,6 @@
 import { getNewsDetail } from "../../helpers/api-utils";
 import { NewsDetails } from "../../components/news/NewsDetails";
-import { NewsItems } from "../../components/types/types";
+import { NewsItems } from "../../types/types";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { InferGetStaticPropsType } from "next";
