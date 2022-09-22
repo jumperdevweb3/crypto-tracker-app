@@ -4,6 +4,7 @@ import { uiActions } from "../../store/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../hooks/use-windowSize";
 import { useRouter } from "next/router";
+import { FiMenu } from "react-icons/fi";
 //types
 import { AppDispatch } from "../../store/store";
 import { RootState } from "../../store/store";
@@ -23,8 +24,8 @@ export const MainNav = () => {
   ];
 
   const navClass = showNav
-    ? `${classes["mobile-list"]} ${classes.active}`
-    : classes["mobile-list"];
+    ? `${classes["mobile-nav"]} ${classes.active}`
+    : classes["mobile-nav"];
 
   const mobile = width <= 1023;
   const desktop = width >= 1024;
@@ -49,21 +50,26 @@ export const MainNav = () => {
   });
   return (
     <header className={classes.header}>
-      <div className={classes.container}>
-        <p className={classes.logo}>Crypto App</p>
-
+      <div className={classes.wrapper}>
+        <div className={classes.container}>
+          <p className={classes.logo}>Crypto App</p>
+          {mobile && (
+            <button onClick={toggleNav}>
+              <FiMenu fontSize={"2rem"} color="#fff" />
+            </button>
+          )}
+        </div>
         {mobile && (
-          <button className={classes["hamburger"]} onClick={toggleNav}>
-            <span className={classes["hamburger__box"]}>
-              <span className={classes["hamburger__inner"]}></span>
-            </span>
-          </button>
+          <nav className={navClass}>
+            <ul className={classes["mobile-list"]}>{navList}</ul>
+          </nav>
         )}
-        <nav>
-          {desktop && <ul className={classes["links-list"]}>{navList}</ul>}
 
-          {mobile && <ul className={navClass}>{navList}</ul>}
-        </nav>
+        {desktop && (
+          <nav className={classes["desktop-nav"]}>
+            <ul className={classes["links-list"]}>{navList}</ul>
+          </nav>
+        )}
       </div>
     </header>
   );
