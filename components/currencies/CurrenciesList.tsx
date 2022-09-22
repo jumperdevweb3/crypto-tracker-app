@@ -69,7 +69,7 @@ export const CurrenciesList = () => {
   return (
     <div className={classes["market-list"]}>
       {!visibleItems.length && <p className="center">Not found items.</p>}
-      {visibleItems.length !== 0 && <CurrenciesSortMenu />}
+      {visibleItems.length !== 0 && <CurrenciesSortMenu page={"home"} />}
       {visibleItems.map((item) => {
         return <CoinCard key={item.id} item={item} />;
       })}
