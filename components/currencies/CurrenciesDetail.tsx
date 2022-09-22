@@ -63,7 +63,7 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
               <p className={timeStyle}>{price_change_24h.toFixed(2)}%</p>
             </div>
           </div>
-          <div className={classes["other-box"]}>
+          <div className={classes["detail-box"]}>
             <p>
               Market Cap: <span>${interNumberFormat.format(market_cap)}</span>
             </p>
@@ -88,7 +88,15 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
           </div>
           <div id="chart">
             {chartData.length !== 0 ? (
-              <TradingViewChart chartData={chartData} />
+              <>
+                <TradingViewChart chartData={chartData} />
+                <p className={classes["chart-info"]}>
+                  The chart is library used from{" "}
+                  <a href="https://www.tradingview.com/">
+                    https://www.tradingview.com/
+                  </a>
+                </p>
+              </>
             ) : (
               <p className="center">Faild load chart</p>
             )}
