@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../../store/store";
 import { useEffect } from "react";
 import { fetchChartData } from "../../store/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 
 const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
@@ -12,8 +13,8 @@ const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
 
 export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const chartData = useSelector(
-    (state: RootState) => state.currencies.chartData
+  const { chartData, chartIsUpdating } = useSelector(
+    (state: RootState) => state.currencies
   );
 
   const {
@@ -77,7 +78,7 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
               </span>
             </p>
             <p>
-              Last update date:
+              Last update date (UTC):
               <span className={classes.date}>
                 {last_updated.replace(
                   /(\d{4})-(\d{2})-(\d{2})T(.{8}).*/,
@@ -87,7 +88,9 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
             </p>
           </div>
           <div id="chart">
-            {chartData.length !== 0 ? (
+            {chartIsUpdating ? (
+              <LoadingSpinner />
+            ) : chartData.length !== 0 ? (
               <>
                 <TradingViewChart chartData={chartData} />
                 <p className={classes["chart-info"]}>
