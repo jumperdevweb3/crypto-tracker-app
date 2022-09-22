@@ -27,6 +27,7 @@ export interface CurrenciesState {
   losersItems: CurrencyItem[];
   gainersItems: CurrencyItem[];
   chartData: CurrencyItem[];
+  chartIsUpdating: boolean;
   sortActive: {
     sortType: string;
     sortBy: string;
