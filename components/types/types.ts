@@ -33,6 +33,14 @@ export interface CurrenciesState {
   };
 }
 
+export interface WatchlistState {
+  watchItems: CurrencyItem[];
+  sortActive: {
+    sortType: string;
+    sortBy: string;
+  };
+}
+
 export interface ModalTypes {
   onClose: () => void;
   children: ReactNode;
