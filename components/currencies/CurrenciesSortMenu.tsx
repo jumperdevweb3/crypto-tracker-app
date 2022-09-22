@@ -1,21 +1,24 @@
-import { useWindowSize } from "../../hooks/use-windowSize";
 import { currenciesActions } from "../../store/currencies-slice";
+import { watchlistActions } from "../../store/watchlist-slice";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./CurrenciesSortMenu.module.scss";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { useState } from "react";
 import { RootState } from "../../store/store";
 
-export const CurrenciesSortMenu = () => {
+export const CurrenciesSortMenu = ({ page }: { page: string }) => {
   const [sortActiveIcon, setSortActiveIcon] = useState({
     sortBy: "market_cap_rank",
     sortTypeIcon: <FaAngleDown />,
   });
   const dispatch = useDispatch();
-  const { width } = useWindowSize();
-  const sortType = useSelector(
-    (state: RootState) => state.currencies.sortActive.sortType
+
+  const sortType = useSelector((state: RootState) =>
+    page === "home"
+      ? state.currencies.sortActive.sortType
+      : state.watchlist.sortActive.sortType
   );
+  const actions = page === "home" ? currenciesActions : watchlistActions;
 
   const sortByRankHandler = (name: string) => {
     return () => {
@@ -25,7 +28,7 @@ export const CurrenciesSortMenu = () => {
           sortType === "ascending" ? <FaAngleUp /> : <FaAngleDown />,
       });
       dispatch(
-        currenciesActions.updateSort({
+        actions.updateSort({
           sortType: sortType === "ascending" ? "descending" : "ascending",
           sortBy: name,
         })
@@ -75,54 +78,45 @@ export const CurrenciesSortMenu = () => {
         {sortActiveIcon.sortBy === "price_change_1h" &&
           sortActiveIcon.sortTypeIcon}
       </div>
-      {width >= 768 && (
-        <>
-          <div className={classes.time}>
-            <button
-              className={classes["option-btn"]}
-              onClick={sortByRankHandler("price_change_24h")}
-            >
-              24h %{" "}
-            </button>
-            {sortActiveIcon.sortBy === "price_change_24h" &&
-              sortActiveIcon.sortTypeIcon}
-          </div>
-          <div className={classes.time}>
-            <button
-              className={classes["option-btn"]}
-              onClick={sortByRankHandler("price_change_7d")}
-            >
-              7d %{" "}
-            </button>
-            {sortActiveIcon.sortBy === "price_change_7d" &&
-              sortActiveIcon.sortTypeIcon}
-          </div>
-        </>
-      )}
-      {width >= 1024 && (
-        <>
-          <div className={classes["market-cap"]}>
-            <button
-              className={classes["option-btn"]}
-              onClick={sortByRankHandler("market_cap")}
-            >
-              Market Cap{" "}
-            </button>
-            {sortActiveIcon.sortBy === "market_cap" &&
-              sortActiveIcon.sortTypeIcon}
-          </div>
-          <div className={classes.volume}>
-            <button
-              className={classes["option-btn"]}
-              onClick={sortByRankHandler("total_volume")}
-            >
-              Total Volume
-            </button>
-            {sortActiveIcon.sortBy === "total_volume" &&
-              sortActiveIcon.sortTypeIcon}
-          </div>
-        </>
-      )}
+      <div className={classes.time}>
+        <button
+          className={classes["option-btn"]}
+          onClick={sortByRankHandler("price_change_24h")}
+        >
+          24h %{" "}
+        </button>
+        {sortActiveIcon.sortBy === "price_change_24h" &&
+          sortActiveIcon.sortTypeIcon}
+      </div>
+      <div className={classes.time}>
+        <button
+          className={classes["option-btn"]}
+          onClick={sortByRankHandler("price_change_7d")}
+        >
+          7d %{" "}
+        </button>
+        {sortActiveIcon.sortBy === "price_change_7d" &&
+          sortActiveIcon.sortTypeIcon}
+      </div>
+      <div className={classes["market-cap"]}>
+        <button
+          className={classes["option-btn"]}
+          onClick={sortByRankHandler("market_cap")}
+        >
+          Market Cap{" "}
+        </button>
+        {sortActiveIcon.sortBy === "market_cap" && sortActiveIcon.sortTypeIcon}
+      </div>
+      <div className={classes.volume}>
+        <button
+          className={classes["option-btn"]}
+          onClick={sortByRankHandler("total_volume")}
+        >
+          Total Volume
+        </button>
+        {sortActiveIcon.sortBy === "total_volume" &&
+          sortActiveIcon.sortTypeIcon}
+      </div>
     </div>
   );
 };

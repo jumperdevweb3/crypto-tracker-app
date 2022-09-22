@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import classes from "./CoinCard.module.scss";
-import { useWindowSize } from "../../../hooks/use-windowSize";
 import { watchlistActions } from "../../../store/watchlist-slice";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
@@ -10,7 +9,6 @@ import { CurrencyItem } from "../../types/types";
 import { AppDispatch } from "../../../store/store";
 
 export const CoinCard = ({ item }: { item: CurrencyItem }) => {
-  const { width } = useWindowSize();
   const dispatch = useDispatch<AppDispatch>();
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
@@ -34,7 +32,7 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
       <div className={classes.name}>
         <img src={item.image} alt="" aria-hidden={true} />
         <p className={classes.title}>{item.name}</p>
-        {width >= 768 && <span>{item.symbol.toUpperCase()}</span>}
+        <span>{item.symbol.toUpperCase()}</span>
       </div>
       <div className={classes.price}>
         <p>
@@ -45,22 +43,14 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
         </p>
       </div>
       <PriceTimeChange time={item.price_change_1h} classes={classes} />
-      {width >= 768 && (
-        <>
-          <PriceTimeChange time={item.price_change_24h} classes={classes} />
-          <PriceTimeChange time={item.price_change_7d} classes={classes} />
-        </>
-      )}
-      {width >= 1024 && (
-        <>
-          <div className={classes["market-cup"]}>
-            <p>${interNumberFormat.format(item.market_cap)}</p>
-          </div>
-          <div className={classes.volume}>
-            <p>${interNumberFormat.format(item.total_volume)}</p>
-          </div>
-        </>
-      )}
+      <PriceTimeChange time={item.price_change_24h} classes={classes} />
+      <PriceTimeChange time={item.price_change_7d} classes={classes} />
+      <div className={classes["market-cup"]}>
+        <p>${interNumberFormat.format(item.market_cap)}</p>
+      </div>
+      <div className={classes.volume}>
+        <p>${interNumberFormat.format(item.total_volume)}</p>
+      </div>
     </div>
   );
 };
