@@ -1,9 +1,7 @@
 <h1 align="center">Welcome to crypto-tracker-app 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.1-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
 </p>
-
-<h3>*Still working on bugs*</h3>
 
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
 
@@ -11,10 +9,28 @@
 
 > I decided to use Redux for practice and I am satisfied with this method of managing the state in app with a lot of data it's really clean and simple
 
-> I added news subpage with fetched data from Messari.io
+> The project is constantly being developed and improved
 
+### ✨ [See demo](https://crypto-tracker-app-2.netlify.app/) 
 
-### ✨ [Demo](https://crypto-tracker-app-2.netlify.app/) 
+## Clone
+
+```sh
+git clone https://github.com/skoczy01/crypto-tracker-app
+```
+
+### What u need
+
+```sh
+Create a .env file with 
+your keys inside crypto-tracker-app project folder
+
+* Etherscan API KEY: https://etherscan.io/apis
+
+* CoinGeco Public Api: https://www.coingecko.com/en/api/documentation
+
+```
+
 
 ## Install
 
@@ -25,16 +41,27 @@ npm install
 ## Usage
 
 ```sh
-npm run start
+npm run dev
 ```
 
-### What u need
+### Tech Stack and Libraries
 
+**`Stack`**
 ```sh
-* Etherscan API KEY: https://etherscan.io/apis
-
-* CoinGeco Public Api: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d
+- Typescript
+- React
+- Next.js
+- Scss 
+- react-redux, redux/toolkit 
 ```
+**`Helpers Libraries:`**
+```sh
+- lightweight-charts
+- dayjs
+- react-icons
+- react-markdown
+```
+
 
 ## Author
 
