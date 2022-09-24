@@ -52,7 +52,9 @@ export const MainNav = () => {
     <header className={classes.header}>
       <div className={classes.wrapper}>
         <div className={classes.container}>
-          <p className={classes.logo}>Crypto App</p>
+          <Link href="/">
+            <p className={classes.logo}>Crypto App</p>
+          </Link>
           {mobile && (
             <button onClick={toggleNav}>
               <FiMenu fontSize={"2rem"} color="#fff" />
