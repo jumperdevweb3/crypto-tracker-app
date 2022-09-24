@@ -80,7 +80,7 @@
     background: none;
     cursor: pointer;
     padding: 0.5rem 0;
-
+    z-index: 1;
     &:hover svg {
       color: rgb(193, 162, 222) !important;
     }
