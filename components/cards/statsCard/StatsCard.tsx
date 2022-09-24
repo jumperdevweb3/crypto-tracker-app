@@ -51,6 +51,7 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
     return (
       <StatsCoinCard
         key={item.id}
+        id={item.id}
         number={index + 1}
         image={item.image}
         name={item.name}
@@ -63,6 +64,7 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
     return (
       <StatsCoinCard
         key={item.id}
+        id={item.id}
         number={index + 1}
         image={item.image}
         name={item.name}
