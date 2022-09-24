@@ -2,10 +2,10 @@ import { createChart, ColorType } from "lightweight-charts";
 import { useEffect, useRef } from "react";
 import dayjs from "dayjs";
 
-export default function TradingViewChart({ chartData }: { chartData: any }) {
+export default function TradingViewChart({ chartData }: { chartData: [] }) {
   const filterChartData = chartData.filter(
-    (item: any, index: number) =>
-      chartData.findIndex((searchItem: any) => {
+    (item, index: number) =>
+      chartData.findIndex((searchItem: number[]) => {
         return (
           dayjs(item[0]).format("YYYY-MM-DD") ===
           dayjs(searchItem[0]).format("YYYY-MM-DD")
@@ -13,7 +13,7 @@ export default function TradingViewChart({ chartData }: { chartData: any }) {
       }) === index
   );
 
-  const renderData = filterChartData.map((item: any) => {
+  const renderData = filterChartData.map((item: number[]) => {
     const formatDate = dayjs(item[0]).format("YYYY-MM-DD");
     return {
       time: formatDate,
