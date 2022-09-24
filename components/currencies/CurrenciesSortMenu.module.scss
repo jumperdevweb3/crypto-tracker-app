@@ -1,24 +1,32 @@
 .options {
+  position: sticky;
+  top: 0;
+  left: 0%;
   display: grid;
   grid-template-columns:
-    2.5rem minmax(20px, 0.2fr) minmax(11rem, 1fr) 6rem
+    2.5rem minmax(20px, 0.2fr) minmax(12rem, 1fr) 6rem
     4.5rem 4.5rem 4.5rem 8.1rem
     1fr;
   grid-template-rows: 1fr;
-  height: 2rem;
   align-items: center;
   border-top: 1px solid rgb(34, 37, 49);
+  border-bottom: 1px solid rgb(34, 37, 49);
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 8px;
+  padding: 0.5rem 8px;
   color: #fff;
   gap: 0 1rem;
   font-size: 0.9rem;
+  background-color: #17171a;
+  min-height: 3rem;
+  max-height: 3rem;
+  z-index: 2;
 
   div {
     display: grid;
     grid-template-columns: 1fr 1rem;
     gap: 0px 0px;
+    align-items: center;
   }
 
   .rank {
@@ -40,8 +48,10 @@
   svg {
     color: rgb(222, 195, 246);
   }
+
   .option-btn {
     color: rgb(193, 162, 222);
     text-align: left;
+    padding: 0.5rem 0;
   }
 }
