@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="icon" href="bitcoin.png" />
+        <link rel="icon" href="/bitcoin.png" />
         <title>Crypto Tracker App </title>
         <meta
           name="viewport"
