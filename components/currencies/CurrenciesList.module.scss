@@ -2,8 +2,16 @@
   display: flex;
   flex-direction: column;
   overflow-x: auto;
-  padding: 2rem 0;
+  padding-bottom: 2rem;
+  overflow-y: auto;
+  max-height: 65vh;
+  width: 95%;
+  margin: 0 auto;
 
+  @media (max-width: 1023px) {
+    width: 90%;
+    max-height: 75vh;
+  }
   .load-btn {
     margin: 2rem auto;
     padding: 10px 15px;
@@ -19,43 +27,58 @@
     }
   }
 
-  .pages {
-    position: sticky;
-    top: 0;
-    left: 0;
-    display: flex;
-    gap: 1.2rem;
-    justify-content: center;
-    margin: 2rem 0;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #3e4146;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgb(193, 162, 222);
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(75, 115, 171);
+  }
+}
 
-    .link,
-    .home-page {
-      border: 2px solid transparent;
-      border-radius: 10px;
-      padding: 0.3rem 0.7rem;
-      font-weight: bold;
-      transition: 0.2s;
+.pages {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin: 1rem 0;
 
-      &:hover {
-        border: 2px solid rgb(193, 162, 222);
-      }
+  .link,
+  .home-page {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem;
+    font-weight: bold;
+    transition: 0.2s;
+
+    &:hover {
+      border: 2px solid rgb(193, 162, 222);
     }
-    .link:hover,
-    .home-page:hover {
-      color: #aaa;
-    }
-    .active,
-    .home-page:nth-of-type(1) {
-      background-color: rgb(193, 162, 222);
-      border-radius: 10px;
-      color: #000;
-      transition: 0.2s;
+  }
+  .link:hover,
+  .home-page:hover {
+    color: #aaa;
+  }
+  .active,
+  .home-page:nth-of-type(1) {
+    background-color: rgb(193, 162, 222);
+    border-radius: 10px;
+    color: #000;
+    transition: 0.2s;
 
-      &:hover {
-        border: 2px solid rgb(193, 162, 222);
-        background-color: transparent;
-        color: #fff;
-      }
+    &:hover {
+      border: 2px solid rgb(193, 162, 222);
+      background-color: transparent;
+      color: #fff;
     }
   }
 }
