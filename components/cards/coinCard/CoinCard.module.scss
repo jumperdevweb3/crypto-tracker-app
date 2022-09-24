@@ -32,6 +32,10 @@
   }
 
   .name {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #17171a;
     display: grid;
     grid-template-columns: 1.6rem 5rem 3.5rem;
     align-items: center;
