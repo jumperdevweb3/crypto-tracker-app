@@ -14,17 +14,24 @@
       font-weight: bold;
       gap: 0.4rem;
       align-items: center;
+      cursor: pointer;
 
       .rank {
         color: #858ca2;
       }
       .name {
-        word-wrap: break-word;
-        width: 6rem;
+        &.word-wrap {
+          word-wrap: break-word;
+        }
+        &.word-break {
+          word-break: break-all;
+        }
       }
-    }
-    .alias {
-      word-break: break-all;
+      .alias {
+        word-break: break-all;
+        font-size: 0.7rem;
+        min-width: 3rem;
+      }
     }
   }
   .percentage {
