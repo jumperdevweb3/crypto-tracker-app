@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ParsedUrlQuery } from "querystring";
 
 export interface CurrencyItem {
   id: string;
@@ -26,7 +27,7 @@ export interface CurrenciesState {
   trendingItems: CurrencyItem[];
   losersItems: CurrencyItem[];
   gainersItems: CurrencyItem[];
-  chartData: CurrencyItem[];
+  chartData: [];
   chartIsUpdating: boolean;
   sortActive: {
     sortType: string;
@@ -70,3 +71,9 @@ export interface PropsDetials {
 export type PropsChildren = {
   children: ReactNode;
 };
+
+export type Path = string | string[] | undefined;
+
+export interface IParams extends ParsedUrlQuery {
+  id: string;
+}
