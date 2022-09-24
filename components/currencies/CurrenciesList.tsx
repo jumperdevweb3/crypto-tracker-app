@@ -67,12 +67,14 @@ export const CurrenciesList = () => {
   const activePageStyle = `${classes.link} ${classes.active}`;
 
   return (
-    <div className={classes["market-list"]}>
-      {!visibleItems.length && <p className="center">Not found items.</p>}
-      {visibleItems.length !== 0 && <CurrenciesSortMenu page={"home"} />}
-      {visibleItems.map((item) => {
-        return <CoinCard key={item.id} item={item} />;
-      })}
+    <>
+      <div className={classes["market-list"]}>
+        {!visibleItems.length && <p className="center">Not found items.</p>}
+        {visibleItems.length !== 0 && <CurrenciesSortMenu page={"home"} />}
+        {visibleItems.map((item) => {
+          return <CoinCard key={item.id} item={item} />;
+        })}
+      </div>
       {visibleItems.length !== 0 && (
         <div className={classes.pages}>
           {pagesPaths.map((item) => (
@@ -98,6 +100,6 @@ export const CurrenciesList = () => {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };
