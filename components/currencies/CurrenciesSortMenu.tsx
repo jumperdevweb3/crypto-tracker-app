@@ -58,6 +58,7 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
         </button>
         {sortActiveIcon.sortBy === "name" && sortActiveIcon.sortTypeIcon}
       </div>
+      <div></div>
       <div className={classes.price}>
         <button
           className={classes["option-btn"]}
