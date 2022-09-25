@@ -1,21 +1,23 @@
 .options {
+  box-sizing: border-box;
   position: sticky;
   top: 0;
   left: 0%;
   display: grid;
   grid-template-columns:
-    2.5rem minmax(20px, 0.2fr) minmax(12rem, 1fr) 6rem
-    4.5rem 4.5rem 4.5rem 8.1rem
-    1fr;
+    2.5rem 2.2rem 7.5rem 3rem 7rem
+    4.5rem 4.5rem 4.5rem 9rem
+    9rem;
   grid-template-rows: 1fr;
   align-items: center;
   border-top: 1px solid rgb(34, 37, 49);
   border-bottom: 1px solid rgb(34, 37, 49);
-  max-width: 1024px;
+  width: 60rem;
+
   margin: 0 auto;
-  padding: 0.5rem 8px;
+  padding: 0.5rem 0px;
   color: #fff;
-  gap: 0 1rem;
+  gap: 0.7rem;
   font-size: 0.9rem;
   background-color: #17171a;
   min-height: 3rem;
@@ -33,6 +35,10 @@
     grid-template-columns: 1rem 1.2rem;
   }
   .name {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #17171a;
     grid-template-columns: 3rem 1rem;
   }
   .price {
