@@ -32,6 +32,8 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
       <div className={classes.name}>
         <img src={item.image} alt="" aria-hidden={true} />
         <p className={classes.title}>{item.name}</p>
+      </div>
+      <div className={classes.symbol}>
         <span>{item.symbol.toUpperCase()}</span>
       </div>
       <div className={classes.price}>
