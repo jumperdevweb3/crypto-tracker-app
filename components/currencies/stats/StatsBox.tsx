@@ -1,5 +1,5 @@
 import classes from "./StatsBox.module.scss";
-import { StatsCard } from "../cards/statsCard/StatsCard";
+import { StatsCard } from "../../cards/statsCard/StatsCard";
 
 export const StatsBox = () => {
   return (

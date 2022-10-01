@@ -1,4 +1,4 @@
-import { CurrenciesDetail } from "../../components/currencies/CurrenciesDetail";
+import { CurrenciesDetail } from "../../components/currencies/currencyDetail/CurrenciesDetail";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useRouter } from "next/router";

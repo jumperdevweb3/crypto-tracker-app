@@ -1,11 +1,11 @@
 import dynamic from "next/dynamic";
-import { CurrencyItem } from "../../types/types";
+import { CurrencyItem } from "../../../types/types";
 import { useSelector, useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../store/store";
+import { AppDispatch, RootState } from "../../../store/store";
 import { useEffect } from "react";
-import { fetchChartData } from "../../store/currencies-actions";
+import { fetchChartData } from "../../../store/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";
-import { LoadingSpinner } from "../ui/LoadingSpinner";
+import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
 const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
@@ -29,6 +29,9 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
     ath,
     ath_change_percentage,
     last_updated,
+    price_change_1h,
+    price_change_7d,
+    total_volume,
   } = item;
   const interNumberFormat = new Intl.NumberFormat("en-US");
 
@@ -94,6 +97,22 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
                   "$2.$3.$1, $4"
                 )}
               </span>
+            </p>
+            <p>
+              Price change 1h:
+              <span>{interNumberFormat.format(price_change_1h)} %</span>
+            </p>
+            <p>
+              Price change 24h:
+              <span>{interNumberFormat.format(price_change_24h)} %</span>
+            </p>
+            <p>
+              Price change 7d:
+              <span>{interNumberFormat.format(price_change_7d)} %</span>
+            </p>
+            <p>
+              Total volume:
+              <span>{interNumberFormat.format(total_volume)}</span>
             </p>
           </div>
           <div id="chart">
