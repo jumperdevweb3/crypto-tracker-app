@@ -28,8 +28,12 @@ export const StatsCoinCard = (props: {
         <Link href={`/currency/${props.id}`}>
           <div className={classes["coin-wrapper"]}>
             <img src={props.image} />
-            <p className={breakWordClass}>{props.name}</p> -
-            <span className={classes.alias}>{props.alias.toUpperCase()}</span>
+            <p className={breakWordClass}>
+              {props.name}{" "}
+              <span className={classes.alias}>
+                - {props.alias.toUpperCase()}
+              </span>
+            </p>{" "}
           </div>
         </Link>
       </div>
