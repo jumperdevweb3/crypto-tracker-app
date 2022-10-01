@@ -80,19 +80,19 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
         </div>
         <div className={classes["second-box"]}>
           <div>
-            Price change 1h:
+            <p>Price change 1h:</p>
             <PriceTimeChange time={price_change_1h} classes={classes} />
           </div>
           <div>
-            Price change 24h:
+            <p>Price change 24h:</p>
             <PriceTimeChange time={price_change_24h} classes={classes} />
           </div>
           <div>
-            Price change 7d:
+            <p>Price change 7d:</p>
             <PriceTimeChange time={price_change_7d} classes={classes} />
           </div>
           <div>
-            Total volume:
+            <p>Total volume:</p>
             <span>{interNumberFormat.format(total_volume)}</span>
           </div>
         </div>
