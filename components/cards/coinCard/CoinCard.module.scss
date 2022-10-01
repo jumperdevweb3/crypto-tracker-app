@@ -20,6 +20,15 @@
   transition: 0.2s;
   min-height: 5rem;
   max-height: 5rem;
+  background-color: #17171a;
+
+  &:hover {
+    background-color: #171924;
+
+    .name {
+      background-color: #171924;
+    }
+  }
 
   .overlay {
     position: absolute;
@@ -72,9 +81,7 @@
   .time.decr {
     color: #e15241;
   }
-  &:hover {
-    background-color: #171924;
-  }
+
   .rank {
     grid-template-columns: 2.2rem;
   }
