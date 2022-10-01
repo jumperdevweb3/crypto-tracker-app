@@ -6,15 +6,21 @@
   min-height: calc(100vh - 5rem);
   background-color: #2b2b43;
 
-  .chart-info {
-    margin-top: 2rem;
-    font-size: 0.7rem;
-    text-align: center;
-    color: #fff;
-    padding-bottom: 2rem;
-    a {
-      display: block;
-      color: aquamarine;
+  .chart-box {
+    width: 90%;
+    margin: 0 auto;
+
+    .chart-info {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      text-align: center;
+      color: #fff;
+      padding-bottom: 2rem;
+
+      a {
+        display: block;
+        color: aquamarine;
+      }
     }
   }
 
