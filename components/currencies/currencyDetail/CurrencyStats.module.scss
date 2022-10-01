@@ -85,6 +85,7 @@
         display: flex;
         align-items: center;
         padding: 10px 0;
+        height: 2.25rem;
 
         @media (max-width: 300px) {
           flex-direction: column;
