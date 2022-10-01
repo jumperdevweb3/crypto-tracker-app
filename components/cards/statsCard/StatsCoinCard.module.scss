@@ -26,11 +26,10 @@
         &.word-break {
           word-break: break-all;
         }
-      }
-      .alias {
-        word-break: break-all;
-        font-size: 0.7rem;
-        min-width: 3rem;
+
+        .alias {
+          font-size: 0.7rem;
+        }
       }
     }
   }
