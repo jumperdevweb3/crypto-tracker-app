@@ -1,0 +1,145 @@
+.box-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  padding: 1.5rem;
+  margin: 0 auto;
+  animation: slide-down 300ms ease-out forwards;
+  color: white;
+  overflow-y: auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    margin: 1rem 0 1.5rem 0;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .main-title {
+      display: flex;
+      align-items: center;
+      gap: 0 0.7rem;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .price-data {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      @media (max-width: 767px) {
+        text-align: center;
+      }
+
+      .head {
+        font-size: 0.9rem;
+      }
+      .values-box {
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+
+        .price {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .rank {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+
+  .detials {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .first-box,
+    .second-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // gap: 0.5rem;
+      background-color: rgb(31, 35, 54);
+      padding: 1rem 0.5rem;
+      border-radius: 10px;
+      flex-basis: 40%;
+
+      div {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+
+        @media (max-width: 300px) {
+          flex-direction: column;
+        }
+
+        div {
+          p {
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+        }
+      }
+      .date-box {
+        @media (max-width: 1023px) {
+          flex-direction: column;
+          gap: 0.7rem;
+        }
+      }
+    }
+  }
+
+  .time.decr,
+  .time.incr {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 7px;
+    color: rgb(255, 255, 255);
+    margin: 0 0.5rem;
+    border: none;
+  }
+  .time.incr {
+    // background-color: #008000;
+    color: #008000;
+  }
+  .time.decr {
+    // background-color: #ea3943;
+    color: #ea3943;
+  }
+
+  span {
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 7px;
+  }
+  .time {
+    display: flex;
+    font-size: 0.8rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 3px 7px;
+    border-radius: 7px;
+  }
+}
