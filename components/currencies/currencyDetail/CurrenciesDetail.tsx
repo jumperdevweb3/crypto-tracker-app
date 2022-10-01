@@ -26,22 +26,24 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
     <>
       <div className={classes.container}>
         <CurrencyStats item={item} />
-        <div id="chart">
-          {chartIsUpdating ? (
-            <LoadingSpinner />
-          ) : chartData.length !== 0 ? (
-            <>
-              <TradingViewChart chartData={chartData} />
-              <p className={classes["chart-info"]}>
-                The chart used comes from{" "}
-                <a href="https://www.tradingview.com/">
-                  https://www.tradingview.com/
-                </a>
-              </p>
-            </>
-          ) : (
-            <p className="center">Faild load chart</p>
-          )}
+        <div className={classes["chart-box"]}>
+          <div id="chart">
+            {chartIsUpdating ? (
+              <LoadingSpinner />
+            ) : chartData.length !== 0 ? (
+              <>
+                <TradingViewChart chartData={chartData} />
+                <p className={classes["chart-info"]}>
+                  The chart used comes from{" "}
+                  <a href="https://www.tradingview.com/">
+                    https://www.tradingview.com/
+                  </a>
+                </p>
+              </>
+            ) : (
+              <p className="center">Faild load chart</p>
+            )}
+          </div>
         </div>
       </div>
     </>
