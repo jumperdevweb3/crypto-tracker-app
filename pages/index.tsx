@@ -4,12 +4,12 @@ import { fetchCurrenciesData } from "../store/currencies-actions";
 import { Footer } from "../components/ui/Footer";
 import { StatsBox } from "../components/currencies/stats/StatsBox";
 import { CurrenciesList } from "../components/currencies/CurrenciesList";
+import { SearchBar } from "../components/currencies/searchBar/SearchBar";
 //types
 import { AppDispatch } from "../store/store";
 import { RootState } from "../store/store";
 
 let isFirstLoading = true;
-
 function HomePage() {
   const dispatch = useDispatch<AppDispatch>();
   const currenciesData = useSelector(
@@ -25,6 +25,7 @@ function HomePage() {
   return (
     <>
       <StatsBox />
+      <SearchBar />
       <CurrenciesList />
       <Footer />
     </>
