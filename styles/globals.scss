@@ -58,7 +58,10 @@ button {
   height: 100%;
 }
 
-#stats-modal {
+#stats-modal,
+#exchange-modal,
+#companies-modal,
+#nft-modal {
   position: fixed;
   display: flex;
   align-items: center;
