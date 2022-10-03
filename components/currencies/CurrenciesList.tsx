@@ -84,6 +84,7 @@ export const CurrenciesList = () => {
                 pathname: "/",
                 query: { page: item.page },
               }}
+              scroll={false}
             >
               <a
                 className={
