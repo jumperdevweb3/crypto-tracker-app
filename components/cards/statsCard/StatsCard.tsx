@@ -3,7 +3,7 @@ import { StatsCoinCard } from "./StatsCoinCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
-import { StatsModal } from "../../ui/modals/StatsModal";
+import { Modal } from "../../ui/modals/Modal";
 //types
 import { RootState } from "../../../store/store";
 import { CurrencyItem } from "../../../types/types";
@@ -86,7 +86,9 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
   let boxContent;
   if (filterType.length !== 0) {
     boxContent = modalActive && (
-      <StatsModal onClose={moreStatsHandler}>{moreItems}</StatsModal>
+      <Modal onClose={moreStatsHandler} id="stats-modal">
+        {moreItems}
+      </Modal>
     );
   }
   if (filterType.length === 0) {
