@@ -1,0 +1,38 @@
+.list-description {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  overflow-y: auto;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    transition: 0.2s;
+    cursor: pointer;
+    border-bottom: 2px solid rgb(65, 64, 64);
+
+    &:hover {
+      background-color: #171924;
+      border-radius: 10px;
+      border-bottom: 1px solid transparent;
+    }
+    .name-box {
+      display: flex;
+      gap: 0.5rem;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

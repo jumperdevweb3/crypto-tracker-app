@@ -1,0 +1,37 @@
+.list-description {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.list {
+  overflow-y: auto;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #171924;
+    }
+
+    .name {
+      font-size: 0.9rem;
+      font-weight: bold;
+      flex-basis: 70%;
+      word-wrap: break-word;
+    }
+    .symbol {
+      font-size: 0.9rem;
+      word-wrap: break-word;
+      flex-basis: 30%;
+      text-align: right;
+      color: #aaa;
+    }
+  }
+}

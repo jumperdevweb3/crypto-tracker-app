@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1.8rem;
+
+  .name-box {
+    display: flex;
+    gap: 0.5rem;
+    align-self: center;
+    margin-bottom: 1rem;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+  .content-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .data-box,
+    .stats-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      flex-basis: 45%;
+
+      p {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #aaa;
+
+        span {
+          font-size: 0.9rem;
+          color: #fff;
+          text-transform: capitalize;
+        }
+        a {
+          color: rgb(193, 162, 222);
+        }
+        .contract {
+          font-size: 0.8rem;
+        }
+      }
+      .contract {
+        span {
+          word-break: break-all;
+        }
+        @media (max-width: 767px) {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+      .description {
+        font-size: 0.9rem;
+        font-weight: normal;
+        color: #fff;
+      }
+    }
+    .stats-box {
+      flex-basis: 45%;
+    }
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 1rem;
+
+  .name-box {
+    display: flex;
+    gap: 0.5rem;
+    align-self: center;
+    margin-bottom: 1rem;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+  .data-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    p {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #aaa;
+
+      span {
+        font-size: 0.9rem;
+        color: #fff;
+      }
+      a {
+        color: rgb(193, 162, 222);
+      }
+    }
+    .volume {
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+    .description {
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #fff;
+    }
+  }
+}
