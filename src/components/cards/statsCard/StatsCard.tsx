@@ -101,7 +101,9 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
           <h2>{title}</h2>
           {icon}
         </div>
-        <button onClick={moreStatsHandler}>More</button>
+        <button onClick={moreStatsHandler} disabled={!items.length && true}>
+          More
+        </button>
       </div>
       {boxContent}
 
