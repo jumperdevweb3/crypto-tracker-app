@@ -1,10 +1,10 @@
-import { CurrenciesDetail } from "../../components/currencies/currencyDetail/CurrenciesDetail";
+import { CurrenciesDetail } from "../../src/components/currencies/currencyDetail/CurrenciesDetail";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "../../src/store/store";
 import { useRouter } from "next/router";
-import { CurrencyItem } from "../../types/types";
+import { CurrencyItem } from "../../src/types/types";
 //types
-import { Path } from "../../types/types";
+import { Path } from "../../src/types/types";
 
 export default function CoinDetailPage() {
   const items = useSelector((state: RootState) => state.currencies.items);

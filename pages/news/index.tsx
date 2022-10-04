@@ -1,8 +1,8 @@
-import { News } from "../../components/news/News";
-import { fetchNewsData } from "../../helpers/api-utils";
-import { NewsItems } from "../../types/types";
+import { News } from "../../src/components/news/News";
+import { fetchNewsData } from "../../src/helpers/api-utils";
+import { NewsItems } from "../../src/types/types";
 import { GetStaticProps } from "next";
-import { fetchSubpageId } from "../../helpers/api-utils";
+import { fetchSubpageId } from "../../src/helpers/api-utils";
 import { useEffect } from "react";
 
 export default function NewsPage({ ...props }) {

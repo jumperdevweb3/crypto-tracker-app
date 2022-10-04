@@ -1,11 +1,11 @@
-import { getNewsDetail } from "../../helpers/api-utils";
-import { NewsDetails } from "../../components/news/NewsDetails";
+import { getNewsDetail } from "../../src/helpers/api-utils";
+import { NewsDetails } from "../../src/components/news/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { fetchSubpageId } from "../../helpers/api-utils";
+import { fetchSubpageId } from "../../src/helpers/api-utils";
 //types
 import { InferGetStaticPropsType } from "next";
-import { NewsItems } from "../../types/types";
-import { IParams } from "../../types/types";
+import { NewsItems } from "../../src/types/types";
+import { IParams } from "../../src/types/types";
 
 const DetialPage: NextPage = ({
   selectedNews,

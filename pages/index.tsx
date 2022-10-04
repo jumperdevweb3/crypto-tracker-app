@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCurrenciesData } from "../store/currencies-actions";
-import { Footer } from "../components/ui/Footer";
-import { StatsBox } from "../components/currencies/stats/StatsBox";
-import { CurrenciesList } from "../components/currencies/CurrenciesList";
-import { SearchBar } from "../components/currencies/searchBar/SearchBar";
+import { fetchCurrenciesData } from "../src/store/currencies-actions";
+import { Footer } from "../src/components/ui/Footer";
+import { StatsBox } from "../src/components/currencies/stats/StatsBox";
+import { CurrenciesList } from "../src/components/currencies/CurrenciesList";
+import { SearchBar } from "../src/components/currencies/searchBar/SearchBar";
 //types
-import { AppDispatch } from "../store/store";
-import { RootState } from "../store/store";
+import { AppDispatch } from "../src/store/store";
+import { RootState } from "../src/store/store";
 
 let isFirstLoading = true;
 function HomePage() {
