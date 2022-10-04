@@ -26,6 +26,10 @@
     button {
       color: rgb(75, 185, 167);
       padding: 0.5rem 0.2rem;
+
+      &:disabled {
+        cursor: no-drop;
+      }
     }
     .title-box {
       display: flex;
