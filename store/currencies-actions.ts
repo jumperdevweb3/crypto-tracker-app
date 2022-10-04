@@ -34,7 +34,7 @@ export const fetchCurrenciesData = (isFirstLoading: boolean) => {
       dispatch(uiActions.showLoading(false));
       dispatch(
         uiActions.showNotification({
-          message: `Problem: ${error}`,
+          message: `Problem: Coingeco API is not responding, try again later.`,
         })
       );
     }
