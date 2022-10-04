@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to crypto-tracker-app 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.3-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
@@ -11,7 +11,7 @@
 
 > The project is constantly being developed and improved
 
-### ✨ [See demo](https://crypto-tracker-app-2.netlify.app/) 
+### ✨ [See demo](https://crypto-tracker-app-2.netlify.app/)
 
 ## Clone
 
@@ -22,7 +22,7 @@ git clone https://github.com/skoczy01/crypto-tracker-app
 ### What u need
 
 ```sh
-Create a .env file with 
+Create a .env file with
 your keys inside crypto-tracker-app project folder
 
 * Etherscan API KEY: https://etherscan.io/apis
@@ -30,7 +30,6 @@ your keys inside crypto-tracker-app project folder
 * CoinGeco Public Api: https://www.coingecko.com/en/api/documentation
 
 ```
-
 
 ## Install
 
@@ -47,21 +46,23 @@ npm run dev
 ### Tech Stack and Libraries
 
 **`Stack`**
+
 ```sh
 - Typescript
 - React
 - Next.js
-- Scss 
-- react-redux, redux/toolkit 
+- Scss
+- react-redux, redux/toolkit
 ```
+
 **`Helpers Libraries:`**
+
 ```sh
 - lightweight-charts
 - dayjs
 - react-icons
 - react-markdown
 ```
-
 
 ## Author
 
