@@ -53,11 +53,15 @@ export const Companies = () => {
   return (
     <div className={style.container}>
       <p className={style.title}>Companies</p>
-      <div className={classes["list-description"]}>
-        <p>Company</p>
-        <p>Total Holdings</p>
-      </div>
-      {itemsExist && <ul className={classes.list}>{renderItems}</ul>}
+      {itemsExist && (
+        <>
+          <div className={classes["list-description"]}>
+            <p>Company</p>
+            <p>Total Holdings</p>
+          </div>
+          <ul className={classes.list}>{renderItems}</ul>
+        </>
+      )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
       {companies.modalOpen && (
         <Modal onClose={onCloseModal} id="companies-modal">
