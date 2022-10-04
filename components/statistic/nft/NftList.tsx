@@ -61,11 +61,15 @@ export const NftList = () => {
   return (
     <div className={style.container}>
       <p className={style.title}>Top 24h volume Nft`s List</p>
-      <div className={classes["list-description"]}>
-        <p>Name</p>
-        <p>Symbol</p>
-      </div>
-      {itemsExist && <ul className={classes.list}>{renderItems}</ul>}
+      {itemsExist && (
+        <>
+          <div className={classes["list-description"]}>
+            <p>Name</p>
+            <p>Symbol</p>
+          </div>
+          <ul className={classes.list}>{renderItems}</ul>
+        </>
+      )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
       {nfts.modalOpen && (
         <Modal onClose={onCloseModal} id="nft-modal">
