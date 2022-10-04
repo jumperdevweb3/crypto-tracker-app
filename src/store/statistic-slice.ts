@@ -7,7 +7,11 @@ export const statisticSlice = createSlice({
     exchanges: { items: [], errorMessage: "" },
     companies: { items: [], errorMessage: "" },
     nfts: { items: [], errorMessage: "" },
-    isLoading: false,
+    isLoading: {
+      exchanges: false,
+      companies: false,
+      nfts: false,
+    },
   } as StatisticTypes,
   reducers: {
     setExchanges(state, action) {
@@ -31,7 +35,15 @@ export const statisticSlice = createSlice({
       }
     },
     setIsLoading(state, action) {
-      state.isLoading = action.payload;
+      if (action.payload.loadingType === "companies") {
+        state.isLoading.companies = action.payload.isLoading;
+      }
+      if (action.payload.loadingType === "exchanges") {
+        state.isLoading.exchanges = action.payload.isLoading;
+      }
+      if (action.payload.loadingType === "nfts") {
+        state.isLoading.nfts = action.payload.isLoading;
+      }
     },
   },
 });
