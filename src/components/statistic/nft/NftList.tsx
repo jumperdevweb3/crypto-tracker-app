@@ -7,6 +7,7 @@ import { useState } from "react";
 import { NftTypes } from "../../../types/types";
 import { fetchNftDetial } from "../../../store/statistic-actions";
 import { NftDetials } from "./NftDetials";
+import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
 let nftModal: any;
 if (process.browser) {
@@ -17,7 +18,9 @@ export const NftList = () => {
   const { items, errorMessage } = useSelector(
     (state: RootState) => state.statistic.nfts
   );
-
+  const isLoading = useSelector(
+    (state: RootState) => state.statistic.isLoading.nfts
+  );
   const nftsModalAction = async (id: string) => {
     const itemResponse: NftTypes = await fetchNftDetial(id);
     const item = itemResponse && itemResponse;
@@ -61,7 +64,8 @@ export const NftList = () => {
   return (
     <div className={style.container}>
       <p className={style.title}>Top 24h volume Nft`s List</p>
-      {itemsExist && (
+      {isLoading && <LoadingSpinner />}
+      {itemsExist && !isLoading && (
         <>
           <div className={classes["list-description"]}>
             <p>Name</p>

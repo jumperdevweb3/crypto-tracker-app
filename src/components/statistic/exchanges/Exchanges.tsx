@@ -6,6 +6,7 @@ import { useState } from "react";
 import { ExchangeType } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Exchange } from "./Exchange";
+import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
 let exchangeModal: any;
 if (process.browser) {
@@ -16,6 +17,9 @@ export const Exchanges = () => {
   const [exchange, setExchange] = useState({ item: {}, modalOpen: false });
   const { items, errorMessage } = useSelector(
     (state: RootState) => state.statistic.exchanges
+  );
+  const isLoading = useSelector(
+    (state: RootState) => state.statistic.isLoading.exchanges
   );
   const exchangeModalAction = (item: ExchangeType) => {
     setExchange({
@@ -55,7 +59,8 @@ export const Exchanges = () => {
   return (
     <div className={style.container}>
       <p className={style.title}>Exchanges</p>
-      {itemsExist && (
+      {isLoading && <LoadingSpinner />}
+      {itemsExist && !isLoading && (
         <>
           <div className={classes["list-description"]}>
             <p>Name</p>

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { CompaniesType } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Company } from "./Company";
+import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
 let exchangeModal: any;
 if (process.browser) {
@@ -15,6 +16,9 @@ export const Companies = () => {
   const [companies, setCompanies] = useState({ item: {}, modalOpen: false });
   const { items, errorMessage } = useSelector(
     (state: RootState) => state.statistic.companies
+  );
+  const isLoading = useSelector(
+    (state: RootState) => state.statistic.isLoading.companies
   );
 
   const companiesModalAction = (item: CompaniesType) => {
@@ -53,7 +57,8 @@ export const Companies = () => {
   return (
     <div className={style.container}>
       <p className={style.title}>Companies</p>
-      {itemsExist && (
+      {isLoading && <LoadingSpinner />}
+      {itemsExist && !isLoading && (
         <>
           <div className={classes["list-description"]}>
             <p>Company</p>
