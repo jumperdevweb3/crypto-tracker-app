@@ -1,9 +1,8 @@
 .market-list {
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
+  overflow: auto;
   padding-bottom: 2rem;
-  overflow-y: auto;
   max-height: 65vh;
   width: 62.5rem;
   margin: 0 auto;
