@@ -152,5 +152,9 @@ export interface StatisticTypes {
     items: NftsListTypes[] | [];
     errorMessage: string;
   };
-  isLoading: boolean;
+  isLoading: {
+    exchanges: boolean;
+    companies: boolean;
+    nfts: boolean;
+  };
 }
