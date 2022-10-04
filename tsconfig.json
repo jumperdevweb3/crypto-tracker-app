@@ -19,7 +19,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/currencies/TradingViewChart.js"
+    "./src/components/currencies/currencyDetail/TradingViewChart.tsx"
   ],
   "exclude": ["node_modules"]
 }
