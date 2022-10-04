@@ -3,6 +3,12 @@ import { statisticActions } from "./statistic-slice";
 
 export const fetchExchangesList = () => {
   return async (dispatch: AppDispatch) => {
+    dispatch(
+      statisticActions.setIsLoading({
+        loadingType: "exchanges",
+        isLoading: true,
+      })
+    );
     const fetchData = async () => {
       const response = await fetch(
         `https://api.coingecko.com/api/v3/exchanges?per_page=25&page=1`
@@ -16,8 +22,20 @@ export const fetchExchangesList = () => {
     try {
       const exchangesData = await fetchData();
       dispatch(statisticActions.setExchanges(exchangesData));
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "exchanges",
+          isLoading: false,
+        })
+      );
     } catch (error) {
       console.log(error);
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "exchanges",
+          isLoading: false,
+        })
+      );
       dispatch(statisticActions.setExchanges([]));
       dispatch(
         statisticActions.setError({
@@ -31,6 +49,12 @@ export const fetchExchangesList = () => {
 
 export const fetchCompaniesData = () => {
   return async (dispatch: AppDispatch) => {
+    dispatch(
+      statisticActions.setIsLoading({
+        loadingType: "companies",
+        isLoading: true,
+      })
+    );
     const fetchData = async () => {
       const response = await fetch(
         `https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin`
@@ -44,7 +68,19 @@ export const fetchCompaniesData = () => {
     try {
       const companiesData = await fetchData();
       dispatch(statisticActions.setCompanies(companiesData.companies));
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "companies",
+          isLoading: false,
+        })
+      );
     } catch (error) {
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "companies",
+          isLoading: false,
+        })
+      );
       console.log(error);
       dispatch(statisticActions.setCompanies([]));
       dispatch(
@@ -59,6 +95,12 @@ export const fetchCompaniesData = () => {
 
 export const fetchNftList = () => {
   return async (dispatch: AppDispatch) => {
+    dispatch(
+      statisticActions.setIsLoading({
+        loadingType: "nfts",
+        isLoading: true,
+      })
+    );
     const fetchData = async () => {
       const response = await fetch(
         `https://api.coingecko.com/api/v3/nfts/list?order=h24_volume_native_desc&asset_platform_id=ethereum&per_page=50&page=1`
@@ -72,8 +114,20 @@ export const fetchNftList = () => {
     try {
       const nftsData = await fetchData();
       dispatch(statisticActions.setNftsList(nftsData));
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "nfts",
+          isLoading: false,
+        })
+      );
     } catch (error) {
       console.log(error);
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "nfts",
+          isLoading: false,
+        })
+      );
       dispatch(statisticActions.setNftsList([]));
       dispatch(
         statisticActions.setError({
