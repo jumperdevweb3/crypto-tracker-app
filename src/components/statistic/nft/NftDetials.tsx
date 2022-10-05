@@ -5,6 +5,7 @@ import { NftTypes } from "../../../types/types";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
 import classes from "./NftDetails.module.scss";
 import { fetchNftDetial } from "../../../store/statistic-actions";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 export const NftDetials = ({ ...props }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -53,7 +54,9 @@ export const NftDetials = ({ ...props }) => {
               <p className={classes.contract}>
                 Contract Address : <span>{item.contract_address}</span>
               </p>
-              <p className={classes.description}>{item.description}</p>
+              <div className={classes.description}>
+                <ReactMarkdown>{item.description}</ReactMarkdown>
+              </div>
             </div>
             <div className={classes["stats-box"]}>
               <p>
