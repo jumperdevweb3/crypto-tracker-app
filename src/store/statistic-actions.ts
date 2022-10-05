@@ -139,15 +139,41 @@ export const fetchNftList = () => {
   };
 };
 
-export const fetchNftDetial = async (id: string) => {
-  try {
-    const response = await fetch(`https://api.coingecko.com/api/v3/nfts/${id}`);
-    if (!response.ok) {
-      throw new Error("Could not fetch NFT data");
+export const fetchNftDetial = (id: string) => {
+  return async (dispatch: AppDispatch) => {
+    dispatch(
+      statisticActions.setIsLoading({
+        loadingType: "nft-detail",
+        isLoading: true,
+      })
+    );
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/nfts/${id}`
+      );
+      if (!response.ok) {
+        throw new Error("Could not fetch NFT Detial data");
+      }
+      const data = await response.json();
+      return data;
+    };
+    try {
+      const nftDetailData = await fetchData();
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "nft-detail",
+          isLoading: false,
+        })
+      );
+      return nftDetailData;
+    } catch (error) {
+      console.log(error);
+      dispatch(
+        statisticActions.setIsLoading({
+          loadingType: "nft-detail",
+          isLoading: false,
+        })
+      );
     }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
+  };
 };
