@@ -1,5 +1,5 @@
-import classes from "./StatsCard.module.scss";
-import { StatsCoinCard } from "./StatsCoinCard";
+import classes from "./TrendingStatsCard.module.scss";
+import { TrendingCoinCard } from "./TrendingCoinCard";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
@@ -8,11 +8,17 @@ import { Modal } from "../../ui/modals/Modal";
 import { RootState } from "../../../store/store";
 import { CurrencyItem } from "../../../types/types";
 
-export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
-  let statsModal: any;
-  if (process.browser) {
-    statsModal = document.getElementById("stats-modal");
-  }
+let trendingStatsModal: any;
+if (process.browser) {
+  trendingStatsModal = document.getElementById("stats-modal");
+}
+export const TrendingStatsCard = ({
+  kind,
+  title,
+}: {
+  kind: string;
+  title: string;
+}) => {
   const [modalActive, setModalActive] = useState(false);
 
   let icon;
@@ -49,7 +55,7 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
 
   const topThreeView = filterType.slice(0, 3).map((item, index: number) => {
     return (
-      <StatsCoinCard
+      <TrendingCoinCard
         key={item.id}
         id={item.id}
         number={index + 1}
@@ -62,7 +68,7 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
   });
   const moreItems = filterType.map((item, index: number) => {
     return (
-      <StatsCoinCard
+      <TrendingCoinCard
         key={item.id}
         id={item.id}
         number={index + 1}
@@ -76,10 +82,10 @@ export const StatsCard = ({ kind, title }: { kind: string; title: string }) => {
   const moreStatsHandler = () => {
     setModalActive((state) => !state);
     if (!modalActive) {
-      statsModal.classList.add("show");
+      trendingStatsModal.classList.add("show");
     }
     if (modalActive) {
-      statsModal.classList.remove("show");
+      trendingStatsModal.classList.remove("show");
     }
   };
 

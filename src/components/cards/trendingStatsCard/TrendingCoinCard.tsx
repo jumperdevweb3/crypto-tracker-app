@@ -1,7 +1,7 @@
 import classes from "./StatsCoinCard.module.scss";
 import Link from "next/link";
 
-export const StatsCoinCard = (props: {
+export const TrendingCoinCard = (props: {
   id: string;
   percentage: any;
   number: number;
