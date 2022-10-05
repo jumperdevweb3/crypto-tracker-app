@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { Modal } from "../../ui/modals/Modal";
 import { useState } from "react";
-import { NftTypes } from "../../../types/types";
-import { fetchNftDetial } from "../../../store/statistic-actions";
 import { NftDetials } from "./NftDetials";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
@@ -14,29 +12,27 @@ if (process.browser) {
   nftModal = document.getElementById("nft-modal");
 }
 export const NftList = () => {
-  const [nfts, setNfts] = useState({ item: {}, modalOpen: false });
+  const [nfts, setNfts] = useState({ modalOpen: false, id: "" });
+
   const { items, errorMessage } = useSelector(
     (state: RootState) => state.statistic.nfts
   );
   const isLoading = useSelector(
     (state: RootState) => state.statistic.isLoading.nfts
   );
+
   const nftsModalAction = async (id: string) => {
-    const itemResponse: NftTypes = await fetchNftDetial(id);
-    const item = itemResponse && itemResponse;
     setNfts({
-      item: item,
       modalOpen: true,
+      id: id,
     });
     nftModal.classList.add("show");
   };
   const onCloseModal = () => {
     nftModal.classList.remove("show");
-    setNfts((state) => {
-      return {
-        item: state.item,
-        modalOpen: false,
-      };
+    setNfts({
+      modalOpen: false,
+      id: "",
     });
   };
   const itemsExist = items && items.length !== 0;
@@ -55,12 +51,6 @@ export const NftList = () => {
       </li>
     ));
 
-  const modalContent = nfts.item ? (
-    <NftDetials {...nfts.item} />
-  ) : (
-    <p className="center">Item data fetch problem.</p>
-  );
-
   return (
     <div className={style.container}>
       <p className={style.title}>Top 24h volume Nft`s List</p>
@@ -77,7 +67,7 @@ export const NftList = () => {
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
       {nfts.modalOpen && (
         <Modal onClose={onCloseModal} id="nft-modal">
-          {modalContent}
+          <NftDetials id={nfts.id} />
         </Modal>
       )}
     </div>
