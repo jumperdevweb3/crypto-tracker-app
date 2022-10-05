@@ -60,7 +60,13 @@
       .description {
         font-size: 0.9rem;
         font-weight: normal;
-        color: #fff;
+        max-height: 7rem;
+        overflow-y: auto;
+        padding: 1rem 0.5rem;
+        p {
+          color: #ddd;
+          line-height: 1.2rem;
+        }
       }
     }
     .stats-box {
