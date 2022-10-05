@@ -1,17 +1,14 @@
 <h1 align="center">Welcome to crypto-tracker-app 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.3-blue.svg?cacheSeconds=2592000" />
-</p>
 
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
 
 > Data is refreshed in real time
 
-> I decided to use Redux for practice and I am satisfied with this method of managing the state in app with a lot of data it's really clean and simple
+> State management method - Redux
 
 > The project is constantly being developed and improved
 
-### ✨ [See demo](https://crypto-tracker-app-2.netlify.app/)
+### ✨ [See this project live](https://crypto-tracker-app-2.netlify.app/)
 
 ## Clone
 
@@ -22,12 +19,13 @@ git clone https://github.com/skoczy01/crypto-tracker-app
 ### What u need
 
 ```sh
-Create a .env file with
-your keys inside crypto-tracker-app project folder
+You need only one key inside .env file.
 
-* Etherscan API KEY: https://etherscan.io/apis
+Create a .env file with your key inside crypto-tracker-app project folder
 
-* CoinGeco Public Api: https://www.coingecko.com/en/api/documentation
+* Take a Etherscan API KEY: https://etherscan.io/apis
+
+* See the CoinGecko api docs: https://www.coingecko.com/en/api/documentation
 
 ```
 
