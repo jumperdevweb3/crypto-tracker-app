@@ -46,18 +46,15 @@
         a {
           color: rgb(193, 162, 222);
         }
-        .contract {
-          font-size: 0.8rem;
-        }
       }
       .contract {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
         span {
           word-break: break-all;
-        }
-        @media (max-width: 767px) {
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
+          font-size: 0.75rem;
         }
       }
       .description {
