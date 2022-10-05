@@ -11,6 +11,7 @@ export const statisticSlice = createSlice({
       exchanges: false,
       companies: false,
       nfts: false,
+      nftDetial: false,
     },
   } as StatisticTypes,
   reducers: {
@@ -43,6 +44,9 @@ export const statisticSlice = createSlice({
       }
       if (action.payload.loadingType === "nfts") {
         state.isLoading.nfts = action.payload.isLoading;
+      }
+      if (action.payload.loadingType === "nft-detail") {
+        state.isLoading.nftDetial = action.payload.isLoading;
       }
     },
   },
