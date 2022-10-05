@@ -26,6 +26,10 @@ export const NftDetials = ({ ...props }) => {
       setItem(null);
     }
   };
+  const interNumberFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   return (
     <>
@@ -56,21 +60,21 @@ export const NftDetials = ({ ...props }) => {
                 Floor Price:{" "}
                 <span>
                   {item.floor_price.native_currency} ETH /{" "}
-                  {item.floor_price.usd} $
+                  {interNumberFormat.format(item.floor_price.usd)}
                 </span>
               </p>
               <p>
                 Market Cap:{" "}
                 <span>
-                  {item.market_cap.native_currency} ETH / {item.market_cap.usd}{" "}
-                  $
+                  {item.market_cap.native_currency} ETH /{" "}
+                  {interNumberFormat.format(item.market_cap.usd)}{" "}
                 </span>
               </p>
               <p>
                 Volume 24h:{" "}
                 <span>
-                  {item.volume_24h.native_currency} ETH / {item.volume_24h.usd}{" "}
-                  $
+                  {item.volume_24h.native_currency} ETH /{" "}
+                  {interNumberFormat.format(item.volume_24h.usd)}{" "}
                 </span>
               </p>
               <p>
@@ -81,7 +85,7 @@ export const NftDetials = ({ ...props }) => {
                 Unique addresses 24h change:{" "}
                 <span>
                   {item.number_of_unique_addresses_24h_percentage_change.toFixed(
-                    3
+                    2
                   )}{" "}
                   %
                 </span>
@@ -89,7 +93,7 @@ export const NftDetials = ({ ...props }) => {
               <p>
                 Floor Price Change in 24h:{" "}
                 <span>
-                  {item.floor_price_in_usd_24h_percentage_change.toFixed(3)} %
+                  {item.floor_price_in_usd_24h_percentage_change.toFixed(2)} %
                 </span>
               </p>
             </div>

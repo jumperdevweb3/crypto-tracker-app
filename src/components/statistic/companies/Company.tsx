@@ -11,7 +11,10 @@ export const Company = ({ ...props }) => {
     total_current_value_usd,
     percentage_of_total_supply,
   } = props.item as CompaniesType;
-
+  const interNumberFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
   return (
     <div className={classes.container}>
       <div className={classes["name-box"]}>
@@ -32,10 +35,12 @@ export const Company = ({ ...props }) => {
           <span>{percentage_of_total_supply.toFixed(4)} BTC</span>
         </p>
         <p>
-          Total entry value USD: <span>{total_entry_value_usd}$</span>
+          Total entry value USD:{" "}
+          <span>{interNumberFormat.format(total_entry_value_usd)}</span>
         </p>
         <p>
-          Total Current value USD: <span>{total_current_value_usd}$</span>
+          Total Current value USD:{" "}
+          <span>{interNumberFormat.format(total_current_value_usd)}</span>
         </p>
       </div>
     </div>
