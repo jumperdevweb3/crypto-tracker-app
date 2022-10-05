@@ -156,5 +156,6 @@ export interface StatisticTypes {
     exchanges: boolean;
     companies: boolean;
     nfts: boolean;
+    nftDetial: boolean;
   };
 }
