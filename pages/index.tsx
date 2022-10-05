@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrenciesData } from "../src/store/currencies-actions";
 import { Footer } from "../src/components/ui/Footer";
-import { StatsBox } from "../src/components/currencies/stats/StatsBox";
+import { TrendingStatsBox } from "../src/components/currencies/stats/TrendingStatsBox";
 import { CurrenciesList } from "../src/components/currencies/CurrenciesList";
 import { SearchBar } from "../src/components/currencies/searchBar/SearchBar";
 //types
@@ -24,7 +24,7 @@ function HomePage() {
 
   return (
     <>
-      <StatsBox />
+      <TrendingStatsBox />
       <SearchBar />
       <CurrenciesList />
       <Footer />
