@@ -20,8 +20,10 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
     total_volume,
   } = props.item;
 
-  const interNumberFormat = new Intl.NumberFormat("en-US");
-
+  const interNumberFormat = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
   return (
     <div className={classes["box-container"]}>
       <div className={classes.header}>
@@ -39,10 +41,9 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
           </p>
           <div className={classes["values-box"]}>
             <p className={classes.price}>
-              {interNumberFormat.format(current_price) === "0"
-                ? current_price.toFixed(7)
+              {interNumberFormat.format(current_price) === "$0.00"
+                ? "$" + current_price.toFixed(7)
                 : interNumberFormat.format(current_price)}
-              $
             </p>
             <PriceTimeChange time={price_change_24h} classes={classes} />
           </div>
@@ -53,13 +54,12 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
         <div className={classes["first-box"]}>
           <div>
             <p> Market Cap:</p>{" "}
-            <span>${interNumberFormat.format(market_cap)}</span>
+            <span>{interNumberFormat.format(market_cap)}</span>
           </div>
           <div>
             <p>All Time High:</p>
             <span>
-              $
-              {interNumberFormat.format(ath) === "0"
+              {interNumberFormat.format(ath) === "$0.00"
                 ? ath.toFixed(7)
                 : interNumberFormat.format(ath)}
             </span>
