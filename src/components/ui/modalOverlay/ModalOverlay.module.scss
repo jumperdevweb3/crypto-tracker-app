@@ -1,7 +1,8 @@
 .modal {
   display: flex;
   flex-direction: column;
-  min-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
   max-width: 768px;
   color: #fff;
   background: #282d3a;
@@ -92,6 +93,9 @@
 
   @media (max-width: 767px) {
     width: 80%;
+  }
+  @media (min-width: 1024px) {
+    min-width: 600px;
   }
 }
 @keyframes slide-down {
