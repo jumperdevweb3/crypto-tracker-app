@@ -10,11 +10,15 @@
   margin: 5rem auto;
 
   .inputs-box {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    margin-top: 3.5rem;
+    width: 95%;
+    margin-top: 1.5rem;
+    background-color: #232532;
+    padding-bottom: 0.7rem;
+    border-radius: 10px;
 
     @media (max-width: 767px) {
       flex-direction: column;
