@@ -23,7 +23,9 @@ export const Watchlist = () => {
     <>
       {data.length !== 0 && (
         <>
-          <h2 className="center-item">Your watch list items.</h2>
+          <h2 className="center-item">
+            Your <span>watchlist</span> items.
+          </h2>
           <div className={classes["market-list"]}>
             <CurrenciesSortMenu page={"watchlist"} />
             {data.map((item: CurrencyItem) => {
