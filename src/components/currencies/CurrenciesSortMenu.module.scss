@@ -13,7 +13,6 @@
   border-top: 1px solid rgb(34, 37, 49);
   border-bottom: 1px solid rgb(34, 37, 49);
   width: 60rem;
-
   margin: 0 auto;
   padding: 0.5rem 0px;
   color: #fff;
@@ -25,31 +24,20 @@
   z-index: 2;
 
   div {
-    display: grid;
-    grid-template-columns: 1fr 1rem;
-    gap: 0px 0px;
+    display: flex;
     align-items: center;
+    gap: 0.5rem;
   }
-
   .rank {
-    grid-template-columns: 1rem 1.2rem;
+    display: flex;
+    gap: 0.5rem;
   }
   .name {
     position: sticky;
     top: 0;
     left: 0;
+    padding-left: 0.3rem;
     background-color: #17171a;
-    grid-template-columns: 3rem 1rem;
-  }
-  .price {
-    grid-template-columns: 2.5rem 1rem;
-  }
-  .time {
-    grid-template-columns: 2.5rem 1rem;
-  }
-  .market-cap,
-  .volume {
-    grid-template-columns: 6.3rem 1rem;
   }
   svg {
     color: rgb(222, 195, 246);
