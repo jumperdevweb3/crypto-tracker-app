@@ -43,7 +43,8 @@ export const News = ({ items }: NewsTypes) => {
   return (
     <>
       <h2 className={classes.title}>
-        The Crypto News Fetched from <span>Messari.io</span>
+        <span>BETA </span>Crypto News Fetched from
+        <Link href={"https://messari.io/api/docs#tag/News"}> Messari.io</Link>
       </h2>
       <div className={classes.container}>{news}</div>
     </>
