@@ -75,6 +75,7 @@
   .time {
     display: flex;
     align-items: center;
+    animation: show-slowly 300ms linear;
   }
   .time.incr {
     color: #8dc647;
@@ -95,5 +96,13 @@
     &:hover svg {
       color: rgb(193, 162, 222) !important;
     }
+  }
+}
+@keyframes show-slowly {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
   }
 }

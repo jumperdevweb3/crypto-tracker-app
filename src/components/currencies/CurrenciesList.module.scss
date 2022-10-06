@@ -6,6 +6,7 @@
   max-height: 65vh;
   width: 62.5rem;
   margin: 0 auto;
+  animation: show-slowly 300ms linear;
 
   @media (max-width: 1023px) {
     width: 90%;
@@ -79,5 +80,14 @@
       background-color: transparent;
       color: #fff;
     }
+  }
+}
+
+@keyframes show-slowly {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
   }
 }
