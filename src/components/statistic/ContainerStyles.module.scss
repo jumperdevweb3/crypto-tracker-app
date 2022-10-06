@@ -10,6 +10,7 @@
   margin: 1rem 0;
   padding: 5px 10px;
   background-color: #282a3c;
+  animation: show-slowly 300ms linear;
 
   .title {
     font-size: 1.2rem;
@@ -22,5 +23,20 @@
   &:nth-of-type(3) {
     flex-basis: 100%;
     max-width: 100%;
+    max-height: calc(45vh - 5.5rem);
+    margin: 1rem 0 0 0;
+  }
+
+  @media (max-width: 767px) {
+    max-height: calc(60vh - 2rem);
+  }
+}
+
+@keyframes show-slowly {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
   }
 }
