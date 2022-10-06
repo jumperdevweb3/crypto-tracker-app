@@ -13,7 +13,7 @@ import { RootState } from "../../store/store";
 import { AppDispatch } from "../../store/store";
 import Link from "next/link";
 
-const SECOND_TO_REFRESH = 40;
+const SECOND_TO_REFRESH = 25;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 const pagesPaths = [
   { page: "1" },
