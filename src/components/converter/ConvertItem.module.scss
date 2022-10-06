@@ -34,7 +34,7 @@
       padding: 15px 10px;
       color: white;
       text-align: center;
-      border: 2px solid white;
+      border: 2px solid rgb(58, 59, 66);
       appearance: none;
       cursor: pointer;
       outline: none;
@@ -54,6 +54,8 @@
     }
     .amount {
       width: 70%;
+      padding: 0 1rem;
+      font-size: 1rem;
 
       @media (max-width: 767px) {
         width: 100%;
