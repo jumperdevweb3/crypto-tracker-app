@@ -5,10 +5,12 @@
   overflow-y: auto;
   max-width: 768px;
   color: #fff;
-  background: #282d3a;
+  background-color: rgba(0, 112, 242, 0.05);
+  backdrop-filter: blur(40px) saturate(1.5);
   padding: 1.5rem 1rem;
   border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: rgb(128 138 157 / 12%) 0px 1px 2px,
+    rgb(128 138 157 / 24%) 0px 8px 32px;
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   font-size: 0.8rem;
@@ -25,7 +27,6 @@
       font-weight: bold;
       border: 2px solid rgb(193, 162, 222);
       color: rgb(193, 162, 222);
-      background-color: #323742;
       padding: 5px 10px;
       border-radius: 10px;
       z-index: 2;
@@ -39,6 +40,7 @@
     padding: 0 1rem 1rem;
     max-height: 70vh;
     overflow-y: scroll;
+    font-size: 0.9rem;
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -49,7 +51,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #17171a;
+      background-color: rgb(193, 162, 222);
       border-radius: 14px;
       border: 2px solid transparent;
     }
@@ -61,7 +63,7 @@
 
     & > div {
       margin: 1.2rem 0;
-      border-bottom: 2px solid #aaa;
+      border-bottom: 1px solid rgba(170, 170, 170, 0.389);
       padding: 10px 0;
 
       div {
@@ -90,7 +92,6 @@
       border: 2px solid transparent;
     }
   }
-
   @media (max-width: 767px) {
     width: 80%;
   }
