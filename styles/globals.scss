@@ -42,9 +42,17 @@ button {
   cursor: pointer;
 }
 .center-item {
-  margin: 5rem auto 3rem auto;
+  margin: 3rem auto 3rem auto;
   text-align: center;
-  color: rgb(193, 162, 222);
+  color: #fff;
+  font-weight: bold;
+
+  span {
+    color: rgb(193, 162, 222);
+  }
+  a {
+    color: #8bc53f;
+  }
 
   &.xl {
     font-size: 1.2rem;
