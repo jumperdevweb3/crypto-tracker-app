@@ -7,7 +7,6 @@
 
   .title {
     text-align: center;
-    color: rgb(91, 60, 214);
   }
 
   h2,
@@ -16,6 +15,13 @@
   h5,
   p {
     margin: 1rem 0;
+  }
+  h3 {
+    color: rgb(56, 187, 45);
+  }
+  h4,
+  h5 {
+    color: rgb(43, 141, 34);
   }
 
   p,
@@ -36,8 +42,8 @@
     flex-direction: column;
     list-style: square;
     padding: 0.5rem 0;
-    border-top: 2px solid rgb(193, 162, 222);
-    border-bottom: 2px solid rgb(193, 162, 222);
+    padding-left: 2rem;
+    border-left: 4px solid rgba(255, 255, 255, 0.239);
 
     li {
       margin-left: 1rem;
