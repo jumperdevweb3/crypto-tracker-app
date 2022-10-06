@@ -10,6 +10,7 @@ import { Companies } from "./companies/Companies";
 import { AppDispatch } from "../../store/store";
 import classes from "./Statistic.module.scss";
 import { NftList } from "./nft/NftList";
+import Link from "next/link";
 
 export const Statistics = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -21,10 +22,18 @@ export const Statistics = () => {
   }, [dispatch]);
 
   return (
-    <div className={classes.statistic}>
-      <Exchanges />
-      <Companies />
-      <NftList />
-    </div>
+    <>
+      <p className={classes.title}>
+        <span>BETA</span> Statistic data from{" "}
+        <Link href={"https://www.coingecko.com/en/api/documentation"}>
+          CoinGeco
+        </Link>
+      </p>
+      <div className={classes.statistic}>
+        <Exchanges />
+        <Companies />
+        <NftList />
+      </div>
+    </>
   );
 };
