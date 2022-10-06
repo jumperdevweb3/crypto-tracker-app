@@ -1,10 +1,18 @@
 .title {
+  padding: 1.5rem;
   text-align: center;
+  font-size: 1.2rem;
   color: #fff;
-  margin: 3rem 0;
+  font-weight: bold;
 
   span {
+    letter-spacing: 1px;
     color: rgb(193, 162, 222);
+    font-size: 0.9rem;
+    font-family: sans-serif;
+  }
+  a {
+    color: #8bc53f;
   }
 }
 .container {
@@ -13,6 +21,7 @@
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
+  margin-bottom: 2rem;
   color: #fff;
 }
 .news-box {
@@ -33,14 +42,16 @@
     .time {
       text-align: right;
       margin: 0.5rem 0;
+      font-weight: bold;
     }
     .title {
-      margin: 1rem 0;
+      padding: 0.5rem 0;
       color: rgb(193, 162, 222);
     }
   }
   a {
-    color: #aaa;
+    color: #8bc53f;
+    font-weight: bold;
     text-decoration: underline;
     text-align: center;
   }
@@ -76,7 +87,7 @@
     text-decoration: none;
 
     &:hover {
-      background-color: rgb(174, 131, 174);
+      background-color: rgb(81, 76, 187);
     }
   }
 }
