@@ -14,10 +14,12 @@
     align-items: center;
     padding: 0.6rem 1rem;
     cursor: pointer;
-    border-radius: 10px;
+    border-bottom: 1px solid rgba(158, 158, 158, 0.188);
+    transition: 0.2s;
 
     &:hover {
       background-color: #171924;
+      border-radius: 10px;
     }
 
     .name {
