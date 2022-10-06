@@ -11,3 +11,20 @@
     align-items: center;
   }
 }
+.title {
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+
+  span {
+    letter-spacing: 1px;
+    color: rgb(193, 162, 222);
+    font-size: 0.9rem;
+    font-family: sans-serif;
+  }
+  a {
+    color: #8bc53f;
+  }
+}
