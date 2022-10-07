@@ -7,11 +7,13 @@ import { CompaniesType } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Company } from "./Company";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { CompaniesList } from "./CompaniesList";
 
 let exchangeModal: any;
 if (process.browser) {
   exchangeModal = document.getElementById("companies-modal");
 }
+
 export const Companies = () => {
   const [companies, setCompanies] = useState({ item: {}, modalOpen: false });
   const { items, errorMessage } = useSelector(
@@ -38,22 +40,8 @@ export const Companies = () => {
       };
     });
   };
-
   const itemsExist = items && items.length !== 0;
-  const renderItems =
-    itemsExist &&
-    items.map((item, index) => (
-      <li
-        key={item.symbol}
-        className={classes["list-item"]}
-        onClick={() => companiesModalAction(item)}
-      >
-        <div className={classes["name-box"]}>
-          {index + 1}. {item.name}
-        </div>
-        <p className={classes.holdings}>{item.total_holdings} BTC</p>
-      </li>
-    ));
+
   return (
     <div className={style.container}>
       <p className={style.title}>Companies</p>
@@ -64,7 +52,11 @@ export const Companies = () => {
             <p>Company</p>
             <p>Total Holdings</p>
           </div>
-          <ul className={classes.list}>{renderItems}</ul>
+          <ul className={classes.list}>
+            {itemsExist && (
+              <CompaniesList items={items} modalAction={companiesModalAction} />
+            )}
+          </ul>
         </>
       )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
