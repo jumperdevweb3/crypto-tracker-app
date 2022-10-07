@@ -65,10 +65,6 @@ export interface NewsTypes {
   items: NewsItems[];
 }
 
-export interface PropsDetials {
-  id: string;
-  title: string;
-}
 export type PropsChildren = {
   children: ReactNode;
 };
