@@ -4,7 +4,7 @@ import { sortCurrencies } from "./currencies-actions";
 import { CurrenciesState } from "../types/types";
 import { CurrencyItem } from "../types/types";
 
-const sliceVisivleItems = (
+const sliceVisibleItems = (
   passedItems: CurrencyItem[],
   page: string | undefined
 ) => {
@@ -69,7 +69,7 @@ const currenciesSlice = createSlice({
     },
     setVisibleItems(state, action) {
       const { items, page } = action.payload;
-      const slicedItems = sliceVisivleItems(items, page);
+      const slicedItems = sliceVisibleItems(items, page);
       state.visibleItems = sortCurrencies(slicedItems, state.sortActive);
     },
     sortData(state) {
