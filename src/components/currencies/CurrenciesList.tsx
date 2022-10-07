@@ -11,17 +11,11 @@ import { useRouter } from "next/router";
 //types
 import { RootState } from "../../store/store";
 import { AppDispatch } from "../../store/store";
-import Link from "next/link";
+import { PagesNav } from "./PagesNav";
 
 const SECOND_TO_REFRESH = 25;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
-const pagesPaths = [
-  { page: "1" },
-  { page: "2" },
-  { page: "3" },
-  { page: "4" },
-  { page: "5" },
-];
+
 export const CurrenciesList = () => {
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
@@ -42,6 +36,7 @@ export const CurrenciesList = () => {
       })
     );
   }, [currenciesItems, router.asPath]);
+
   useEffect(() => {
     const refreshData = setInterval(() => {
       dispatch(fetchCurrenciesData(false));
@@ -56,16 +51,10 @@ export const CurrenciesList = () => {
     dispatch(currenciesActions.sortData());
   }, [dispatch, sortActive]);
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
-
+  if (isLoading) return <LoadingSpinner />;
   if (notification.message !== "") {
     return <Notification message={notification.message} />;
   }
-
-  const activePageStyle = `${classes.link} ${classes.active}`;
-
   return (
     <>
       <div className={classes["market-list"]}>
@@ -75,32 +64,7 @@ export const CurrenciesList = () => {
           return <CoinCard key={item.id} item={item} />;
         })}
       </div>
-      {visibleItems.length !== 0 && (
-        <div className={classes.pages}>
-          {pagesPaths.map((item) => (
-            <Link
-              key={item.page}
-              href={{
-                pathname: "/",
-                query: { page: item.page },
-              }}
-              scroll={false}
-            >
-              <a
-                className={
-                  router.asPath === `/?page=${item.page}`
-                    ? activePageStyle
-                    : router.asPath === "/"
-                    ? classes["home-page"]
-                    : classes.link
-                }
-              >
-                {item.page}
-              </a>
-            </Link>
-          ))}
-        </div>
-      )}
+      {visibleItems.length !== 0 && <PagesNav />}
     </>
   );
 };
