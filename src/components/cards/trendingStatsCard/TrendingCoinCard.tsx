@@ -1,14 +1,17 @@
 import classes from "./StatsCoinCard.module.scss";
 import Link from "next/link";
+import { getWordCount } from "../../../helpers/wordCount";
 
-export const TrendingCoinCard = (props: {
+interface Props {
   id: string;
   percentage: any;
   number: number;
   name: string;
   alias: string;
   image: string;
-}) => {
+}
+
+export const TrendingCoinCard = (props: Props) => {
   const valueStyle =
     props.percentage <= 0
       ? `${classes.percentage} ${classes.decr}`
@@ -18,9 +21,6 @@ export const TrendingCoinCard = (props: {
       ? `${classes.name} ${classes["word-wrap"]}`
       : `${classes.name} ${classes["word-break"]}`;
 
-  function getWordCount(str: string) {
-    return str.split(" ").filter((n) => n != "").length;
-  }
   return (
     <div className={classes["curr-box"]}>
       <div className={classes["curr-list"]}>
