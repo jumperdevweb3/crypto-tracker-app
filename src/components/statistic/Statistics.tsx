@@ -9,7 +9,7 @@ import { Exchanges } from "./exchanges/Exchanges";
 import { Companies } from "./companies/Companies";
 import { AppDispatch } from "../../store/store";
 import classes from "./Statistic.module.scss";
-import { NftList } from "./nft/NftList";
+import { Nfts } from "./nft/Nfts";
 import Link from "next/link";
 
 export const Statistics = () => {
@@ -32,7 +32,7 @@ export const Statistics = () => {
       <div className={classes.statistic}>
         <Exchanges />
         <Companies />
-        <NftList />
+        <Nfts />
       </div>
     </>
   );
