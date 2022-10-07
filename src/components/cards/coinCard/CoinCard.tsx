@@ -4,20 +4,22 @@ import { watchlistActions } from "../../../store/watchlist-slice";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
+import { currencyValueFormat } from "../../../helpers/numberFromat";
 //types
 import { CurrencyItem } from "../../../types/types";
 import { AppDispatch } from "../../../store/store";
 
 export const CoinCard = ({ item }: { item: CurrencyItem }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const interNumberFormat = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+
   const addToWatchlistHandler = () => {
     dispatch(watchlistActions.updateItems(item));
   };
 
+  const coinPrice =
+    currencyValueFormat.format(item.current_price) === "$0.00"
+      ? "$" + item.current_price.toFixed(9)
+      : currencyValueFormat.format(item.current_price);
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${item.id}`}>
@@ -39,24 +41,16 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
         <span>{item.symbol.toUpperCase()}</span>
       </div>
       <div className={classes.price}>
-        <p>
-          {interNumberFormat.format(item.current_price) === "$0.00"
-            ? "$" + item.current_price.toFixed(9)
-            : interNumberFormat.format(item.current_price)}
-        </p>
+        <p>{coinPrice}</p>
       </div>
       <PriceTimeChange time={item.price_change_1h} classes={classes} />
       <PriceTimeChange time={item.price_change_24h} classes={classes} />
       <PriceTimeChange time={item.price_change_7d} classes={classes} />
       <div className={classes["market-cup"]}>
-        <p>
-          {interNumberFormat.format(item.market_cap) === "$0.00"
-            ? item.market_cap.toFixed(7)
-            : interNumberFormat.format(item.market_cap)}
-        </p>
+        <p>{currencyValueFormat.format(item.market_cap)}</p>
       </div>
       <div className={classes.volume}>
-        <p>{interNumberFormat.format(item.total_volume)}</p>
+        <p>{currencyValueFormat.format(item.total_volume)}</p>
       </div>
     </div>
   );
