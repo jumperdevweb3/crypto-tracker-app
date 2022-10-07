@@ -6,6 +6,7 @@ import { LoadingSpinner } from "../../ui/LoadingSpinner";
 import classes from "./NftDetails.module.scss";
 import { fetchNftDetial } from "../../../store/statistic-actions";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { currencyValueFormat } from "../../../helpers/numberFromat";
 
 export const NftDetials = ({ ...props }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -27,11 +28,6 @@ export const NftDetials = ({ ...props }) => {
       setItem(null);
     }
   };
-  const interNumberFormat = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-
   return (
     <>
       {isLoadingDetial && <LoadingSpinner />}
@@ -63,21 +59,21 @@ export const NftDetials = ({ ...props }) => {
                 Floor Price:{" "}
                 <span>
                   {item.floor_price.native_currency} ETH /{" "}
-                  {interNumberFormat.format(item.floor_price.usd)}
+                  {currencyValueFormat.format(item.floor_price.usd)}
                 </span>
               </p>
               <p>
                 Market Cap:{" "}
                 <span>
                   {item.market_cap.native_currency} ETH /{" "}
-                  {interNumberFormat.format(item.market_cap.usd)}{" "}
+                  {currencyValueFormat.format(item.market_cap.usd)}{" "}
                 </span>
               </p>
               <p>
                 Volume 24h:{" "}
                 <span>
                   {item.volume_24h.native_currency} ETH /{" "}
-                  {interNumberFormat.format(item.volume_24h.usd)}{" "}
+                  {currencyValueFormat.format(item.volume_24h.usd)}{" "}
                 </span>
               </p>
               <p>
