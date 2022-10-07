@@ -12,13 +12,11 @@ let trendingStatsModal: any;
 if (process.browser) {
   trendingStatsModal = document.getElementById("stats-modal");
 }
-export const TrendingStatsCard = ({
-  kind,
-  title,
-}: {
+interface Props {
   kind: string;
   title: string;
-}) => {
+}
+export const TrendingStatsCard = ({ kind, title }: Props) => {
   const [modalActive, setModalActive] = useState(false);
 
   let icon;
