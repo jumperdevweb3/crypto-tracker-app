@@ -1,5 +1,6 @@
 import classes from "./CurrencyStats.module.scss";
 import { PriceTimeChange } from "../../cards/coinCard/PriceTimeChange";
+import { currencyValueFormat } from "../../../helpers/numberFromat";
 //types
 import { CurrencyItem } from "../../../types/types";
 
@@ -20,10 +21,6 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
     total_volume,
   } = props.item;
 
-  const interNumberFormat = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
   return (
     <div className={classes["box-container"]}>
       <div className={classes.header}>
@@ -41,9 +38,9 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
           </p>
           <div className={classes["values-box"]}>
             <p className={classes.price}>
-              {interNumberFormat.format(current_price) === "$0.00"
+              {currencyValueFormat.format(current_price) === "$0.00"
                 ? "$" + current_price.toFixed(7)
-                : interNumberFormat.format(current_price)}
+                : currencyValueFormat.format(current_price)}
             </p>
             <PriceTimeChange time={price_change_24h} classes={classes} />
           </div>
@@ -54,14 +51,14 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
         <div className={classes["first-box"]}>
           <div>
             <p> Market Cap:</p>{" "}
-            <span>{interNumberFormat.format(market_cap)}</span>
+            <span>{currencyValueFormat.format(market_cap)}</span>
           </div>
           <div>
             <p>All Time High:</p>
             <span>
-              {interNumberFormat.format(ath) === "$0.00"
+              {currencyValueFormat.format(ath) === "$0.00"
                 ? ath.toFixed(7)
-                : interNumberFormat.format(ath)}
+                : currencyValueFormat.format(ath)}
             </span>
           </div>
           <div>
@@ -93,7 +90,7 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
           </div>
           <div>
             <p>Total volume:</p>
-            <span>{interNumberFormat.format(total_volume)}</span>
+            <span>{currencyValueFormat.format(total_volume)}</span>
           </div>
         </div>
       </div>
