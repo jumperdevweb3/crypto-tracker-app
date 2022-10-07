@@ -7,6 +7,7 @@ import { ExchangeType } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Exchange } from "./Exchange";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { ExchangesList } from "./ExchangesList";
 
 let exchangeModal: any;
 if (process.browser) {
@@ -21,12 +22,11 @@ export const Exchanges = () => {
   const isLoading = useSelector(
     (state: RootState) => state.statistic.isLoading.exchanges
   );
-  const exchangeModalAction = (item: ExchangeType) => {
+  const onOpenModal = (item: ExchangeType) => {
     setExchange({
       item: item,
       modalOpen: true,
     });
-
     exchangeModal.classList.add("show");
   };
   const onCloseModal = () => {
@@ -38,24 +38,7 @@ export const Exchanges = () => {
       };
     });
   };
-
   const itemsExist = items && items.length !== 0;
-  const renderItems =
-    itemsExist &&
-    items.map((item) => (
-      <li
-        key={item.id}
-        className={classes["list-item"]}
-        onClick={() => exchangeModalAction(item)}
-      >
-        <div className={classes["name-box"]}>
-          <img src={item.image} alt={item.name} />
-          <p>{item.name}</p>
-        </div>
-        <span>{item.trust_score_rank}</span>
-      </li>
-    ));
-
   return (
     <div className={style.container}>
       <p className={style.title}>Exchanges</p>
@@ -66,7 +49,11 @@ export const Exchanges = () => {
             <p>Name</p>
             <p>Trust Rank</p>
           </div>
-          <ul className={classes.list}>{renderItems}</ul>
+          <ul className={classes.list}>
+            {itemsExist && (
+              <ExchangesList items={items} modalAction={onOpenModal} />
+            )}
+          </ul>
         </>
       )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
