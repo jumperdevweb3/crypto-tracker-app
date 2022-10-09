@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getApiData } from "../components/utils/getApiData";
-import { sortCurrencies } from "./currencies-actions";
+import { sortCurrencies } from "../helpers/sortCurrencies";
 import { CurrenciesState } from "../types/types";
 import { CurrencyItem } from "../types/types";
 
