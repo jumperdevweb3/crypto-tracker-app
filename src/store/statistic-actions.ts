@@ -1,5 +1,7 @@
 import { AppDispatch } from "./store";
 import { statisticActions } from "./statistic-slice";
+import { useFetchData } from "../helpers/fetchData";
+import { urlFetchList } from "../helpers/urlFetchList";
 
 export const fetchExchangesList = () => {
   return async (dispatch: AppDispatch) => {
@@ -9,18 +11,12 @@ export const fetchExchangesList = () => {
         isLoading: true,
       })
     );
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/exchanges?per_page=25&page=1`
-      );
-      if (!response.ok) {
-        throw new Error("Could not fetch exchanges list data");
-      }
-      const data = await response.json();
-      return data;
-    };
+    const fetchData = useFetchData({
+      url: urlFetchList.exchangesList,
+      message: "Exchanges List",
+    });
     try {
-      const exchangesData = await fetchData();
+      const exchangesData = await fetchData;
       dispatch(statisticActions.setExchanges(exchangesData));
       dispatch(
         statisticActions.setIsLoading({
@@ -55,18 +51,12 @@ export const fetchCompaniesData = () => {
         isLoading: true,
       })
     );
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/companies/public_treasury/bitcoin`
-      );
-      if (!response.ok) {
-        throw new Error("Could not fetch companies list data");
-      }
-      const data = await response.json();
-      return data;
-    };
+    const fetchData = useFetchData({
+      url: urlFetchList.companiesList,
+      message: "Companies List",
+    });
     try {
-      const companiesData = await fetchData();
+      const companiesData = await fetchData;
       dispatch(statisticActions.setCompanies(companiesData.companies));
       dispatch(
         statisticActions.setIsLoading({
@@ -101,18 +91,12 @@ export const fetchNftList = () => {
         isLoading: true,
       })
     );
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/nfts/list?order=h24_volume_native_desc&asset_platform_id=ethereum&per_page=50&page=1`
-      );
-      if (!response.ok) {
-        throw new Error("Could not fetch NFT list data");
-      }
-      const data = await response.json();
-      return data;
-    };
+    const fetchData = useFetchData({
+      url: urlFetchList.nftsList,
+      message: "Nft's List",
+    });
     try {
-      const nftsData = await fetchData();
+      const nftsData = await fetchData;
       dispatch(statisticActions.setNftsList(nftsData));
       dispatch(
         statisticActions.setIsLoading({
@@ -147,18 +131,12 @@ export const fetchNftDetial = (id: string) => {
         isLoading: true,
       })
     );
-    const fetchData = async () => {
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/nfts/${id}`
-      );
-      if (!response.ok) {
-        throw new Error("Could not fetch NFT Detial data");
-      }
-      const data = await response.json();
-      return data;
-    };
+    const fetchData = useFetchData({
+      url: urlFetchList.nft + id,
+      message: "Nft Detial",
+    });
     try {
-      const nftDetailData = await fetchData();
+      const nftDetailData = await fetchData;
       dispatch(
         statisticActions.setIsLoading({
           loadingType: "nft-detail",
