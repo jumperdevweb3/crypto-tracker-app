@@ -1,21 +1,18 @@
-import { useEffect, useState } from "react";
+import { memo } from "react";
 import useColorChange from "use-color-change";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
 
-export const Price = ({ price }: { price: number }) => {
-  const [value, setValue] = useState(price);
-
-  const colorStyle = useColorChange(value, {
-    higher: "#8dc647",
-    lower: "#e15241",
-    duration: 2000,
+const Price = ({ price }: { price: number }) => {
+  const colorStyle = useColorChange(price, {
+    higher: "green",
+    lower: "red",
+    duration: 3500,
   });
   const coinPrice =
-    currencyValueFormat.format(value) === "$0.00"
-      ? "$" + value.toFixed(9)
-      : currencyValueFormat.format(value);
-  useEffect(() => {
-    setValue(price);
-  }, [price]);
+    currencyValueFormat.format(price) === "$0.00"
+      ? "$" + price.toFixed(9)
+      : currencyValueFormat.format(price);
   return <p style={colorStyle}>{coinPrice}</p>;
 };
+
+export default memo(Price);
