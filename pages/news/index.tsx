@@ -1,9 +1,10 @@
 import { News } from "../../src/components/news/News";
-import { fetchNewsData } from "../../src/helpers/api-utils";
+import { fetchNewsData } from "../../src/components/utils/api-utils";
 import { NewsItems } from "../../src/types/types";
 import { GetStaticProps } from "next";
-import { fetchSubpageId } from "../../src/helpers/api-utils";
+import { fetchSubpageId } from "../../src/components/utils/api-utils";
 import { useEffect } from "react";
+import Head from "next/head";
 
 export default function NewsPage({ ...props }) {
   const items = props.news;
@@ -14,6 +15,9 @@ export default function NewsPage({ ...props }) {
 
   return (
     <>
+      <Head>
+        <title>News | Crypto Tracker App</title>
+      </Head>
       <News items={items} />
     </>
   );
