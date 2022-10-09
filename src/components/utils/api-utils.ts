@@ -1,26 +1,18 @@
-import { NewsItems } from "../types/types";
+import { NewsItems } from "../../types/types";
+import { urlFetchList } from "../../helpers/urlFetchList";
 
 export const fetchNewsData = async () => {
   try {
-    const response = await fetch(
-      "https://data.messari.io/api/v1/news?fields=title,author/name,id,published_at,tags,url"
-    );
+    const response = await fetch(urlFetchList.newsList);
     if (!response.ok) throw new Error("Fail fetch data");
     const data = await response.json();
     const items = data.data;
-    const news = [];
-    for (const key in items) {
-      news.push({
-        id: key,
-        ...items[key],
-      });
-    }
-    return news;
-  } catch (e) {
-    if (typeof e === "string") {
-      console.log(e.toUpperCase());
-    } else if (e instanceof Error) {
-      console.log(e.message);
+    return items;
+  } catch (error) {
+    if (typeof error === "string") {
+      console.log(error);
+    } else if (error instanceof Error) {
+      console.log(error.message);
     }
     return [];
   }
@@ -28,18 +20,16 @@ export const fetchNewsData = async () => {
 
 export const fetchSubpageId = async () => {
   try {
-    const response = await fetch(
-      "https://data.messari.io/api/v1/news?fields=id"
-    );
+    const response = await fetch(urlFetchList.newsSubpageId);
     if (!response.ok) throw new Error("Fail fetch data");
     const data = await response.json();
     const items = data.data;
     return items;
-  } catch (e) {
-    if (typeof e === "string") {
-      console.log(e.toUpperCase());
-    } else if (e instanceof Error) {
-      console.log(e.message);
+  } catch (error) {
+    if (typeof error === "string") {
+      console.log(error.toUpperCase());
+    } else if (error instanceof Error) {
+      console.log(error.message);
     }
     return [];
   }
@@ -55,11 +45,11 @@ export const fetchNewsContent = async (id: string) => {
     const items = data.data;
     const filteredItem = items.find((item: NewsItems) => item.id === id);
     return filteredItem;
-  } catch (e) {
-    if (typeof e === "string") {
-      console.log(e.toUpperCase());
-    } else if (e instanceof Error) {
-      console.log(e.message);
+  } catch (error) {
+    if (typeof error === "string") {
+      console.log(error.toUpperCase());
+    } else if (error instanceof Error) {
+      console.log(error.message);
     }
     return { content: "### Cannot load article, try agian later" };
   }
