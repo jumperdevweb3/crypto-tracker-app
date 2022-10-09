@@ -1,5 +1,12 @@
 import { Statistics } from "../../src/components/statistic/Statistics";
-
+import Head from "next/head";
 export default function StatisticPage() {
-  return <Statistics />;
+  return (
+    <>
+      <Head>
+        <title>Statistic | Crypto Tracker App</title>
+      </Head>
+      <Statistics />
+    </>
+  );
 }

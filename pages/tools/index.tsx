@@ -1,11 +1,17 @@
 import { Converter } from "../../src/components/converter/Converter";
 import { Tracker } from "../../src/components/walletTracker/Tracker";
+import Head from "next/head";
 
 export default function ToolsPage() {
   return (
-    <div>
-      <Converter />
-      <Tracker />
-    </div>
+    <>
+      <Head>
+        <title>Tools | Crypto Tracker App</title>
+      </Head>
+      <div>
+        <Converter />
+        <Tracker />
+      </div>
+    </>
   );
 }
