@@ -1,32 +1,19 @@
-import { useDispatch } from "react-redux";
 import classes from "./CoinCard.module.scss";
-import { watchlistActions } from "../../../store/watchlist-slice";
 import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
-import { Price } from "./Price";
+import Price from "./Price";
 //types
 import { CurrencyItem } from "../../../types/types";
-import { AppDispatch } from "../../../store/store";
 
 export const CoinCard = ({ item }: { item: CurrencyItem }) => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  const addToWatchlistHandler = () => {
-    dispatch(watchlistActions.updateItems(item));
-  };
-
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${item.id}`}>
         <div className={classes.overlay}></div>
       </Link>
-      <WatchlistButton
-        classes={classes}
-        onClick={addToWatchlistHandler}
-        id={item.id}
-      />
+      <WatchlistButton classes={classes} id={item.id} item={item} />
       <div className={classes.rank}>
         <p>{item.market_cap_rank}</p>
       </div>
