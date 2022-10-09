@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCurrenciesData } from "../../store/currencies-actions";
 import { currenciesActions } from "../../store/currencies-slice";
 import { CurrenciesSortMenu } from "./CurrenciesSortMenu";
 import { CoinCard } from "../cards/coinCard/CoinCard";
@@ -8,13 +7,10 @@ import { LoadingSpinner } from "../ui/LoadingSpinner";
 import Notification from "../ui/Notification";
 import classes from "./CurrenciesList.module.scss";
 import { useRouter } from "next/router";
+import { PagesNav } from "./PagesNav";
 //types
 import { RootState } from "../../store/store";
 import { AppDispatch } from "../../store/store";
-import { PagesNav } from "./PagesNav";
-
-const SECOND_TO_REFRESH = 25;
-const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;
 
 export const CurrenciesList = () => {
   const router = useRouter();
@@ -36,16 +32,6 @@ export const CurrenciesList = () => {
       })
     );
   }, [currenciesItems, router.asPath]);
-
-  useEffect(() => {
-    const refreshData = setInterval(() => {
-      dispatch(fetchCurrenciesData(false));
-    }, TIME_TO_REFRESH_DATA);
-
-    return () => {
-      clearInterval(refreshData);
-    };
-  }, [dispatch]);
 
   useEffect(() => {
     dispatch(currenciesActions.sortData());
