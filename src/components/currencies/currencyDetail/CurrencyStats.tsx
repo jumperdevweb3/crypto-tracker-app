@@ -1,7 +1,7 @@
 import classes from "./CurrencyStats.module.scss";
 import { PriceTimeChange } from "../../cards/coinCard/PriceTimeChange";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
-import { Price } from "../../cards/coinCard/Price";
+import Price from "../../cards/coinCard/Price";
 //types
 import { CurrencyItem } from "../../../types/types";
 
