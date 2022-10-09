@@ -7,6 +7,7 @@ import { fetchChartData } from "../../../store/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
 import { CurrencyStats } from "./CurrencyStats";
+import { NextSeo } from "next-seo";
 
 const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
@@ -24,6 +25,7 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
 
   return (
     <>
+      <NextSeo title={`${item.name} | Crypto Tracker App`} />
       <div className={classes.container}>
         <CurrencyStats item={item} />
         <div className={classes["chart-box"]}>
