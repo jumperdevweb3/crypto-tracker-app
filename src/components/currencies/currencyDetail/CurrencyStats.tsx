@@ -1,6 +1,7 @@
 import classes from "./CurrencyStats.module.scss";
 import { PriceTimeChange } from "../../cards/coinCard/PriceTimeChange";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
+import { Price } from "../../cards/coinCard/Price";
 //types
 import { CurrencyItem } from "../../../types/types";
 
@@ -37,11 +38,9 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
             {name} Price ({symbol.toUpperCase()})
           </p>
           <div className={classes["values-box"]}>
-            <p className={classes.price}>
-              {currencyValueFormat.format(current_price) === "$0.00"
-                ? "$" + current_price.toFixed(7)
-                : currencyValueFormat.format(current_price)}
-            </p>
+            <div className={classes.price}>
+              <Price price={current_price} />
+            </div>
             <PriceTimeChange time={price_change_24h} classes={classes} />
           </div>
         </div>
