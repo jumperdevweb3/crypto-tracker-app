@@ -14,12 +14,14 @@
     "lightweight-charts": "^3.8.0",
     "next": "12.3.0",
     "next-redux-wrapper": "^8.0.0",
+    "next-seo": "^5.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-markdown": "^8.0.3",
     "react-redux": "^8.0.2",
-    "sass": "^1.54.9"
+    "sass": "^1.54.9",
+    "use-color-change": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "18.7.16",
