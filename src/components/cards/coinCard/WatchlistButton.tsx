@@ -1,15 +1,17 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
-import { RootState } from "../../../store/store";
+import { AppDispatch, RootState } from "../../../store/store";
 import { AiFillStar } from "react-icons/ai";
+import { watchlistActions } from "../../../store/watchlist-slice";
+import { CurrencyItem } from "../../../types/types";
 export const WatchlistButton = ({
   classes,
-  onClick,
   id,
+  item,
 }: {
   classes: any;
-  onClick: () => void;
   id: string;
+  item: CurrencyItem;
 }) => {
   const watchList = useSelector(
     (state: RootState) => state.watchlist.watchItems
@@ -23,8 +25,13 @@ export const WatchlistButton = ({
   if (isItemWatch) {
     isWatchIcon = <AiFillStar fontSize="1.25rem" fill="gold" />;
   }
+  const dispatch = useDispatch<AppDispatch>();
+
+  const addToWatchlistHandler = () => {
+    dispatch(watchlistActions.updateItems(item));
+  };
   return (
-    <button className={classes.star} onClick={onClick}>
+    <button className={classes.star} onClick={addToWatchlistHandler}>
       {isWatchIcon}
     </button>
   );
