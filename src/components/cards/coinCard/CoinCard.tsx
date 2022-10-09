@@ -5,6 +5,7 @@ import { PriceTimeChange } from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
+import { Price } from "./Price";
 //types
 import { CurrencyItem } from "../../../types/types";
 import { AppDispatch } from "../../../store/store";
@@ -16,10 +17,6 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
     dispatch(watchlistActions.updateItems(item));
   };
 
-  const coinPrice =
-    currencyValueFormat.format(item.current_price) === "$0.00"
-      ? "$" + item.current_price.toFixed(9)
-      : currencyValueFormat.format(item.current_price);
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${item.id}`}>
@@ -41,7 +38,7 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
         <span>{item.symbol.toUpperCase()}</span>
       </div>
       <div className={classes.price}>
-        <p>{coinPrice}</p>
+        <Price price={item.current_price} />
       </div>
       <PriceTimeChange time={item.price_change_1h} classes={classes} />
       <PriceTimeChange time={item.price_change_24h} classes={classes} />
