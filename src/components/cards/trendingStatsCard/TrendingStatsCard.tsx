@@ -66,17 +66,15 @@ export const TrendingStatsCard = ({ kind, title }: Props) => {
   });
   const moreItems = filterType.map((item, index: number) => {
     return (
-      <>
-        <TrendingCoinCard
-          key={item.id}
-          id={item.id}
-          number={index + 1}
-          image={item.image}
-          name={item.name}
-          alias={item.symbol}
-          percentage={item[price as keyof CurrencyItem]}
-        />
-      </>
+      <TrendingCoinCard
+        key={item.id}
+        id={item.id}
+        number={index + 1}
+        image={item.image}
+        name={item.name}
+        alias={item.symbol}
+        percentage={item[price as keyof CurrencyItem]}
+      />
     );
   });
   const moreStatsHandler = () => {
