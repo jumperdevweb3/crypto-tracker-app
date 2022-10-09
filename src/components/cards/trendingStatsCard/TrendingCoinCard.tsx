@@ -1,4 +1,4 @@
-import classes from "./StatsCoinCard.module.scss";
+import classes from "./TrendingCoinCard.module.scss";
 import Link from "next/link";
 import { getWordCount } from "../../../helpers/wordCount";
 
