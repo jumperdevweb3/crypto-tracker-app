@@ -13,10 +13,10 @@
 <table>
 <tr>
   <td>
-  ![app screen](https://i.ibb.co/3SKYCMR/crypto-tracker-app.jpg)
+    <img height="150em" src="https://i.ibb.co/3SKYCMR/crypto-tracker-app.jpg" alt="app view"/>
   </td>
    <td>
-  ![app screen](https://i.ibb.co/3SKYCMR/crypto-tracker-app.jpg)
+ <img height="150em" src="https://i.ibb.co/3SKYCMR/crypto-tracker-app.jpg" alt="app view"/>
   </td>
 </tr>
 </table>
