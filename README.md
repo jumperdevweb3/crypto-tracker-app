@@ -10,6 +10,8 @@
 
 ### ✨ [See this project live](https://crypto-tracker-app-2.netlify.app/)
 
+![app screen](https://ibb.co/1RcJmdz)
+
 ## Clone
 
 ```sh
