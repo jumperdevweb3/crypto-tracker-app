@@ -9,6 +9,9 @@
     gap: 0.8rem;
     align-items: center;
 
+    .rank {
+      color: #858ca2;
+    }
     .coin-wrapper {
       display: flex;
       font-weight: bold;
@@ -16,9 +19,6 @@
       align-items: center;
       cursor: pointer;
 
-      .rank {
-        color: #858ca2;
-      }
       .name {
         &.word-wrap {
           word-wrap: break-word;
@@ -34,13 +34,13 @@
     }
   }
   .percentage {
-    color: #fff;
+    color: var(--color-white);
     margin-left: 1rem;
   }
   .percentage.incr {
-    color: #8dc647;
+    color: var(--color-price-green);
   }
   .percentage.decr {
-    color: #e15241;
+    color: var(--color-price-red);
   }
 }

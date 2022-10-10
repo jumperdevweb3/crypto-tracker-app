@@ -6,7 +6,7 @@
   padding: 1rem;
   border-radius: 5px;
   font-size: 12px;
-  background-color: #323546;
+  background-color: var(--background-gray);
 
   @media (max-width: 1023px) {
     width: 100%;
@@ -24,7 +24,7 @@
     margin: 0.2rem 0 0.7rem 0;
 
     button {
-      color: rgb(75, 185, 167);
+      color: var(--color-oceanic);
       padding: 0.5rem 0.2rem;
 
       &:disabled {
@@ -38,6 +38,6 @@
   }
   .empty {
     margin: 2rem auto;
-    color: rgb(75, 185, 167);
+    color: var(--color-oceanic);
   }
 }

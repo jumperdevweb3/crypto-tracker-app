@@ -5,7 +5,7 @@
   align-items: center;
   width: 80%;
   max-width: 1024px;
-  background-color: #323546;
+  background-color: var(--background-gray);
   border-radius: 15px;
   margin: 5rem auto;
 
@@ -16,7 +16,7 @@
     align-items: center;
     width: 95%;
     margin-top: 1.5rem;
-    background-color: #232532;
+    background-color: var(--background-strong-gray);
     padding-bottom: 0.7rem;
     border-radius: 10px;
 
@@ -38,25 +38,25 @@
   .result,
   .title {
     margin: 3rem 0;
-    color: white;
+    color: var(--color-white);
     border: 2px solid rgb(193, 162, 222);
     border-radius: 10px;
     padding: 10px 15px;
     text-align: center;
   }
   .result-number {
-    color: rgb(193, 162, 222);
+    color: var(--color-purple);
     margin: 0.5rem 0;
   }
   .result-warning {
     font-size: 0.8rem;
-    color: #ccc;
+    color: var(--color-gray);
   }
   .title {
     margin: 2rem 0 1rem 0;
     border: none;
     .sub-title {
-      color: rgb(193, 162, 222);
+      color: var(--color-purple);
     }
   }
 }
