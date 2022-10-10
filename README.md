@@ -13,10 +13,13 @@
 <table>
 <tr>
   <td>
-    <img height="300em" src="https://i.ibb.co/W0rXPX4/crypto-tracker-app-1.jpg" alt="app view"/>
+    <a href="https://crypto-tracker-app-2.netlify.app/"><img height="450em" src="https://i.ibb.co/W0rXPX4/crypto-tracker-app-1.jpg" alt="app view"/></a>
   </td>
    <td>
- <img height="300em" src="https://i.ibb.co/J54KynQ/crypto-tracker-app-2.jpg" alt="app view 2"/>
+   <a href="https://crypto-tracker-app-2.netlify.app/statistics">
+   <img height="450em" src="https://i.ibb.co/J54KynQ/crypto-tracker-app-2.jpg" alt="app view 2"/>
+   </a>
+    
   </td>
 </tr>
 </table>
