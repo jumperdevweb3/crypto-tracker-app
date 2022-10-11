@@ -2,17 +2,17 @@
   padding: 1.5rem;
   text-align: center;
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--color-white);
   font-weight: bold;
 
   span {
     letter-spacing: 1px;
-    color: rgb(193, 162, 222);
+    color: var(--color-purple);
     font-size: 0.9rem;
     font-family: sans-serif;
   }
   a {
-    color: #8bc53f;
+    color: var(--color-text-green);
   }
 }
 .container {
@@ -22,7 +22,7 @@
   align-items: center;
   gap: 2.5rem;
   margin-bottom: 2rem;
-  color: #fff;
+  color: var(--color-white);
 }
 .news-box {
   display: flex;
@@ -31,7 +31,7 @@
   max-width: 1024px;
   gap: 2rem;
   padding: 1rem;
-  border: 2px solid rgb(193, 162, 222);
+  border: 2px solid var(--color-purple);
   border-radius: 10px;
 
   .head {
@@ -46,11 +46,11 @@
     }
     .title {
       padding: 0.5rem 0;
-      color: rgb(193, 162, 222);
+      color: var(--color-purple);
     }
   }
   a {
-    color: #8bc53f;
+    color: var(--color-text-green);
     font-weight: bold;
     text-decoration: underline;
     text-align: center;
@@ -66,18 +66,18 @@
       letter-spacing: 1px;
       .author {
         font-weight: bold;
-        color: rgb(79, 125, 132);
+        color: var(--color-oceanic);
       }
       .keywords {
         font-weight: bold;
         font-style: italic;
-        color: rgb(79, 125, 132);
+        color: var(--color-oceanic);
       }
     }
   }
   .btn {
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--color-white);
+    color: var(--color-white);
     font-weight: bold;
     width: 10rem;
     padding: 10px 1rem;
@@ -87,7 +87,7 @@
     text-decoration: none;
 
     &:hover {
-      background-color: rgb(81, 76, 187);
+      background-color: var(--background-blue);
     }
   }
 }

@@ -18,12 +18,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.7rem 0.5rem;
-    border-bottom: 1px solid rgba(158, 158, 158, 0.188);
+    border-bottom: 1px solid var(--border-dark-gray);
     transition: 0.2s;
     cursor: pointer;
 
     &:hover {
-      background-color: #171924;
+      background-color: var(--background-dark);
       border-radius: 10px;
       border-bottom: 1px solid transparent;
     }
@@ -38,7 +38,7 @@
       gap: 0.5rem;
       font-size: 0.9rem;
       font-weight: bold;
-      color: rgb(193, 162, 222);
+      color: var(--color-purple);
     }
 
     @media (max-width: 767px) {

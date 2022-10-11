@@ -4,13 +4,12 @@
   max-height: 90vh;
   overflow-y: auto;
   max-width: 768px;
-  color: #fff;
-  background-color: rgba(0, 112, 242, 0.05);
+  color: var(--color-white);
+  background-color: var(--background-modal-transparent);
   backdrop-filter: blur(40px) saturate(1.5);
   padding: 1.5rem 1rem;
   border-radius: 14px;
-  box-shadow: rgb(128 138 157 / 12%) 0px 1px 2px,
-    rgb(128 138 157 / 24%) 0px 8px 32px;
+  box-shadow: var(--box-shadow);
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   font-size: 0.8rem;
@@ -25,8 +24,8 @@
       top: 0rem;
       right: 1rem;
       font-weight: bold;
-      border: 2px solid rgb(193, 162, 222);
-      color: rgb(193, 162, 222);
+      border: 2px solid var(--color-purple);
+      color: var(--color-purple);
       padding: 5px 10px;
       border-radius: 10px;
       z-index: 2;
@@ -51,7 +50,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(193, 162, 222);
+      background-color: var(--color-purple);
       border-radius: 14px;
       border: 2px solid transparent;
     }
@@ -63,7 +62,7 @@
 
     & > div {
       margin: 1.2rem 0;
-      border-bottom: 1px solid rgba(170, 170, 170, 0.389);
+      border-bottom: 1px solid var(--border-dark-gray);
       padding: 10px 0;
 
       div {
@@ -87,7 +86,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: #17171a;
+      background-color: var(--background-dark);
       border-radius: 14px;
       border: 2px solid transparent;
     }

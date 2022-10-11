@@ -14,11 +14,11 @@
     align-items: center;
     padding: 0.6rem 1rem;
     cursor: pointer;
-    border-bottom: 1px solid rgba(158, 158, 158, 0.188);
+    border-bottom: 1px solid var(--border-dark-gray);
     transition: 0.2s;
 
     &:hover {
-      background-color: #171924;
+      background-color: var(--background-hover);
       border-radius: 10px;
     }
 
@@ -33,7 +33,7 @@
       word-wrap: break-word;
       flex-basis: 30%;
       text-align: right;
-      color: #aaa;
+      color: var(--color-gray);
     }
   }
 }

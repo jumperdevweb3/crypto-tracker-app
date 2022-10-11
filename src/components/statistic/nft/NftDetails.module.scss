@@ -36,15 +36,15 @@
       p {
         font-size: 1rem;
         font-weight: bold;
-        color: #aaa;
+        color: var(--color-strong-gray);
 
         span {
           font-size: 0.9rem;
-          color: #fff;
+          color: var(--color-white);
           text-transform: capitalize;
         }
         a {
-          color: rgb(193, 162, 222);
+          color: var(--color-purple);
         }
       }
       .contract {
@@ -64,7 +64,7 @@
         overflow-y: auto;
         padding: 1rem 0.5rem;
         p {
-          color: #ddd;
+          color: var(--color-gray);
           line-height: 1.2rem;
         }
       }

@@ -17,8 +17,8 @@
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid teal;
-  border-color: teal transparent teal transparent;
+  border: 6px solid var(--spinner-bgc);
+  border-color: var(--spinner-bgc) transparent var(--spinner-bgc) transparent;
   animation: spinner 1.2s linear infinite;
 }
 @keyframes spinner {

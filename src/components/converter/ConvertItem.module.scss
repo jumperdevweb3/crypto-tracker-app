@@ -18,7 +18,7 @@
     justify-content: center;
     align-items: center;
     margin: 1rem 0;
-    color: #fff;
+    color: var(--color-white);
     width: 100%;
 
     label {
@@ -29,12 +29,12 @@
     input {
       box-sizing: border-box;
       height: 3rem;
-      background-color: rgb(50, 52, 63);
+      background-color: var(--background-gray);
       border-radius: 10px;
       padding: 15px 10px;
-      color: white;
+      color: var(--color-white);
       text-align: center;
-      border: 2px solid rgb(58, 59, 66);
+      border: 2px solid var(--background-strong-gray);
       appearance: none;
       cursor: pointer;
       outline: none;
@@ -65,5 +65,5 @@
 }
 
 .option {
-  color: rgb(193, 162, 222);
+  color: var(--color-purple);
 }

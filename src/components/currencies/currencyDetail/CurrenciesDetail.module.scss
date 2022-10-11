@@ -4,7 +4,7 @@
 .container {
   width: 100%;
   min-height: calc(100vh - 5rem);
-  background-color: #2b2b43;
+  background-color: var(--background-dark-blue);
 
   .chart-box {
     width: 90%;
@@ -14,12 +14,12 @@
       margin-top: 2rem;
       font-size: 0.7rem;
       text-align: center;
-      color: #fff;
+      color: var(--color-white);
       padding-bottom: 2rem;
 
       a {
         display: block;
-        color: aquamarine;
+        color: var(--color-oceanic);
       }
     }
   }

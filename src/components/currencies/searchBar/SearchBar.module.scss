@@ -7,7 +7,7 @@
 
   .input-container {
     position: relative;
-    color: #fff;
+    color: var(--color-white);
     width: 18rem;
     max-width: 18rem;
 
@@ -21,12 +21,11 @@
       max-height: 13.875rem;
       max-width: 18rem;
       overflow-y: auto;
-      background-color: #272a3d;
+      background-color: var(--background-dark-blue);
       border-radius: 10px;
       padding: 10px 15px;
       z-index: 12;
-      box-shadow: rgb(128 138 157 / 12%) 0px 1px 2px,
-        rgb(128 138 157 / 24%) 0px 8px 32px;
+      box-shadow: var(--box-shadow);
 
       .list {
         display: flex;
@@ -40,12 +39,12 @@
           gap: 0.5rem;
           padding: 0.5rem 0.4rem;
           font-size: 0.8rem;
-          transition: 0.2s;
+          transition: 0.1s;
           border-radius: 10px;
           cursor: pointer;
 
           &:hover {
-            background-color: #171924;
+            background-color: var(--background-hover);
           }
           .name-data {
             display: flex;

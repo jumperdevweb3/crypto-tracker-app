@@ -9,9 +9,9 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    background-color: #232532;
-    color: #fff;
-    caret-color: #fff;
+    background-color: var(--input-bgc);
+    color: var(--color-white);
+    caret-color: var(--color-white);
     text-indent: 1.2rem;
     font-size: 1rem;
 
@@ -19,7 +19,7 @@
       display: inline-block;
       font-size: 0.9rem;
       letter-spacing: 1px;
-      color: #ddd;
+      color: var(--color-gray);
       margin-left: 1rem;
     }
   }

@@ -5,7 +5,7 @@
   width: 80%;
   height: 20rem;
   max-width: 1024px;
-  background-color: #323546;
+  background-color: var(--background-gray);
   border-radius: 15px;
   margin: 5rem auto;
   word-wrap: break-word;
@@ -18,24 +18,24 @@
 
     .input-search {
       border: none;
-      background-color: #323546;
-      border: 1px solid rgb(34, 37, 49);
+      background-color: var(--background-gray);
+      border: 1px solid var(--background-dark);
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
-      caret-color: #fff;
+      caret-color: var(--color-white);
       padding: 15px 20px;
       outline: none;
       flex-basis: 85%;
-      color: #fff;
+      color: var(--color-white);
 
       &::placeholder {
         text-align: center;
         font-style: italic;
-        color: #fff;
+        color: var(--color-white);
       }
     }
     button {
-      border: 1px solid rgb(34, 37, 49);
+      border: 1px solid var(--background-dark);
       flex-basis: 15%;
       border-top-right-radius: 10px;
       border-bottom-right-radius: 10px;
@@ -47,15 +47,15 @@
     align-items: center;
     justify-content: center;
     height: 3rem;
-    background-color: rgb(34, 37, 49);
+    background-color: var(--background-strong-blue);
     border-radius: 10px;
     width: 70%;
     margin: 1rem auto;
     padding: 10px 15px;
-    color: white;
+    color: var(--color-white);
 
     .amount {
-      color: rgb(193, 162, 222);
+      color: var(--color-purple);
     }
   }
 
@@ -63,11 +63,11 @@
   .error {
     text-align: center;
     font-size: 0.8rem;
-    color: #fff;
+    color: var(--color-white);
     margin: 0 0.5rem;
   }
   .error {
-    color: red;
+    color: var(--color-red);
     font-weight: bold;
   }
 }

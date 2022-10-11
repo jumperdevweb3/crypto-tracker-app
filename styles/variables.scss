@@ -1,14 +1,32 @@
 :root {
   --color-white: #fff;
+  --color-black: #000;
   --color-gray: #ddd;
+  --color-red: #ff0000;
   --color-strong-gray: #aaa;
   --color-price-green: #8dc647;
   --color-price-red: #e15241;
   --color-text-green: #8bc53f;
   --color-purple: rgb(193, 162, 222);
   --color-oceanic: rgb(75, 185, 167);
+  //background
+  --background-dark: #17171a;
   --background-gray: #323546;
   --background-strong-gray: #1d1e25;
-  --background-dark: #17171a;
   --background-hover: #171924;
+  --background-blue: rgb(75, 115, 171);
+  --background-strong-blue: rgb(31, 35, 54);
+  --background-dark-blue: #2b2b43;
+  --bacground-dark-mid-transparent: rgba(0, 0, 0, 0.4);
+  --background-modal-transparent: rgba(0, 112, 242, 0.05);
+  //box-shadow
+  --box-shadow: rgb(128 138 157 / 12%) 0px 1px 2px,
+    rgb(128 138 157 / 24%) 0px 8px 32px;
+  //border
+  --border-dark-gray: rgba(255, 255, 255, 0.1);
+  --border-dark-blue: rgb(34, 37, 49);
+  //input
+  --input-bgc: #232532;
+  //animations
+  --spinner-bgc: #008080;
 }

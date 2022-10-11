@@ -14,7 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #17171a;
+  background-color: var(--background-dark);
   overflow-x: hidden;
 }
 
@@ -31,7 +31,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--color-white);
 }
 h1,
 h2,
@@ -52,14 +52,14 @@ button {
 .center-item {
   margin: 3rem auto 3rem auto;
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
   font-weight: bold;
 
   span {
-    color: rgb(193, 162, 222);
+    color: var(--color-purple);
   }
   a {
-    color: #8bc53f;
+    color: var(--color-text-green);
   }
 
   &.xl {
@@ -95,14 +95,14 @@ button {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #3e4146;
+  background: var(--color-strong-blue);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgb(193, 162, 222);
+  background: var(--color-purple);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(75, 115, 171);
+  background: var(--background-blue);
 }
 
 input::-webkit-outer-spin-button,
@@ -118,6 +118,6 @@ input[type="number"] {
   font-weight: bold;
   font-size: 1.2rem;
   text-align: center;
-  color: #fff;
+  color: var(--color-white);
   margin: 2rem 0;
 }

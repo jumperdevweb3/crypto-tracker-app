@@ -16,14 +16,14 @@
     margin: 2rem auto;
     padding: 10px 15px;
     font-weight: bold;
-    color: #fff;
+    color: var(--color-white);
     border-radius: 10px;
-    border: 1px solid #fff;
+    border: 1px solid var(--color-white);
     transition: 0.2s;
 
     &:hover {
-      background-color: #ddd;
-      color: #000;
+      background-color: var(--color-gray);
+      color: var(--color-black);
     }
   }
 
@@ -32,14 +32,14 @@
     height: 7px;
   }
   &::-webkit-scrollbar-track {
-    background: #3e4146;
+    background: var(--background-gray);
   }
   &::-webkit-scrollbar-thumb {
-    background: rgb(193, 162, 222);
+    background: var(--color-purple);
     border-radius: 6px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: rgb(75, 115, 171);
+    background: var(--background-blue);
   }
 }
 
@@ -61,24 +61,24 @@
     transition: 0.2s;
 
     &:hover {
-      border: 2px solid rgb(193, 162, 222);
+      border: 2px solid var(--color-purple);
     }
   }
   .link:hover,
   .home-page:hover {
-    color: #aaa;
+    color: var(--color-strong-gray);
   }
   .active,
   .home-page:nth-of-type(1) {
-    background-color: rgb(193, 162, 222);
+    background-color: var(--color-purple);
     border-radius: 10px;
-    color: #000;
+    color: var(--color-black);
     transition: 0.2s;
 
     &:hover {
-      border: 2px solid rgb(193, 162, 222);
+      border: 2px solid var(--color-purple);
       background-color: transparent;
-      color: #fff;
+      color: var(--color-white);
     }
   }
 }

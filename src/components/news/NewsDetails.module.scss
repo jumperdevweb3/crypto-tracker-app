@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   font-size: 1rem;
-  color: #fff;
+  color: var(--color-white);
 
   .title {
     text-align: center;
@@ -17,11 +17,11 @@
     margin: 1rem 0;
   }
   h3 {
-    color: rgb(56, 187, 45);
+    color: var(--color-text-green);
   }
   h4,
   h5 {
-    color: rgb(43, 141, 34);
+    color: var(--color-price-green);
   }
 
   p,
@@ -32,7 +32,7 @@
   }
 
   h2 {
-    color: rgb(193, 162, 222);
+    color: var(--color-purple);
   }
 
   ul,
@@ -43,7 +43,7 @@
     list-style: square;
     padding: 0.5rem 0;
     padding-left: 2rem;
-    border-left: 4px solid rgba(255, 255, 255, 0.239);
+    border-left: 4px solid var(--border-dark-gray);
 
     li {
       margin-left: 1rem;
@@ -55,7 +55,7 @@
   }
 
   a {
-    color: rgb(193, 162, 222);
+    color: var(--color-purple);
     font-weight: bold;
   }
   img {
