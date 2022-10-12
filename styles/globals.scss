@@ -121,3 +121,14 @@ input[type="number"] {
   color: var(--color-white);
   margin: 2rem 0;
 }
+
+.time-global {
+  display: flex;
+  align-items: center;
+}
+.incr {
+  color: var(--color-price-green) !important;
+}
+.decr {
+  color: var(--color-price-red) !important;
+}
