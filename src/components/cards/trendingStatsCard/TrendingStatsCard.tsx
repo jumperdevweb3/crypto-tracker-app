@@ -1,11 +1,9 @@
 import classes from "./TrendingStatsCard.module.scss";
 import { TrendingCoinCard } from "./TrendingCoinCard";
-import { useSelector } from "react-redux";
 import { useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { Modal } from "../../ui/modals/Modal";
 //types
-import { RootState } from "../../../store/store";
 import { CurrencyItem } from "../../../types/types";
 
 let trendingStatsModal: any;
@@ -15,43 +13,35 @@ if (process.browser) {
 interface Props {
   kind: string;
   title: string;
+  items: CurrencyItem[];
 }
-export const TrendingStatsCard = ({ kind, title }: Props) => {
+export const TrendingStatsCard = ({ kind, title, items }: Props) => {
   const [modalActive, setModalActive] = useState(false);
 
   let icon;
   let price = "price_change_24h";
   let filterType: CurrencyItem[] = [];
 
-  const items = useSelector((state: RootState) => {
-    if (kind === "trending") return state.currencies.trendingItems;
-    if (kind === "losers") return state.currencies.losersItems;
-    if (kind === "gainers") return state.currencies.gainersItems;
-    return [];
-  });
+  const trending = kind === "trending";
+  const losers = kind === "losers";
+  const gainers = kind === "gainers";
 
-  if (kind === "trending") {
+  if (trending) {
     price = "price_change_7d";
     icon = <FcFlashOn fontSize="1.3rem" />;
-    filterType = items.filter(
-      (item: { price_change_7d: number }) => item.price_change_7d > 0
-    );
+    filterType = items.filter((item) => item.price_change_7d > 0);
   }
-
-  if (kind === "losers") {
+  if (losers) {
     icon = <FcRightDown fontSize="1.3rem" />;
-    filterType = items.filter(
-      (item: { price_change_24h: number }) => item.price_change_24h <= 0
-    );
+    filterType = items.filter((item) => item.price_change_24h < 0);
   }
-  if (kind === "gainers") {
+  if (gainers) {
     icon = <FcRightUp fontSize="1.3rem" />;
-    filterType = items.filter(
-      (item: { price_change_24h: number }) => item.price_change_24h > 0.01
-    );
+    filterType = items.filter((item) => item.price_change_24h > 0.01);
   }
 
   const topThreeView = filterType.slice(0, 3).map((item, index: number) => {
+    const percentage = trending ? item.price_change_7d : item.price_change_24h;
     return (
       <TrendingCoinCard
         key={item.id}
@@ -60,11 +50,12 @@ export const TrendingStatsCard = ({ kind, title }: Props) => {
         image={item.image}
         name={item.name}
         alias={item.symbol}
-        percentage={item[price as keyof CurrencyItem]}
+        percentage={percentage}
       />
     );
   });
   const moreItems = filterType.map((item, index: number) => {
+    const percentage = trending ? item.price_change_7d : item.price_change_24h;
     return (
       <TrendingCoinCard
         key={item.id}
@@ -73,7 +64,7 @@ export const TrendingStatsCard = ({ kind, title }: Props) => {
         image={item.image}
         name={item.name}
         alias={item.symbol}
-        percentage={item[price as keyof CurrencyItem]}
+        percentage={percentage}
       />
     );
   });
