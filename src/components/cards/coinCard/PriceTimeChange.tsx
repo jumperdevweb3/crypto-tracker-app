@@ -9,8 +9,8 @@ export const PriceTimeChange = ({
 }) => {
   const timeStyle =
     time && time <= 0
-      ? `${classes.time} ${classes.decr}`
-      : `${classes.time} ${classes.incr}`;
+      ? `${classes.time} decr time-global`
+      : `${classes.time} incr time-global`;
   const timeIcon = time <= 0 ? <FaAngleDown /> : <FaAngleUp />;
   return (
     <div className={timeStyle}>
