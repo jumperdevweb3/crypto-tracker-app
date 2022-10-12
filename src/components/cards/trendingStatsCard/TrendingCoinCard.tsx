@@ -4,7 +4,7 @@ import { getWordCount } from "../../../helpers/wordCount";
 
 interface Props {
   id: string;
-  percentage: any;
+  percentage: number;
   number: number;
   name: string;
   alias: string;
@@ -38,7 +38,7 @@ export const TrendingCoinCard = (props: Props) => {
         </Link>
       </div>
       <div className={valueStyle}>
-        <p>{props.percentage.toFixed(2)}%</p>
+        <p>{props.percentage ? props.percentage.toFixed(2) : "No data"}%</p>
       </div>
     </div>
   );
