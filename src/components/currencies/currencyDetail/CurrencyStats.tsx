@@ -48,11 +48,11 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
 
       <div className={classes.detials}>
         <div className={classes["first-box"]}>
-          <div>
+          <div className={classes.wrapper}>
             <p> Market Cap:</p>{" "}
             <span>{currencyValueFormat.format(market_cap)}</span>
           </div>
-          <div>
+          <div className={classes.wrapper}>
             <p>All Time High:</p>
             <span>
               {currencyValueFormat.format(ath) === "$0.00"
@@ -60,7 +60,7 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
                 : currencyValueFormat.format(ath)}
             </span>
           </div>
-          <div>
+          <div className={classes.wrapper}>
             <p>Price change from ATH:</p>
             <PriceTimeChange time={ath_change_percentage} classes={classes} />
           </div>
@@ -75,19 +75,19 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
           </div>
         </div>
         <div className={classes["second-box"]}>
-          <div>
+          <div className={classes.wrapper}>
             <p>Price change 1h:</p>
             <PriceTimeChange time={price_change_1h} classes={classes} />
           </div>
-          <div>
+          <div className={classes.wrapper}>
             <p>Price change 24h:</p>
             <PriceTimeChange time={price_change_24h} classes={classes} />
           </div>
-          <div>
+          <div className={classes.wrapper}>
             <p>Price change 7d:</p>
             <PriceTimeChange time={price_change_7d} classes={classes} />
           </div>
-          <div>
+          <div className={classes.wrapper}>
             <p>Total volume:</p>
             <span>{currencyValueFormat.format(total_volume)}</span>
           </div>
