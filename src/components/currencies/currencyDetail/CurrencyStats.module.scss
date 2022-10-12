@@ -41,6 +41,14 @@
         text-align: center;
       }
 
+      .time {
+        font-size: 0.8rem;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        color: var(--color-white);
+        border-radius: 7px;
+        margin: 0 0.5rem;
+      }
       .head {
         font-size: 0.9rem;
       }
@@ -80,7 +88,7 @@
       border-radius: 10px;
       flex-basis: 40%;
 
-      div {
+      .wrapper {
         display: flex;
         align-items: center;
         padding: 10px 0;
@@ -94,6 +102,7 @@
           p {
             font-size: 0.9rem;
             font-weight: bold;
+            padding-left: 0.5rem;
           }
         }
       }
@@ -106,36 +115,10 @@
     }
   }
 
-  .time.decr,
-  .time.incr {
-    padding: 5px 10px;
-    font-size: 0.8rem;
-    border-radius: 7px;
-    color: var(--color-white);
-    margin: 0 0.5rem;
-    border: none;
-  }
-  .time.incr {
-    color: var(--color-price-green);
-  }
-  .time.decr {
-    color: var(--color-price-red);
-  }
-
   span {
     font-size: 1rem;
     font-family: sans-serif;
     font-weight: bold;
-    color: var(--color-white);
-    padding: 3px 7px;
-    border-radius: 7px;
-  }
-  .time {
-    display: flex;
-    font-size: 0.8rem;
-    font-family: sans-serif;
-    font-weight: bold;
-    letter-spacing: 1px;
     color: var(--color-white);
     padding: 3px 7px;
     border-radius: 7px;
