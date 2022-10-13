@@ -29,7 +29,9 @@ export const MainNav = () => {
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <Link href="/">
-            <p className={classes.logo}>Crypto App</p>
+            <a>
+              <p className={classes.logo}>Crypto App</p>
+            </a>
           </Link>
           {mobile && (
             <button onClick={toggleNav}>
