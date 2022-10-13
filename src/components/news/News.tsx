@@ -1,8 +1,8 @@
 import classes from "./News.module.scss";
 //types
 import { NewsTypes } from "../../types/types";
-import Link from "next/link";
 import { NewsContent } from "./NewsContent";
+import Link from "next/link";
 
 export const News = ({ items }: NewsTypes) => {
   if (items.length === 0)
@@ -15,7 +15,9 @@ export const News = ({ items }: NewsTypes) => {
     <>
       <h2 className={classes.title}>
         <span>BETA </span>Crypto News Fetched from
-        <Link href={"https://messari.io/api/docs#tag/News"}> Messari.io</Link>
+        <Link href="https://messari.io/api/docs#tag/News" passHref>
+          <a target="_blank"> Messari.io</a>
+        </Link>
       </h2>
       <div className={classes.container}>
         <NewsContent items={items} />

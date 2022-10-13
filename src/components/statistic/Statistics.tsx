@@ -20,13 +20,12 @@ export const Statistics = () => {
     dispatch(fetchCompaniesData());
     dispatch(fetchNftList());
   }, [dispatch]);
-
   return (
     <>
       <p className={classes.title}>
         <span>BETA</span> Statistic data from{" "}
-        <Link href={"https://www.coingecko.com/en/api/documentation"}>
-          CoinGeco
+        <Link href={"https://www.coingecko.com/en/api/documentation"} passHref>
+          <a target="_blank">CoinGeco</a>
         </Link>
       </p>
       <div className={classes.statistic}>
