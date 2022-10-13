@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ExchangeType } from "../../../types/types";
 import classes from "./Exchange.module.scss";
 
@@ -34,7 +35,10 @@ export const Exchange = ({ ...props }) => {
           Trust Score Rank: <span>{trust_score_rank}</span>
         </p>
         <p>
-          View Exchange: <a href={url}>{name}</a>
+          View Exchange:{" "}
+          <Link href={url} passHref>
+            <a target="_blank">{name}</a>
+          </Link>
         </p>
         {description.length !== 0 && (
           <p className={classes.description}>{description}</p>
