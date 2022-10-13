@@ -1,6 +1,6 @@
 import classes from "./TrendingStatsCard.module.scss";
-import { TrendingCoinCard } from "./TrendingCoinCard";
-import { useState } from "react";
+import TrendingCoinCard from "./TrendingCoinCard";
+import { memo, useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { Modal } from "../../ui/modals/Modal";
 //types
@@ -15,11 +15,10 @@ interface Props {
   title: string;
   items: CurrencyItem[];
 }
-export const TrendingStatsCard = ({ kind, title, items }: Props) => {
+const TrendingStatsCard = ({ kind, title, items }: Props) => {
   const [modalActive, setModalActive] = useState(false);
 
   let icon;
-  let price = "price_change_24h";
   let filterType: CurrencyItem[] = [];
 
   const trending = kind === "trending";
@@ -27,7 +26,6 @@ export const TrendingStatsCard = ({ kind, title, items }: Props) => {
   const gainers = kind === "gainers";
 
   if (trending) {
-    price = "price_change_7d";
     icon = <FcFlashOn fontSize="1.3rem" />;
     filterType = items.filter((item) => item.price_change_7d > 0);
   }
@@ -39,7 +37,6 @@ export const TrendingStatsCard = ({ kind, title, items }: Props) => {
     icon = <FcRightUp fontSize="1.3rem" />;
     filterType = items.filter((item) => item.price_change_24h > 0.01);
   }
-
   const topThreeView = filterType.slice(0, 3).map((item, index: number) => {
     const percentage = trending ? item.price_change_7d : item.price_change_24h;
     return (
@@ -107,3 +104,5 @@ export const TrendingStatsCard = ({ kind, title, items }: Props) => {
     </div>
   );
 };
+
+export default memo(TrendingStatsCard);
