@@ -1,6 +1,7 @@
 import classes from "./TrendingCoinCard.module.scss";
 import Link from "next/link";
 import { getWordCount } from "../../../helpers/wordCount";
+import { memo } from "react";
 
 interface Props {
   id: string;
@@ -11,7 +12,7 @@ interface Props {
   image: string;
 }
 
-export const TrendingCoinCard = (props: Props) => {
+const TrendingCoinCard = (props: Props) => {
   const valueStyle =
     props.percentage <= 0
       ? `${classes.percentage} ${classes.decr}`
@@ -20,21 +21,22 @@ export const TrendingCoinCard = (props: Props) => {
     getWordCount(props.name) >= 2
       ? `${classes.name} ${classes["word-wrap"]}`
       : `${classes.name} ${classes["word-break"]}`;
-
   return (
     <div className={classes["curr-box"]}>
       <div className={classes["curr-list"]}>
         <span className={classes.rank}>{props.number}</span>
         <Link href={`/currency/${props.id}`}>
-          <div className={classes["coin-wrapper"]}>
-            <img src={props.image} />
-            <p className={breakWordClass}>
-              {props.name}{" "}
-              <span className={classes.alias}>
-                - {props.alias.toUpperCase()}
-              </span>
-            </p>{" "}
-          </div>
+          <a>
+            <div className={classes["coin-wrapper"]}>
+              <img src={props.image} />
+              <p className={breakWordClass}>
+                {props.name}{" "}
+                <span className={classes.alias}>
+                  - {props.alias.toUpperCase()}
+                </span>
+              </p>{" "}
+            </div>
+          </a>
         </Link>
       </div>
       <div className={valueStyle}>
@@ -43,3 +45,4 @@ export const TrendingCoinCard = (props: Props) => {
     </div>
   );
 };
+export default memo(TrendingCoinCard);
