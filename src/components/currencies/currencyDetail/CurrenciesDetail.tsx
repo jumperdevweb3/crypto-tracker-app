@@ -8,6 +8,7 @@ import classes from "./CurrenciesDetail.module.scss";
 import { LoadingSpinner } from "../../ui/LoadingSpinner";
 import { CurrencyStats } from "./CurrencyStats";
 import { NextSeo } from "next-seo";
+import Link from "next/link";
 
 const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
@@ -22,7 +23,6 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
   useEffect(() => {
     dispatch(fetchChartData(item.id));
   }, [dispatch]);
-
   return (
     <>
       <NextSeo title={`${item.name} | Crypto Tracker App`} />
@@ -37,9 +37,9 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
                 <TradingViewChart chartData={chartData} />
                 <p className={classes["chart-info"]}>
                   The chart used comes from{" "}
-                  <a href="https://www.tradingview.com/">
-                    https://www.tradingview.com/
-                  </a>
+                  <Link href="https://www.tradingview.com/" passHref>
+                    <a target="_blank"> https://www.tradingview.com/</a>
+                  </Link>
                 </p>
               </>
             ) : (
