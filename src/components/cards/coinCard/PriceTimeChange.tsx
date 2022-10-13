@@ -1,12 +1,7 @@
+import { memo } from "react";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-export const PriceTimeChange = ({
-  time,
-  classes,
-}: {
-  time: number;
-  classes: any;
-}) => {
+const PriceTimeChange = ({ time, classes }: { time: number; classes: any }) => {
   const timeStyle =
     time && time <= 0
       ? `${classes.time} decr time-global`
@@ -23,3 +18,4 @@ export const PriceTimeChange = ({
     </div>
   );
 };
+export default memo(PriceTimeChange);
