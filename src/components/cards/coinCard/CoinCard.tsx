@@ -1,17 +1,18 @@
 import classes from "./CoinCard.module.scss";
-import { PriceTimeChange } from "./PriceTimeChange";
+import PriceTimeChange from "./PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
 import Price from "./Price";
 //types
 import { CurrencyItem } from "../../../types/types";
+import { memo } from "react";
 
-export const CoinCard = ({ item }: { item: CurrencyItem }) => {
+const CoinCard = ({ item }: { item: CurrencyItem }) => {
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${item.id}`}>
-        <div className={classes.overlay}></div>
+        <a className={classes.overlay}></a>
       </Link>
       <WatchlistButton classes={classes} id={item.id} item={item} />
       <div className={classes.rank}>
@@ -39,3 +40,4 @@ export const CoinCard = ({ item }: { item: CurrencyItem }) => {
     </div>
   );
 };
+export default memo(CoinCard);
