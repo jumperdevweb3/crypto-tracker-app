@@ -1,5 +1,5 @@
 import classes from "./TrendingStatsBox.module.scss";
-import { TrendingStatsCard } from "../../cards/trendingStatsCard/TrendingStatsCard";
+import TrendingStatsCard from "../../cards/trendingStatsCard/TrendingStatsCard";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 

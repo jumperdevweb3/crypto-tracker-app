@@ -1,5 +1,5 @@
 import { CurrenciesSortMenu } from "../currencies/CurrenciesSortMenu";
-import { CoinCard } from "../cards/coinCard/CoinCard";
+import CoinCard from "../cards/coinCard/CoinCard";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import classes from "../currencies/CurrenciesList.module.scss";
