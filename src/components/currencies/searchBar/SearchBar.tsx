@@ -10,10 +10,12 @@ export const SearchBar = () => {
 
   const { items } = useSelector((state: RootState) => state.currencies);
 
-  const searchItems = items.filter((coin) => {
-    const name = coin.name.toLowerCase();
-    return name.includes(inputValue);
-  });
+  const searchItems = inputValue
+    ? items.filter((coin) => {
+        const name = coin.name.toLowerCase();
+        return name.includes(inputValue);
+      })
+    : [];
 
   const renderItems = searchItems
     .slice(0, 15)
