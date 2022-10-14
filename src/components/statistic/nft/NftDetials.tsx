@@ -6,7 +6,7 @@ import classes from "./NftDetails.module.scss";
 import { fetchNftDetial } from "../../../store/statistic-actions";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
-import { LoadingBtcSpinner } from "../../ui/LoadingBtcSpinner";
+import { LoadingSpinner } from "../../ui/LoadingSpinner";
 
 export const NftDetials = ({ ...props }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -30,7 +30,7 @@ export const NftDetials = ({ ...props }) => {
   };
   return (
     <>
-      {isLoadingDetial && <LoadingBtcSpinner />}
+      {isLoadingDetial && <LoadingSpinner />}
       {item && (
         <div className={classes.container}>
           <div className={classes["name-box"]}>

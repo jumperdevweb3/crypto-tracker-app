@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { currenciesActions } from "../../store/currencies-slice";
 import { CurrenciesSortMenu } from "./CurrenciesSortMenu";
 import CoinCard from "../cards/coinCard/CoinCard";
-import { LoadingBtcSpinner } from "../ui/LoadingBtcSpinner";
+import { LoadingSpinner } from "../ui/LoadingSpinner";
 import Notification from "../ui/Notification";
 import classes from "./CurrenciesList.module.scss";
 import { useRouter } from "next/router";
@@ -37,7 +37,7 @@ export const CurrenciesList = () => {
     dispatch(currenciesActions.sortData());
   }, [dispatch, sortActive]);
 
-  if (isLoading) return <LoadingBtcSpinner />;
+  if (isLoading) return <LoadingSpinner />;
   if (notification.message !== "") {
     return <Notification message={notification.message} />;
   }
