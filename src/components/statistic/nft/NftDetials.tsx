@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/store";
 import { NftTypes } from "../../../types/types";
-import { LoadingSpinner } from "../../ui/LoadingSpinner";
 import classes from "./NftDetails.module.scss";
 import { fetchNftDetial } from "../../../store/statistic-actions";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
+import { LoadingBtcSpinner } from "../../ui/LoadingBtcSpinner";
 
 export const NftDetials = ({ ...props }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -30,7 +30,7 @@ export const NftDetials = ({ ...props }) => {
   };
   return (
     <>
-      {isLoadingDetial && <LoadingSpinner />}
+      {isLoadingDetial && <LoadingBtcSpinner />}
       {item && (
         <div className={classes.container}>
           <div className={classes["name-box"]}>
