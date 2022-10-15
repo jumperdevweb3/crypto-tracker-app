@@ -16,7 +16,9 @@ export const ExchangesList = ({ items, modalAction }: Props) => {
         <img src={item.image} alt={item.name} />
         <p>{item.name}</p>
       </div>
-      <span>{item.trust_score_rank}</span>
+      <p className={classes.value}>
+        {item.trade_volume_24h_btc_normalized.toFixed(2)} <span>BTC</span>
+      </p>
     </li>
   ));
   return <>{renderItems}</>;
