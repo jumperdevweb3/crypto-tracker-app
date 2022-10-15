@@ -47,7 +47,7 @@ export const Exchanges = () => {
         <>
           <div className={classes["list-description"]}>
             <p>Name</p>
-            <p>Trust Rank</p>
+            <p>Trade volume 24h</p>
           </div>
           <ul className={classes.list}>
             {itemsExist && (
