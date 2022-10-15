@@ -25,8 +25,18 @@
       border-radius: 10px;
       border-bottom: 1px solid transparent;
     }
+    .value {
+      flex-basis: 50%;
+      text-align: right;
+      font-size: 0.9rem;
+      span {
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+    }
     .name-box {
       display: flex;
+      align-items: center;
       gap: 0.5rem;
 
       img {
