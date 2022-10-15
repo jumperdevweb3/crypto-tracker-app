@@ -8,15 +8,15 @@
 
 > The project is constantly being developed and improved
 
-### ✨ [See this project live](https://crypto-tracker-app-2.netlify.app/)
+### ✨ [See this project live](https://crypto-app-tracker.vercel.app/)
 
 <table>
 <tr>
   <td>
-    <a href="https://crypto-tracker-app-2.netlify.app/"><img height="450em" src="https://i.ibb.co/W0rXPX4/crypto-tracker-app-1.jpg" alt="app view"/></a>
+    <a href="https://crypto-app-tracker.vercel.app/"><img height="450em" src="https://i.ibb.co/W0rXPX4/crypto-tracker-app-1.jpg" alt="app view"/></a>
   </td>
    <td>
-   <a href="https://crypto-tracker-app-2.netlify.app/statistics">
+   <a href="https://crypto-app-tracker.vercel.app/statistics">
    <img height="450em" src="https://i.ibb.co/QjLj148/crypto-tracker-app-2.jpg" alt="app view 2"/>
    </a>
     
