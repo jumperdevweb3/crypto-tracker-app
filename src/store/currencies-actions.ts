@@ -1,6 +1,5 @@
 import { currenciesActions } from "./currencies-slice";
 import { uiActions } from "./ui-slice";
-import { scannerActions } from "./etherscan-slice";
 import { AppDispatch } from "./store";
 import { urlFetchList } from "../helpers/urlFetchList";
 import { useFetchData } from "../helpers/fetchData";
@@ -57,57 +56,3 @@ export const fetchChartData = (id: string) => {
     }
   };
 };
-
-export const fetchEtherScanData = (address: string) => {
-  return async (dispatch: AppDispatch) => {
-    dispatch(scannerActions.setIsLoading(true));
-    const fetchData = useFetchData({
-      url: `${urlFetchList.etherScan + address}`,
-      message: "Ether Scan",
-    });
-    try {
-      const scanData = await fetchData;
-      if (scanData.status === "1") {
-        dispatch(scannerActions.setErrorMsg(""));
-        dispatch(scannerActions.setResult(scanData.result));
-      }
-      if (scanData.status === "0") {
-        dispatch(scannerActions.setErrorMsg(scanData.result));
-      }
-      dispatch(scannerActions.setIsLoading(false));
-    } catch (error: unknown) {
-      if (error instanceof Error)
-        dispatch(scannerActions.setErrorMsg(error.message));
-      dispatch(scannerActions.setIsLoading(false));
-    }
-  };
-};
-
-//in future
-// export const fetchFiatCurrencies = () => {
-//   return async (dispatch) => {
-//     const fetchData = async () => {
-//       const response = await fetch(
-//         `https://api.freecurrencyapi.com/v1/latest?apikey=${process.env.REACT_APP_FIAT_KEY}&currencies=EUR%2CUSD%2CPLN`
-//       );
-//       if (!response.ok) {
-//         throw new Error(
-//           "Could not fetch fiat data"
-//         );
-//       }
-//       const data = await response.json();
-
-//       return data;
-//     };
-//     try {
-//       const fiatData = await fetchData();
-//       dispatch(convertActions.setFiatData(fiatData.data));
-//     } catch (error) {
-//       dispatch(
-//         uiActions.showNotification({
-//           message: "Fetch fiat data faild!",
-//         })
-//       );
-//     }
-//   };
-// };
