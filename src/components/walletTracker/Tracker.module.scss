@@ -5,7 +5,7 @@
   width: 80%;
   height: 20rem;
   max-width: 1024px;
-  background-color: var(--background-gray);
+  background-color: var(--background-light-blue);
   border-radius: 15px;
   margin: 5rem auto;
   word-wrap: break-word;
@@ -18,7 +18,7 @@
 
     .input-search {
       border: none;
-      background-color: var(--background-gray);
+      background-color: var(--background-dark-blue);
       border: 1px solid var(--color-white);
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
@@ -47,13 +47,10 @@
     align-items: center;
     justify-content: center;
     height: 3rem;
-    background-color: var(--background-strong-blue);
     border-radius: 10px;
     width: 70%;
-    margin: 1rem auto;
-    padding: 10px 15px;
+    margin: 0.5rem auto;
     color: var(--color-white);
-
     .amount {
       color: var(--color-purple);
     }
@@ -65,6 +62,7 @@
     font-size: 0.8rem;
     color: var(--color-white);
     margin: 0 0.5rem;
+    padding: 0.5rem 0;
   }
   .error {
     color: var(--color-red);
