@@ -1,6 +1,6 @@
 import classes from "./Converter.module.scss";
 import { ConvertTools } from "./ConvertTools";
-import { ConvertedValueDisplay } from "./ConvertedValueDisplay";
+import { ConvertedResult } from "./ConvertedResult";
 
 export const Converter = () => {
   return (
@@ -12,7 +12,7 @@ export const Converter = () => {
         </p>
       </div>
       <ConvertTools />
-      <ConvertedValueDisplay />
+      <ConvertedResult />
     </div>
   );
 };
