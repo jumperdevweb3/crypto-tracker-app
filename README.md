@@ -24,7 +24,6 @@
 </tr>
 </table>
 
-
 ## Clone
 
 ```sh
@@ -75,6 +74,7 @@ npm run dev
 - dayjs
 - react-icons
 - react-markdown
+- use-color-change
 ```
 
 ## Author
