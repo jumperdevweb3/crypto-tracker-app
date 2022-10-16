@@ -3,7 +3,6 @@ import uiSlice from "./ui-slice";
 import currenciesSlice from "./currencies-slice";
 import watchlistSlice from "./watchlist-slice";
 import { convertSlice } from "./convert-slice";
-import { scannerSlice } from "./etherscan-slice";
 import { statisticSlice } from "./statistic-slice";
 
 const store = configureStore({
@@ -12,7 +11,6 @@ const store = configureStore({
     currencies: currenciesSlice.reducer,
     watchlist: watchlistSlice.reducer,
     convert: convertSlice.reducer,
-    scanner: scannerSlice.reducer,
     statistic: statisticSlice.reducer,
   },
 });
