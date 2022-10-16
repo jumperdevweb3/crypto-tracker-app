@@ -12,7 +12,7 @@ export const ConvertAmount = () => {
 
   const inputChangeHandler = (event: FormEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
-    if (+value < 0 || +value.length >= 11) {
+    if (+value < 0 || +value.length >= 21) {
       dispatch(convertActions.setWarning(true));
       return;
     }
