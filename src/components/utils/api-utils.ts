@@ -59,3 +59,14 @@ export async function getNewsDetail(id: string) {
   const allNews: NewsItems[] = await fetchNewsData();
   return allNews.find((item) => id === item.id) as NewsItems;
 }
+
+export const fetchEtherScanData = async (address: string) => {
+  try {
+    const response = await fetch(urlFetchList.etherScan + address);
+    if (!response.ok) throw new Error("problem");
+    const data = await response.json();
+    return data;
+  } catch (error: unknown) {
+    if (error instanceof Error) return error;
+  }
+};
