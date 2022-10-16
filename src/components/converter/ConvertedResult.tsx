@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import classes from "./Converter.module.scss";
 import { RootState } from "../../store/store";
-export const ConvertedValueDisplay = () => {
+export const ConvertedResult = () => {
   const interNumberFormat = new Intl.NumberFormat("en-US");
   const {
     result,
@@ -27,7 +27,7 @@ export const ConvertedValueDisplay = () => {
       </p>
       {warning && (
         <p className={classes["result-warning"]}>
-          {` * Max length amount = 8 and Number can't be < 0.`}
+          {` * Max length amount = 21 and Number can't be < 0.`}
         </p>
       )}
     </div>
