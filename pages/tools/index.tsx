@@ -8,10 +8,10 @@ export default function ToolsPage() {
       <Head>
         <title>Tools | Crypto Tracker App</title>
       </Head>
-      <div>
+      <>
         <Converter />
         <Tracker />
-      </div>
+      </>
     </>
   );
 }
