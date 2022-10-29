@@ -6,7 +6,7 @@ import classes from "./NftDetails.module.scss";
 import { fetchNftDetial } from "../../../store/statistic-actions";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
-import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 
 export const NftDetials = ({ ...props }) => {
   const dispatch = useDispatch<AppDispatch>();

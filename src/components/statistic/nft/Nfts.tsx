@@ -5,7 +5,7 @@ import { RootState } from "../../../store/store";
 import { Modal } from "../../ui/modals/Modal";
 import { useState } from "react";
 import { NftDetials } from "./NftDetials";
-import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { NftsList } from "./NftsList";
 
 let nftModal: any;

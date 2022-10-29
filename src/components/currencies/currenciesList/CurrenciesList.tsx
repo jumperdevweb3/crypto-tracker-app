@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { currenciesActions } from "../../store/currencies-slice";
-import { CurrenciesSortMenu } from "./CurrenciesSortMenu";
-import CoinCard from "../cards/coinCard/CoinCard";
-import { LoadingSpinner } from "../ui/LoadingSpinner";
-import Notification from "../ui/Notification";
+import { currenciesActions } from "../../../store/currencies-slice";
+import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
+import CoinCard from "../../cards/coinCard/CoinCard";
+import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
+import Notification from "../../ui/notification/Notification";
 import classes from "./CurrenciesList.module.scss";
 import { useRouter } from "next/router";
 import { PagesNav } from "./PagesNav";
 //types
-import { RootState } from "../../store/store";
-import { AppDispatch } from "../../store/store";
+import { RootState } from "../../../store/store";
+import { AppDispatch } from "../../../store/store";
 
 export const CurrenciesList = () => {
   const router = useRouter();

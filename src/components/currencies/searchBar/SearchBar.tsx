@@ -1,5 +1,5 @@
 import classes from "./SearchBar.module.scss";
-import { InputSearch } from "../../ui/InputSearch";
+import { InputSearch } from "../../ui/inputs/InputSearch";
 import { useSelector } from "react-redux";
 import React, { useState } from "react";
 import { RootState } from "../../../store/store";

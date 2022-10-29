@@ -1,15 +1,15 @@
 import Link from "next/link";
 import classes from "./MainNav.module.scss";
-import { uiActions } from "../../store/ui-slice";
+import { uiActions } from "../../../store/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
-import { useWindowSize } from "../../hooks/use-windowSize";
+import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";
 //types
-import { AppDispatch } from "../../store/store";
-import { RootState } from "../../store/store";
+import { AppDispatch } from "../../../store/store";
+import { RootState } from "../../../store/store";
 import { NavLinks } from "./NavLinks";
 
-export const MainNav = () => {
+export const Navigation = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);
   const dispatch = useDispatch<AppDispatch>();
   const { width } = useWindowSize();

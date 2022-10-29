@@ -1,5 +1,5 @@
 import { getNewsDetail } from "../../src/components/utils/api-utils";
-import { NewsDetails } from "../../src/components/news/NewsDetails";
+import { NewsDetails } from "../../src/components/news/newsDetails/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { fetchSubpageId } from "../../src/components/utils/api-utils";
 //types

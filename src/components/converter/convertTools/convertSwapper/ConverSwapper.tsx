@@ -1,8 +1,8 @@
 import { BiTransfer } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { convertActions } from "../../store/convert-slice";
-import { AppDispatch } from "../../store/store";
-import classes from "./Converter.module.scss";
+import { convertActions } from "../../../../store/convert-slice";
+import { AppDispatch } from "../../../../store/store";
+import classes from "../../Converter.module.scss";
 
 export const ConverSwapper = () => {
   const dispatch = useDispatch<AppDispatch>();

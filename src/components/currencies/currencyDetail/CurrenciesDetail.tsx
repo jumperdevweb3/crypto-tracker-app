@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from "../../../store/store";
 import { useEffect } from "react";
 import { fetchChartData } from "../../../store/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";
-import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { CurrencyStats } from "./CurrencyStats";
 import { NextSeo } from "next-seo";
 import Link from "next/link";

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { AppDispatch, RootState } from "../store/store";
-import { fetchCurrenciesData } from "../store/currencies-actions";
+import { AppDispatch, RootState } from "../../store/store";
+import { fetchCurrenciesData } from "../../store/currencies-actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { watchlistActions } from "../store/watchlist-slice";
-import { PropsChildren } from "../types/types";
+import { watchlistActions } from "../../store/watchlist-slice";
+import { PropsChildren } from "../../types/types";
 
 const SECOND_TO_REFRESH = 20;
 const TIME_TO_REFRESH_DATA = SECOND_TO_REFRESH * 1000;

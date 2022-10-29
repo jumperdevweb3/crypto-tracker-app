@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ExchangeType } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Exchange } from "./Exchange";
-import { LoadingSpinner } from "../../ui/LoadingSpinner";
+import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { ExchangesList } from "./ExchangesList";
 
 let exchangeModal: any;

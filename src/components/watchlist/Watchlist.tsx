@@ -1,8 +1,8 @@
-import { CurrenciesSortMenu } from "../currencies/CurrenciesSortMenu";
+import { CurrenciesSortMenu } from "../currencies/currenciesList/currenciesSortMenu/CurrenciesSortMenu";
 import CoinCard from "../cards/coinCard/CoinCard";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import classes from "../currencies/CurrenciesList.module.scss";
+import classes from "../currencies/currenciesList/CurrenciesList.module.scss";
 import { watchlistActions } from "../../store/watchlist-slice";
 import { useEffect } from "react";
 //types

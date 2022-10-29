@@ -1,5 +1,5 @@
-import { NewsTypes } from "../../types/types";
-import classes from "./News.module.scss";
+import { NewsTypes } from "../../../types/types";
+import classes from "../News.module.scss";
 import Link from "next/link";
 
 export const NewsContent = ({ items }: NewsTypes) => {

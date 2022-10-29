@@ -1,5 +1,5 @@
 import classes from "./Converter.module.scss";
-import { ConvertTools } from "./ConvertTools";
+import { ConvertTools } from "./convertTools/ConvertTools";
 import { ConvertedResult } from "./ConvertedResult";
 
 export const Converter = () => {
