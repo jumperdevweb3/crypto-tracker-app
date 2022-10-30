@@ -5,11 +5,8 @@ import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { Modal } from "../../ui/modals/Modal";
 //types
 import { CurrencyItem } from "../../../types/types";
+import { StatsModal } from "./statsModal/StatsModal";
 
-let trendingStatsModal: any;
-if (process.browser) {
-  trendingStatsModal = document.getElementById("stats-modal");
-}
 interface Props {
   kind: string;
   title: string;
@@ -67,20 +64,14 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
   });
   const moreStatsHandler = () => {
     setModalActive((state) => !state);
-    if (!modalActive) {
-      trendingStatsModal.classList.add("show");
-    }
-    if (modalActive) {
-      trendingStatsModal.classList.remove("show");
-    }
   };
 
   let boxContent;
   if (filterType.length !== 0) {
     boxContent = modalActive && (
-      <Modal onClose={moreStatsHandler} id="stats-modal">
-        <h3>{title}</h3>
-        {moreItems}
+      <Modal onClose={moreStatsHandler}>
+        <h3 style={{ padding: "10px 0px" }}>{title}</h3>
+        <StatsModal>{moreItems}</StatsModal>
       </Modal>
     );
   }

@@ -8,10 +8,6 @@ import { NftDetials } from "./NftDetials";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { NftsList } from "./NftsList";
 
-let nftModal: any;
-if (process.browser) {
-  nftModal = document.getElementById("nft-modal");
-}
 export const Nfts = () => {
   const [nfts, setNfts] = useState({ modalOpen: false, id: "" });
 
@@ -27,10 +23,8 @@ export const Nfts = () => {
       modalOpen: true,
       id: id,
     });
-    nftModal.classList.add("show");
   };
   const onCloseModal = () => {
-    nftModal.classList.remove("show");
     setNfts({
       modalOpen: false,
       id: "",
@@ -57,7 +51,7 @@ export const Nfts = () => {
       )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
       {nfts.modalOpen && (
-        <Modal onClose={onCloseModal} id="nft-modal">
+        <Modal onClose={onCloseModal}>
           <NftDetials id={nfts.id} />
         </Modal>
       )}

@@ -12,13 +12,6 @@ export default function CoinDetailPage() {
   const router = useRouter();
   const idPath: Path = router.query.coinId;
   const item: CurrencyItem | any = items.find((item) => item.id === idPath);
-  let statsModal: any;
-  if (process.browser) {
-    statsModal = document.getElementById("stats-modal");
-    if (router.pathname !== "/") {
-      statsModal.classList.remove("show");
-    }
-  }
 
   if (!item) return <p className="center">Coin Not found</p>;
 

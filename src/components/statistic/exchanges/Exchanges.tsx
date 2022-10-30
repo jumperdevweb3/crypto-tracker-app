@@ -9,11 +9,6 @@ import { Exchange } from "./Exchange";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { ExchangesList } from "./ExchangesList";
 
-let exchangeModal: any;
-if (process.browser) {
-  exchangeModal = document.getElementById("exchange-modal");
-}
-
 export const Exchanges = () => {
   const [exchange, setExchange] = useState({ item: {}, modalOpen: false });
   const { items, errorMessage } = useSelector(
@@ -27,10 +22,8 @@ export const Exchanges = () => {
       item: item,
       modalOpen: true,
     });
-    exchangeModal.classList.add("show");
   };
   const onCloseModal = () => {
-    exchangeModal.classList.remove("show");
     setExchange((state) => {
       return {
         item: state.item,
@@ -58,7 +51,7 @@ export const Exchanges = () => {
       )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
       {exchange.modalOpen && (
-        <Modal onClose={onCloseModal} id="exchange-modal">
+        <Modal onClose={onCloseModal}>
           <Exchange {...exchange} />
         </Modal>
       )}

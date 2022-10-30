@@ -9,11 +9,6 @@ import { Company } from "./Company";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { CompaniesList } from "./CompaniesList";
 
-let exchangeModal: any;
-if (process.browser) {
-  exchangeModal = document.getElementById("companies-modal");
-}
-
 export const Companies = () => {
   const [companies, setCompanies] = useState({ item: {}, modalOpen: false });
   const { items, errorMessage } = useSelector(
@@ -28,11 +23,8 @@ export const Companies = () => {
       item: item,
       modalOpen: true,
     });
-
-    exchangeModal.classList.add("show");
   };
   const onCloseModal = () => {
-    exchangeModal.classList.remove("show");
     setCompanies((state) => {
       return {
         item: state.item,
@@ -61,7 +53,7 @@ export const Companies = () => {
       )}
       {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
       {companies.modalOpen && (
-        <Modal onClose={onCloseModal} id="companies-modal">
+        <Modal onClose={onCloseModal}>
           <Company {...companies} />
         </Modal>
       )}
