@@ -74,20 +74,13 @@ button {
   height: 100%;
 }
 
-#stats-modal,
-#exchange-modal,
-#companies-modal,
-#nft-modal {
+#modal {
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   inset: 0;
-  z-index: -2;
-
-  &.show {
-    z-index: 12;
-  }
+  z-index: 12;
 }
 
 ::-webkit-scrollbar {
