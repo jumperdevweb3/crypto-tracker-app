@@ -1,6 +1,6 @@
 import classes from "./NewsDetails.module.scss";
 import ReactMarkdown from "react-markdown";
-import { fetchNewsContent } from "../../utils/api-utils";
+import { fetchNewsContent } from "../../../utils/api-utils";
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 
