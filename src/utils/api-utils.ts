@@ -1,9 +1,9 @@
-import { NewsItems } from "../../types/types";
-import { urlFetchList } from "../../helpers/urlFetchList";
+import { NewsItems } from "../types/types";
+import { urlFetchList } from "../helpers/urlFetchList";
 
 export const fetchNewsData = async () => {
   try {
-    const response = await fetch(urlFetchList.newsList);
+    const response = await fetch(urlFetchList.newsList.news);
     if (!response.ok) throw new Error("Fail fetch data");
     const data = await response.json();
     const items = data.data;
@@ -18,28 +18,26 @@ export const fetchNewsData = async () => {
   }
 };
 
-export const fetchSubpageId = async () => {
-  try {
-    const response = await fetch(urlFetchList.newsSubpageId);
-    if (!response.ok) throw new Error("Fail fetch data");
-    const data = await response.json();
-    const items = data.data;
-    return items;
-  } catch (error) {
-    if (typeof error === "string") {
-      console.log(error.toUpperCase());
-    } else if (error instanceof Error) {
-      console.log(error.message);
-    }
-    return [];
-  }
-};
+// export const fetchSubpageId = async () => {
+//   try {
+//     const response = await fetch(urlFetchList.newsList.newsSubpageId);
+//     if (!response.ok) throw new Error("Fail fetch data");
+//     const data = await response.json();
+//     const items = data.data;
+//     return items;
+//   } catch (error) {
+//     if (typeof error === "string") {
+//       console.log(error.toUpperCase());
+//     } else if (error instanceof Error) {
+//       console.log(error.message);
+//     }
+//     return [];
+//   }
+// };
 
 export const fetchNewsContent = async (id: string) => {
   try {
-    const response = await fetch(
-      "https://data.messari.io/api/v1/news?as-markdown&?fields=id,content"
-    );
+    const response = await fetch(urlFetchList.newsList.newsContent);
     if (!response.ok) throw new Error("Fail fetch content data");
     const data = await response.json();
     const items = data.data;
