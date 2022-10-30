@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getApiData } from "../components/utils/getApiData";
+import { getApiData } from "../utils/getApiData";
 import { sortCurrencies } from "../helpers/sortCurrencies";
 import { CurrenciesState } from "../types/types";
 import { CurrencyItem } from "../types/types";
