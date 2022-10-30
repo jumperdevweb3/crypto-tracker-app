@@ -9,7 +9,7 @@ export const ModalOverlay = (props: ModalTypes) => {
           X
         </span>
       </div>
-      <div className={classes[props.id]}>{props.children}</div>
+      {props.children}
     </div>
   );
 };
