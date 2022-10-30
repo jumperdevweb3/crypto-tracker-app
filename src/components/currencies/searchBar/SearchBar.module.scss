@@ -48,12 +48,9 @@
           }
           .name-data {
             display: flex;
+            align-items: center;
             gap: 0.5rem;
 
-            img {
-              width: 20px;
-              height: 20px;
-            }
             p {
               font-weight: normal;
               word-wrap: break-word;
