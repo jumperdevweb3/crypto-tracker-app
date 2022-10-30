@@ -46,7 +46,6 @@ export interface WatchlistState {
 export interface ModalTypes {
   onClose: () => void;
   children: ReactNode;
-  id: string;
 }
 
 export interface NewsItems {
