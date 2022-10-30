@@ -6,4 +6,5 @@
   height: 100vh;
   z-index: 20;
   background-color: var(--bacground-dark-mid-transparent);
+  backdrop-filter: blur(10px);
 }
