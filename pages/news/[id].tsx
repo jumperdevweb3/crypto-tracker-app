@@ -1,7 +1,6 @@
-import { getNewsDetail } from "../../src/components/utils/api-utils";
+import { getNewsDetail } from "../../src/utils/api-utils";
 import { NewsDetails } from "../../src/components/news/newsDetails/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { fetchSubpageId } from "../../src/components/utils/api-utils";
 //types
 import { InferGetStaticPropsType } from "next";
 import { NewsItems } from "../../src/types/types";
@@ -36,12 +35,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const fetchedPaths: { id: string }[] = await fetchSubpageId();
-
-  const paths = fetchedPaths.map((item) => ({ params: { id: item.id } }));
-
   return {
-    paths: paths,
+    paths: [],
     fallback: "blocking",
   };
 };
