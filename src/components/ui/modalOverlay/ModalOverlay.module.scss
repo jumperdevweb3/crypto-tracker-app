@@ -15,82 +15,28 @@
   font-size: 0.8rem;
 
   .button-container {
-    position: relative;
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
-    height: 2rem;
+    margin-bottom: 1rem;
 
     .close-button {
-      position: absolute;
-      top: 0rem;
-      right: 1rem;
       font-weight: bold;
       border: 2px solid var(--color-purple);
       color: var(--color-purple);
       padding: 5px 10px;
-      border-radius: 10px;
+      border-radius: 7.5px;
       z-index: 2;
       cursor: pointer;
-    }
-  }
+      transition: 0.2s;
 
-  .stats-modal {
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem 1rem;
-    max-height: 70vh;
-    overflow-y: scroll;
-    font-size: 0.9rem;
-
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--color-purple);
-      border-radius: 14px;
-      border: 2px solid transparent;
-    }
-
-    img {
-      width: 24px;
-      height: 24px;
-    }
-
-    & > div {
-      margin: 1.2rem 0;
-      border-bottom: 1px solid var(--border-dark-gray);
-      padding: 10px 0;
-
-      div {
-        font-weight: bold;
+      &:hover {
+        background-color: var(--color-purple);
+        color: #fff;
       }
     }
   }
-  .exchange-modal {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.5rem;
-    max-height: 70vh;
-    overflow-y: scroll;
 
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--background-dark);
-      border-radius: 14px;
-      border: 2px solid transparent;
-    }
-  }
   @media (max-width: 767px) {
     width: 80%;
   }
