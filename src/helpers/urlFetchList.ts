@@ -13,7 +13,10 @@ export const urlFetchList = {
     secondPhrase: "/market_chart?vs_currency=usd&days=450&interval=daily",
   },
   etherScan: `https://api.etherscan.io/api?module=account&action=balance&tag=latest&market_chart?vs_currency=usd&days=450&interval=daily&apikey=${process.env.API_ETHERSCAN_KEY}&address=`,
-  newsList:
-    "https://data.messari.io/api/v1/news?fields=title,author/name,id,published_at,tags,url",
-  newsSubpageId: "https://data.messari.io/api/v1/news?fields=id",
+  newsList: {
+    news: "https://data.messari.io/api/v1/news?fields=title,author/name,id,published_at,tags,url",
+    newsSubpageId: "https://data.messari.io/api/v1/news?fields=id",
+    newsContent:
+      "https://data.messari.io/api/v1/news?as-markdown&?fields=id,content",
+  },
 };
