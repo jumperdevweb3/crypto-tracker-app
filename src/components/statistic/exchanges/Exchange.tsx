@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ExchangeType } from "../../../types/types";
 import classes from "./Exchange.module.scss";
+import Image from "next/image";
 
 export const Exchange = ({ ...props }) => {
   const {
@@ -16,7 +17,13 @@ export const Exchange = ({ ...props }) => {
   return (
     <div className={classes.container}>
       <div className={classes["name-box"]}>
-        <img src={image} alt={name + "logo"} />
+        <Image
+          src={image}
+          alt={name + "logo"}
+          height={"21px"}
+          width={"21px"}
+          unoptimized
+        />
         <p>{name} </p>
       </div>
       <div className={classes["data-box"]}>

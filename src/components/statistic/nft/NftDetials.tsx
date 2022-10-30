@@ -7,6 +7,7 @@ import { fetchNftDetial } from "../../../store/statistic-actions";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
+import Image from "next/image";
 
 export const NftDetials = ({ ...props }) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -35,7 +36,13 @@ export const NftDetials = ({ ...props }) => {
         <div className={classes.container}>
           <div className={classes["name-box"]}>
             {item.image.small && (
-              <img src={item.image.small} alt={item.name + "logo"} />
+              <Image
+                src={item.image.small}
+                alt={item.name + "logo"}
+                width={"21px"}
+                height={"21px"}
+                unoptimized
+              />
             )}
             <p>{item.name}</p>
           </div>

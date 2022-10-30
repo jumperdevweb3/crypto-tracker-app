@@ -2,6 +2,7 @@ import classes from "./TrendingCoinCard.module.scss";
 import Link from "next/link";
 import { getWordCount } from "../../../helpers/wordCount";
 import { memo } from "react";
+import Image from "next/image";
 
 interface Props {
   id: string;
@@ -11,7 +12,6 @@ interface Props {
   alias: string;
   image: string;
 }
-
 const TrendingCoinCard = (props: Props) => {
   const valueStyle =
     props.percentage <= 0
@@ -28,7 +28,13 @@ const TrendingCoinCard = (props: Props) => {
         <Link href={`/currency/${props.id}`}>
           <a>
             <div className={classes["coin-wrapper"]}>
-              <img src={props.image} />
+              <Image
+                src={props.image}
+                alt={props.name}
+                width={"21px"}
+                height={"21px"}
+                unoptimized
+              />
               <p className={breakWordClass}>
                 {props.name}{" "}
                 <span className={classes.alias}>

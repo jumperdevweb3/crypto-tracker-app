@@ -4,6 +4,7 @@ import { currencyValueFormat } from "../../../helpers/numberFromat";
 import Price from "../../cards/coinCard/price/Price";
 //types
 import { CurrencyItem } from "../../../types/types";
+import Image from "next/image";
 
 export const CurrencyStats = (props: { item: CurrencyItem }) => {
   const {
@@ -26,7 +27,13 @@ export const CurrencyStats = (props: { item: CurrencyItem }) => {
     <div className={classes["box-container"]}>
       <div className={classes.header}>
         <div className={classes["main-title"]}>
-          <img src={image} />
+          <Image
+            src={image}
+            alt={name}
+            width={"21px"}
+            height={"21px"}
+            unoptimized
+          />
           <p>{name}</p>
           <p>{symbol.toUpperCase()}</p>
         </div>

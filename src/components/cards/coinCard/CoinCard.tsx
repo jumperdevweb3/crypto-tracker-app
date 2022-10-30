@@ -4,6 +4,7 @@ import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
 import Price from "./price/Price";
+import Image from "next/image";
 //types
 import { CurrencyItem } from "../../../types/types";
 import { memo } from "react";
@@ -19,7 +20,13 @@ const CoinCard = ({ item }: { item: CurrencyItem }) => {
         <p>{item.market_cap_rank}</p>
       </div>
       <div className={classes.name}>
-        <img src={item.image} alt="" aria-hidden={true} />
+        <Image
+          src={item.image}
+          alt={item.name}
+          width={"21px"}
+          height={"21px"}
+          unoptimized
+        />
         <p className={classes.title}>{item.name}</p>
       </div>
       <div className={classes.symbol}>

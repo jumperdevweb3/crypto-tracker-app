@@ -1,5 +1,6 @@
 import { ExchangeType } from "../../../types/types";
 import classes from "./Exchanges.module.scss";
+import Image from "next/image";
 
 interface Props {
   items: ExchangeType[];
@@ -13,7 +14,13 @@ export const ExchangesList = ({ items, modalAction }: Props) => {
       onClick={() => modalAction(item)}
     >
       <div className={classes["name-box"]}>
-        <img src={item.image} alt={item.name} />
+        <Image
+          src={item.image}
+          alt={item.name}
+          width={"21px"}
+          height={"21px"}
+          unoptimized
+        />
         <p>{item.name}</p>
       </div>
       <p className={classes.value}>
