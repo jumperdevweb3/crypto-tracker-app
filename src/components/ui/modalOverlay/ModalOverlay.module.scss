@@ -13,6 +13,8 @@
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
   font-size: 0.8rem;
+  min-width: 30rem;
+  min-height: 15rem;
 
   .button-container {
     display: flex;
@@ -39,9 +41,7 @@
 
   @media (max-width: 767px) {
     width: 80%;
-  }
-  @media (min-width: 1024px) {
-    min-width: 600px;
+    min-width: 13rem;
   }
 }
 @keyframes slide-down {
