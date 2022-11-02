@@ -28,12 +28,17 @@
         flex-basis: 100%;
       }
       .logo {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
         font-weight: bold;
         letter-spacing: 1px;
         color: var(--color-white);
         margin-left: 2rem;
         cursor: pointer;
+        background-image: url("https://media.giphy.com/media/l0IsIyniXqvKPdKuY/giphy.gif");
+        background-position: bottom;
+        background-size: cover;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
     }
     .desktop-nav {
