@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { currenciesActions } from "../../../store/currencies-slice";
+import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
 import CoinCard from "../../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";

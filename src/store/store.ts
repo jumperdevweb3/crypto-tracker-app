@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import uiSlice from "./ui-slice";
-import currenciesSlice from "./currencies-slice";
-import watchlistSlice from "./watchlist-slice";
-import { convertSlice } from "./convert-slice";
-import { statisticSlice } from "./statistic-slice";
+import uiSlice from "./ui/ui-slice";
+import currenciesSlice from "./currencies/currencies-slice";
+import watchlistSlice from "./watchlist/watchlist-slice";
+import { convertSlice } from "./converter/convert-slice";
+import { statisticSlice } from "./statistic/statistic-slice";
 
 const store = configureStore({
   reducer: {

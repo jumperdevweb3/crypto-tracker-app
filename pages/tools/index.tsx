@@ -1,5 +1,5 @@
-import { Converter } from "../../src/components/converter/Converter";
-import { Tracker } from "../../src/components/walletTracker/Tracker";
+import { Converter } from "../../src/components/tools/converter/Converter";
+import { Tracker } from "../../src/components/tools/walletTracker/Tracker";
 import Head from "next/head";
 
 export default function ToolsPage() {

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
 import { AppDispatch, RootState } from "../../../store/store";
 import { AiFillStar } from "react-icons/ai";
-import { watchlistActions } from "../../../store/watchlist-slice";
+import { watchlistActions } from "../../../store/watchlist/watchlist-slice";
 import { CurrencyItem } from "../../../types/types";
 export const WatchlistButton = ({
   classes,

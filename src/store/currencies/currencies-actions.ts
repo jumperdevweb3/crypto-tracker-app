@@ -1,16 +1,17 @@
 import { currenciesActions } from "./currencies-slice";
-import { uiActions } from "./ui-slice";
-import { AppDispatch } from "./store";
-import { urlFetchList } from "../helpers/urlFetchList";
-import { useFetchData } from "../helpers/fetchData";
+import { uiActions } from "../ui/ui-slice";
+import { AppDispatch } from "../store";
+import { urlFetchList } from "../../helpers/urlFetchList";
+import { useFetchData } from "../../helpers/fetchData";
 
+const { currencies } = urlFetchList;
 export const fetchCurrenciesData = (isFirstLoading: boolean) => {
   return async (dispatch: AppDispatch) => {
     if (isFirstLoading) {
       dispatch(uiActions.showLoading(true));
     }
     const fetchData = useFetchData({
-      url: urlFetchList.currenciesList,
+      url: currencies.currenciesList,
       message: "Currencies Data",
     });
     try {
@@ -40,9 +41,9 @@ export const fetchChartData = (id: string) => {
     dispatch(currenciesActions.setLoading(true));
     const fetchData = useFetchData({
       url: `${
-        urlFetchList.chartData.firstPhrase +
+        currencies.chartData.firstPhrase +
         id +
-        urlFetchList.chartData.secondPhrase
+        currencies.chartData.secondPhrase
       }`,
       message: "Chart Data",
     });

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sortCurrencies } from "../helpers/sortCurrencies";
+import { sortCurrencies } from "../../helpers/sortCurrencies";
 //types
-import { WatchlistState } from "../types/types";
+import { WatchlistState } from "../../types/types";
 
 const watchlistSlice = createSlice({
   name: "watchlist",

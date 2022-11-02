@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { AppDispatch, RootState } from "../../store/store";
-import { fetchCurrenciesData } from "../../store/currencies-actions";
+import { fetchCurrenciesData } from "../../store/currencies/currencies-actions";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { watchlistActions } from "../../store/watchlist-slice";
+import { watchlistActions } from "../../store/watchlist/watchlist-slice";
 import { PropsChildren } from "../../types/types";
 import { TIME_TO_REFRESH_DATA } from "./fetchSettings";
 

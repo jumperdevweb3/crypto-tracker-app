@@ -4,7 +4,7 @@ import {
   fetchCompaniesData,
   fetchExchangesList,
   fetchNftList,
-} from "../../store/statistic-actions";
+} from "../../store/statistic/statistic-actions";
 import { Exchanges } from "./exchanges/Exchanges";
 import { Companies } from "./companies/Companies";
 import { AppDispatch } from "../../store/store";

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import classes from "./MainNav.module.scss";
-import { uiActions } from "../../../store/ui-slice";
+import { uiActions } from "../../../store/ui/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";

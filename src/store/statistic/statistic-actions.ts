@@ -1,7 +1,9 @@
-import { AppDispatch } from "./store";
+import { AppDispatch } from "../store";
 import { statisticActions } from "./statistic-slice";
-import { useFetchData } from "../helpers/fetchData";
-import { urlFetchList } from "../helpers/urlFetchList";
+import { useFetchData } from "../../helpers/fetchData";
+import { urlFetchList } from "../../helpers/urlFetchList";
+
+const { statistic } = urlFetchList;
 
 export const fetchExchangesList = () => {
   return async (dispatch: AppDispatch) => {
@@ -12,7 +14,7 @@ export const fetchExchangesList = () => {
       })
     );
     const fetchData = useFetchData({
-      url: urlFetchList.exchangesList,
+      url: statistic.exchangesList,
       message: "Exchanges List",
     });
     try {
@@ -52,7 +54,7 @@ export const fetchCompaniesData = () => {
       })
     );
     const fetchData = useFetchData({
-      url: urlFetchList.companiesList,
+      url: statistic.companiesList,
       message: "Companies List",
     });
     try {
@@ -92,7 +94,7 @@ export const fetchNftList = () => {
       })
     );
     const fetchData = useFetchData({
-      url: urlFetchList.nftsList,
+      url: statistic.nftsList,
       message: "Nft's List",
     });
     try {
@@ -132,7 +134,7 @@ export const fetchNftDetial = (id: string) => {
       })
     );
     const fetchData = useFetchData({
-      url: urlFetchList.nft + id,
+      url: statistic.nft + id,
       message: "Nft Detial",
     });
     try {

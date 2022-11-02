@@ -9,6 +9,7 @@
   border-radius: 15px;
   margin: 3rem auto;
   word-wrap: break-word;
+  animation: show-slowly 300ms linear;
 
   .box {
     display: flex;
@@ -67,5 +68,14 @@
   .error {
     color: var(--color-red);
     font-weight: bold;
+  }
+}
+
+@keyframes show-slowly {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
   }
 }

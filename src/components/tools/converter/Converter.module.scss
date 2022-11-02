@@ -8,6 +8,7 @@
   background-color: var(--background-light-blue);
   border-radius: 15px;
   margin: 3rem auto;
+  animation: show-slowly 300ms linear;
 
   .inputs-box {
     box-sizing: border-box;
@@ -55,5 +56,14 @@
     .sub-title {
       color: var(--color-purple);
     }
+  }
+}
+
+@keyframes show-slowly {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
   }
 }

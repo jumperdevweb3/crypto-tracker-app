@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { StatisticTypes } from "../types/types";
+import { StatisticTypes } from "../../types/types";
 
 export const statisticSlice = createSlice({
   name: "statistic",

@@ -1,8 +1,8 @@
 import classes from "./Tracker.module.scss";
 import { FormEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { LoadingSpinner } from "../ui/loadingSpinner/LoadingSpinner";
-import { fetchEtherScanData } from "../../utils/api-utils";
+import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
+import { fetchEtherScanData } from "../../../utils/api-utils";
 
 export const Tracker = () => {
   const [result, setResult] = useState({

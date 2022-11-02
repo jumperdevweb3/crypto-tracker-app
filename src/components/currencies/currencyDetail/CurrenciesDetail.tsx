@@ -3,7 +3,7 @@ import { CurrencyItem } from "../../../types/types";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/store";
 import { useEffect } from "react";
-import { fetchChartData } from "../../../store/currencies-actions";
+import { fetchChartData } from "../../../store/currencies/currencies-actions";
 import classes from "./CurrenciesDetail.module.scss";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { CurrencyStats } from "./CurrencyStats";

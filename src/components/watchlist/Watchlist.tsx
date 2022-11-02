@@ -3,7 +3,7 @@ import CoinCard from "../cards/coinCard/CoinCard";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import classes from "../currencies/currenciesList/CurrenciesList.module.scss";
-import { watchlistActions } from "../../store/watchlist-slice";
+import { watchlistActions } from "../../store/watchlist/watchlist-slice";
 import { useEffect } from "react";
 //types
 import { AppDispatch, RootState } from "../../store/store";
