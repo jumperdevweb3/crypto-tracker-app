@@ -1,39 +1,47 @@
 import classes from "./SearchBar.module.scss";
 import { InputSearch } from "../../ui/inputs/InputSearch";
-import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { RootState } from "../../../store/store";
 import { SearchItem } from "./SearchItem";
 import { useDebounce } from "./useDebounce";
-import { CurrencyItem } from "../../../types/types";
+import { fetchCoinByQuery } from "./fetchCoinByQuery";
 
+interface Item {
+  id: string;
+  name: string;
+  thumb: string;
+  symbol: string;
+  market_cap_rank: number;
+}
 export const SearchBar = () => {
   const [inputValue, setInputValue] = useState("");
-  const [searchItems, setSearchItems] = useState<CurrencyItem[]>([]);
+  const [searchItems, setSearchItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(false);
 
   const debouncedSearch = useDebounce(inputValue, 500);
-  const { items } = useSelector((state: RootState) => state.currencies);
 
+  const fetchCoin = async () => {
+    const fetchedItems = await fetchCoinByQuery(inputValue);
+    if (typeof fetchedItems !== "object") {
+      setSearchItems([]);
+      return;
+    }
+    setSearchItems(fetchedItems);
+    setLoading(false);
+  };
   useEffect(() => {
     if (debouncedSearch) {
-      const filteredItems = items.filter((coin) => {
-        const name = coin.name.toLowerCase();
-        return name.includes(inputValue);
-      });
-      setSearchItems(filteredItems);
+      fetchCoin();
     }
     if (!debouncedSearch) setSearchItems([]);
-    setLoading(false);
   }, [debouncedSearch]);
 
-  const renderItems = searchItems
-    .slice(0, 15)
-    .map((item) => <SearchItem {...item} key={item.id} />);
+  const renderItems = searchItems.map((item) => (
+    <SearchItem item={item} key={item.id} />
+  ));
 
   function inputValueHandler(event: React.ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value;
-    setInputValue(newValue.trim().toLowerCase());
+    setInputValue(newValue.toLowerCase());
     setSearchItems([]);
     setLoading(true);
   }
