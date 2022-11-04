@@ -12,6 +12,8 @@ interface Item {
   };
 }
 export const SearchItem = ({ item }: Item) => {
+  const mcr = item.market_cap_rank;
+  const isMcr = mcr ? "#" + mcr : "?";
   return (
     <li>
       <Link href={`/currency/${item.id}`}>
@@ -28,7 +30,7 @@ export const SearchItem = ({ item }: Item) => {
               {item.name} <span>{item.symbol.toUpperCase()}</span>
             </p>
           </div>
-          <span>#{item.market_cap_rank}</span>
+          <span>{isMcr}</span>
         </a>
       </Link>
     </li>
