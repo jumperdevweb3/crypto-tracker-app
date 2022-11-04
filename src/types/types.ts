@@ -164,7 +164,7 @@ export interface Coin {
   };
   links: {
     homepage: string[];
-    blokchain_site: string[];
+    blockchain_site: string[];
     official_forum_url: string[];
   };
   genesis_date: string;
@@ -181,7 +181,7 @@ export interface Coin {
     ath_date: {
       eur: string;
     };
-    market_cap_rank: number;
+    market_cap_rank: number | string;
     market_cap: {
       usd: number;
     };
