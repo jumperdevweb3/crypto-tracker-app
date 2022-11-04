@@ -28,7 +28,6 @@ export const CurrenciesList = () => {
     dispatch(
       currenciesActions.setVisibleItems({
         items: currenciesItems,
-        page: router.asPath,
       })
     );
   }, [currenciesItems, router.asPath]);
@@ -50,7 +49,7 @@ export const CurrenciesList = () => {
           return <CoinCard key={item.id} item={item} />;
         })}
       </div>
-      {visibleItems.length !== 0 && <PagesNav />}
+      {/* {visibleItems.length !== 0 && <PagesNav />} */}
     </>
   );
 };
