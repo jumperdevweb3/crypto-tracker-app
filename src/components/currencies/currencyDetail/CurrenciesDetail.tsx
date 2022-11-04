@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { CurrencyItem } from "../../../types/types";
+import { Coin } from "../../../types/types";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch, RootState } from "../../../store/store";
 import { useEffect } from "react";
@@ -14,7 +14,7 @@ const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
 });
 
-export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
+export const CurrenciesDetail = ({ item }: { item: Coin }) => {
   const dispatch = useDispatch<AppDispatch>();
   const { chartData, chartIsUpdating } = useSelector(
     (state: RootState) => state.currencies
@@ -43,7 +43,7 @@ export const CurrenciesDetail = ({ item }: { item: CurrencyItem }) => {
                 </p>
               </>
             ) : (
-              <p className="center">Faild load chart</p>
+              <p className="center">Chart is not available</p>
             )}
           </div>
         </div>
