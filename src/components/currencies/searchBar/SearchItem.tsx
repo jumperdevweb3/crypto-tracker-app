@@ -1,16 +1,24 @@
 import Link from "next/link";
-import { CurrencyItem } from "../../../types/types";
 import classes from "./SearchBar.module.scss";
 import Image from "next/image";
 
-export const SearchItem = ({ ...item }: CurrencyItem) => {
+interface Item {
+  item: {
+    id: string;
+    name: string;
+    thumb: string;
+    symbol: string;
+    market_cap_rank: number;
+  };
+}
+export const SearchItem = ({ item }: Item) => {
   return (
     <li>
       <Link href={`/currency/${item.id}`}>
         <a className={classes["list-item"]}>
           <div className={classes["name-data"]}>
             <Image
-              src={item.image}
+              src={item.thumb}
               alt={item.name}
               width={"21px"}
               height={"21px"}
