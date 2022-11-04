@@ -154,3 +154,46 @@ export interface StatisticTypes {
     nftDetial: boolean;
   };
 }
+
+export interface Coin {
+  id: string;
+  symbol: string;
+  name: string;
+  description: {
+    en: string;
+  };
+  links: {
+    homepage: string[];
+    blokchain_site: string[];
+    official_forum_url: string[];
+  };
+  genesis_date: string;
+  market_data: {
+    current_price: {
+      usd: number;
+    };
+    ath: {
+      usd: number;
+    };
+    ath_change_percentage: {
+      usd: number;
+    };
+    ath_date: {
+      eur: string;
+    };
+    market_cap_rank: number;
+    market_cap: {
+      usd: number;
+    };
+    total_supply: number;
+    max_supply: number;
+    last_updated: string;
+  };
+  image: {
+    thumb: string;
+  };
+  community_data: {
+    twitter_followers: number;
+    reddit_accounts_active_48: number;
+  };
+}
