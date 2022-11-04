@@ -4,35 +4,6 @@ import { sortCurrencies } from "../../helpers/sortCurrencies";
 import { CurrenciesState } from "../../types/types";
 import { CurrencyItem } from "../../types/types";
 
-const sliceVisibleItems = (
-  passedItems: CurrencyItem[],
-  page: string | undefined
-) => {
-  let slicedItems = [] as CurrencyItem[];
-  if (!page) {
-    slicedItems = passedItems.slice(0, 50);
-  }
-  if (page === undefined || page === "/") {
-    slicedItems = passedItems.slice(0, 50);
-  }
-  if (page === "/?page=1") {
-    slicedItems = passedItems.slice(0, 50);
-  }
-  if (page === "/?page=2") {
-    slicedItems = passedItems.slice(51, 100);
-  }
-  if (page === "/?page=3") {
-    slicedItems = passedItems.slice(101, 150);
-  }
-  if (page === "/?page=4") {
-    slicedItems = passedItems.slice(151, 200);
-  }
-  if (page === "/?page=5") {
-    slicedItems = passedItems.slice(201, 250);
-  }
-  return slicedItems;
-};
-
 const currenciesSlice = createSlice({
   name: "currencies",
   initialState: {
@@ -68,8 +39,8 @@ const currenciesSlice = createSlice({
       });
     },
     setVisibleItems(state, action) {
-      const { items, page } = action.payload;
-      const slicedItems = sliceVisibleItems(items, page);
+      const { items } = action.payload;
+      const slicedItems = items.slice(0, 50);
       state.visibleItems = sortCurrencies(slicedItems, state.sortActive);
     },
     sortData(state) {
