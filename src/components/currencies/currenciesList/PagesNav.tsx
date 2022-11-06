@@ -12,30 +12,27 @@ const pagesPaths = [
 export const PagesNav = () => {
   const router = useRouter();
   const activePageStyle = `${classes.link} ${classes.active}`;
-  return (
-    <div className={classes.pages}>
-      {pagesPaths.map((item) => (
-        <Link
-          key={item.page}
-          href={{
-            pathname: "/",
-            query: { page: item.page },
-          }}
-          scroll={false}
-        >
-          <a
-            className={
-              router.asPath === `/?page=${item.page}`
-                ? activePageStyle
-                : router.asPath === "/"
-                ? classes["home-page"]
-                : classes.link
-            }
-          >
-            {item.page}
-          </a>
-        </Link>
-      ))}
-    </div>
-  );
+
+  const Paths = pagesPaths.map((item) => {
+    const activeClass =
+      router.asPath === `/?page=${item.page}`
+        ? activePageStyle
+        : router.asPath === "/"
+        ? classes["home-page"]
+        : classes.link;
+
+    return (
+      <Link
+        key={item.page}
+        href={{
+          pathname: "/",
+          query: { page: item.page },
+        }}
+        scroll={false}
+      >
+        <a className={activeClass}>{item.page}</a>
+      </Link>
+    );
+  });
+  return <div className={classes.pages}>{Paths}</div>;
 };

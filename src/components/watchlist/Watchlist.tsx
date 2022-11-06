@@ -19,27 +19,29 @@ export const Watchlist = () => {
     dispatch(watchlistActions.sortData());
   }, [dispatch, sortActive]);
 
+  const WatchlistContent = data.length && (
+    <>
+      <h2 className="center-item">
+        Your <span>watchlist</span> items.
+      </h2>
+      <div className={classes["market-list"]}>
+        <CurrenciesSortMenu page={"watchlist"} />
+        {data.map((item: CurrencyItem) => {
+          return <CoinCard key={item.id} item={item} />;
+        })}
+      </div>
+    </>
+  );
+  const NoItemsContent = !data.length && (
+    <p className="center-item xl">
+      No items, you can add coin from <Link href="/">Home Page</Link> to your
+      watchlist.
+    </p>
+  );
   return (
     <>
-      {data.length !== 0 && (
-        <>
-          <h2 className="center-item">
-            Your <span>watchlist</span> items.
-          </h2>
-          <div className={classes["market-list"]}>
-            <CurrenciesSortMenu page={"watchlist"} />
-            {data.map((item: CurrencyItem) => {
-              return <CoinCard key={item.id} item={item} />;
-            })}
-          </div>
-        </>
-      )}
-      {data.length === 0 && (
-        <p className="center-item xl">
-          No items, you can add coin from <Link href="/">Home Page</Link> to
-          your watchlist.
-        </p>
-      )}
+      {WatchlistContent}
+      {NoItemsContent}
     </>
   );
 };

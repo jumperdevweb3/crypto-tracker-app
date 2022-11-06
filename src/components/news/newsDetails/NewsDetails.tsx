@@ -24,17 +24,19 @@ export const NewsDetails = (props: PropsDetials) => {
     getData();
   }, []);
 
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  const NewsContent = !isLoading && (
+    <article className={classes.article}>
+      {" "}
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </article>
+  );
   return (
     <div>
       <div key={id} className={classes.content}>
         <h2 className={classes.title}>{title}</h2>
-        {isLoading && <LoadingSpinner />}
-        {!isLoading && (
-          <article className={classes.article}>
-            {" "}
-            <ReactMarkdown>{content}</ReactMarkdown>
-          </article>
-        )}
+        {LoadingContent}
+        {NewsContent}
       </div>
     </div>
   );

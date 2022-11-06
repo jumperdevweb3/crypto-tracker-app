@@ -31,30 +31,33 @@ export const Nfts = () => {
     });
   };
   const itemsExist = items && items.length !== 0;
-
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  const showItems = itemsExist && !isLoading;
+  const ItemsContent = showItems && (
+    <>
+      <div className={classes["list-description"]}>
+        <p>Name</p>
+        <p>Symbol</p>
+      </div>
+      <ul className={classes.list}>
+        {itemsExist && <NftsList items={items} modalAction={nftsModalAction} />}
+      </ul>
+    </>
+  );
+  const isError = errorMessage && !itemsExist;
+  const ErrorContent = isError && <p className="center">{errorMessage}</p>;
+  const ModalContent = nfts.modalOpen && (
+    <Modal onClose={onCloseModal}>
+      <NftDetials id={nfts.id} />
+    </Modal>
+  );
   return (
     <div className={style.container}>
       <p className={style.title}>Top 24h volume Nft`s List</p>
-      {isLoading && <LoadingSpinner />}
-      {itemsExist && !isLoading && (
-        <>
-          <div className={classes["list-description"]}>
-            <p>Name</p>
-            <p>Symbol</p>
-          </div>
-          <ul className={classes.list}>
-            {itemsExist && (
-              <NftsList items={items} modalAction={nftsModalAction} />
-            )}
-          </ul>
-        </>
-      )}
-      {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
-      {nfts.modalOpen && (
-        <Modal onClose={onCloseModal}>
-          <NftDetials id={nfts.id} />
-        </Modal>
-      )}
+      {LoadingContent}
+      {ItemsContent}
+      {ErrorContent}
+      {ModalContent}
     </div>
   );
 };

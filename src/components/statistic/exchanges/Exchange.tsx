@@ -14,6 +14,10 @@ export const Exchange = ({ ...props }) => {
     trade_volume_24h_btc_normalized,
     trust_score_rank,
   } = props.item as ExchangeType;
+
+  const DescriptionContent = !!description && (
+    <p className={classes.description}>{description}</p>
+  );
   return (
     <div className={classes.container}>
       <div className={classes["name-box"]}>
@@ -47,9 +51,7 @@ export const Exchange = ({ ...props }) => {
             <a target="_blank">{name}</a>
           </Link>
         </p>
-        {description.length !== 0 && (
-          <p className={classes.description}>{description}</p>
-        )}
+        {DescriptionContent}
       </div>
     </div>
   );

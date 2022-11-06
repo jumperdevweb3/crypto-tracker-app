@@ -33,30 +33,32 @@ export const Companies = () => {
     });
   };
   const itemsExist = items && items.length !== 0;
-
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  const CompaniesContent = itemsExist && !isLoading && (
+    <>
+      <div className={classes["list-description"]}>
+        <p>Company</p>
+        <p>Total Holdings</p>
+      </div>
+      <ul className={classes.list}>
+        <CompaniesList items={items} modalAction={companiesModalAction} />
+      </ul>
+    </>
+  );
+  const isError = errorMessage && !itemsExist;
+  const ErrorContent = isError && <p className="center">{errorMessage}</p>;
+  const ModalContent = companies.modalOpen && (
+    <Modal onClose={onCloseModal}>
+      <Company {...companies} />
+    </Modal>
+  );
   return (
     <div className={style.container}>
       <p className={style.title}>Companies</p>
-      {isLoading && <LoadingSpinner />}
-      {itemsExist && !isLoading && (
-        <>
-          <div className={classes["list-description"]}>
-            <p>Company</p>
-            <p>Total Holdings</p>
-          </div>
-          <ul className={classes.list}>
-            {itemsExist && (
-              <CompaniesList items={items} modalAction={companiesModalAction} />
-            )}
-          </ul>
-        </>
-      )}
-      {errorMessage && !itemsExist && <p className="center">{errorMessage}</p>}
-      {companies.modalOpen && (
-        <Modal onClose={onCloseModal}>
-          <Company {...companies} />
-        </Modal>
-      )}
+      {LoadingContent}
+      {CompaniesContent}
+      {ErrorContent}
+      {ModalContent}
     </div>
   );
 };
