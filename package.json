@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.7.0",
+    "@mantine/hooks": "^5.7.0",
+    "@mantine/next": "^5.7.0",
     "@reduxjs/toolkit": "^1.8.5",
     "dayjs": "^1.11.5",
     "lightweight-charts": "^3.8.0",
@@ -20,6 +25,7 @@
     "react-icons": "^4.4.0",
     "react-markdown": "^8.0.3",
     "react-redux": "^8.0.2",
+    "rehype-raw": "^6.1.1",
     "sass": "^1.54.9",
     "use-color-change": "^1.0.2"
   },
