@@ -22,6 +22,7 @@ export interface CurrencyItem {
 }
 
 export interface CurrenciesState {
+  test: { [page: string]: CurrencyItem[] };
   items: CurrencyItem[];
   visibleItems: CurrencyItem[];
   trendingItems: CurrencyItem[];
