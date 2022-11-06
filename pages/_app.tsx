@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import store from "../src/store/store";
 import { Layout } from "../src/components/layout/Layout";
+import { MantineProvider } from "@mantine/core";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -18,7 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Provider store={store}>
         <Layout>
-          <Component {...pageProps} />
+          <MantineProvider>
+            <Component {...pageProps} />
+          </MantineProvider>
         </Layout>
       </Provider>
     </>
