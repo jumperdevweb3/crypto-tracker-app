@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { watchlistActions } from "../../store/watchlist/watchlist-slice";
 import { PropsChildren } from "../../types/types";
 import { TIME_TO_REFRESH_DATA } from "./fetchSettings";
+import { useRouter } from "next/router";
 
 export const RootActions = ({ children }: PropsChildren) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -13,6 +14,8 @@ export const RootActions = ({ children }: PropsChildren) => {
     (state: RootState) => state.currencies.items
   );
   const data = useSelector((state: RootState) => state.watchlist.watchItems);
+  const router = useRouter();
+  const key = router.asPath;
 
   useEffect(() => {
     if (currenciesData.length === 0) {
@@ -31,14 +34,14 @@ export const RootActions = ({ children }: PropsChildren) => {
     localStorage.setItem("watchlist", JSON.stringify(data));
   }, [data]);
 
-  useEffect(() => {
-    const refreshData = setInterval(() => {
-      dispatch(fetchCurrenciesData(false));
-    }, TIME_TO_REFRESH_DATA);
+  // useEffect(() => {
+  //   const refreshData = setInterval(() => {
+  //     dispatch(fetchCurrenciesData(false, key));
+  //   }, TIME_TO_REFRESH_DATA);
 
-    return () => {
-      clearInterval(refreshData);
-    };
-  }, [dispatch]);
+  //   return () => {
+  //     clearInterval(refreshData);
+  //   };
+  // }, [dispatch]);
   return <>{children}</>;
 };
