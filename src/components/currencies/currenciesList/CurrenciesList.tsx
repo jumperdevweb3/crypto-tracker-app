@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
@@ -14,6 +14,17 @@ import { Pagination } from "@mantine/core";
 
 export const CurrenciesList = () => {
   const router = useRouter();
+  const [page, setPage] = useState<number>(1);
+  useEffect(() => {
+    if (typeof router.query.page === "string") {
+      const pagee = +router.query.page || page;
+      setPage(pagee);
+    }
+    if (router.asPath === "/") {
+      setPage(1);
+    }
+  }, [router]);
+
   const dispatch = useDispatch<AppDispatch>();
   const { notification, isLoading } = useSelector(
     (state: RootState) => state.uiSlice
@@ -22,14 +33,18 @@ export const CurrenciesList = () => {
     sortActive,
     items: currenciesItems,
     visibleItems,
+    test,
   } = useSelector((state: RootState) => state.currencies);
+
   useEffect(() => {
-    dispatch(
-      currenciesActions.setVisibleItems({
-        items: currenciesItems,
-      })
-    );
-  }, [currenciesItems, router.asPath]);
+    if (test[page]) {
+      dispatch(
+        currenciesActions.setVisibleItems({
+          items: test[page],
+        })
+      );
+    }
+  }, [currenciesItems]);
 
   useEffect(() => {
     dispatch(currenciesActions.sortData());
@@ -51,9 +66,20 @@ export const CurrenciesList = () => {
   const NotFoundContent = !visibleItems.length && (
     <p className="center">Not found items.</p>
   );
+
+  const changePage = (event: number) => {
+    setPage(event);
+    router.push(`/?page=${event}`, undefined, { scroll: false });
+  };
   const PaginationBar = visibleItems.length && (
-    <Pagination total={10} className={classes.pagination} />
+    <Pagination
+      total={10}
+      className={classes.pagination}
+      page={page}
+      onChange={changePage}
+    />
   );
+
   return (
     <>
       <div className={classes["market-list"]}>
