@@ -5,13 +5,16 @@ import { urlFetchList } from "../../helpers/urlFetchList";
 import { useFetchData } from "../../helpers/fetchData";
 
 const { currencies } = urlFetchList;
-export const fetchCurrenciesData = (isFirstLoading: boolean) => {
+export const fetchCurrenciesData = (
+  isFirstLoading: boolean,
+  key?: string | number
+) => {
   return async (dispatch: AppDispatch) => {
     if (isFirstLoading) {
       dispatch(uiActions.showLoading(true));
     }
     const fetchData = useFetchData({
-      url: currencies.currenciesList,
+      url: `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=5&page=${key}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`,
       message: "Currencies Data",
     });
     try {
@@ -21,7 +24,12 @@ export const fetchCurrenciesData = (isFirstLoading: boolean) => {
           message: "",
         })
       );
-      dispatch(currenciesActions.setItems(currenciesData));
+      dispatch(
+        currenciesActions.setItems({
+          items: currenciesData,
+          key,
+        })
+      );
       if (isFirstLoading) {
         dispatch(uiActions.showLoading(false));
       }
