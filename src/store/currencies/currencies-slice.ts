@@ -28,19 +28,19 @@ const currenciesSlice = createSlice({
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",
         sortBy: "price_change_7d",
-      });
+      }).slice(0, 50);
       state.losersItems = sortCurrencies(state.items, {
         sortType: "ascending",
         sortBy: "price_change_24h",
-      });
+      }).slice(0, 50);
       state.gainersItems = sortCurrencies(state.items, {
         sortType: "descending",
         sortBy: "price_change_24h",
-      });
+      }).slice(0, 50);
     },
     setVisibleItems(state, action) {
       const { items } = action.payload;
-      const slicedItems = items.slice(0, 50);
+      const slicedItems = items;
       state.visibleItems = sortCurrencies(slicedItems, state.sortActive);
     },
     sortData(state) {
