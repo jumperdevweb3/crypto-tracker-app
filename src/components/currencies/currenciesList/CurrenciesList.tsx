@@ -7,10 +7,10 @@ import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import Notification from "../../ui/notification/Notification";
 import classes from "./CurrenciesList.module.scss";
 import { useRouter } from "next/router";
-import { PagesNav } from "./PagesNav";
 //types
 import { RootState } from "../../../store/store";
 import { AppDispatch } from "../../../store/store";
+import { Pagination } from "@mantine/core";
 
 export const CurrenciesList = () => {
   const router = useRouter();
@@ -23,7 +23,6 @@ export const CurrenciesList = () => {
     items: currenciesItems,
     visibleItems,
   } = useSelector((state: RootState) => state.currencies);
-
   useEffect(() => {
     dispatch(
       currenciesActions.setVisibleItems({
@@ -40,16 +39,28 @@ export const CurrenciesList = () => {
   if (notification.message !== "") {
     return <Notification message={notification.message} />;
   }
+  const ItemsRender = visibleItems.map((item) => {
+    return <CoinCard key={item.id} item={item} />;
+  });
+  const CurrenciesContent = (
+    <>
+      {visibleItems.length !== 0 && <CurrenciesSortMenu page={"home"} />}
+      {ItemsRender}
+    </>
+  );
+  const NotFoundContent = !visibleItems.length && (
+    <p className="center">Not found items.</p>
+  );
+  const PaginationBar = visibleItems.length && (
+    <Pagination total={10} className={classes.pagination} />
+  );
   return (
     <>
       <div className={classes["market-list"]}>
-        {!visibleItems.length && <p className="center">Not found items.</p>}
-        {visibleItems.length !== 0 && <CurrenciesSortMenu page={"home"} />}
-        {visibleItems.map((item) => {
-          return <CoinCard key={item.id} item={item} />;
-        })}
+        {NotFoundContent}
+        {CurrenciesContent}
       </div>
-      {/* {visibleItems.length !== 0 && <PagesNav />} */}
+      {PaginationBar}
     </>
   );
 };
