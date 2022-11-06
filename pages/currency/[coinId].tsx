@@ -11,7 +11,6 @@ export default function CoinDetailPage() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const idPath = router.query.coinId;
-  console.log(idPath);
 
   const fetchItem = async () => {
     setIsLoading(true);
@@ -28,7 +27,6 @@ export default function CoinDetailPage() {
   };
   useEffect(() => {
     fetchItem();
-    console.log(item);
   }, [idPath]);
 
   if (isLoading) return <LoadingSpinner />;
