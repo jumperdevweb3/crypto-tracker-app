@@ -188,12 +188,17 @@ export interface Coin {
     total_supply: number;
     max_supply: number;
     last_updated: string;
+    circulating_supply: number;
   };
   image: {
     thumb: string;
   };
   community_data: {
-    twitter_followers: number;
-    reddit_accounts_active_48: number;
+    twitter_followers: number | null;
+    reddit_accounts_active_48: number | null;
+    reddit_subscribers: number | null;
+    reddit_accounts_active_48h: number | null;
+    reddit_average_posts_48h: number | null;
+    reddit_average_comments_48h: number | null;
   };
 }
