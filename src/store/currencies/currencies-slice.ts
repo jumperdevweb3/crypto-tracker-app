@@ -7,6 +7,7 @@ import { CurrencyItem } from "../../types/types";
 const currenciesSlice = createSlice({
   name: "currencies",
   initialState: {
+    test: {},
     items: [],
     visibleItems: [],
     trendingItems: [],
@@ -21,9 +22,19 @@ const currenciesSlice = createSlice({
   } as CurrenciesState,
   reducers: {
     setItems(state, action) {
-      const items = action.payload.map((item: CurrencyItem) =>
+      const items = action.payload.items.map((item: CurrencyItem) =>
         getApiData(item)
       );
+      const keyInvalid = typeof action.payload.key === "undefined";
+      const key = action.payload.key as number;
+      if (!keyInvalid) {
+        const newItems = {
+          ...state.test,
+          [`${key}`]: items,
+        };
+        state.test = newItems;
+      }
+      // state.items = state.test[key];
       state.items = items;
       state.trendingItems = sortCurrencies(state.items, {
         sortType: "descending",
