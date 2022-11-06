@@ -3,7 +3,7 @@ import classes from "../News.module.scss";
 import Link from "next/link";
 
 export const NewsContent = ({ items }: NewsTypes) => {
-  const news = items.map((item) => {
+  const News = items.map((item) => {
     const date = new Date(item.published_at);
     const time = date.toLocaleString();
     const link = `/news/${item.id}`;
@@ -33,5 +33,5 @@ export const NewsContent = ({ items }: NewsTypes) => {
       </div>
     );
   });
-  return <>{news}</>;
+  return <>{News}</>;
 };

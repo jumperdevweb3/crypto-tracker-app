@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const CompaniesList = ({ items, modalAction }: Props) => {
-  const companies = items.map((item, index) => (
+  const Companies = items.map((item, index) => (
     <li
       key={item.symbol}
       className={classes["list-item"]}
@@ -19,5 +19,5 @@ export const CompaniesList = ({ items, modalAction }: Props) => {
       <p className={classes.holdings}>{item.total_holdings} BTC</p>
     </li>
   ));
-  return <>{companies}</>;
+  return <>{Companies}</>;
 };

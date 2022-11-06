@@ -8,7 +8,7 @@ type Props = {
 };
 export const NavLinks = ({ toggle }: Props) => {
   const router = useRouter();
-  const navigationLinks = links.map((item) => {
+  const NavigationLinks = links.map((item) => {
     return (
       <li key={item.name}>
         <Link href={item.path}>
@@ -22,5 +22,5 @@ export const NavLinks = ({ toggle }: Props) => {
       </li>
     );
   });
-  return <>{navigationLinks}</>;
+  return <>{NavigationLinks}</>;
 };

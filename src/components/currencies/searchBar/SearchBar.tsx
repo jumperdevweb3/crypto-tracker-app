@@ -35,7 +35,7 @@ export const SearchBar = () => {
     if (!debouncedSearch) setSearchItems([]);
   }, [debouncedSearch]);
 
-  const renderItems = searchItems.map((item) => (
+  const RenderItems = searchItems.map((item) => (
     <SearchItem item={item} key={item.id} />
   ));
 
@@ -49,13 +49,13 @@ export const SearchBar = () => {
     setInputValue("");
   }
 
-  const content = inputValue.length !== 0 && (
+  const InputContent = !!inputValue.trim() && (
     <div className={classes["result-box"]}>
       <ul className={classes.list}>
-        {renderItems.length === 0 && !loading ? (
+        {RenderItems.length === 0 && !loading ? (
           <li className={classes["result-info"]}>Not found items.</li>
         ) : (
-          renderItems
+          RenderItems
         )}
         {loading && <li className={classes["result-info"]}>Loading ...</li>}
       </ul>
@@ -70,7 +70,7 @@ export const SearchBar = () => {
           value={inputValue}
           onClickCross={onClickCross}
         />
-        {content}
+        {InputContent}
       </div>
     </div>
   );

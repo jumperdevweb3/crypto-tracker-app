@@ -34,7 +34,7 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
     icon = <FcRightUp fontSize="1.3rem" />;
     filterType = items.filter((item) => item.price_change_24h > 0.01);
   }
-  const topThreeView = filterType.slice(0, 3).map((item, index: number) => {
+  const TopThreeView = filterType.slice(0, 3).map((item, index: number) => {
     const percentage = trending ? item.price_change_7d : item.price_change_24h;
     return (
       <TrendingCoinCard
@@ -66,9 +66,9 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
     setModalActive((state) => !state);
   };
 
-  let boxContent;
+  let BoxContent;
   if (filterType.length !== 0) {
-    boxContent = modalActive && (
+    BoxContent = modalActive && (
       <Modal onClose={moreStatsHandler}>
         <h3 style={{ padding: "10px 0px" }}>{title}</h3>
         <StatsModal>{moreItems}</StatsModal>
@@ -76,8 +76,9 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
     );
   }
   if (filterType.length === 0) {
-    boxContent = <h3 className={classes.empty}>No {kind}</h3>;
+    BoxContent = <h3 className={classes.empty}>No {kind}</h3>;
   }
+  const buttonState = !items.length && true;
   return (
     <div className={classes.box}>
       <div className={classes.titles}>
@@ -85,13 +86,13 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
           <h2>{title}</h2>
           {icon}
         </div>
-        <button onClick={moreStatsHandler} disabled={!items.length && true}>
+        <button onClick={moreStatsHandler} disabled={buttonState}>
           More
         </button>
       </div>
-      {boxContent}
+      {BoxContent}
 
-      {topThreeView}
+      {TopThreeView}
     </div>
   );
 };
