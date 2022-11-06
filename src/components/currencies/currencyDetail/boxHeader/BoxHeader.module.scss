@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin: 1rem 0 1.5rem 0;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .main-title {
+    display: flex;
+    align-items: center;
+    gap: 0 0.7rem;
+
+    .name {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  .price-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+
+    .head {
+      font-size: 0.9rem;
+    }
+    .values-box {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+
+      .price {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .rank {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
