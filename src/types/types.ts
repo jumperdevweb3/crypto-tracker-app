@@ -21,21 +21,6 @@ export interface CurrencyItem {
   ath_change_percentage: number;
 }
 
-export interface CurrenciesState {
-  test: { [page: string]: CurrencyItem[] };
-  items: CurrencyItem[];
-  visibleItems: CurrencyItem[];
-  trendingItems: CurrencyItem[];
-  losersItems: CurrencyItem[];
-  gainersItems: CurrencyItem[];
-  chartData: [];
-  chartIsUpdating: boolean;
-  sortActive: {
-    sortType: string;
-    sortBy: string;
-  };
-}
-
 export interface WatchlistState {
   watchItems: CurrencyItem[];
   sortActive: {
