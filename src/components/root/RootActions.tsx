@@ -10,18 +10,18 @@ import { useRouter } from "next/router";
 
 export const RootActions = ({ children }: PropsChildren) => {
   const dispatch = useDispatch<AppDispatch>();
-  const currenciesData = useSelector(
-    (state: RootState) => state.currencies.items
-  );
+  // const currenciesData = useSelector(
+  //   (state: RootState) => state.currencies.items
+  // );
   const data = useSelector((state: RootState) => state.watchlist.watchItems);
   const router = useRouter();
   const key = router.asPath;
 
-  useEffect(() => {
-    if (currenciesData.length === 0) {
-      dispatch(fetchCurrenciesData(false));
-    }
-  }, [dispatch]);
+  // useEffect(() => {
+  //   if (currenciesData.length === 0) {
+  //     dispatch(fetchCurrenciesData(false));
+  //   }
+  // }, [dispatch]);
 
   useEffect(() => {
     const local = localStorage.getItem("watchlist");
