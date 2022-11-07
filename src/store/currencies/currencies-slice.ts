@@ -37,9 +37,7 @@ const currenciesSlice = createSlice({
   reducers: {
     setItems(state, action) {
       console.log(action.payload.items, action.payload.key);
-      const items = action.payload.items.map((item: CurrencyItem) =>
-        getApiData(item)
-      );
+      const items = action.payload.items;
       const keyInvalid = typeof action.payload.key === "undefined";
       const key = action.payload.key as number;
       if (!keyInvalid) {
@@ -49,11 +47,11 @@ const currenciesSlice = createSlice({
         };
         state.test = newItems;
       }
+      console.log(state.test);
     },
     setVisibleItems(state, action) {
       const { items } = action.payload;
-      const slicedItems = items;
-      state.visibleItems = sortCurrencies(slicedItems, state.sortActive);
+      state.visibleItems = sortCurrencies(items, state.sortActive);
     },
     sortData(state) {
       state.visibleItems = sortCurrencies(state.visibleItems, state.sortActive);
