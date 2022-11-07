@@ -15,6 +15,7 @@ import { Pagination } from "@mantine/core";
 export const CurrenciesList = () => {
   const router = useRouter();
   const [page, setPage] = useState<number>(1);
+
   useEffect(() => {
     if (typeof router.query.page === "string") {
       const pagee = +router.query.page || page;
@@ -29,12 +30,9 @@ export const CurrenciesList = () => {
   const { notification, isLoading } = useSelector(
     (state: RootState) => state.uiSlice
   );
-  const {
-    sortActive,
-    items: currenciesItems,
-    visibleItems,
-    test,
-  } = useSelector((state: RootState) => state.currencies);
+  const { sortActive, visibleItems, test } = useSelector(
+    (state: RootState) => state.currencies
+  );
 
   useEffect(() => {
     if (test[page]) {
@@ -44,7 +42,7 @@ export const CurrenciesList = () => {
         })
       );
     }
-  }, [currenciesItems]);
+  }, [test, page]);
 
   useEffect(() => {
     dispatch(currenciesActions.sortData());
