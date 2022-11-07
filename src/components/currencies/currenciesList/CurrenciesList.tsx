@@ -1,90 +1,82 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
 import CoinCard from "../../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
-import Notification from "../../ui/notification/Notification";
 import classes from "./CurrenciesList.module.scss";
-import { useRouter } from "next/router";
-//types
 import { RootState } from "../../../store/store";
 import { AppDispatch } from "../../../store/store";
-import { Pagination } from "@mantine/core";
-
+import { PaginationBar } from "./pagination/PaginationBar";
+import { useQuery } from "react-query";
+import { getCurrenecies } from "./getCurrencies";
+import { useRouter } from "next/router";
+import { CurrencyItem } from "../../../types/types";
+import { getApiData } from "../../../utils/getApiData";
+import { sortCurrencies } from "../../../helpers/sortCurrencies";
 export const CurrenciesList = () => {
   const router = useRouter();
-  const [page, setPage] = useState<number>(1);
-
-  useEffect(() => {
-    if (typeof router.query.page === "string") {
-      const pagee = +router.query.page || page;
-      setPage(pagee);
-    }
-    if (router.asPath === "/") {
-      setPage(1);
-    }
-  }, [router]);
-
   const dispatch = useDispatch<AppDispatch>();
-  const { notification, isLoading } = useSelector(
-    (state: RootState) => state.uiSlice
-  );
-  const { sortActive, visibleItems, test } = useSelector(
+
+  const routerQuery = router.query.page;
+  const isHome = router.asPath === "/" && 1;
+  const isQuery = typeof routerQuery === "string" ? routerQuery : 1;
+  const currentPage = isHome || isQuery;
+
+  const { sortActive, test } = useSelector(
     (state: RootState) => state.currencies
   );
+  const { data, isError, isLoading, status } = useQuery<CurrencyItem[]>(
+    ["currencies", currentPage],
+    () => getCurrenecies(currentPage)
+  );
 
   useEffect(() => {
-    if (test[page]) {
+    if (currentPage in test) {
       dispatch(
         currenciesActions.setVisibleItems({
-          items: test[page],
+          items: test[currentPage],
+        })
+      );
+      return;
+    }
+    if (status === "success") {
+      dispatch(
+        currenciesActions.setItems({
+          items: data,
+          key: currentPage,
         })
       );
     }
-  }, [test, page]);
+  }, [dispatch, router, currentPage, status]);
 
-  useEffect(() => {
-    dispatch(currenciesActions.sortData());
-  }, [dispatch, sortActive]);
+  const items =
+    status === "success"
+      ? sortCurrencies(
+          data.map((item) => getApiData(item) as CurrencyItem),
+          sortActive
+        )
+      : [];
 
-  if (isLoading) return <LoadingSpinner />;
-  if (notification.message !== "") {
-    return <Notification message={notification.message} />;
-  }
-  const ItemsRender = visibleItems.map((item) => {
+  const ItemsRender = items.map((item) => {
     return <CoinCard key={item.id} item={item} />;
   });
-  const CurrenciesContent = (
-    <>
-      {visibleItems.length !== 0 && <CurrenciesSortMenu page={"home"} />}
-      {ItemsRender}
-    </>
-  );
-  const NotFoundContent = !visibleItems.length && (
+  const SortMenu = !isError && <CurrenciesSortMenu page={"home"} />;
+  const CurrenciesContent = !isLoading && <>{ItemsRender}</>;
+  const NotFoundContent = !items.length && !isLoading && (
     <p className="center">Not found items.</p>
   );
 
-  const changePage = (event: number) => {
-    setPage(event);
-    router.push(`/?page=${event}`, undefined, { scroll: false });
-  };
-  const PaginationBar = visibleItems.length && (
-    <Pagination
-      total={10}
-      className={classes.pagination}
-      page={page}
-      onChange={changePage}
-    />
-  );
-
+  const ErrorContent = isError && <p className="center">Fetch data faild.</p>;
   return (
     <>
       <div className={classes["market-list"]}>
         {NotFoundContent}
+        {ErrorContent}
+        {SortMenu}
         {CurrenciesContent}
       </div>
-      {PaginationBar}
+      {!isError && <PaginationBar isLoading={isLoading} />}
     </>
   );
 };
