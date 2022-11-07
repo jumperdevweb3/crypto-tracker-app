@@ -5,8 +5,9 @@ import { Provider } from "react-redux";
 import store from "../src/store/store";
 import { Layout } from "../src/components/layout/Layout";
 import { MantineProvider } from "@mantine/core";
-
+import { QueryClient, QueryClientProvider } from "react-query";
 function MyApp({ Component, pageProps }: AppProps) {
+  const queryClient = new QueryClient();
   return (
     <>
       <Head>
@@ -17,13 +18,15 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1"
         ></meta>
       </Head>
-      <Provider store={store}>
-        <Layout>
-          <MantineProvider>
-            <Component {...pageProps} />
-          </MantineProvider>
-        </Layout>
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <Layout>
+            <MantineProvider>
+              <Component {...pageProps} />
+            </MantineProvider>
+          </Layout>
+        </Provider>
+      </QueryClientProvider>
     </>
   );
 }
