@@ -1,8 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getApiData } from "../../utils/getApiData";
 import { sortCurrencies } from "../../helpers/sortCurrencies";
-import { CurrenciesState } from "../../types/types";
 import { CurrencyItem } from "../../types/types";
+
+interface CurrenciesState {
+  test: { [page: string]: CurrencyItem[] };
+  items: CurrencyItem[];
+  visibleItems: CurrencyItem[];
+  trendingItems: CurrencyItem[];
+  losersItems: CurrencyItem[];
+  gainersItems: CurrencyItem[];
+  chartData: [];
+  chartIsUpdating: boolean;
+  sortActive: {
+    sortType: string;
+    sortBy: string;
+  };
+}
 
 const currenciesSlice = createSlice({
   name: "currencies",
@@ -22,6 +36,7 @@ const currenciesSlice = createSlice({
   } as CurrenciesState,
   reducers: {
     setItems(state, action) {
+      console.log(action.payload.items, action.payload.key);
       const items = action.payload.items.map((item: CurrencyItem) =>
         getApiData(item)
       );
@@ -30,24 +45,10 @@ const currenciesSlice = createSlice({
       if (!keyInvalid) {
         const newItems = {
           ...state.test,
-          [`${key}`]: items,
+          [`${+key}`]: items,
         };
         state.test = newItems;
       }
-      // state.items = state.test[key];
-      state.items = items;
-      state.trendingItems = sortCurrencies(state.items, {
-        sortType: "descending",
-        sortBy: "price_change_7d",
-      }).slice(0, 50);
-      state.losersItems = sortCurrencies(state.items, {
-        sortType: "ascending",
-        sortBy: "price_change_24h",
-      }).slice(0, 50);
-      state.gainersItems = sortCurrencies(state.items, {
-        sortType: "descending",
-        sortBy: "price_change_24h",
-      }).slice(0, 50);
     },
     setVisibleItems(state, action) {
       const { items } = action.payload;
@@ -65,6 +66,20 @@ const currenciesSlice = createSlice({
     },
     setLoading(state, action) {
       state.chartIsUpdating = action.payload;
+    },
+    setTrends(state, action) {
+      // state.trendingItems = sortCurrencies(state.items, {
+      //   sortType: "descending",
+      //   sortBy: "price_change_7d",
+      // }).slice(0, 50);
+      // state.losersItems = sortCurrencies(state.items, {
+      //   sortType: "ascending",
+      //   sortBy: "price_change_24h",
+      // }).slice(0, 50);
+      // state.gainersItems = sortCurrencies(state.items, {
+      //   sortType: "descending",
+      //   sortBy: "price_change_24h",
+      // }).slice(0, 50);
     },
   },
 });
