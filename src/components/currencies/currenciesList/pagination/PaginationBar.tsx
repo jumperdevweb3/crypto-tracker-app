@@ -6,7 +6,13 @@ import { currenciesActions } from "../../../../store/currencies/currencies-slice
 import { Pagination } from "@mantine/core";
 import classes from "../CurrenciesList.module.scss";
 
-export const PaginationBar = ({ isLoading }: { isLoading: boolean }) => {
+export const PaginationBar = ({
+  isLoading,
+  disabled,
+}: {
+  isLoading: boolean;
+  disabled: boolean;
+}) => {
   const router = useRouter();
   const [page, setPage] = useState<number>(1);
   const dispatch = useDispatch();
@@ -44,7 +50,7 @@ export const PaginationBar = ({ isLoading }: { isLoading: boolean }) => {
       className={classes.pagination}
       page={page}
       onChange={changePage}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
     />
   );
   return <>{PaginationBar}</>;
