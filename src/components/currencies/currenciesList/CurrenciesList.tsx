@@ -26,10 +26,11 @@ export const CurrenciesList = () => {
   const { sortActive, test } = useSelector(
     (state: RootState) => state.currencies
   );
-  const { data, isError, isLoading, status } = useQuery<CurrencyItem[]>(
-    ["currencies", currentPage],
-    () => getCurrenecies(currentPage)
-  );
+  const { data, isError, isLoading, status, isPreviousData } = useQuery<
+    CurrencyItem[]
+  >(["currencies", currentPage], () => getCurrenecies(currentPage), {
+    keepPreviousData: true,
+  });
 
   useEffect(() => {
     if (currentPage in test) {
@@ -62,7 +63,7 @@ export const CurrenciesList = () => {
     return <CoinCard key={item.id} item={item} />;
   });
   const SortMenu = !isError && <CurrenciesSortMenu page={"home"} />;
-  const CurrenciesContent = !isLoading && <>{ItemsRender}</>;
+  const CurrenciesContent = !isLoading && ItemsRender;
   const NotFoundContent = !items.length && !isLoading && (
     <p className="center">Not found items.</p>
   );
@@ -76,7 +77,12 @@ export const CurrenciesList = () => {
         {SortMenu}
         {CurrenciesContent}
       </div>
-      {!isError && <PaginationBar isLoading={isLoading} />}
+      {!isError && (
+        <PaginationBar
+          isLoading={isLoading}
+          disabled={isPreviousData || !data}
+        />
+      )}
     </>
   );
 };
