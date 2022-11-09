@@ -36,15 +36,18 @@ const currenciesSlice = createSlice({
   } as CurrenciesState,
   reducers: {
     setItems(state, action) {
-      console.log(action.payload.items, action.payload.key);
       const items = action.payload.items;
       const keyInvalid = typeof action.payload.key === "undefined";
       const key = action.payload.key as number;
+      if (key in state.test) {
+        return;
+      }
       if (!keyInvalid) {
         const newItems = {
           ...state.test,
-          [`${+key}`]: items,
+          [`${key}`]: items,
         };
+        console.log(newItems);
         state.test = newItems;
       }
       console.log(state.test);

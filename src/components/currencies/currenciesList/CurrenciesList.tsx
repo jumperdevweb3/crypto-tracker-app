@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
@@ -7,7 +7,7 @@ import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import classes from "./CurrenciesList.module.scss";
 import { RootState } from "../../../store/store";
 import { AppDispatch } from "../../../store/store";
-import { PaginationBar } from "./pagination/PaginationBar";
+import { PaginationBar } from "./paginationBar/PaginationBar";
 import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
 import { useRouter } from "next/router";
@@ -15,6 +15,8 @@ import { CurrencyItem } from "../../../types/types";
 import { getApiData } from "../../../utils/getApiData";
 import { sortCurrencies } from "../../../helpers/sortCurrencies";
 export const CurrenciesList = () => {
+  const [page, setPage] = useState(1);
+
   const router = useRouter();
   const dispatch = useDispatch<AppDispatch>();
 
@@ -28,19 +30,17 @@ export const CurrenciesList = () => {
   );
   const { data, isError, isLoading, status, isPreviousData } = useQuery<
     CurrencyItem[]
-  >(["currencies", currentPage], () => getCurrenecies(currentPage), {
+  >(["currencies", page], () => getCurrenecies(currentPage), {
     keepPreviousData: true,
   });
-
+  // const _arr = [].concat.apply([], Object.values(test));
+  // console.log(_arr);
   useEffect(() => {
-    if (currentPage in test) {
-      dispatch(
-        currenciesActions.setVisibleItems({
-          items: test[currentPage],
-        })
-      );
-      return;
+    if (typeof router.query.page === "string") {
+      setPage(parseInt(router.query.page));
     }
+  }, [router.query.page]);
+  useEffect(() => {
     if (status === "success") {
       dispatch(
         currenciesActions.setItems({
@@ -51,6 +51,7 @@ export const CurrenciesList = () => {
     }
   }, [dispatch, router, currentPage, status]);
 
+  const LoadingContent = isLoading && !isPreviousData && <LoadingSpinner />;
   const items =
     status === "success"
       ? sortCurrencies(
@@ -72,15 +73,17 @@ export const CurrenciesList = () => {
   return (
     <>
       <div className={classes["market-list"]}>
+        {SortMenu}
         {NotFoundContent}
         {ErrorContent}
-        {SortMenu}
+        {LoadingContent}
         {CurrenciesContent}
       </div>
       {!isError && (
         <PaginationBar
           isLoading={isLoading}
           disabled={isPreviousData || !data}
+          page={page}
         />
       )}
     </>
