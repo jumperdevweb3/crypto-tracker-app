@@ -43,62 +43,11 @@
   }
 }
 
-.pages {
-  position: sticky;
-  top: 0;
-  left: 0;
-  display: flex;
-  gap: 1.2rem;
-  justify-content: center;
-  margin: 3rem 0;
-
-  .link,
-  .home-page {
-    border: 2px solid transparent;
-    border-radius: 10px;
-    padding: 0.3rem 0.7rem;
-    font-weight: bold;
-    transition: 0.2s;
-
-    &:hover {
-      border: 2px solid var(--color-purple);
-    }
-  }
-  .link:hover,
-  .home-page:hover {
-    color: var(--color-strong-gray);
-  }
-  .active,
-  .home-page:nth-of-type(1) {
-    background-color: var(--color-purple);
-    border-radius: 10px;
-    color: var(--color-black);
-    transition: 0.2s;
-
-    &:hover {
-      border: 2px solid var(--color-purple);
-      background-color: transparent;
-      color: var(--color-white);
-    }
-  }
-}
-
 @keyframes show-slowly {
   from {
     opacity: 0.1;
   }
   to {
     opacity: 1;
-  }
-}
-
-.pagination {
-  margin-top: 1.5rem;
-  justify-content: center;
-
-  button {
-    background-color: #222642;
-    border: none;
-    color: var(--color-white);
   }
 }
