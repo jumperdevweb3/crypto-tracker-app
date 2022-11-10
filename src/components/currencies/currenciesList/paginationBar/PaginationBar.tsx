@@ -1,8 +1,4 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../../../store/store";
-import { currenciesActions } from "../../../../store/currencies/currencies-slice";
 import { Pagination } from "@mantine/core";
 import classes from "./PaginationBar.module.scss";
 
@@ -14,10 +10,9 @@ interface Props {
 
 export const PaginationBar = ({ isLoading, disabled, page }: Props) => {
   const router = useRouter();
-  const dispatch = useDispatch();
 
   const changePage = (event: number) => {
-    router.push(`/?page=${event}`, undefined, { scroll: false, shallow: true });
+    router.push(`/?page=${event}`, undefined, { scroll: false });
   };
   const PaginationBar = (
     <Pagination
