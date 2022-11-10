@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { currenciesActions } from "../../../store/currencies/currencies-slice";
+import { useSelector } from "react-redux";
 import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
 import CoinCard from "../../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import classes from "./CurrenciesList.module.scss";
 import { RootState } from "../../../store/store";
-import { AppDispatch } from "../../../store/store";
 import { PaginationBar } from "./paginationBar/PaginationBar";
 import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
@@ -18,38 +16,23 @@ export const CurrenciesList = () => {
   const [page, setPage] = useState(1);
 
   const router = useRouter();
-  const dispatch = useDispatch<AppDispatch>();
 
-  const routerQuery = router.query.page;
-  const isHome = router.asPath === "/" && 1;
-  const isQuery = typeof routerQuery === "string" ? routerQuery : 1;
-  const currentPage = isHome || isQuery;
-
-  const { sortActive, test } = useSelector(
-    (state: RootState) => state.currencies
-  );
+  const { sortActive } = useSelector((state: RootState) => state.currencies);
   const { data, isError, isLoading, status, isPreviousData } = useQuery<
     CurrencyItem[]
-  >(["currencies", page], () => getCurrenecies(currentPage), {
+  >(["currencies", page], () => getCurrenecies(page), {
     keepPreviousData: true,
+    refetchInterval: 35000,
   });
-  // const _arr = [].concat.apply([], Object.values(test));
-  // console.log(_arr);
+
   useEffect(() => {
     if (typeof router.query.page === "string") {
-      setPage(parseInt(router.query.page));
+      setPage(+router.query.page);
     }
-  }, [router.query.page]);
-  useEffect(() => {
-    if (status === "success") {
-      dispatch(
-        currenciesActions.setItems({
-          items: data,
-          key: currentPage,
-        })
-      );
+    if (router.asPath === "/") {
+      setPage(1);
     }
-  }, [dispatch, router, currentPage, status]);
+  }, [router]);
 
   const LoadingContent = isLoading && !isPreviousData && <LoadingSpinner />;
   const items =
@@ -65,7 +48,7 @@ export const CurrenciesList = () => {
   });
   const SortMenu = !isError && <CurrenciesSortMenu page={"home"} />;
   const CurrenciesContent = !isLoading && ItemsRender;
-  const NotFoundContent = !items.length && !isLoading && (
+  const NotFoundContent = !items.length && !isLoading && !isError && (
     <p className="center">Not found items.</p>
   );
 
