@@ -1,14 +1,16 @@
 .coin {
   box-sizing: border-box;
-  position: relative;
+  position: sticky;
+  top: 0;
+  left: 0;
   display: grid;
   grid-template-columns:
-    2.5rem 2.2rem 7.5rem 4.5rem 7rem
+    2.5rem 2.2rem 8rem 5.5rem 7rem
     4rem 4rem 4rem 9rem
     9rem;
   grid-template-rows: 1fr;
   align-items: center;
-  width: 60rem;
+  width: 62rem;
   color: var(--color-white);
   margin: 0 auto;
   border-top: 1px solid var(--border-dark-blue);
@@ -43,7 +45,7 @@
     left: 0;
     background-color: var(--background-dark);
     display: grid;
-    grid-template-columns: 1.6rem 5.5rem;
+    grid-template-columns: 1.6rem 1fr;
     align-items: center;
     justify-content: flex-start;
     height: 4.5rem;
