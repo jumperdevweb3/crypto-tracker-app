@@ -2,20 +2,28 @@ import Link from "next/link";
 import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import classes from "./Chart.module.scss";
 import dynamic from "next/dynamic";
+import { useQuery } from "react-query";
+import { getChart } from "./getChart";
 
 const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
 });
 
-export const Chart = ({
-  isUpdating,
-  chartData,
-}: {
-  isUpdating: boolean;
-  chartData: any;
-}) => {
-  const chartDataExist = chartData.length;
-  const ChartContent = (
+export const Chart = ({ id }: { id: string }) => {
+  const {
+    data: chartData,
+    isError,
+    isLoading,
+    status,
+  } = useQuery<[]>(`${id}-chart`, () => getChart(id), {
+    refetchInterval: 35000,
+    keepPreviousData: true,
+  });
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  const ErrorContent = isError && (
+    <p className="center">Chart is not available</p>
+  );
+  const ChartContent = status === "success" && (
     <>
       <TradingViewChart chartData={chartData} />
       <p className={classes["chart-info"]}>
@@ -26,16 +34,15 @@ export const Chart = ({
       </p>
     </>
   );
-  const ChartStatus = isUpdating ? (
-    <LoadingSpinner />
-  ) : chartDataExist ? (
-    ChartContent
-  ) : (
-    <p className="center">Chart is not available</p>
-  );
   return (
-    <div className={classes["chart-box"]}>
-      <div id="chart">{ChartStatus}</div>
-    </div>
+    <>
+      <div className={classes["chart-box"]}>
+        <div id="chart">
+          {ChartContent}
+          {LoadingContent}
+          {ErrorContent}
+        </div>
+      </div>
+    </>
   );
 };
