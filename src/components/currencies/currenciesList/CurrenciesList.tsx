@@ -5,22 +5,22 @@ import CoinCard from "../../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import classes from "./CurrenciesList.module.scss";
 import { RootState } from "../../../store/store";
-import { PaginationBar } from "./paginationBar/PaginationBar";
+import { PaginationBar } from "../paginationBar/PaginationBar";
 import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
 import { useRouter } from "next/router";
 import { CurrencyItem } from "../../../types/types";
-import { getApiData } from "../../../utils/getApiData";
+import { changeDataVariables } from "./changeDataVariables";
 import { sortCurrencies } from "../../../helpers/sortCurrencies";
+
 export const CurrenciesList = () => {
   const [page, setPage] = useState(1);
-
   const router = useRouter();
-
   const { sortActive } = useSelector((state: RootState) => state.currencies);
+
   const { data, isError, isLoading, status, isPreviousData } = useQuery<
     CurrencyItem[]
-  >(["currencies", page], () => getCurrenecies(page), {
+  >(["currencies", page], () => getCurrenecies(page, 100), {
     keepPreviousData: true,
     refetchInterval: 35000,
   });
@@ -35,20 +35,21 @@ export const CurrenciesList = () => {
   }, [router]);
 
   const LoadingContent = isLoading && !isPreviousData && <LoadingSpinner />;
-  const items =
+
+  const sortItems =
     status === "success"
       ? sortCurrencies(
-          data.map((item) => getApiData(item) as CurrencyItem),
+          data.map((item) => changeDataVariables(item) as CurrencyItem),
           sortActive
         )
       : [];
 
-  const ItemsRender = items.map((item) => {
+  const ItemsRender = sortItems.map((item) => {
     return <CoinCard key={item.id} item={item} />;
   });
   const SortMenu = !isError && <CurrenciesSortMenu page={"home"} />;
   const CurrenciesContent = !isLoading && ItemsRender;
-  const NotFoundContent = !items.length && !isLoading && !isError && (
+  const NotFoundContent = !sortItems.length && !isLoading && !isError && (
     <p className="center">Not found items.</p>
   );
 
