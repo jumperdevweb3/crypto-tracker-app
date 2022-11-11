@@ -1,54 +1,55 @@
 import classes from "./NftList.module.scss";
 import style from "../ContainerStyles.module.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
 import { Modal } from "../../ui/modals/Modal";
 import { useState } from "react";
 import { NftDetials } from "./NftDetials";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { NftsList } from "./NftsList";
+import { useQuery } from "react-query";
+import { getNfts } from "../fetchStatistic";
 
 export const Nfts = () => {
-  const [nfts, setNfts] = useState({ modalOpen: false, id: "" });
+  const [modalOpen, setModalOpen] = useState(false);
+  const [itemId, setItemId] = useState("");
 
-  const { items, errorMessage } = useSelector(
-    (state: RootState) => state.statistic.nfts
-  );
-  const isLoading = useSelector(
-    (state: RootState) => state.statistic.isLoading.nfts
-  );
+  const {
+    data: items,
+    isLoading,
+    status,
+    isError,
+  } = useQuery("nfts", getNfts, {
+    refetchOnWindowFocus: false,
+  });
 
-  const nftsModalAction = async (id: string) => {
-    setNfts({
-      modalOpen: true,
-      id: id,
-    });
+  const onModalActive = (id?: string) => {
+    setModalOpen((state) => !state);
+    if (id) {
+      setItemId(id);
+    }
   };
   const onCloseModal = () => {
-    setNfts({
-      modalOpen: false,
-      id: "",
-    });
+    setModalOpen(false);
+    setItemId("");
   };
-  const itemsExist = items && items.length !== 0;
+
   const LoadingContent = isLoading && <LoadingSpinner />;
-  const showItems = itemsExist && !isLoading;
-  const ItemsContent = showItems && (
+  const ItemsContent = status === "success" && (
     <>
       <div className={classes["list-description"]}>
         <p>Name</p>
         <p>Symbol</p>
       </div>
       <ul className={classes.list}>
-        {itemsExist && <NftsList items={items} modalAction={nftsModalAction} />}
+        <NftsList items={items} modalAction={onModalActive} />
       </ul>
     </>
   );
-  const isError = errorMessage && !itemsExist;
-  const ErrorContent = isError && <p className="center">{errorMessage}</p>;
-  const ModalContent = nfts.modalOpen && (
+  const ErrorContent = isError && (
+    <p className="center">Problem with CoinGeco response.</p>
+  );
+  const ModalContent = modalOpen && (
     <Modal onClose={onCloseModal}>
-      <NftDetials id={nfts.id} />
+      <NftDetials id={itemId} />
     </Modal>
   );
   return (

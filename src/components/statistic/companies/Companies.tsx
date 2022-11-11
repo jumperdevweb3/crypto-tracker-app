@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
 import classes from "./Companies.module.scss";
 import style from "../ContainerStyles.module.scss";
 import { useState } from "react";
@@ -8,48 +6,48 @@ import { Modal } from "../../ui/modals/Modal";
 import { Company } from "./Company";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import { CompaniesList } from "./CompaniesList";
+import { useQuery } from "react-query";
+import { getCompanies } from "../fetchStatistic";
 
 export const Companies = () => {
-  const [companies, setCompanies] = useState({ item: {}, modalOpen: false });
-  const { items, errorMessage } = useSelector(
-    (state: RootState) => state.statistic.companies
-  );
-  const isLoading = useSelector(
-    (state: RootState) => state.statistic.isLoading.companies
-  );
+  const [modalActive, setModalActive] = useState(false);
+  const [company, setCompany] = useState<CompaniesType>();
+  const {
+    data: items,
+    isLoading,
+    isError,
+    status,
+  } = useQuery<CompaniesType[]>("companies", getCompanies, {
+    refetchOnWindowFocus: false,
+  });
+  const onModalActive = (item?: CompaniesType) => {
+    setModalActive((state) => !state);
+    if (item) {
+      setCompany(item);
+    }
+  };
+  const onModalClose = () => {
+    setModalActive(false);
+  };
 
-  const companiesModalAction = (item: CompaniesType) => {
-    setCompanies({
-      item: item,
-      modalOpen: true,
-    });
-  };
-  const onCloseModal = () => {
-    setCompanies((state) => {
-      return {
-        item: state.item,
-        modalOpen: false,
-      };
-    });
-  };
-  const itemsExist = items && items.length !== 0;
   const LoadingContent = isLoading && <LoadingSpinner />;
-  const CompaniesContent = itemsExist && !isLoading && (
+  const ErrorContent = isError && (
+    <p className="center">Problem with CoinGeco API response.</p>
+  );
+  const CompaniesContent = status === "success" && (
     <>
       <div className={classes["list-description"]}>
         <p>Company</p>
         <p>Total Holdings</p>
       </div>
       <ul className={classes.list}>
-        <CompaniesList items={items} modalAction={companiesModalAction} />
+        <CompaniesList items={items} modalAction={onModalActive} />
       </ul>
     </>
   );
-  const isError = errorMessage && !itemsExist;
-  const ErrorContent = isError && <p className="center">{errorMessage}</p>;
-  const ModalContent = companies.modalOpen && (
-    <Modal onClose={onCloseModal}>
-      <Company {...companies} />
+  const ModalContent = modalActive && company && (
+    <Modal onClose={onModalClose}>
+      <Company item={company} />
     </Modal>
   );
   return (
