@@ -3,7 +3,6 @@ import uiSlice from "./ui/ui-slice";
 import currenciesSlice from "./currencies/currencies-slice";
 import watchlistSlice from "./watchlist/watchlist-slice";
 import { convertSlice } from "./converter/convert-slice";
-import { statisticSlice } from "./statistic/statistic-slice";
 
 const store = configureStore({
   reducer: {
@@ -11,7 +10,6 @@ const store = configureStore({
     currencies: currenciesSlice.reducer,
     watchlist: watchlistSlice.reducer,
     convert: convertSlice.reducer,
-    statistic: statisticSlice.reducer,
   },
 });
 export default store;

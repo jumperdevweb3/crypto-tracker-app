@@ -21,20 +21,6 @@ export interface CurrencyItem {
   ath_change_percentage: number;
 }
 
-export interface CurrenciesState {
-  items: CurrencyItem[];
-  visibleItems: CurrencyItem[];
-  trendingItems: CurrencyItem[];
-  losersItems: CurrencyItem[];
-  gainersItems: CurrencyItem[];
-  chartData: [];
-  chartIsUpdating: boolean;
-  sortActive: {
-    sortType: string;
-    sortBy: string;
-  };
-}
-
 export interface WatchlistState {
   watchItems: CurrencyItem[];
   sortActive: {
@@ -152,5 +138,53 @@ export interface StatisticTypes {
     companies: boolean;
     nfts: boolean;
     nftDetial: boolean;
+  };
+}
+
+export interface Coin {
+  id: string;
+  symbol: string;
+  name: string;
+  description: {
+    en: string;
+  };
+  links: {
+    homepage: string[];
+    blockchain_site: string[];
+    official_forum_url: string[];
+  };
+  genesis_date: string;
+  market_data: {
+    current_price: {
+      usd: number;
+    };
+    ath: {
+      usd: number;
+    };
+    ath_change_percentage: {
+      usd: number;
+    };
+    ath_date: {
+      eur: string;
+    };
+    market_cap_rank: number | string;
+    market_cap: {
+      usd: number;
+    };
+    total_supply: number;
+    max_supply: number;
+    last_updated: string;
+    circulating_supply: number;
+  };
+  image: {
+    thumb: string;
+  };
+  community_data: {
+    twitter_followers: number | null;
+    reddit_accounts_active_48: number | null;
+    reddit_subscribers: number | null;
+    reddit_accounts_active_48h: number | null;
+    reddit_average_posts_48h: number | null;
+    reddit_average_comments_48h: number | null;
   };
 }

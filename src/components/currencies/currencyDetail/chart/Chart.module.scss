@@ -1,0 +1,28 @@
+.chart-box {
+  width: 60%;
+  align-self: flex-start;
+
+  #chart {
+    max-width: 100%;
+  }
+  .chart-info {
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    text-align: center;
+    color: var(--color-white);
+
+    a {
+      display: block;
+      color: var(--color-purple);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    align-self: center;
+    width: 90%;
+  }
+  @media (max-width: 767px) {
+    align-self: center;
+    width: 100%;
+  }
+}

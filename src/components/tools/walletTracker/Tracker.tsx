@@ -2,7 +2,7 @@ import classes from "./Tracker.module.scss";
 import { FormEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
-import { fetchEtherScanData } from "../../../utils/api-utils";
+import { getWalletData } from "./fetchWallet";
 
 export const Tracker = () => {
   const [result, setResult] = useState({
@@ -22,7 +22,7 @@ export const Tracker = () => {
       setInputValue("");
       setIsLoading(false);
     }
-    const data = await fetchEtherScanData(inputValue);
+    const data = await getWalletData(inputValue);
     if (data.status === "0") {
       setResult({
         amount: 0,
@@ -39,6 +39,18 @@ export const Tracker = () => {
     setIsLoading(false);
     setInputValue("");
   };
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  const ResultContent = result.amount ? (
+    <p>
+      Entered Wallet have a{" "}
+      <span className={classes.amount}>{result.amount.toFixed(10)}</span> ETH
+    </p>
+  ) : (
+    "Search to show wallet ETH balance."
+  );
+  const ErrorContent = result.error && (
+    <p className={classes.error}>{result.error}</p>
+  );
   return (
     <div className={classes.container}>
       <form className={classes.box} onSubmit={fetchDataHandler}>
@@ -53,19 +65,9 @@ export const Tracker = () => {
           <FaSearch fontSize="1.5rem" color="rgb(193, 162, 222)" />
         </button>
       </form>
-      {isLoading && <LoadingSpinner />}
-      <div className={classes.result}>
-        {result.amount ? (
-          <p>
-            Entered Wallet have a{" "}
-            <span className={classes.amount}>{result.amount.toFixed(10)}</span>{" "}
-            ETH
-          </p>
-        ) : (
-          "Search to show wallet ETH balance."
-        )}
-      </div>
-      {result.error && <p className={classes.error}>{result.error}</p>}
+      {LoadingContent}
+      <div className={classes.result}>{ResultContent}</div>
+      {ErrorContent}
       <p className={classes.description}>
         *You can use test wallet address -
         0x0D992fF8cd5c417Ce6c935A6d36e027f91119Ccf

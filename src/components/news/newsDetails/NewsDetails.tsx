@@ -1,6 +1,6 @@
 import classes from "./NewsDetails.module.scss";
 import ReactMarkdown from "react-markdown";
-import { fetchNewsContent } from "../../../utils/api-utils";
+import { getNewsContent } from "../fetchNews";
 import { useEffect, useState } from "react";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 
@@ -12,11 +12,10 @@ interface PropsDetials {
 export const NewsDetails = (props: PropsDetials) => {
   const [content, setContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
   const { id, title } = props;
   async function getData() {
     setIsLoading(true);
-    const data = await fetchNewsContent(id);
+    const data = await getNewsContent(id);
     setIsLoading(false);
     return setContent(data.content);
   }
@@ -24,17 +23,19 @@ export const NewsDetails = (props: PropsDetials) => {
     getData();
   }, []);
 
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  const NewsContent = !isLoading && (
+    <article className={classes.article}>
+      {" "}
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </article>
+  );
   return (
     <div>
       <div key={id} className={classes.content}>
         <h2 className={classes.title}>{title}</h2>
-        {isLoading && <LoadingSpinner />}
-        {!isLoading && (
-          <article className={classes.article}>
-            {" "}
-            <ReactMarkdown>{content}</ReactMarkdown>
-          </article>
-        )}
+        {LoadingContent}
+        {NewsContent}
       </div>
     </div>
   );

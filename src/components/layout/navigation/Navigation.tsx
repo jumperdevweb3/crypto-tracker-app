@@ -24,36 +24,39 @@ export const Navigation = () => {
   const toggleNav = () => {
     dispatch(uiActions.showNavigation(!showNav));
   };
+
+  const MobileButton = mobile && (
+    <button onClick={toggleNav}>
+      <FiMenu fontSize={"2rem"} color="#fff" />
+    </button>
+  );
+  const MobileNavContent = mobile && (
+    <nav className={navClass}>
+      <ul className={classes["mobile-list"]}>
+        <NavLinks toggle={toggleNav} />
+      </ul>
+    </nav>
+  );
+  const DesktopNavContent = desktop && (
+    <nav className={classes["desktop-nav"]}>
+      <ul className={classes["links-list"]}>
+        <NavLinks toggle={toggleNav} />
+      </ul>
+    </nav>
+  );
   return (
     <header className={classes.header}>
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <Link href="/">
             <a>
-              <p className={classes.logo}>Crypto App</p>
+              <p className={classes.logo}>Crypto Tracker</p>
             </a>
           </Link>
-          {mobile && (
-            <button onClick={toggleNav}>
-              <FiMenu fontSize={"2rem"} color="#fff" />
-            </button>
-          )}
+          {MobileButton}
         </div>
-        {mobile && (
-          <nav className={navClass}>
-            <ul className={classes["mobile-list"]}>
-              <NavLinks toggle={toggleNav} />
-            </ul>
-          </nav>
-        )}
-
-        {desktop && (
-          <nav className={classes["desktop-nav"]}>
-            <ul className={classes["links-list"]}>
-              <NavLinks toggle={toggleNav} />
-            </ul>
-          </nav>
-        )}
+        {MobileNavContent}
+        {DesktopNavContent}
       </div>
     </header>
   );

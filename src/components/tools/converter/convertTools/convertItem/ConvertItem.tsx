@@ -5,29 +5,42 @@ import classes from "../convertItem/ConvertItem.module.scss";
 //types
 import { AppDispatch } from "../../../../../store/store";
 import { RootState } from "../../../../../store/store";
+import { useQuery } from "react-query";
+import { CurrencyItem } from "../../../../../types/types";
+import { getPrices } from "./fetchPrices";
 
 export const ConvertItem = ({ kind }: { kind: string }) => {
+  const {
+    data: currenciesData,
+    isError,
+    status,
+  } = useQuery<CurrencyItem[]>("convertItems", getPrices, {
+    refetchOnWindowFocus: false,
+    refetchInterval: 35000,
+    keepPreviousData: true,
+  });
   const dispatch = useDispatch<AppDispatch>();
 
   const { itemFrom, itemTo, quantity } = useSelector(
     (state: RootState) => state.convert
   );
-  const currenciesData = useSelector(
-    (state: RootState) => state.currencies.items
-  );
+
   const nameInputValue = kind === "from" ? itemFrom.id : itemTo.id;
   const wasSelected = itemFrom.id !== "" && itemTo.id !== "";
 
-  const optionItems = currenciesData.map((item) => (
-    <option value={item.id} key={Math.random() * 100}>
-      {item.name}
-    </option>
-  ));
+  const OptionItems =
+    status === "success" &&
+    currenciesData.map((item) => (
+      <option value={item.id} key={Math.random() * 100}>
+        {item.name}
+      </option>
+    ));
 
   const selectHandler = (event: FormEvent<HTMLSelectElement>) => {
     const id = event.currentTarget.value;
     dispatch(convertActions.onOptionChange({ kind: kind, id }));
-    const item = currenciesData.find((item) => item.id === id);
+    const item =
+      status === "success" && currenciesData.find((item) => item.id === id);
 
     if (!item) return;
 
@@ -45,6 +58,13 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
     }
   }, [quantity, itemFrom, itemTo]);
 
+  const firstView = !wasSelected;
+  const SelectContent = firstView && (
+    <option className={classes.option} value="">
+      Please select currency
+    </option>
+  );
+  const ErrorContent = isError && <option value={0}>Data load problem</option>;
   return (
     <div className={classes.box}>
       <div className={classes.selects}>
@@ -56,15 +76,9 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
           value={nameInputValue}
         >
           <optgroup label="Cryptocurrencies">
-            {!wasSelected && currenciesData.length !== 0 && (
-              <option className={classes.option} value="">
-                Please select currency
-              </option>
-            )}
-            {currenciesData && optionItems}
-            {currenciesData.length === 0 && (
-              <option value={0}>{"Data load problem"}</option>
-            )}
+            {SelectContent}
+            {currenciesData && OptionItems}
+            {ErrorContent}
           </optgroup>
         </select>
       </div>

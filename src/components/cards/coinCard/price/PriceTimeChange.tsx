@@ -7,15 +7,14 @@ const PriceTimeChange = ({ time, classes }: { time: number; classes: any }) => {
       ? `${classes.time} decr time-global`
       : `${classes.time} incr time-global`;
   const timeIcon = time <= 0 ? <FaAngleDown /> : <FaAngleUp />;
-  return (
-    <div className={timeStyle}>
-      {time && (
-        <>
-          <p>{Math.abs(+time.toFixed(2))}%</p>
-          {timeIcon}
-        </>
-      )}
-    </div>
+
+  const TimeValue = time && (
+    <>
+      <p>{Math.abs(+time.toFixed(2))}%</p>
+      {timeIcon}
+    </>
   );
+  const TimeContent = time ? TimeValue : <p style={{ color: "#fff" }}>?</p>;
+  return <div className={timeStyle}>{TimeContent}</div>;
 };
 export default memo(PriceTimeChange);

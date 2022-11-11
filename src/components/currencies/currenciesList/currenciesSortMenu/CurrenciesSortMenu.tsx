@@ -45,9 +45,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("market_cap_rank")}
         >
           #
+          {sortActiveIcon.sortBy === "market_cap_rank" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "market_cap_rank" &&
-          sortActiveIcon.sortTypeIcon}
       </div>
       <div className={classes.name}>
         <button
@@ -55,8 +55,8 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("name")}
         >
           Name
+          {sortActiveIcon.sortBy === "name" && sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "name" && sortActiveIcon.sortTypeIcon}
       </div>
       <div></div>
       <div className={classes.price}>
@@ -65,9 +65,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("current_price")}
         >
           Price{" "}
+          {sortActiveIcon.sortBy === "current_price" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "current_price" &&
-          sortActiveIcon.sortTypeIcon}
       </div>
       <div className={classes.time}>
         <button
@@ -75,9 +75,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("price_change_1h")}
         >
           1h %{" "}
+          {sortActiveIcon.sortBy === "price_change_1h" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "price_change_1h" &&
-          sortActiveIcon.sortTypeIcon}
       </div>
       <div className={classes.time}>
         <button
@@ -85,9 +85,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("price_change_24h")}
         >
           24h %{" "}
+          {sortActiveIcon.sortBy === "price_change_24h" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "price_change_24h" &&
-          sortActiveIcon.sortTypeIcon}
       </div>
       <div className={classes.time}>
         <button
@@ -95,9 +95,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("price_change_7d")}
         >
           7d %{" "}
+          {sortActiveIcon.sortBy === "price_change_7d" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "price_change_7d" &&
-          sortActiveIcon.sortTypeIcon}
       </div>
       <div className={classes["market-cap"]}>
         <button
@@ -105,8 +105,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("market_cap")}
         >
           Market Cap{" "}
+          {sortActiveIcon.sortBy === "market_cap" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "market_cap" && sortActiveIcon.sortTypeIcon}
       </div>
       <div className={classes.volume}>
         <button
@@ -114,9 +115,9 @@ export const CurrenciesSortMenu = ({ page }: { page: string }) => {
           onClick={sortByRankHandler("total_volume")}
         >
           Total Volume
+          {sortActiveIcon.sortBy === "total_volume" &&
+            sortActiveIcon.sortTypeIcon}
         </button>
-        {sortActiveIcon.sortBy === "total_volume" &&
-          sortActiveIcon.sortTypeIcon}
       </div>
     </div>
   );

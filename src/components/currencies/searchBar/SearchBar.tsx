@@ -1,55 +1,61 @@
 import classes from "./SearchBar.module.scss";
-import { InputSearch } from "../../ui/inputs/InputSearch";
-import { useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
-import { RootState } from "../../../store/store";
-import { SearchItem } from "./SearchItem";
+import { InputSearch } from "./searchInput/InputSearch";
+import React, { useState } from "react";
+import { SearchItem } from "./searchItem/SearchItem";
 import { useDebounce } from "./useDebounce";
-import { CurrencyItem } from "../../../types/types";
+import { fetchCoinByQuery } from "./fetchCoinByQuery";
+import { useQuery } from "react-query";
+
+interface Item {
+  id: string;
+  name: string;
+  thumb: string;
+  symbol: string;
+  market_cap_rank: number;
+}
 
 export const SearchBar = () => {
   const [inputValue, setInputValue] = useState("");
-  const [searchItems, setSearchItems] = useState<CurrencyItem[]>([]);
   const [loading, setLoading] = useState(false);
+  const debouncedSearch = useDebounce(inputValue, 400);
 
-  const debouncedSearch = useDebounce(inputValue, 500);
-  const { items } = useSelector((state: RootState) => state.currencies);
-
-  useEffect(() => {
-    if (debouncedSearch) {
-      const filteredItems = items.filter((coin) => {
-        const name = coin.name.toLowerCase();
-        return name.includes(inputValue);
-      });
-      setSearchItems(filteredItems);
+  const { data, status, isError } = useQuery<Item[]>(
+    ["searchItems", debouncedSearch],
+    () => fetchCoinByQuery(debouncedSearch),
+    {
+      enabled: debouncedSearch.length > 0,
     }
-    if (!debouncedSearch) setSearchItems([]);
-    setLoading(false);
-  }, [debouncedSearch]);
+  );
 
-  const renderItems = searchItems
-    .slice(0, 15)
-    .map((item) => <SearchItem {...item} key={item.id} />);
+  const RenderItems =
+    status === "success"
+      ? data.map((item) => <SearchItem item={item} key={item.id} />)
+      : [];
 
   function inputValueHandler(event: React.ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value;
-    setInputValue(newValue.trim().toLowerCase());
-    setSearchItems([]);
+    setInputValue(newValue.toLowerCase());
     setLoading(true);
   }
   function onClickCross() {
     setInputValue("");
   }
-
-  const content = inputValue.length !== 0 && (
+  const LoadingContent = loading && status !== "success" && (
+    <li className={classes["result-info"]}>Loading ...</li>
+  );
+  const NotFoundContent = status === "success" && !data.length && (
+    <li className={classes["result-info"]}>Not found items.</li>
+  );
+  const ErrorContent = isError && (
+    <li className={classes["result-info"]}>Problem with CoinGeco API.</li>
+  );
+  const InputContent = !!inputValue.trim() && (
     <div className={classes["result-box"]}>
       <ul className={classes.list}>
-        {renderItems.length === 0 && !loading ? (
-          <li className={classes["result-info"]}>Not found items.</li>
-        ) : (
-          renderItems
-        )}
-        {loading && <li className={classes["result-info"]}>Loading ...</li>}
+        {RenderItems}
+        {LoadingContent}
+        {NotFoundContent}
+        {ErrorContent}
       </ul>
     </div>
   );
@@ -62,7 +68,7 @@ export const SearchBar = () => {
           value={inputValue}
           onClickCross={onClickCross}
         />
-        {content}
+        {InputContent}
       </div>
     </div>
   );

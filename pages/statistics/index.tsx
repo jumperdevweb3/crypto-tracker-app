@@ -4,7 +4,7 @@ export default function StatisticPage() {
   return (
     <>
       <Head>
-        <title>Statistic | Crypto Tracker App</title>
+        <title>Statistic | Crypto Tracker</title>
       </Head>
       <Statistics />
     </>

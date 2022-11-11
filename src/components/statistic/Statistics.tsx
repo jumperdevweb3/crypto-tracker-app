@@ -1,25 +1,10 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import {
-  fetchCompaniesData,
-  fetchExchangesList,
-  fetchNftList,
-} from "../../store/statistic/statistic-actions";
 import { Exchanges } from "./exchanges/Exchanges";
 import { Companies } from "./companies/Companies";
-import { AppDispatch } from "../../store/store";
 import classes from "./Statistic.module.scss";
 import { Nfts } from "./nft/Nfts";
 import Link from "next/link";
 
 export const Statistics = () => {
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(fetchExchangesList());
-    dispatch(fetchCompaniesData());
-    dispatch(fetchNftList());
-  }, [dispatch]);
   return (
     <>
       <p className={classes.title}>

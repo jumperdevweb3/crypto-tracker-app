@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const NftsList = ({ items, modalAction }: Props) => {
-  const renderItems = items.map((item, index) => (
+  const RenderItems = items.map((item, index) => (
     <li
       key={item.id}
       className={classes["list-item"]}
@@ -19,5 +19,5 @@ export const NftsList = ({ items, modalAction }: Props) => {
       <span className={classes.symbol}>{item.symbol}</span>
     </li>
   ));
-  return <>{renderItems}</>;
+  return <>{RenderItems}</>;
 };

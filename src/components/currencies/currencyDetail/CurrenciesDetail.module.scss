@@ -4,25 +4,7 @@
 .container {
   width: 100%;
   min-height: calc(100vh - 5rem);
-  background-color: var(--background-dark-blue);
-
-  .chart-box {
-    width: 90%;
-    margin: 0 auto;
-
-    .chart-info {
-      margin-top: 2rem;
-      font-size: 0.7rem;
-      text-align: center;
-      color: var(--color-white);
-      padding-bottom: 2rem;
-
-      a {
-        display: block;
-        color: var(--color-oceanic);
-      }
-    }
-  }
+  background-color: var(--background-light-blue);
 
   @keyframes slide-down {
     from {

@@ -7,7 +7,7 @@ interface Props {
   modalAction: (item: ExchangeType) => void;
 }
 export const ExchangesList = ({ items, modalAction }: Props) => {
-  const renderItems = items.map((item) => (
+  const RenderItems = items.map((item) => (
     <li
       key={item.id}
       className={classes["list-item"]}
@@ -28,5 +28,5 @@ export const ExchangesList = ({ items, modalAction }: Props) => {
       </p>
     </li>
   ));
-  return <>{renderItems}</>;
+  return <>{RenderItems}</>;
 };
