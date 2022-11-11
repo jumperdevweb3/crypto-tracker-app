@@ -19,7 +19,7 @@ export const Watchlist = () => {
     dispatch(watchlistActions.sortData());
   }, [dispatch, sortActive]);
 
-  const WatchlistContent = data.length && (
+  const WatchlistContent = !!data.length && (
     <>
       <h2 className="center-item">
         Your <span>watchlist</span> items.
