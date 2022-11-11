@@ -1,16 +1,33 @@
 .container {
   display: flex;
-  justify-content: space-around;
-  gap: 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto 0 auto;
   max-width: 1024px;
-  color: var(--color-white);
-  padding: 0 1rem;
-  margin: 2.5rem auto;
-  animation: show-slowly 0.5s linear;
 
-  @media (max-width: 1023px) {
-    flex-direction: column;
-    width: 90%;
+  .title {
+    margin: 2rem 0;
+    align-self: center;
+    color: var(--color-white);
+    text-align: center;
+    font-size: 1.2rem;
+    span {
+      color: var(--color-text-green);
+    }
+  }
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
+    color: var(--color-white);
+    padding: 0 1rem;
+    animation: show-slowly 0.5s linear;
+
+    @media (max-width: 1023px) {
+      flex-direction: column;
+      width: 90%;
+      margin: 0 auto;
+    }
   }
 }
 
