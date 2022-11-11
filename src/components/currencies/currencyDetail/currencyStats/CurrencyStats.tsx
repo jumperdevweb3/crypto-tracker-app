@@ -1,8 +1,6 @@
 import classes from "./CurrencyStats.module.scss";
 import { Coin } from "../../../../types/types";
 import { BoxHeader } from "../boxHeader/BoxHeader";
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../store/store";
 import { CoinStatistic } from "../coinStatistic/CoinStatistic";
 import { CoinLinks } from "../coinLinks/CoinLinks";
 import { Chart } from "../chart/Chart";
@@ -13,9 +11,6 @@ interface Props {
   item: Coin;
 }
 export const CurrencyStats = ({ item }: Props) => {
-  const { chartData, chartIsUpdating } = useSelector(
-    (state: RootState) => state.currencies
-  );
   return (
     <div className={classes["box-container"]}>
       <BoxHeader item={item} />
@@ -24,7 +19,7 @@ export const CurrencyStats = ({ item }: Props) => {
           <CoinStatistic item={item} />
           <CoinLinks item={item} />
         </div>
-        <Chart chartData={chartData} isUpdating={chartIsUpdating} />
+        <Chart id={item.id} />
       </div>
       <Community item={item} />
       <CoinDescription description={item.description.en} />
