@@ -1,5 +1,5 @@
 import { News } from "../../src/components/news/News";
-import { fetchNewsData } from "../../src/utils/api-utils";
+import { getNewsData } from "../../src/components/news/fetchNews";
 import { NewsItems } from "../../src/types/types";
 import { GetStaticProps } from "next";
 import Head from "next/head";
@@ -10,7 +10,7 @@ export default function NewsPage({ ...props }) {
   return (
     <>
       <Head>
-        <title>News | Crypto Tracker App</title>
+        <title>News | Crypto Tracker</title>
       </Head>
       <News items={items} />
     </>
@@ -18,7 +18,7 @@ export default function NewsPage({ ...props }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const news: NewsItems[] = await fetchNewsData();
+  const news: NewsItems[] = await getNewsData();
 
   return {
     props: {
