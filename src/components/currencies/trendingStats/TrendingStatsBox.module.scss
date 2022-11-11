@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.5rem;
+  max-width: 1024px;
+  color: var(--color-white);
+  padding: 0 1rem;
+  margin: 2.5rem auto;
+  animation: show-slowly 0.5s linear;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+    width: 90%;
+  }
+}
+
+@keyframes show-slowly {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
