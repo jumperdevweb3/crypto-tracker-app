@@ -1,10 +1,10 @@
-import { NewsItems } from "../types/types";
-import { urlFetchList } from "../helpers/urlFetchList";
+import { NewsItems } from "../../types/types";
 
-const { news, etherScan } = urlFetchList;
-export const fetchNewsData = async () => {
+export const getNewsData = async () => {
   try {
-    const response = await fetch(news.newsList);
+    const response = await fetch(
+      "https://data.messari.io/api/v1/news?fields=title,author/name,id,published_at,tags,url"
+    );
     if (!response.ok) throw new Error("Fail fetch data");
     const data = await response.json();
     const items = data.data;
@@ -19,9 +19,11 @@ export const fetchNewsData = async () => {
   }
 };
 
-export const fetchNewsContent = async (id: string) => {
+export const getNewsContent = async (id: string) => {
   try {
-    const response = await fetch(news.newsContent);
+    const response = await fetch(
+      "https://data.messari.io/api/v1/news?as-markdown&?fields=id,content"
+    );
     if (!response.ok) throw new Error("Fail fetch content data");
     const data = await response.json();
     const items = data.data;
@@ -38,17 +40,6 @@ export const fetchNewsContent = async (id: string) => {
 };
 
 export async function getNewsDetail(id: string) {
-  const allNews: NewsItems[] = await fetchNewsData();
+  const allNews: NewsItems[] = await getNewsData();
   return allNews.find((item) => id === item.id) as NewsItems;
 }
-
-export const fetchEtherScanData = async (address: string) => {
-  try {
-    const response = await fetch(etherScan + address);
-    if (!response.ok) throw new Error("problem");
-    const data = await response.json();
-    return data;
-  } catch (error: unknown) {
-    if (error instanceof Error) return error;
-  }
-};
