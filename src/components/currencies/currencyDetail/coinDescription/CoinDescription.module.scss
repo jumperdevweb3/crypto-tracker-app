@@ -1,10 +1,10 @@
 .description-box {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-strong-blue);
+  background-color: var(--background-dark);
   padding: 1rem 1rem;
   border-radius: 10px;
-  max-height: 15rem;
+  max-height: 25rem;
   overflow-y: auto;
   p {
     line-height: 1.5rem;
