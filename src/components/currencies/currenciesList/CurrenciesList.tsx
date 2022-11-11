@@ -63,7 +63,7 @@ export const CurrenciesList = () => {
         {LoadingContent}
         {CurrenciesContent}
       </div>
-      {!isError && (
+      {!isError && !isLoading && (
         <PaginationBar
           isLoading={isLoading}
           disabled={isPreviousData || !data}
