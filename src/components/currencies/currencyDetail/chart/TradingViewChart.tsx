@@ -24,7 +24,7 @@ export default function TradingViewChart({ chartData }: { chartData: [] }) {
   const data = {
     renderData,
     colors: {
-      backgroundColor: "#2B2B43",
+      backgroundColor: "#222642",
       lineColor: "rgba(32, 226, 47, 1)",
       textColor: "#D9D9D9",
       areaTopColor: "rgba(32, 226, 47, 0.56)",
