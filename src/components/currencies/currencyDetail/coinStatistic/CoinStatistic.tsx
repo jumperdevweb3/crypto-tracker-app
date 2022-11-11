@@ -5,14 +5,25 @@ import classes from "./CoinStatistic.module.scss";
 
 export const CoinStatistic = ({ item }: { item: Coin }) => {
   const { symbol, market_data, genesis_date } = item;
+  const {
+    market_cap,
+    total_supply,
+    max_supply,
+    ath: ath_price,
+    ath_change_percentage,
+    last_updated,
+    circulating_supply,
+  } = market_data;
 
-  const marketCap = market_data.market_cap.usd;
-  const totalSupply = market_data.total_supply;
-  const maxSupply = market_data.max_supply;
-  const ath = market_data.ath.usd;
-  const athPercent = market_data.ath_change_percentage.usd;
-  const lastUpdate = market_data.last_updated;
-  const circulatingSupply = market_data.circulating_supply;
+  const marketCap = market_cap.usd ? market_cap.usd : 0;
+  const totalSupply = total_supply ? total_supply.toFixed(3) : 0;
+  const maxSupply = max_supply ? max_supply : 0;
+  const ath = ath_price.usd ? ath_price.usd : 0;
+  const athPercent = ath_change_percentage.usd ? ath_change_percentage.usd : 0;
+  const lastUpdate = last_updated;
+  const circulatingSupply = circulating_supply
+    ? circulating_supply.toFixed(3)
+    : 0;
 
   const GenesisDateContent = !!genesis_date && (
     <div className={classes.wrapper}>
@@ -34,7 +45,7 @@ export const CoinStatistic = ({ item }: { item: Coin }) => {
     <div className={classes.wrapper}>
       <p>
         Max supply:
-        <span>{market_data.max_supply + " " + symbol.toUpperCase()}</span>
+        <span>{max_supply + " " + symbol.toUpperCase()}</span>
       </p>
     </div>
   );
