@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <link rel="icon" href="/bitcoin.png" />
-        <title>Crypto Tracker App </title>
+        <title>Crypto Tracker </title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1"
