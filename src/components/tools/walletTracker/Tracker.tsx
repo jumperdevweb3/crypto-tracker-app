@@ -2,7 +2,7 @@ import classes from "./Tracker.module.scss";
 import { FormEvent, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
-import { fetchEtherScanData } from "../../../utils/api-utils";
+import { getWalletData } from "./fetchWallet";
 
 export const Tracker = () => {
   const [result, setResult] = useState({
@@ -22,7 +22,7 @@ export const Tracker = () => {
       setInputValue("");
       setIsLoading(false);
     }
-    const data = await fetchEtherScanData(inputValue);
+    const data = await getWalletData(inputValue);
     if (data.status === "0") {
       setResult({
         amount: 0,
