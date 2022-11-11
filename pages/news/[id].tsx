@@ -1,4 +1,4 @@
-import { getNewsDetail } from "../../src/utils/api-utils";
+import { getNewsDetail } from "../../src/components/news/fetchNews";
 import { NewsDetails } from "../../src/components/news/newsDetails/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 //types
