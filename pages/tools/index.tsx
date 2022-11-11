@@ -6,7 +6,7 @@ export default function ToolsPage() {
   return (
     <>
       <Head>
-        <title>Tools | Crypto Tracker App</title>
+        <title>Tools | Crypto Tracke</title>
       </Head>
       <>
         <Converter />
