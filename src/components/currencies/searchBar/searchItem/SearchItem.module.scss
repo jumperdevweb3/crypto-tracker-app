@@ -1,0 +1,30 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.4rem;
+  font-size: 0.8rem;
+  transition: 0.1s;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--background-hover);
+  }
+  .name-data {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    p {
+      font-weight: normal;
+      word-wrap: break-word;
+
+      span {
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
