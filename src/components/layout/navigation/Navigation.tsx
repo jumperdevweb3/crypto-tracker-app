@@ -50,7 +50,7 @@ export const Navigation = () => {
         <div className={classes.container}>
           <Link href="/">
             <a>
-              <p className={classes.logo}>Crypto App</p>
+              <p className={classes.logo}>Crypto Tracker</p>
             </a>
           </Link>
           {MobileButton}
