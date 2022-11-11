@@ -37,7 +37,7 @@ export const TrendingStatsBox = () => {
       {itemsExist && (
         <div className={classes.container}>
           <h2 className={classes.title}>
-            Gainers & losers from <span>TOP 750</span>
+            Gainers & Losers from <span>TOP 750</span>
           </h2>
           <div className={classes.wrapper}>
             <TrendingStatsCard
