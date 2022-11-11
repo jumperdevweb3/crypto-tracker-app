@@ -65,6 +65,7 @@ npm run dev
 - Next.js
 - Scss
 - react-redux, redux/toolkit
+- react-query
 ```
 
 **`Helpers Libraries:`**
@@ -74,7 +75,9 @@ npm run dev
 - dayjs
 - react-icons
 - react-markdown
+- rehype-raw
 - use-color-change
+- @mantine/core
 ```
 
 ## Author
