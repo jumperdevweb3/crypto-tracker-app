@@ -36,21 +36,26 @@ export const TrendingStatsBox = () => {
     <>
       {itemsExist && (
         <div className={classes.container}>
-          <TrendingStatsCard
-            title="Trending (7d)"
-            kind="trending"
-            items={trendingItems}
-          />
-          <TrendingStatsCard
-            title="Losers (24h)"
-            kind="losers"
-            items={losersItems}
-          />
-          <TrendingStatsCard
-            title="Gainers (24h)"
-            kind="gainers"
-            items={gainersItems}
-          />
+          <h2 className={classes.title}>
+            Gainers & losers from <span>TOP 750</span>
+          </h2>
+          <div className={classes.wrapper}>
+            <TrendingStatsCard
+              title="Trending (7d)"
+              kind="trending"
+              items={trendingItems}
+            />
+            <TrendingStatsCard
+              title="Losers (24h)"
+              kind="losers"
+              items={losersItems}
+            />
+            <TrendingStatsCard
+              title="Gainers (24h)"
+              kind="gainers"
+              items={gainersItems}
+            />
+          </div>
         </div>
       )}
     </>
