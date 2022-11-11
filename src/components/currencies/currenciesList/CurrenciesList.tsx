@@ -47,7 +47,9 @@ export const CurrenciesList = () => {
   const ItemsRender = sortItems.map((item) => {
     return <CoinCard key={item.id} item={item} />;
   });
-  const SortMenu = !isError && <CurrenciesSortMenu page={"home"} />;
+  const SortMenu = !isError && !isLoading && (
+    <CurrenciesSortMenu page={"home"} />
+  );
   const CurrenciesContent = !isLoading && ItemsRender;
   const NotFoundContent = !sortItems.length && !isLoading && !isError && (
     <p className="center">Not found items.</p>
