@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { watchlistActions } from "../../store/watchlist/watchlist-slice";
 import { PropsChildren } from "../../types/types";
-import { TIME_TO_REFRESH_DATA } from "./fetchSettings";
 
 export const RootActions = ({ children }: PropsChildren) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -21,15 +20,5 @@ export const RootActions = ({ children }: PropsChildren) => {
   useEffect(() => {
     localStorage.setItem("watchlist", JSON.stringify(data));
   }, [data]);
-
-  // useEffect(() => {
-  //   const refreshData = setInterval(() => {
-  //     dispatch(fetchCurrenciesData(false, key));
-  //   }, TIME_TO_REFRESH_DATA);
-
-  //   return () => {
-  //     clearInterval(refreshData);
-  //   };
-  // }, [dispatch]);
   return <>{children}</>;
 };
