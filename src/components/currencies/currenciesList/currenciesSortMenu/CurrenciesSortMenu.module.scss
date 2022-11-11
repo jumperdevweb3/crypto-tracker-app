@@ -5,14 +5,14 @@
   left: 0%;
   display: grid;
   grid-template-columns:
-    2.5rem 2.2rem 7.5rem 4.5rem 7rem
+    2.5rem 2.2rem 8rem 5.5rem 7rem
     4rem 4rem 4rem 9rem
     9rem;
   grid-template-rows: 1fr;
   align-items: center;
   border-top: 1px solid var(--border-dark-blue);
   border-bottom: 1px solid var(--border-dark-blue);
-  width: 60rem;
+  width: 62rem;
   margin: 0 auto;
   padding: 0.5rem 0px;
   color: var(--color-white);
@@ -24,14 +24,19 @@
   z-index: 2;
 
   div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      transition: 0.2s;
+
+      &:hover {
+        color: #5a5a86 !important;
+      }
+    }
   }
-  .rank {
-    display: flex;
-    gap: 0.5rem;
-  }
+
   .name {
     position: sticky;
     top: 0;
@@ -39,11 +44,11 @@
     padding-left: 0.3rem;
     background-color: var(--background-dark);
   }
-  svg {
-    color: var(--color-purple);
-  }
 
   .option-btn {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
     color: var(--color-purple);
     text-align: left;
     padding: 0.5rem 0;
