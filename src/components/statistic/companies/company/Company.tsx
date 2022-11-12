@@ -1,6 +1,6 @@
-import { CompaniesType } from "../../../types/types";
-import classes from "../exchanges/Exchange.module.scss";
-import { currencyValueFormat } from "../../../helpers/numberFromat";
+import { CompaniesType } from "../../../../types/types";
+import classes from "../../CommonBoxStyle.module.scss";
+import { currencyValueFormat } from "../../../../helpers/numberFromat";
 
 export const Company = ({ item }: { item: CompaniesType }) => {
   const {

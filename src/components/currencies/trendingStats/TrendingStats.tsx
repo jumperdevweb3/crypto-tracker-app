@@ -1,5 +1,5 @@
-import classes from "./TrendingStatsBox.module.scss";
-import TrendingStatsCard from "../../cards/trendingStatsCard/TrendingStatsCard";
+import classes from "./TrendingStats.module.scss";
+import TrendingStatsBox from "./trendingStatsBox/TrendingStatsBox";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { getItems } from "./fetchItems";
@@ -8,7 +8,8 @@ import { useQuery } from "react-query";
 import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { changeDataVariables } from "../currenciesList/changeDataVariables";
 import { CurrencyItem } from "../../../types/types";
-export const TrendingStatsBox = () => {
+
+export const TrendingStats = () => {
   const dispatch = useDispatch();
   const { data, status, isError, isLoading } = useQuery(
     "trendItems",
@@ -40,17 +41,17 @@ export const TrendingStatsBox = () => {
             Gainers & Losers from <span>TOP 750</span>
           </h2>
           <div className={classes.wrapper}>
-            <TrendingStatsCard
+            <TrendingStatsBox
               title="Trending (7d)"
               kind="trending"
               items={trendingItems}
             />
-            <TrendingStatsCard
+            <TrendingStatsBox
               title="Losers (24h)"
               kind="losers"
               items={losersItems}
             />
-            <TrendingStatsCard
+            <TrendingStatsBox
               title="Gainers (24h)"
               kind="gainers"
               items={gainersItems}

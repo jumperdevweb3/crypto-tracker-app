@@ -1,12 +1,11 @@
 import { CurrenciesList } from "../src/components/currencies/currenciesList/CurrenciesList";
 import { SearchBar } from "../src/components/currencies/searchBar/SearchBar";
-import { TrendingStatsBox } from "../src/components/currencies/trendingStats/TrendingStatsBox";
-//types
+import { TrendingStats } from "../src/components/currencies/trendingStats/TrendingStats";
 
 function HomePage() {
   return (
     <>
-      <TrendingStatsBox />
+      <TrendingStats />
       <SearchBar />
       <CurrenciesList />
     </>

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { currencyValueFormat } from "../../../helpers/numberFromat";
 import Price from "./price/PriceChange";
 import Image from "next/image";
+import { memo } from "react";
 //types
 import { CurrencyItem } from "../../../types/types";
-import { memo } from "react";
 
 const CoinCard = ({ item }: { item: CurrencyItem }) => {
   const {
@@ -23,6 +23,14 @@ const CoinCard = ({ item }: { item: CurrencyItem }) => {
     total_volume,
     market_cap,
   } = item;
+  const SymbolContent = symbol.length < 30 ? symbol.toUpperCase() : "?";
+  const MarketCapContent = !!market_cap
+    ? currencyValueFormat.format(market_cap)
+    : "?";
+  const TotalVolumeContent = !!total_volume
+    ? currencyValueFormat.format(total_volume)
+    : "?";
+  const MarketRankContent = !!market_cap_rank ? market_cap_rank : "?";
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${id}`}>
@@ -30,7 +38,7 @@ const CoinCard = ({ item }: { item: CurrencyItem }) => {
       </Link>
       <WatchlistButton classes={classes} id={id} item={item} />
       <div className={classes.rank}>
-        <p>{market_cap_rank || "?"}</p>
+        <p>{MarketRankContent}</p>
       </div>
       <div className={classes.name}>
         <Image
@@ -43,7 +51,7 @@ const CoinCard = ({ item }: { item: CurrencyItem }) => {
         <p className={classes.title}>{name}</p>
       </div>
       <div className={classes.symbol}>
-        <span>{symbol.length < 30 ? symbol.toUpperCase() : "?"}</span>
+        <span>{SymbolContent}</span>
       </div>
       <div className={classes.price}>
         <Price price={current_price} />
@@ -51,11 +59,11 @@ const CoinCard = ({ item }: { item: CurrencyItem }) => {
       <PriceTimeChange time={price_change_1h} classes={classes} />
       <PriceTimeChange time={price_change_24h} classes={classes} />
       <PriceTimeChange time={price_change_7d} classes={classes} />
-      <div className={classes["market-cup"]}>
-        <p>{market_cap ? currencyValueFormat.format(market_cap) : "?"}</p>
+      <div>
+        <p>{MarketCapContent}</p>
       </div>
       <div className={classes.volume}>
-        <p>{total_volume ? currencyValueFormat.format(total_volume) : "?"}</p>
+        <p>{TotalVolumeContent}</p>
       </div>
     </div>
   );

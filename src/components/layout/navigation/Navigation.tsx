@@ -4,10 +4,10 @@ import { uiActions } from "../../../store/ui/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";
+import { NavLinks } from "./NavLinks";
 //types
 import { AppDispatch } from "../../../store/store";
 import { RootState } from "../../../store/store";
-import { NavLinks } from "./NavLinks";
 
 export const Navigation = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);

@@ -1,5 +1,5 @@
-import { ExchangeType } from "../../../types/types";
-import classes from "./Exchanges.module.scss";
+import { ExchangeType } from "../../../../types/types";
+import classes from "./ExchangesList.module.scss";
 import Image from "next/image";
 
 interface Props {

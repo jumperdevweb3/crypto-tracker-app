@@ -1,5 +1,5 @@
-import { CompaniesType } from "../../../types/types";
-import classes from "./Companies.module.scss";
+import { CompaniesType } from "../../../../types/types";
+import classes from "./CompaniesList.module.scss";
 
 interface Props {
   items: CompaniesType[];

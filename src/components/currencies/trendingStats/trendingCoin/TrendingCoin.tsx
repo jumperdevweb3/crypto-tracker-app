@@ -1,6 +1,6 @@
-import classes from "./TrendingCoinCard.module.scss";
+import classes from "./TrendingCoin.module.scss";
 import Link from "next/link";
-import { getWordCount } from "../../../helpers/wordCount";
+import { getWordCount } from "../../../../helpers/wordCount";
 import { memo } from "react";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ interface Props {
   alias: string;
   image: string;
 }
-const TrendingCoinCard = (props: Props) => {
+const TrendingCoin = (props: Props) => {
   const valueStyle =
     props.percentage <= 0
       ? `${classes.percentage} ${classes.decr}`
@@ -51,4 +51,4 @@ const TrendingCoinCard = (props: Props) => {
     </div>
   );
 };
-export default memo(TrendingCoinCard);
+export default memo(TrendingCoin);

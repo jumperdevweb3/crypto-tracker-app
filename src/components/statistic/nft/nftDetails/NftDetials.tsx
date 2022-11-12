@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
 import classes from "./NftDetails.module.scss";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { currencyValueFormat } from "../../../helpers/numberFromat";
-import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
+import { currencyValueFormat } from "../../../../helpers/numberFromat";
+import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import Image from "next/image";
-import { NftTypes } from "../../../types/types";
+import { NftTypes } from "../../../../types/types";
 import { useQuery } from "react-query";
-import { getSingleNft } from "../fetchStatistic";
+import { getSingleNft } from "../../fetchStatistic";
 
 export const NftDetials = ({ id }: { id: string }) => {
   const {

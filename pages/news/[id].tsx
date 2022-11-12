@@ -1,8 +1,8 @@
 import { getNewsDetail } from "../../src/components/news/fetchNews";
 import { NewsDetails } from "../../src/components/news/newsDetails/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-//types
 import { InferGetStaticPropsType } from "next";
+//types
 import { NewsItems } from "../../src/types/types";
 import { IParams } from "../../src/types/types";
 

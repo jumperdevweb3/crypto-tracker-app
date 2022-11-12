@@ -11,33 +11,4 @@
   gap: 0.5rem;
   margin: 0.5rem 0;
   overflow-y: auto;
-
-  .list-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 10px;
-    transition: 0.2s;
-    cursor: pointer;
-    border-bottom: 1px solid var(--border-dark-gray);
-
-    &:hover {
-      background-color: var(--background-hover);
-      border-radius: 10px;
-      border-bottom: 1px solid transparent;
-    }
-    .value {
-      flex-basis: 50%;
-      text-align: right;
-      font-size: 0.9rem;
-      span {
-        font-size: 0.9rem;
-        font-weight: bold;
-      }
-    }
-    .name-box {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-  }
 }

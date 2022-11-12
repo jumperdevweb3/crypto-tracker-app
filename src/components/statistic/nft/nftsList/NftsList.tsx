@@ -1,4 +1,4 @@
-import { NftsListTypes } from "../../../types/types";
+import { NftsListTypes } from "../../../../types/types";
 import classes from "./NftList.module.scss";
 
 interface Props {

@@ -3,9 +3,9 @@ import style from "../ContainerStyles.module.scss";
 import { useState } from "react";
 import { ExchangeType } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
-import { Exchange } from "./Exchange";
+import { Exchange } from "./exchange/Exchange";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
-import { ExchangesList } from "./ExchangesList";
+import { ExchangesList } from "./exchangesList/ExchangesList";
 import { useQuery } from "react-query";
 import { getExchanges } from "../fetchStatistic";
 

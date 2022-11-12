@@ -1,8 +1,8 @@
 import classes from "./News.module.scss";
-//types
-import { NewsTypes } from "../../types/types";
 import { NewsContent } from "./newsContent/NewsContent";
 import Link from "next/link";
+//types
+import { NewsTypes } from "../../types/types";
 
 export const News = ({ items }: NewsTypes) => {
   if (items.length === 0)
