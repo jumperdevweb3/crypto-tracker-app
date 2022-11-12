@@ -21,15 +21,7 @@ export interface CurrencyItem {
   ath_change_percentage: number;
 }
 
-export interface WatchlistState {
-  watchItems: CurrencyItem[];
-  sortActive: {
-    sortType: string;
-    sortBy: string;
-  };
-}
-
-export interface ModalTypes {
+export interface ModalProps {
   onClose: () => void;
   children: ReactNode;
 }
@@ -46,7 +38,7 @@ export interface NewsItems {
   url: string;
 }
 
-export interface NewsTypes {
+export interface NewsList {
   items: NewsItems[];
 }
 
@@ -54,13 +46,11 @@ export type PropsChildren = {
   children: ReactNode;
 };
 
-export type Path = string | string[] | undefined;
-
 export interface IParams extends ParsedUrlQuery {
   id: string;
 }
 
-export interface CompaniesType {
+export interface CompaniesItems {
   symbol: string;
   country: string;
   name: string;
@@ -70,7 +60,7 @@ export interface CompaniesType {
   percentage_of_total_supply: number;
 }
 
-export interface ExchangeType {
+export interface ExchangesItems {
   id: string;
   name: string;
   year_established: number;
@@ -84,7 +74,7 @@ export interface ExchangeType {
   trade_volume_24h_btc_normalized: number;
 }
 
-export interface NftsListTypes {
+export interface NftsListItems {
   id: string;
   contract_address: string;
   name: string;
@@ -92,7 +82,7 @@ export interface NftsListTypes {
   symbol: string;
 }
 
-export interface NftTypes {
+export interface Nft {
   id: string;
   contract_address: string;
   asset_platform_id: string;
@@ -118,27 +108,6 @@ export interface NftTypes {
   number_of_unique_addresses_24h_percentage_change: number;
   floor_price_in_usd_24h_percentage_change: number;
   total_supply: number;
-}
-
-export interface StatisticTypes {
-  exchanges: {
-    items: ExchangeType[] | [];
-    errorMessage: string;
-  };
-  companies: {
-    items: CompaniesType[] | [];
-    errorMessage: string;
-  };
-  nfts: {
-    items: NftsListTypes[] | [];
-    errorMessage: string;
-  };
-  isLoading: {
-    exchanges: boolean;
-    companies: boolean;
-    nfts: boolean;
-    nftDetial: boolean;
-  };
 }
 
 export interface Coin {

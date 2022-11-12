@@ -1,28 +1,28 @@
 import classes from "./Exchanges.module.scss";
 import style from "../ContainerStyles.module.scss";
 import { useState } from "react";
-import { ExchangeType } from "../../../types/types";
+import { ExchangesItems } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
-import { Exchange } from "./Exchange";
+import { Exchange } from "./exchange/Exchange";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
-import { ExchangesList } from "./ExchangesList";
+import { ExchangesList } from "./exchangesList/ExchangesList";
 import { useQuery } from "react-query";
 import { getExchanges } from "../fetchStatistic";
 
 export const Exchanges = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [item, setItem] = useState<ExchangeType>();
+  const [item, setItem] = useState<ExchangesItems>();
 
   const {
     data: items,
     isError,
     isLoading,
     status,
-  } = useQuery<ExchangeType[]>("exchanges", getExchanges, {
+  } = useQuery<ExchangesItems[]>("exchanges", getExchanges, {
     refetchOnWindowFocus: false,
   });
 
-  const onModalActive = (item?: ExchangeType) => {
+  const onModalActive = (item?: ExchangesItems) => {
     setModalOpen((state) => !state);
     if (item) {
       setItem(item);

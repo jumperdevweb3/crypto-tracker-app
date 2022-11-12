@@ -1,9 +1,11 @@
 .stats-box {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-dark);
+  background-color: #3e415a;
   padding: 1rem 1rem;
   border-radius: 10px;
+  flex-basis: 45%;
+  box-sizing: border-box;
 
   .wrapper {
     display: flex;
@@ -25,18 +27,21 @@
   }
   .date-box {
     display: flex;
-    align-items: center;
     padding: 10px 0;
 
-    @media (max-width: 1023px) {
+    @media (max-width: 767px) {
       flex-direction: column;
       gap: 0.5rem;
     }
+    @media (max-width: 450px) {
+      align-items: center;
+    }
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 767px) {
     width: 100%;
+  }
+  @media (max-width: 1023px) {
     align-items: center;
-    text-align: center;
   }
 }

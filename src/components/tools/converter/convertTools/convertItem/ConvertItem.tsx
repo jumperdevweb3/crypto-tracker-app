@@ -2,12 +2,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { FormEvent, useEffect } from "react";
 import { convertActions } from "../../../../../store/converter/convert-slice";
 import classes from "../convertItem/ConvertItem.module.scss";
+import { getPrices } from "./fetchPrices";
+import { useQuery } from "react-query";
 //types
 import { AppDispatch } from "../../../../../store/store";
 import { RootState } from "../../../../../store/store";
-import { useQuery } from "react-query";
 import { CurrencyItem } from "../../../../../types/types";
-import { getPrices } from "./fetchPrices";
 
 export const ConvertItem = ({ kind }: { kind: string }) => {
   const {

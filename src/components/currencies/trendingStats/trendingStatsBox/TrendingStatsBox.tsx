@@ -1,18 +1,18 @@
-import classes from "./TrendingStatsCard.module.scss";
-import TrendingCoinCard from "./TrendingCoinCard";
+import classes from "./TrendingStatsBox.module.scss";
+import TrendingCoin from "../trendingCoin/TrendingCoin";
 import { memo, useState } from "react";
 import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
-import { Modal } from "../../ui/modals/Modal";
+import { Modal } from "../../../ui/modals/Modal";
+import { StatsModal } from "../statsModal/StatsModal";
 //types
-import { CurrencyItem } from "../../../types/types";
-import { StatsModal } from "./statsModal/StatsModal";
+import { CurrencyItem } from "../../../../types/types";
 
 interface Props {
   kind: string;
   title: string;
   items: CurrencyItem[];
 }
-const TrendingStatsCard = ({ kind, title, items }: Props) => {
+const TrendingStatsBox = ({ kind, title, items }: Props) => {
   const [modalActive, setModalActive] = useState(false);
 
   let icon;
@@ -37,7 +37,7 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
   const TopThreeView = filterType.slice(0, 3).map((item, index: number) => {
     const percentage = trending ? item.price_change_7d : item.price_change_24h;
     return (
-      <TrendingCoinCard
+      <TrendingCoin
         key={item.id}
         id={item.id}
         number={index + 1}
@@ -51,7 +51,7 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
   const moreItems = filterType.map((item, index: number) => {
     const percentage = trending ? item.price_change_7d : item.price_change_24h;
     return (
-      <TrendingCoinCard
+      <TrendingCoin
         key={item.id}
         id={item.id}
         number={index + 1}
@@ -97,4 +97,4 @@ const TrendingStatsCard = ({ kind, title, items }: Props) => {
   );
 };
 
-export default memo(TrendingStatsCard);
+export default memo(TrendingStatsBox);

@@ -1,8 +1,8 @@
-import { NewsTypes } from "../../../types/types";
+import { NewsList } from "../../../types/types";
 import classes from "../News.module.scss";
 import Link from "next/link";
 
-export const NewsContent = ({ items }: NewsTypes) => {
+export const NewsContent = ({ items }: NewsList) => {
   const News = items.map((item) => {
     const date = new Date(item.published_at);
     const time = date.toLocaleString();

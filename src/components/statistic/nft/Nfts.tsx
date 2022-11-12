@@ -1,10 +1,10 @@
-import classes from "./NftList.module.scss";
+import classes from "./nftsList/NftList.module.scss";
 import style from "../ContainerStyles.module.scss";
 import { Modal } from "../../ui/modals/Modal";
 import { useState } from "react";
-import { NftDetials } from "./NftDetials";
+import { NftDetials } from "./nftDetails/NftDetials";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
-import { NftsList } from "./NftsList";
+import { NftsList } from "./nftsList/NftsList";
 import { useQuery } from "react-query";
 import { getNfts } from "../fetchStatistic";
 

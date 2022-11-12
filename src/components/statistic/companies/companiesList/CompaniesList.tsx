@@ -1,9 +1,9 @@
-import { CompaniesType } from "../../../types/types";
-import classes from "./Companies.module.scss";
+import { CompaniesItems } from "../../../../types/types";
+import classes from "./CompaniesList.module.scss";
 
 interface Props {
-  items: CompaniesType[];
-  modalAction: (item: CompaniesType) => void;
+  items: CompaniesItems[];
+  modalAction: (item: CompaniesItems) => void;
 }
 
 export const CompaniesList = ({ items, modalAction }: Props) => {

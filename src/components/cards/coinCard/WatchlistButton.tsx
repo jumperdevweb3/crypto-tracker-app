@@ -16,17 +16,16 @@ export const WatchlistButton = ({
   const watchList = useSelector(
     (state: RootState) => state.watchlist.watchItems
   );
-
   const isItemWatch = watchList.find((watchItem: { id: string }) => {
     return watchItem.id === id;
   });
 
-  let isWatchIcon = <BiStar color="#8d9904" fontSize="1.25rem" />;
-  if (isItemWatch) {
-    isWatchIcon = <AiFillStar fontSize="1.25rem" fill="gold" />;
-  }
+  const isWatchIcon = isItemWatch ? (
+    <AiFillStar fontSize="1.25rem" fill="gold" />
+  ) : (
+    <BiStar color="#8d9904" fontSize="1.25rem" />
+  );
   const dispatch = useDispatch<AppDispatch>();
-
   const addToWatchlistHandler = () => {
     dispatch(watchlistActions.updateItems(item));
   };

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ExchangeType } from "../../../types/types";
-import classes from "./Exchange.module.scss";
+import { ExchangesItems } from "../../../../types/types";
+import classes from "../../CommonBoxStyle.module.scss";
 import Image from "next/image";
 
-export const Exchange = ({ item }: { item: ExchangeType }) => {
+export const Exchange = ({ item }: { item: ExchangesItems }) => {
   const {
     name,
     year_established,

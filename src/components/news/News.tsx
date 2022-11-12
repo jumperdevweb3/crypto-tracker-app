@@ -1,10 +1,10 @@
 import classes from "./News.module.scss";
-//types
-import { NewsTypes } from "../../types/types";
 import { NewsContent } from "./newsContent/NewsContent";
 import Link from "next/link";
+//types
+import { NewsList } from "../../types/types";
 
-export const News = ({ items }: NewsTypes) => {
+export const News = ({ items }: NewsList) => {
   if (items.length === 0)
     return (
       <h2 className={classes.title}>

@@ -1,15 +1,19 @@
 .links-box {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-dark);
+  background-color: #3e415a;
+
   padding: 1rem 1rem;
   border-radius: 10px;
+  flex-basis: 45%;
+  box-sizing: border-box;
 
   .wrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 10px 0;
+    text-align: center;
+    align-items: center;
 
     .title {
       margin-bottom: 1rem;
@@ -25,17 +29,12 @@
         font-size: 1rem;
         color: var(--color-purple);
         font-style: italic;
+        padding: 0 0.5rem;
       }
-    }
-
-    @media (max-width: 1023px) {
-      align-items: center;
-      text-align: center;
     }
   }
 
-  @media (max-width: 1023px) {
+  @media (max-width: 767px) {
     width: 100%;
-    align-items: center;
   }
 }

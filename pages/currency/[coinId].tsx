@@ -1,10 +1,10 @@
 import { CurrenciesDetail } from "../../src/components/currencies/currencyDetail/CurrenciesDetail";
 import { useRouter } from "next/router";
-import { Coin } from "../../src/types/types";
-//types
 import { useEffect, useState } from "react";
 import { fetchCurrency } from "../api/fetchCurrency";
 import { LoadingSpinner } from "../../src/components/ui/loadingSpinner/LoadingSpinner";
+//types
+import { Coin } from "../../src/types/types";
 
 export default function CoinDetailPage() {
   const [item, setItem] = useState<Coin | null>();

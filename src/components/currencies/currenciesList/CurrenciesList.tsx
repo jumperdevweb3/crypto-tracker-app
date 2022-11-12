@@ -54,24 +54,28 @@ export const CurrenciesList = () => {
   const NotFoundContent = !sortItems.length && !isLoading && !isError && (
     <p className="center">Not found items.</p>
   );
-
   const ErrorContent = isError && <p className="center">Fetch data faild.</p>;
+
+  const MarketListContent = data?.length && (
+    <div className={classes["market-list"]}>
+      {SortMenu}
+      {NotFoundContent}
+      {ErrorContent}
+      {CurrenciesContent}
+    </div>
+  );
+  const PaginationContent = !isError && !isLoading && (
+    <PaginationBar
+      isLoading={isLoading}
+      disabled={isPreviousData || !data}
+      page={page}
+    />
+  );
   return (
     <>
-      <div className={classes["market-list"]}>
-        {SortMenu}
-        {NotFoundContent}
-        {ErrorContent}
-        {LoadingContent}
-        {CurrenciesContent}
-      </div>
-      {!isError && !isLoading && (
-        <PaginationBar
-          isLoading={isLoading}
-          disabled={isPreviousData || !data}
-          page={page}
-        />
-      )}
+      {LoadingContent}
+      {MarketListContent}
+      {PaginationContent}
     </>
   );
 };
