@@ -1,8 +1,8 @@
 import classes from "./ModalOverlay.module.scss";
 //types
-import { Modal } from "../../../types/types";
+import { ModalProps } from "../../../types/types";
 
-export const ModalOverlay = (props: Modal) => {
+export const ModalOverlay = (props: ModalProps) => {
   return (
     <div className={classes.modal}>
       <div className={classes["button-container"]}>

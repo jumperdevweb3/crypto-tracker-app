@@ -21,7 +21,7 @@ export interface CurrencyItem {
   ath_change_percentage: number;
 }
 
-export interface Modal {
+export interface ModalProps {
   onClose: () => void;
   children: ReactNode;
 }

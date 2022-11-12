@@ -1,9 +1,9 @@
 import { createPortal } from "react-dom";
-import { ModalTypes } from "../../../types/types";
+import { ModalProps } from "../../../types/types";
 import { Backdrop } from "../backdrop/Backdrop";
 import { ModalOverlay } from "../modalOverlay/ModalOverlay";
 
-export const Modal = (props: ModalTypes) => {
+export const Modal = (props: ModalProps) => {
   return createPortal(
     <>
       <div id="modal">
