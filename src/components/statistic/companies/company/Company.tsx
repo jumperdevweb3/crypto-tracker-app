@@ -1,8 +1,8 @@
-import { CompaniesType } from "../../../../types/types";
+import { CompaniesItems } from "../../../../types/types";
 import classes from "../../CommonBoxStyle.module.scss";
 import { currencyValueFormat } from "../../../../helpers/numberFromat";
 
-export const Company = ({ item }: { item: CompaniesType }) => {
+export const Company = ({ item }: { item: CompaniesItems }) => {
   const {
     name,
     symbol,
@@ -11,7 +11,7 @@ export const Company = ({ item }: { item: CompaniesType }) => {
     total_entry_value_usd,
     total_current_value_usd,
     percentage_of_total_supply,
-  } = item as CompaniesType;
+  } = item;
 
   const SymbolContent = !!symbol && (
     <p>

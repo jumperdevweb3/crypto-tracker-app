@@ -1,8 +1,8 @@
-import { NftsListTypes } from "../../../../types/types";
+import { NftsListItems } from "../../../../types/types";
 import classes from "./NftList.module.scss";
 
 interface Props {
-  items: NftsListTypes[];
+  items: NftsListItems[];
   modalAction: (id: string) => void;
 }
 

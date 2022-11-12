@@ -1,10 +1,10 @@
-import { ExchangeType } from "../../../../types/types";
+import { ExchangesItems } from "../../../../types/types";
 import classes from "./ExchangesList.module.scss";
 import Image from "next/image";
 
 interface Props {
-  items: ExchangeType[];
-  modalAction: (item: ExchangeType) => void;
+  items: ExchangesItems[];
+  modalAction: (item: ExchangesItems) => void;
 }
 export const ExchangesList = ({ items, modalAction }: Props) => {
   const RenderItems = items.map((item) => (
