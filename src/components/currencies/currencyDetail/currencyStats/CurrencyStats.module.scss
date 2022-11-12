@@ -4,6 +4,7 @@
   flex-direction: column;
   max-width: 1440px;
   padding: 1.5rem;
+  padding-bottom: 4rem;
   margin: 0 auto;
   animation: slide-down 300ms ease-out forwards;
   color: var(--color-white);
@@ -12,20 +13,20 @@
 
   .box-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
 
     .detials {
       display: flex;
-      flex-direction: column;
       gap: 1rem;
-      flex-basis: 35%;
+      width: 90%;
+      justify-content: space-between;
 
       @media (max-width: 1023px) {
+        width: 100%;
         flex-direction: column;
-        align-items: center;
-        width: 90%;
       }
     }
 
