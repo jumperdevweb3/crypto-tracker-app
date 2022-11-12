@@ -5,11 +5,13 @@
   gap: 1rem;
   width: 100%;
   margin: 1rem 0 1.5rem 0;
+  background-color: #3e415a;
+  width: 90%;
+  box-sizing: border-box;
+  align-self: center;
+  border-radius: 10px;
+  padding: 0.5rem 0;
 
-  @media (max-width: 767px) {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
   .main-title {
     display: flex;
     align-items: center;
@@ -48,5 +50,13 @@
   .rank {
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  @media (max-width: 1023px) {
+    width: 100%;
   }
 }
