@@ -43,10 +43,8 @@ export const CoinStatistic = ({ item }: { item: Coin }) => {
   );
   const MaxSupplyContent = !!maxSupply && (
     <div className={classes.wrapper}>
-      <p>
-        Max supply:
-        <span>{max_supply + " " + symbol.toUpperCase()}</span>
-      </p>
+      <p>Max supply:</p>
+      <span>{max_supply + " " + symbol.toUpperCase()}</span>
     </div>
   );
   const CirculatingSupplyContent = !!circulatingSupply && (
