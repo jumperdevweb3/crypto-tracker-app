@@ -1,6 +1,5 @@
 .chart-box {
-  width: 60%;
-  align-self: flex-start;
+  width: 90%;
 
   #chart {
     max-width: 100%;
@@ -17,12 +16,7 @@
     }
   }
 
-  @media (max-width: 1023px) {
-    align-self: center;
-    width: 90%;
-  }
   @media (max-width: 767px) {
-    align-self: center;
     width: 100%;
   }
 }
