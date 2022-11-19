@@ -1,6 +1,6 @@
 export const getNfts = async () => {
   const res = await fetch(
-    "https://api.coingecko.com/api/v3/nfts/list?order=h24_volume_native_desc&asset_platform_id=ethereum&per_page=50&page=1"
+    "https://api.coingecko.com/api/v3/nfts/list?order=h24_volume_native_desc&asset_platform_id=ethereum&per_page=100&page=1"
   );
   const data = await res.json();
   return data;
