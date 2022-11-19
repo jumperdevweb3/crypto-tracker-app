@@ -8,12 +8,12 @@ import { PropsChildren } from "../../types/types";
 export const RootActions = ({ children }: PropsChildren) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const data = useSelector((state: RootState) => state.watchlist.watchItems);
+  const data = useSelector((state: RootState) => state.watchlist.watchIds);
 
   useEffect(() => {
     const local = localStorage.getItem("watchlist");
     if (local !== null) {
-      dispatch(watchlistActions.setItem(JSON.parse(local)));
+      dispatch(watchlistActions.setIds(JSON.parse(local)));
     }
   }, [dispatch]);
 
