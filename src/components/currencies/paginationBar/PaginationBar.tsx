@@ -21,6 +21,7 @@ export const PaginationBar = ({ isLoading, disabled, page }: Props) => {
       page={+page}
       onChange={changePage}
       disabled={isLoading || disabled}
+      boundaries={2}
     />
   );
   return <>{PaginationBar}</>;

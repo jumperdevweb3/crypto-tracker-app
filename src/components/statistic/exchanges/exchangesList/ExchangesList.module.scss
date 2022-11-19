@@ -1,6 +1,7 @@
 .list-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 8px 10px;
   transition: 0.2s;
   cursor: pointer;
@@ -11,13 +12,18 @@
     border-radius: 10px;
     border-bottom: 1px solid transparent;
   }
+  .index {
+    font-weight: bold;
+  }
   .value {
     flex-basis: 50%;
     text-align: right;
     font-size: 0.9rem;
+    color: var(--color-purple);
+    font-weight: bold;
     span {
       font-size: 0.9rem;
-      font-weight: bold;
+      // font-weight: bold;
     }
   }
   .name-box {

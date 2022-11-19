@@ -7,13 +7,14 @@ interface Props {
   modalAction: (item: ExchangesItems) => void;
 }
 export const ExchangesList = ({ items, modalAction }: Props) => {
-  const RenderItems = items.map((item) => (
+  const RenderItems = items.map((item, index) => (
     <li
       key={item.id}
       className={classes["list-item"]}
       onClick={() => modalAction(item)}
     >
       <div className={classes["name-box"]}>
+        <span className={classes.index}>{index + 1}.</span>
         <Image
           src={item.image}
           alt={item.name}

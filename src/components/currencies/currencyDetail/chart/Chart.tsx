@@ -15,7 +15,7 @@ export const Chart = ({ id }: { id: string }) => {
     isError,
     isLoading,
     status,
-  } = useQuery<[]>(`${id}-chart`, () => getChart(id), {
+  } = useQuery<[]>([`chart`, id], () => getChart(id), {
     refetchInterval: 35000,
     keepPreviousData: true,
   });
