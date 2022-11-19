@@ -13,7 +13,7 @@ export const NftDetials = ({ id }: { id: string }) => {
     isLoading,
     isError,
     status,
-  } = useQuery<Nft>(`${id}-nft`, () => getSingleNft(id));
+  } = useQuery<Nft>([`nft`, id], () => getSingleNft(id));
 
   const ErrorContent = isError && (
     <p className="center">Problem with CoinGeco response.</p>
