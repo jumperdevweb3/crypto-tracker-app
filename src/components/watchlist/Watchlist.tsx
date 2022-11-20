@@ -53,10 +53,10 @@ export const Watchlist = () => {
     dispatch(watchlistActions.sortData());
   }, [sortActive]);
 
-  const WatchlistContent = !!watchIds.length && !isLoading && (
+  const WatchlistContent = !!watchItems.length && !isLoading && (
     <WatchItemsList items={watchItems} />
   );
-  const NoItemsContent = !watchIds.length && !isError && (
+  const NoItemsContent = !watchItems.length && !isError && (
     <p className="center-item xl">
       No items, you can add coin from <Link href="/">Home Page</Link> to your
       watchlist.
