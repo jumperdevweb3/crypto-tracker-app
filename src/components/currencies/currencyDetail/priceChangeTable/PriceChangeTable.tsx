@@ -12,11 +12,13 @@ export const PriceChangeTable = ({ item }: { item: Coin }) => {
     item.market_data.price_change_percentage_1y,
   ];
   const PriceContent = prices.map((price) => (
-    <PriceTimeChange time={price} classes={classes} />
+    <PriceTimeChange time={price} classes={classes} key={price} />
   ));
   const titles = ["24 h", "7 days", "14 days", "30 days", "60 days", "1 year"];
   const TitlesContent = titles.map((title) => (
-    <p className={classes.title}>{title}</p>
+    <p className={classes.title} key={title}>
+      {title}
+    </p>
   ));
   return (
     <div className={classes.container}>
