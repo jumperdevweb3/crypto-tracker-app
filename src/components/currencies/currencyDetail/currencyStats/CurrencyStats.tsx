@@ -6,6 +6,7 @@ import { CoinLinks } from "../coinLinks/CoinLinks";
 import { Chart } from "../chart/Chart";
 import { Community } from "../communityBox/Community";
 import { CoinDescription } from "../coinDescription/CoinDescription";
+import { PriceChangeTable } from "../priceChangeTable/PriceChangeTable";
 
 interface Props {
   item: Coin;
@@ -14,6 +15,7 @@ export const CurrencyStats = ({ item }: Props) => {
   return (
     <div className={classes["box-container"]}>
       <BoxHeader item={item} />
+      <PriceChangeTable item={item} />
       <div className={classes["box-wrapper"]}>
         <div className={classes.detials}>
           <CoinStatistic item={item} />
