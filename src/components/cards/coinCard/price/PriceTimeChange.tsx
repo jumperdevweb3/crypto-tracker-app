@@ -1,11 +1,18 @@
 import { memo } from "react";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 
-const PriceTimeChange = ({ time, classes }: { time: number; classes: any }) => {
+const PriceTimeChange = ({
+  time,
+  classes,
+}: {
+  time: number;
+  classes?: any;
+}) => {
+  const isPropsClasses = !!classes ? classes.time : "";
   const timeStyle =
     time && time <= 0
-      ? `${classes.time} decr time-global`
-      : `${classes.time} incr time-global`;
+      ? `${isPropsClasses} decr time-global`
+      : `${isPropsClasses} incr time-global`;
   const timeIcon = time <= 0 ? <FaAngleDown /> : <FaAngleUp />;
 
   const TimeValue = time && (
