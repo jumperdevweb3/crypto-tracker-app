@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { ParsedUrlQuery } from "querystring";
 
-export interface CurrencyItem {
+export interface ICurrencyItem {
   id: string;
   ath: number;
   market_cap_rank: number;
@@ -26,7 +26,7 @@ export interface ModalProps {
   children: ReactNode;
 }
 
-export interface NewsItems {
+export interface INewsItems {
   id: string;
   published_at: string;
   author: {
@@ -38,8 +38,8 @@ export interface NewsItems {
   url: string;
 }
 
-export interface NewsList {
-  items: NewsItems[];
+export interface INewsList {
+  items: INewsItems[];
 }
 
 export type PropsChildren = {
@@ -50,7 +50,7 @@ export interface IParams extends ParsedUrlQuery {
   id: string;
 }
 
-export interface CompaniesItems {
+export interface ICompaniesItems {
   symbol: string;
   country: string;
   name: string;
@@ -60,7 +60,7 @@ export interface CompaniesItems {
   percentage_of_total_supply: number;
 }
 
-export interface ExchangesItems {
+export interface IExchangesItems {
   id: string;
   name: string;
   year_established: number;
@@ -74,7 +74,7 @@ export interface ExchangesItems {
   trade_volume_24h_btc_normalized: number;
 }
 
-export interface NftsListItems {
+export interface INftsListItems {
   id: string;
   contract_address: string;
   name: string;
@@ -82,7 +82,7 @@ export interface NftsListItems {
   symbol: string;
 }
 
-export interface Nft {
+export interface INft {
   id: string;
   contract_address: string;
   asset_platform_id: string;
@@ -110,7 +110,7 @@ export interface Nft {
   total_supply: number;
 }
 
-export interface Coin {
+export interface ICoin {
   id: string;
   symbol: string;
   name: string;

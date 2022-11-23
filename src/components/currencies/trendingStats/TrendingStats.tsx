@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { changeDataVariables } from "../currenciesList/changeDataVariables";
-import { CurrencyItem } from "../../../types/types";
+import { ICurrencyItem } from "../../../types/types";
 
 export const TrendingStats = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export const TrendingStats = () => {
 
   useEffect(() => {
     if (status === "success") {
-      const items = data.map((i) => changeDataVariables(i) as CurrencyItem);
+      const items = data.map((i) => changeDataVariables(i) as ICurrencyItem);
       dispatch(currenciesActions.setTrends(items));
     }
   }, [status, data]);

@@ -1,8 +1,8 @@
-import { CompaniesItems } from "../../../../types/types";
+import { ICompaniesItems } from "../../../../types/types";
 import classes from "../../CommonBoxStyle.module.scss";
 import { currencyValueFormat } from "../../../../helpers/numberFromat";
 
-export const Company = ({ item }: { item: CompaniesItems }) => {
+export const Company = ({ item }: { item: ICompaniesItems }) => {
   const {
     name,
     symbol,

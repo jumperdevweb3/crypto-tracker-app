@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CurrencyItem } from "../../types/types";
+import { ICurrencyItem } from "../../types/types";
 import { sortCurrencies } from "../../helpers/sortCurrencies";
 
 interface CurrenciesState {
-  trendingItems: CurrencyItem[];
-  losersItems: CurrencyItem[];
-  gainersItems: CurrencyItem[];
+  trendingItems: ICurrencyItem[];
+  losersItems: ICurrencyItem[];
+  gainersItems: ICurrencyItem[];
   sortActive: {
     sortType: string;
     sortBy: string;
@@ -27,8 +27,8 @@ const currenciesSlice = createSlice({
       state.sortActive = action.payload;
     },
     setTrends(state, action) {
-      const items: CurrencyItem[] = action.payload.filter(
-        (item: CurrencyItem, index: number) => {
+      const items: ICurrencyItem[] = action.payload.filter(
+        (item: ICurrencyItem, index: number) => {
           return action.payload.indexOf(item) === index;
         }
       );

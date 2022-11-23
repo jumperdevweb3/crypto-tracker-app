@@ -1,5 +1,5 @@
 import classes from "./CurrencyStats.module.scss";
-import { Coin } from "../../../../types/types";
+import { ICoin } from "../../../../types/types";
 import { BoxHeader } from "../boxHeader/BoxHeader";
 import { CoinStatistic } from "../coinStatistic/CoinStatistic";
 import { CoinLinks } from "../coinLinks/CoinLinks";
@@ -8,14 +8,14 @@ import { Community } from "../communityBox/Community";
 import { CoinDescription } from "../coinDescription/CoinDescription";
 import { PriceChangeTable } from "../priceChangeTable/PriceChangeTable";
 
-interface Props {
-  item: Coin;
+interface IProps {
+  item: ICoin;
 }
-export const CurrencyStats = ({ item }: Props) => {
+export const CurrencyStats = ({ item }: IProps) => {
   return (
     <div className={classes["box-container"]}>
       <BoxHeader item={item} />
-      <PriceChangeTable item={item} />
+      <PriceChangeTable market_data={item.market_data} />
       <div className={classes["box-wrapper"]}>
         <div className={classes.detials}>
           <CoinStatistic item={item} />

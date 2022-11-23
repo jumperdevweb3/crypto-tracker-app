@@ -9,7 +9,7 @@ import { PaginationBar } from "../paginationBar/PaginationBar";
 import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
 import { useRouter } from "next/router";
-import { CurrencyItem } from "../../../types/types";
+import { ICurrencyItem } from "../../../types/types";
 import { changeDataVariables } from "./changeDataVariables";
 import { sortCurrencies } from "../../../helpers/sortCurrencies";
 
@@ -19,7 +19,7 @@ export const CurrenciesList = () => {
   const { sortActive } = useSelector((state: RootState) => state.currencies);
 
   const { data, isError, isLoading, status, isPreviousData } = useQuery<
-    CurrencyItem[]
+    ICurrencyItem[]
   >(["currencies", page], () => getCurrenecies(page, 100), {
     keepPreviousData: true,
     refetchInterval: 35000,
@@ -39,7 +39,7 @@ export const CurrenciesList = () => {
   const sortItems =
     status === "success"
       ? sortCurrencies(
-          data.map((item) => changeDataVariables(item) as CurrencyItem),
+          data.map((item) => changeDataVariables(item) as ICurrencyItem),
           sortActive
         )
       : [];

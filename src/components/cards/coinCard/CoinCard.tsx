@@ -7,9 +7,9 @@ import Price from "./price/PriceChange";
 import Image from "next/image";
 import { memo } from "react";
 //types
-import { CurrencyItem } from "../../../types/types";
+import { ICurrencyItem } from "../../../types/types";
 
-const CoinCard = ({ item }: { item: CurrencyItem }) => {
+const CoinCard = ({ item }: { item: ICurrencyItem }) => {
   const {
     id,
     market_cap_rank,

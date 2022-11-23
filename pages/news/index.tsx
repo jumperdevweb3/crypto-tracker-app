@@ -1,6 +1,6 @@
 import { News } from "../../src/components/news/News";
 import { getNewsData } from "../../src/components/news/fetchNews";
-import { NewsItems } from "../../src/types/types";
+import { INewsItems } from "../../src/types/types";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 
@@ -18,7 +18,7 @@ export default function NewsPage({ ...props }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const news: NewsItems[] = await getNewsData();
+  const news: INewsItems[] = await getNewsData();
 
   return {
     props: {

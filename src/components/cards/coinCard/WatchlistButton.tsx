@@ -3,12 +3,12 @@ import { BiStar } from "react-icons/bi";
 import { AppDispatch, RootState } from "../../../store/store";
 import { AiFillStar } from "react-icons/ai";
 import { watchlistActions } from "../../../store/watchlist/watchlist-slice";
-import { CurrencyItem } from "../../../types/types";
+import { ICurrencyItem } from "../../../types/types";
 
 interface Props {
   classes: any;
   id: string;
-  item: CurrencyItem;
+  item: ICurrencyItem;
 }
 export const WatchlistButton = ({ classes, id, item }: Props) => {
   const dispatch = useDispatch<AppDispatch>();

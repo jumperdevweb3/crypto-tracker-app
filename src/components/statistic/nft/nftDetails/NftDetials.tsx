@@ -3,7 +3,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { currencyValueFormat } from "../../../../helpers/numberFromat";
 import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import Image from "next/image";
-import { Nft } from "../../../../types/types";
+import { INft } from "../../../../types/types";
 import { useQuery } from "react-query";
 import { getSingleNft } from "../../fetchStatistic";
 
@@ -13,7 +13,7 @@ export const NftDetials = ({ id }: { id: string }) => {
     isLoading,
     isError,
     status,
-  } = useQuery<Nft>([`nft`, id], () => getSingleNft(id));
+  } = useQuery<INft>([`nft`, id], () => getSingleNft(id));
 
   const ErrorContent = isError && (
     <p className="center">Problem with CoinGeco response.</p>

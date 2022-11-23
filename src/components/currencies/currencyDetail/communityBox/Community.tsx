@@ -1,8 +1,8 @@
-import { Coin } from "../../../../types/types";
+import { ICoin } from "../../../../types/types";
 import classes from "./Community.module.scss";
 import { BsTwitter, BsReddit } from "react-icons/bs";
 
-export const Community = ({ item }: { item: Coin }) => {
+export const Community = ({ item }: { item: ICoin }) => {
   const { community_data } = item;
 
   const twitter = community_data.twitter_followers;
