@@ -1,29 +1,52 @@
-import { Coin } from "../../../../types/types";
 import PriceTimeChange from "../../../cards/coinCard/price/PriceTimeChange";
 import classes from "./PriceChangeTable.module.scss";
 
-export const PriceChangeTable = ({ item }: { item: Coin }) => {
-  const prices = [
-    item.market_data.price_change_percentage_24h,
-    item.market_data.price_change_percentage_7d,
-    item.market_data.price_change_percentage_14d,
-    item.market_data.price_change_percentage_30d,
-    item.market_data.price_change_percentage_60d,
-    item.market_data.price_change_percentage_1y,
+interface IProps {
+  price_change_percentage_24h: number;
+  price_change_percentage_7d: number;
+  price_change_percentage_14d: number;
+  price_change_percentage_30d: number;
+  price_change_percentage_60d: number;
+  price_change_percentage_200d: number;
+  price_change_percentage_1y: number;
+}
+export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
+  const priceTable = [
+    {
+      title: "24h",
+      price: market_data.price_change_percentage_24h,
+    },
+    {
+      title: "7 days",
+      price: market_data.price_change_percentage_7d,
+    },
+    {
+      title: "14 days",
+      price: market_data.price_change_percentage_14d,
+    },
+    {
+      title: "30 days",
+      price: market_data.price_change_percentage_30d,
+    },
+    {
+      title: "60 days",
+      price: market_data.price_change_percentage_60d,
+    },
+    {
+      title: "1 year",
+      price: market_data.price_change_percentage_1y,
+    },
   ];
-  const PriceContent = prices.map((price) => (
-    <PriceTimeChange time={price} classes={classes} key={price} />
-  ));
-  const titles = ["24 h", "7 days", "14 days", "30 days", "60 days", "1 year"];
-  const TitlesContent = titles.map((title) => (
-    <p className={classes.title} key={title}>
-      {title}
-    </p>
+
+  const PriceTableContent = priceTable.map((item) => (
+    <div className={classes["table-row"]} key={item.title}>
+      <p className={classes["row-title"]}>{item.title}</p>
+      <PriceTimeChange time={item.price} classes={classes} key={item.price} />
+    </div>
   ));
   return (
     <div className={classes.container}>
-      <div className={classes["title-row"]}>{TitlesContent}</div>
-      <div className={classes["value-row"]}>{PriceContent}</div>
+      <div className={classes.table}>{PriceTableContent}</div>
     </div>
   );
 };
