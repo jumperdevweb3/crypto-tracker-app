@@ -1,39 +1,32 @@
 .input-box {
-  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
+  border-bottom: 1px solid var(--color-strong-gray);
 
   .input {
     box-sizing: border-box;
-    width: 100%;
+    flex-basis: 90%;
     padding: 10px 15px;
-    border-radius: 10px;
+    padding-left: 0;
     border: none;
     outline: none;
-    background-color: var(--input-bgc);
     color: var(--color-white);
+    background-color: transparent;
     caret-color: var(--color-white);
-    text-indent: 1.2rem;
     font-size: 1rem;
+    min-width: 4rem;
 
     &::placeholder {
       display: inline-block;
-      font-size: 0.9rem;
+      font-size: 1rem;
       letter-spacing: 1px;
-      color: var(--color-gray);
-      margin-left: 1rem;
+      font-weight: 500;
+      color: var(--color-strong-gray);
     }
   }
-  .cross {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
   .search {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
+    margin: 0 0.7rem;
+    min-width: 1.2rem;
   }
 }
