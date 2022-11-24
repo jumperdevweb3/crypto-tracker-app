@@ -5,12 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";
 import { NavLinks } from "./NavLinks";
+import { ImSearch } from "react-icons/im";
 //types
 import { AppDispatch } from "../../../store/store";
 import { RootState } from "../../../store/store";
+import { useState } from "react";
+import { Modal } from "../../ui/modals/Modal";
+import { SpotlightModal } from "../../currencies/spotlightModal/SpotlightModal";
 
 export const Navigation = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);
+  const [modalActive, setModalActive] = useState(false);
+
   const dispatch = useDispatch<AppDispatch>();
   const { width } = useWindowSize();
 
@@ -41,8 +47,19 @@ export const Navigation = () => {
     <nav className={classes["desktop-nav"]}>
       <ul className={classes["links-list"]}>
         <NavLinks toggle={toggleNav} />
+        <button
+          className={classes["search-btn"]}
+          onClick={() => setModalActive((state) => !state)}
+        >
+          <ImSearch fontSize={"1.2rem"} color="#fff" />
+        </button>
       </ul>
     </nav>
+  );
+  const Spotlight = modalActive && (
+    <SpotlightModal onClose={() => setModalActive((state) => !state)}>
+      Modal
+    </SpotlightModal>
   );
   return (
     <header className={classes.header}>
@@ -57,6 +74,7 @@ export const Navigation = () => {
         </div>
         {MobileNavContent}
         {DesktopNavContent}
+        {Spotlight}
       </div>
     </header>
   );
