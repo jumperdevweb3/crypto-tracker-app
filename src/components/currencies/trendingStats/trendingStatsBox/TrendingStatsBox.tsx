@@ -79,6 +79,7 @@ const TrendingStatsBox = ({ kind, title, items }: Props) => {
     BoxContent = <h3 className={classes.empty}>No {kind}</h3>;
   }
   const buttonState = !items.length && true;
+
   return (
     <div className={classes.box}>
       <div className={classes.titles}>
