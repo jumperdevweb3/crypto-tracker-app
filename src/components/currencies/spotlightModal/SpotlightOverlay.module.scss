@@ -1,0 +1,31 @@
+.overlay {
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+  max-width: 768px;
+  color: var(--color-white);
+  border-radius: 7.5px;
+  background-color: var(--background-dark-blue);
+  z-index: 30;
+  animation: slide-down 150ms ease forwards;
+  font-size: 0.8rem;
+  min-width: 30rem;
+  min-height: 15rem;
+  transform: scale(0.5);
+
+  @media (max-width: 767px) {
+    width: 80%;
+    min-width: 13rem;
+  }
+}
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
