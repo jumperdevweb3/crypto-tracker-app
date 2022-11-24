@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <>
       <TrendingStats />
-      <SearchBar />
+      {/* <SearchBar /> */}
       <CurrenciesList />
     </>
   );
