@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  border-bottom: 1px solid var(--color-strong-gray);
+  border-bottom: 1px solid rgb(55, 58, 64);
 
   .input {
     box-sizing: border-box;
@@ -11,9 +11,11 @@
     padding-left: 0;
     border: none;
     outline: none;
-    color: var(--color-white);
+    color: rgb(193, 194, 197);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
     background-color: transparent;
-    caret-color: var(--color-white);
+    caret-color: rgb(193, 194, 197);
     font-size: 1rem;
     min-width: 4rem;
 
@@ -22,7 +24,7 @@
       font-size: 1rem;
       letter-spacing: 1px;
       font-weight: 500;
-      color: var(--color-strong-gray);
+      color: rgb(193, 194, 197);
     }
   }
   .search {

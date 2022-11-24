@@ -18,17 +18,19 @@ export const SearchItem = ({ item }: Item) => {
     <li>
       <Link href={`/currency/${item.id}`}>
         <a className={classes["list-item"]}>
-          <div className={classes["name-data"]}>
-            <Image
-              src={item.thumb}
-              alt={item.name}
-              width={"21px"}
-              height={"21px"}
-              unoptimized
-            />
-            <p>
-              {item.name} <span>{item.symbol.toUpperCase()}</span>
-            </p>
+          <div className={classes["coin-data"]}>
+            <div className={classes.image}>
+              <Image
+                src={item.thumb}
+                alt={item.name}
+                width={"24px"}
+                height={"24px"}
+              />
+            </div>
+            <div className={classes["title-area"]}>
+              <p>{item.name}</p>
+              <span>{item.symbol.toUpperCase()}</span>
+            </div>
           </div>
           <span>{isMcr}</span>
         </a>

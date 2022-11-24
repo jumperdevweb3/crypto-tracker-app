@@ -2,9 +2,10 @@ import classes from "./SearchBar.module.scss";
 import { InputSearch } from "./searchInput/InputSearch";
 import React, { useState } from "react";
 import { SearchItem } from "./searchItem/SearchItem";
-import { useDebounce } from "./useDebounce";
-import { fetchCoinByQuery } from "./fetchCoinByQuery";
+import { useDebounce } from "./helpers/useDebounce";
+import { fetchCoinByQuery } from "./helpers/fetchCoinByQuery";
 import { useQuery } from "react-query";
+import { ITrendingCoin } from "./types";
 
 interface Item {
   id: string;
@@ -13,13 +14,16 @@ interface Item {
   symbol: string;
   market_cap_rank: number;
 }
+interface IProps {
+  trendingSearch: ITrendingCoin[];
+}
 
-export const SearchBar = () => {
+import { TrendingSearch } from "./trendingSearch/TrendingSearch";
+export const SearchBar = ({ trendingSearch }: IProps) => {
   const [inputValue, setInputValue] = useState("");
-  const [loading, setLoading] = useState(false);
   const debouncedSearch = useDebounce(inputValue, 400);
 
-  const { data, status, isError } = useQuery<Item[]>(
+  const { data, status, isError, isLoading } = useQuery<Item[]>(
     ["searchItems", debouncedSearch],
     () => fetchCoinByQuery(debouncedSearch),
     {
@@ -28,19 +32,18 @@ export const SearchBar = () => {
   );
 
   const RenderItems =
-    status === "success"
+    status === "success" && !!inputValue
       ? data.map((item) => <SearchItem item={item} key={item.id} />)
       : [];
 
   function inputValueHandler(event: React.ChangeEvent<HTMLInputElement>) {
     const newValue = event.target.value;
     setInputValue(newValue.toLowerCase());
-    setLoading(true);
   }
   function onClickCross() {
     setInputValue("");
   }
-  const LoadingContent = loading && status !== "success" && (
+  const LoadingContent = isLoading && (
     <li className={classes["result-info"]}>Loading ...</li>
   );
   const NotFoundContent = status === "success" && !data.length && (
@@ -49,10 +52,20 @@ export const SearchBar = () => {
   const ErrorContent = isError && (
     <li className={classes["result-info"]}>Problem with CoinGeco API.</li>
   );
-  const InputContent = !!inputValue.trim() && (
+  const TrendingSearchContent = !inputValue && (
+    <li className={classes["result-info"]}>Trending search items 🔥</li>
+  );
+
+  const ShowInitialItems = !inputValue && (
+    <TrendingSearch trendingSearch={trendingSearch} />
+  );
+
+  const InputContent = (
     <div className={classes["result-box"]}>
       <ul className={classes.list}>
         {RenderItems}
+        {TrendingSearchContent}
+        {ShowInitialItems}
         {LoadingContent}
         {NotFoundContent}
         {ErrorContent}

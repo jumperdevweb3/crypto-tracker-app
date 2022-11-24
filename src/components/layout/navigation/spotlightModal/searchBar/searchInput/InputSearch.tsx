@@ -11,6 +11,7 @@ export const InputSearch = ({ ...props }) => {
         className={classes.input}
         onChange={props.onChange}
         value={props.value}
+        autoFocus
       />
     </div>
   );
