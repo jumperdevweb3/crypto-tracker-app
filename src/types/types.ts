@@ -23,7 +23,7 @@ export interface ICurrencyItem {
 
 export interface ModalProps {
   onClose: () => void;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export interface INewsItems {
