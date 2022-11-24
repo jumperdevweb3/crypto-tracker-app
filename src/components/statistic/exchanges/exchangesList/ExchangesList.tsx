@@ -20,7 +20,6 @@ export const ExchangesList = ({ items, modalAction }: Props) => {
           alt={item.name}
           width={"21px"}
           height={"21px"}
-          unoptimized
         />
         <p>{item.name}</p>
       </div>

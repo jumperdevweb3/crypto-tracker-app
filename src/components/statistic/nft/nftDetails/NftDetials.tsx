@@ -29,7 +29,6 @@ export const NftDetials = ({ id }: { id: string }) => {
             alt={item.name + "logo"}
             width={"21px"}
             height={"21px"}
-            unoptimized
           />
         )}
         <p>{item.name}</p>

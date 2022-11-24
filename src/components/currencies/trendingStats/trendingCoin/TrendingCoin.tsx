@@ -33,7 +33,6 @@ const TrendingCoin = (props: Props) => {
                 alt={props.name}
                 width={"21px"}
                 height={"21px"}
-                unoptimized
               />
               <p className={breakWordClass}>
                 {props.name}{" "}

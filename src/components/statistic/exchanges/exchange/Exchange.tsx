@@ -52,13 +52,7 @@ export const Exchange = ({ item }: { item: IExchangesItems }) => {
   return (
     <div className={classes.container}>
       <div className={classes["name-box"]}>
-        <Image
-          src={image}
-          alt={name + "logo"}
-          height={"21px"}
-          width={"21px"}
-          unoptimized
-        />
+        <Image src={image} alt={name + "logo"} height={"21px"} width={"21px"} />
         <p>{name} </p>
       </div>
       <div className={classes["data-box"]}>

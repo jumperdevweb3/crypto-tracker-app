@@ -10,13 +10,7 @@ export const BoxHeader = ({ item }: { item: ICoin }) => {
     <div className={classes.header}>
       <p className={classes.rank}>{rank ? `Rank #${rank}` : "Rank -?-"}</p>
       <div className={classes["main-title"]}>
-        <Image
-          src={image.thumb}
-          alt={name}
-          width={"21px"}
-          height={"21px"}
-          unoptimized
-        />
+        <Image src={image.thumb} alt={name} width={"21px"} height={"21px"} />
         <p className={classes.name}>{name}</p>
         <p>{symbol.toUpperCase()}</p>
       </div>

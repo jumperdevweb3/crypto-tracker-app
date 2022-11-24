@@ -41,13 +41,7 @@ const CoinCard = ({ item }: { item: ICurrencyItem }) => {
         <p>{MarketRankContent}</p>
       </div>
       <div className={classes.name}>
-        <Image
-          src={image}
-          alt={name}
-          width={"21px"}
-          height={"21px"}
-          unoptimized
-        />
+        <Image src={image} alt={name} width={"21px"} height={"21px"} />
         <p className={classes.title}>{name}</p>
       </div>
       <div className={classes.symbol}>
