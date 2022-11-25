@@ -1,0 +1,16 @@
+.list-item {
+  .link {
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--color-gray);
+    }
+  }
+  .link:hover.active {
+    color: var(--color-purple);
+  }
+}
+.active {
+  color: var(--color-purple);
+}
