@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  text-align: center;
+
+  .table {
+    display: flex;
+
+    .table-row {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 16.6%;
+
+      .row-title {
+        border: 1px solid #fff;
+        padding: 0.8rem;
+        font-weight: bold;
+      }
+      div {
+        padding: 0.8rem;
+        justify-content: center;
+
+        p {
+          border: none;
+          justify-self: center;
+        }
+      }
+      @media (max-width: 767px) {
+        width: 30%;
+        min-width: 160px;
+      }
+    }
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .time {
+    flex-basis: 14.28%;
+    border: 1px solid var(--color-white);
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
+}

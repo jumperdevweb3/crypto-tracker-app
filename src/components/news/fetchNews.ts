@@ -1,4 +1,4 @@
-import { NewsItems } from "../../types/types";
+import { INewsItems } from "../../types/types";
 
 export const getNewsData = async () => {
   try {
@@ -27,7 +27,7 @@ export const getNewsContent = async (id: string) => {
     if (!response.ok) throw new Error("Fail fetch content data");
     const data = await response.json();
     const items = data.data;
-    const filteredItem = items.find((item: NewsItems) => item.id === id);
+    const filteredItem = items.find((item: INewsItems) => item.id === id);
     return filteredItem;
   } catch (error) {
     if (typeof error === "string") {
@@ -40,6 +40,6 @@ export const getNewsContent = async (id: string) => {
 };
 
 export async function getNewsDetail(id: string) {
-  const allNews: NewsItems[] = await getNewsData();
-  return allNews.find((item) => id === item.id) as NewsItems;
+  const allNews: INewsItems[] = await getNewsData();
+  return allNews.find((item) => id === item.id) as INewsItems;
 }

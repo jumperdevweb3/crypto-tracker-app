@@ -1,5 +1,5 @@
 //types
-import { CurrencyItem } from "../../types/types";
+import { ICurrencyItem } from "../../types/types";
 import { RootState } from "../../store/store";
 //components
 import { useDispatch, useSelector } from "react-redux";
@@ -27,7 +27,7 @@ export const Watchlist = () => {
     isError,
     isLoading,
     status,
-  } = useQuery<CurrencyItem[]>(
+  } = useQuery<ICurrencyItem[]>(
     ["watchItems"],
     () => getWatchItems(idsToFetch),
     {
@@ -40,7 +40,7 @@ export const Watchlist = () => {
   const fetchedItems =
     status === "success"
       ? sortCurrencies(
-          items.map((i) => changeDataVariables(i) as CurrencyItem),
+          items.map((i) => changeDataVariables(i) as ICurrencyItem),
           sortActive
         )
       : [];

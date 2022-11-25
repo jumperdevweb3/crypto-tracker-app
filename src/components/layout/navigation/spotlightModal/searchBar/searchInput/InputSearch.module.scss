@@ -1,0 +1,34 @@
+.input-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid rgb(55, 58, 64);
+
+  .input {
+    box-sizing: border-box;
+    flex-basis: 90%;
+    padding: 10px 15px;
+    padding-left: 0;
+    border: none;
+    outline: none;
+    color: rgb(193, 194, 197);
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    background-color: transparent;
+    caret-color: rgb(193, 194, 197);
+    font-size: 1rem;
+    min-width: 4rem;
+
+    &::placeholder {
+      display: inline-block;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: rgb(193, 194, 197);
+    }
+  }
+  .search {
+    margin: 0 0.7rem;
+    min-width: 1.2rem;
+  }
+}

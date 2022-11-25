@@ -3,7 +3,7 @@ import { NewsDetails } from "../../src/components/news/newsDetails/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { InferGetStaticPropsType } from "next";
 //types
-import { NewsItems } from "../../src/types/types";
+import { INewsItems } from "../../src/types/types";
 import { IParams } from "../../src/types/types";
 
 const DetialPage: NextPage = ({
@@ -23,7 +23,7 @@ export default DetialPage;
 export const getStaticProps: GetStaticProps = async (context) => {
   const { id } = context.params as IParams;
 
-  const news: NewsItems = await getNewsDetail(id);
+  const news: INewsItems = await getNewsDetail(id);
 
   if (!news) return { notFound: true };
   return {

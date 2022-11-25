@@ -7,9 +7,9 @@ import Price from "./price/PriceChange";
 import Image from "next/image";
 import { memo } from "react";
 //types
-import { CurrencyItem } from "../../../types/types";
+import { ICurrencyItem } from "../../../types/types";
 
-const CoinCard = ({ item }: { item: CurrencyItem }) => {
+const CoinCard = ({ item }: { item: ICurrencyItem }) => {
   const {
     id,
     market_cap_rank,
@@ -41,13 +41,7 @@ const CoinCard = ({ item }: { item: CurrencyItem }) => {
         <p>{MarketRankContent}</p>
       </div>
       <div className={classes.name}>
-        <Image
-          src={image}
-          alt={name}
-          width={"21px"}
-          height={"21px"}
-          unoptimized
-        />
+        <Image src={image} alt={name} width={"21px"} height={"21px"} />
         <p className={classes.title}>{name}</p>
       </div>
       <div className={classes.symbol}>

@@ -2,9 +2,9 @@ import classes from "./News.module.scss";
 import { NewsContent } from "./newsContent/NewsContent";
 import Link from "next/link";
 //types
-import { NewsList } from "../../types/types";
+import { INewsList } from "../../types/types";
 
-export const News = ({ items }: NewsList) => {
+export const News = ({ items }: INewsList) => {
   if (items.length === 0)
     return (
       <h2 className={classes.title}>

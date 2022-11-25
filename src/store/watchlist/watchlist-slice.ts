@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { sortCurrencies } from "../../helpers/sortCurrencies";
-import { CurrencyItem } from "../../types/types";
+import { ICurrencyItem } from "../../types/types";
 
 interface WatchlistState {
-  items: CurrencyItem[];
+  items: ICurrencyItem[];
   watchIds: string[];
   sortActive: {
     sortType: string;

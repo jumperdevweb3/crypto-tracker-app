@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ExchangesItems } from "../../../../types/types";
+import { IExchangesItems } from "../../../../types/types";
 import classes from "../../CommonBoxStyle.module.scss";
 import Image from "next/image";
 
-export const Exchange = ({ item }: { item: ExchangesItems }) => {
+export const Exchange = ({ item }: { item: IExchangesItems }) => {
   const {
     name,
     year_established,
@@ -52,13 +52,7 @@ export const Exchange = ({ item }: { item: ExchangesItems }) => {
   return (
     <div className={classes.container}>
       <div className={classes["name-box"]}>
-        <Image
-          src={image}
-          alt={name + "logo"}
-          height={"21px"}
-          width={"21px"}
-          unoptimized
-        />
+        <Image src={image} alt={name + "logo"} height={"21px"} width={"21px"} />
         <p>{name} </p>
       </div>
       <div className={classes["data-box"]}>

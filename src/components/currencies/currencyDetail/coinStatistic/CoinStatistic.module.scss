@@ -1,11 +1,12 @@
 .stats-box {
   display: flex;
   flex-direction: column;
-  background-color: #3e415a;
+  background-color: var(--background-details-box);
   padding: 1rem 1rem;
   border-radius: 10px;
   flex-basis: 45%;
   box-sizing: border-box;
+  border: 2px solid var(--color-white);
 
   .wrapper {
     display: flex;

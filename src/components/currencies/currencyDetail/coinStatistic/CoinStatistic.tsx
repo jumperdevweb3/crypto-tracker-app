@@ -1,9 +1,9 @@
 import { currencyValueFormat } from "../../../../helpers/numberFromat";
-import { Coin } from "../../../../types/types";
+import { ICoin } from "../../../../types/types";
 import PriceTimeChange from "../../../cards/coinCard/price/PriceTimeChange";
 import classes from "./CoinStatistic.module.scss";
 
-export const CoinStatistic = ({ item }: { item: Coin }) => {
+export const CoinStatistic = ({ item }: { item: ICoin }) => {
   const { symbol, market_data, genesis_date } = item;
   const {
     market_cap,

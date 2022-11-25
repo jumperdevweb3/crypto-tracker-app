@@ -1,7 +1,7 @@
 .description-box {
   display: flex;
   flex-direction: column;
-  background-color: #3e415a;
+  background-color: var(--background-details-box);
   padding: 1rem 1rem;
   border-radius: 10px;
   max-height: 25rem;
@@ -9,6 +9,7 @@
   width: 90%;
   box-sizing: border-box;
   align-self: center;
+  border: 2px solid var(--color-white);
 
   p {
     line-height: 1.5rem;

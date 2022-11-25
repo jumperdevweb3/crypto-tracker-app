@@ -46,6 +46,7 @@
 
       .links-list {
         display: flex;
+        align-items: center;
         flex-basis: 70%;
         gap: 0 1.5rem;
 
@@ -63,6 +64,11 @@
         li a:hover.active {
           color: var(--color-purple);
         }
+      }
+
+      .search-btn {
+        display: flex;
+        align-items: center;
       }
     }
 

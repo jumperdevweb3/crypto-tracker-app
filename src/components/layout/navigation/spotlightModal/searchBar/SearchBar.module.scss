@@ -1,36 +1,25 @@
 .search-bar {
-  position: relative;
   display: flex;
-  justify-content: center;
   width: 100%;
-  margin: 3rem 0;
+  padding: 0.5rem 0;
 
   .input-container {
-    position: relative;
-    color: var(--color-white);
-    width: 18rem;
-    max-width: 18rem;
+    width: 100%;
 
     .result-box {
       box-sizing: border-box;
-      position: absolute;
-      top: 2rem;
-      left: 0;
       width: 100%;
-      margin: 1rem 0;
       max-height: 13.875rem;
-      max-width: 18rem;
       overflow-y: auto;
-      background-color: var(--background-dark-blue);
-      border-radius: 10px;
-      padding: 10px 15px;
+      border-radius: 7.5px;
+      padding: 0.2rem;
       z-index: 12;
-      box-shadow: var(--box-shadow);
 
       .list {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        margin-top: 0.5rem;
 
         .result-info {
           font-size: 0.9rem;
@@ -41,7 +30,6 @@
     }
   }
   @media (max-width: 300px) {
-    max-width: 90%;
     margin: 3rem auto;
   }
 }

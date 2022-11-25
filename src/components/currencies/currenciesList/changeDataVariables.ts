@@ -1,6 +1,6 @@
-import { CurrencyItem } from "../../../types/types";
+import { ICurrencyItem } from "../../../types/types";
 
-export const changeDataVariables = (item: CurrencyItem) => {
+export const changeDataVariables = (item: ICurrencyItem) => {
   return {
     id: item.id,
     image: item.image,

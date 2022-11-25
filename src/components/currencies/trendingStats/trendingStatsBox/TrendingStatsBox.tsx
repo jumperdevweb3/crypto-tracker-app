@@ -5,18 +5,18 @@ import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { Modal } from "../../../ui/modals/Modal";
 import { StatsModal } from "../statsModal/StatsModal";
 //types
-import { CurrencyItem } from "../../../../types/types";
+import { ICurrencyItem } from "../../../../types/types";
 
 interface Props {
   kind: string;
   title: string;
-  items: CurrencyItem[];
+  items: ICurrencyItem[];
 }
 const TrendingStatsBox = ({ kind, title, items }: Props) => {
   const [modalActive, setModalActive] = useState(false);
 
   let icon;
-  let filterType: CurrencyItem[] = [];
+  let filterType: ICurrencyItem[] = [];
 
   const trending = kind === "trending";
   const losers = kind === "losers";
@@ -79,6 +79,7 @@ const TrendingStatsBox = ({ kind, title, items }: Props) => {
     BoxContent = <h3 className={classes.empty}>No {kind}</h3>;
   }
   const buttonState = !items.length && true;
+
   return (
     <div className={classes.box}>
       <div className={classes.titles}>

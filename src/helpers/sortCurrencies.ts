@@ -1,7 +1,7 @@
-import { CurrencyItem } from "../types/types";
+import { ICurrencyItem } from "../types/types";
 
 export const sortCurrencies = (
-  items: CurrencyItem[],
+  items: ICurrencyItem[],
   { sortType, sortBy }: { sortType: string; sortBy: string }
 ) => {
   if (sortType === "ascending") {

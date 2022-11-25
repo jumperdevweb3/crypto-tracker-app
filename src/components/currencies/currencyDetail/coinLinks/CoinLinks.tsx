@@ -1,7 +1,7 @@
-import { Coin } from "../../../../types/types";
+import { ICoin } from "../../../../types/types";
 import classes from "./CoinLinks.module.scss";
 
-export const CoinLinks = ({ item }: { item: Coin }) => {
+export const CoinLinks = ({ item }: { item: ICoin }) => {
   const { links } = item;
 
   const existHompageLinks = links.homepage.filter((i) => i.trim().length);

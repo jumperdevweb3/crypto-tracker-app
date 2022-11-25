@@ -7,14 +7,14 @@ import { useQuery } from "react-query";
 //types
 import { AppDispatch } from "../../../../../store/store";
 import { RootState } from "../../../../../store/store";
-import { CurrencyItem } from "../../../../../types/types";
+import { ICurrencyItem } from "../../../../../types/types";
 
 export const ConvertItem = ({ kind }: { kind: string }) => {
   const {
     data: currenciesData,
     isError,
     status,
-  } = useQuery<CurrencyItem[]>("convertItems", getPrices, {
+  } = useQuery<ICurrencyItem[]>("convertItems", getPrices, {
     refetchOnWindowFocus: false,
     refetchInterval: 35000,
     keepPreviousData: true,

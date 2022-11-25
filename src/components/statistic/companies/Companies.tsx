@@ -1,7 +1,7 @@
 import classes from "./Companies.module.scss";
 import style from "../ContainerStyles.module.scss";
 import { useState } from "react";
-import { CompaniesItems } from "../../../types/types";
+import { ICompaniesItems } from "../../../types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Company } from "./company/Company";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
@@ -11,16 +11,16 @@ import { getCompanies } from "../fetchStatistic";
 
 export const Companies = () => {
   const [modalActive, setModalActive] = useState(false);
-  const [company, setCompany] = useState<CompaniesItems>();
+  const [company, setCompany] = useState<ICompaniesItems>();
   const {
     data: items,
     isLoading,
     isError,
     status,
-  } = useQuery<CompaniesItems[]>("companies", getCompanies, {
+  } = useQuery<ICompaniesItems[]>("companies", getCompanies, {
     refetchOnWindowFocus: false,
   });
-  const onModalActive = (item?: CompaniesItems) => {
+  const onModalActive = (item?: ICompaniesItems) => {
     setModalActive((state) => !state);
     if (item) {
       setCompany(item);

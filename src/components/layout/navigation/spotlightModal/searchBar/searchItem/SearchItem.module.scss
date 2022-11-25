@@ -1,0 +1,41 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.4rem;
+  font-size: 0.8rem;
+  transition: 0.1s;
+  border-radius: 7.5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(55, 58, 64);
+  }
+  .coin-data {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(193, 194, 197);
+
+    .image {
+      padding: 0.3rem;
+    }
+    .title-area {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      font-family: "Roboto", sans-serif;
+
+      p {
+        font-size: 0.9rem;
+        font-weight: bold;
+        word-wrap: break-word;
+      }
+      span {
+        font-weight: 300;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

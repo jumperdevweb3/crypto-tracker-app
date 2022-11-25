@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { fetchCurrency } from "../api/fetchCurrency";
 import { LoadingSpinner } from "../../src/components/ui/loadingSpinner/LoadingSpinner";
 //types
-import { Coin } from "../../src/types/types";
+import { ICoin } from "../../src/types/types";
 
 export default function CoinDetailPage() {
-  const [item, setItem] = useState<Coin | null>();
+  const [item, setItem] = useState<ICoin | null>();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const idPath = router.query.coinId;
