@@ -111,6 +111,7 @@ export interface INft {
 }
 
 export interface ICoin {
+  error?: string;
   id: string;
   symbol: string;
   name: string;

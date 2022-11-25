@@ -1,35 +1,33 @@
 import { CurrenciesDetail } from "../../src/components/currencies/currencyDetail/CurrenciesDetail";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import { fetchCurrency } from "../api/fetchCurrency";
 import { LoadingSpinner } from "../../src/components/ui/loadingSpinner/LoadingSpinner";
-//types
+import { useQuery } from "react-query";
 import { ICoin } from "../../src/types/types";
 
 export default function CoinDetailPage() {
-  const [item, setItem] = useState<ICoin | null>();
-  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const idPath = router.query.coinId;
+  const query = typeof idPath === "string" ? idPath : "";
 
-  const fetchItem = async () => {
-    setIsLoading(true);
-    if (typeof idPath !== "object" && typeof idPath !== "undefined") {
-      const item = await fetchCurrency(idPath);
-      if (item.id) {
-        setItem(item);
-      } else {
-        setItem(null);
-      }
-      setIsLoading(false);
-      return;
+  const { data: item, isLoading } = useQuery<ICoin>(
+    ["coin", query],
+    () => fetchCurrency(query),
+    {
+      enabled: !!query && router.isReady,
     }
-  };
-  useEffect(() => {
-    fetchItem();
-  }, [idPath]);
+  );
 
-  if (isLoading) return <LoadingSpinner />;
-  if (!item && !isLoading) return <p className="center">Coin Not found</p>;
-  return <>{item && <CurrenciesDetail item={item} />}</>;
+  const NotFoundContent = item?.error && <p className="center">{item.error}</p>;
+  const CoinDetialsContent = !item?.error && item && (
+    <CurrenciesDetail item={item} />
+  );
+  const LoadingContent = isLoading && <LoadingSpinner />;
+  return (
+    <>
+      {NotFoundContent}
+      {LoadingContent}
+      {CoinDetialsContent}
+    </>
+  );
 }
