@@ -6,6 +6,7 @@ import { useDebounce } from "./helpers/useDebounce";
 import { fetchCoinByQuery } from "./helpers/fetchCoinByQuery";
 import { useQuery } from "react-query";
 import { ITrendingCoin } from "./types";
+import { TrendingSearch } from "./trendingSearch/TrendingSearch";
 
 interface Item {
   id: string;
@@ -18,8 +19,7 @@ interface IProps {
   trendingSearch: ITrendingCoin[];
 }
 
-import { TrendingSearch } from "./trendingSearch/TrendingSearch";
-export const SearchBar = ({ trendingSearch }: IProps) => {
+export const SearchBar = ({ trendingSearch: items }: IProps) => {
   const [inputValue, setInputValue] = useState("");
   const debouncedSearch = useDebounce(inputValue, 400);
 
@@ -27,22 +27,20 @@ export const SearchBar = ({ trendingSearch }: IProps) => {
     ["searchItems", debouncedSearch],
     () => fetchCoinByQuery(debouncedSearch),
     {
-      enabled: debouncedSearch.length > 0,
+      enabled: debouncedSearch.trim().length > 0,
     }
   );
 
-  const RenderItems =
+  const SearchItems =
     status === "success" && !!inputValue
       ? data.map((item) => <SearchItem item={item} key={item.id} />)
       : [];
 
-  function inputValueHandler(event: React.ChangeEvent<HTMLInputElement>) {
+  const inputValueHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     setInputValue(newValue.toLowerCase());
-  }
-  function onClickCross() {
-    setInputValue("");
-  }
+  };
+
   const LoadingContent = isLoading && (
     <li className={classes["result-info"]}>Loading ...</li>
   );
@@ -53,17 +51,17 @@ export const SearchBar = ({ trendingSearch }: IProps) => {
     <li className={classes["result-info"]}>Problem with CoinGeco API.</li>
   );
   const TrendingSearchContent = !inputValue && (
-    <li className={classes["result-info"]}>Trending search items 🔥</li>
+    <li className={classes["result-info"]}>Trending search 🔥</li>
   );
 
   const ShowInitialItems = !inputValue && (
-    <TrendingSearch trendingSearch={trendingSearch} />
+    <TrendingSearch trendingSearch={items} />
   );
 
-  const InputContent = (
+  const ListContent = (
     <div className={classes["result-box"]}>
       <ul className={classes.list}>
-        {RenderItems}
+        {SearchItems}
         {TrendingSearchContent}
         {ShowInitialItems}
         {LoadingContent}
@@ -79,9 +77,8 @@ export const SearchBar = ({ trendingSearch }: IProps) => {
           placeholder="Search currency"
           onChange={inputValueHandler}
           value={inputValue}
-          onClickCross={onClickCross}
         />
-        {InputContent}
+        {ListContent}
       </div>
     </div>
   );
