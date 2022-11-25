@@ -1,10 +1,10 @@
 import Link from "next/link";
-import classes from "./MainNav.module.scss";
+import classes from "./Navigation.module.scss";
 import { uiActions } from "../../../store/ui/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";
-import { NavLinks } from "./NavLinks";
+import { NavLinks } from "./navLinks/NavLinks";
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 import { SpotlightModal } from "./spotlightModal/SpotlightModal";
@@ -34,13 +34,16 @@ export const Navigation = () => {
       className={classes["search-btn"]}
       onClick={() => setModalActive((state) => !state)}
     >
-      <ImSearch fontSize={"1.2rem"} color="#fff" fill="#8bc53f" />
+      <ImSearch fontSize={"1.2rem"} fill="rgb(75, 185, 167)" />
     </button>
   );
   const MobileButton = mobile && (
-    <button onClick={toggleNav}>
-      <FiMenu fontSize={"2rem"} color="#fff" />
-    </button>
+    <div className={classes["btn-box"]}>
+      {SearchButton}
+      <button onClick={toggleNav} className={classes.hamburger}>
+        <FiMenu fontSize={"2rem"} color="#fff" />
+      </button>
+    </div>
   );
   const MobileNavContent = mobile && (
     <nav className={navClass}>
@@ -69,7 +72,6 @@ export const Navigation = () => {
               <a>Crypto Tracker </a>
             </Link>
           </h1>
-          {mobile && SearchButton}
           {MobileButton}
         </div>
         {MobileNavContent}
