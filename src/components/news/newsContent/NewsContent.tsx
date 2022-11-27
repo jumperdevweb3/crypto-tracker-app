@@ -1,4 +1,4 @@
-import { INewsList } from "@/types/types";
+import { INewsList } from "../types";
 import classes from "../News.module.scss";
 import Link from "next/link";
 

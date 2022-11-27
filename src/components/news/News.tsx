@@ -2,7 +2,7 @@ import classes from "./News.module.scss";
 import { NewsContent } from "./newsContent/NewsContent";
 import Link from "next/link";
 //types
-import { INewsList } from "@/types/types";
+import { INewsList } from "./types";
 
 export const News = ({ items }: INewsList) => {
   if (items.length === 0)

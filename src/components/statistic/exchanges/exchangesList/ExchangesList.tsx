@@ -1,4 +1,4 @@
-import { IExchangesItems } from "@/types/types";
+import { IExchangesItems } from "../../types";
 import classes from "./ExchangesList.module.scss";
 import Image from "next/image";
 

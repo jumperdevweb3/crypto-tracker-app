@@ -3,7 +3,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { currencyValueFormat } from "@/helpers/numberFromat";
 import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import Image from "next/image";
-import { INft } from "@/types/types";
+import { INft } from "../../types";
 import { useQuery } from "react-query";
 import { getSingleNft } from "../../fetchStatistic";
 
