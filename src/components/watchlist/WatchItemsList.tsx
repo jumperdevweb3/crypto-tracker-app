@@ -1,4 +1,4 @@
-import { ICurrencyItem } from "../../types/types";
+import { ICurrencyItem } from "@/types/types";
 import CoinCard from "../cards/coinCard/CoinCard";
 import { CurrenciesSortMenu } from "../currencies/currenciesList/currenciesSortMenu/CurrenciesSortMenu";
 import classes from "../currencies/currenciesList/CurrenciesList.module.scss";

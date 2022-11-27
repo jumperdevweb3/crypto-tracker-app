@@ -1,7 +1,7 @@
 import classes from "./Companies.module.scss";
 import style from "../ContainerStyles.module.scss";
 import { useState } from "react";
-import { ICompaniesItems } from "../../../types/types";
+import { ICompaniesItems } from "@/types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Company } from "./company/Company";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";

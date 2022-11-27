@@ -1,5 +1,5 @@
-import { currencyValueFormat } from "../../../../helpers/numberFromat";
-import { ICoin } from "../../../../types/types";
+import { currencyValueFormat } from "@/helpers/numberFromat";
+import { ICoin } from "@/types/types";
 import PriceTimeChange from "../../../cards/coinCard/price/PriceTimeChange";
 import classes from "./CoinStatistic.module.scss";
 

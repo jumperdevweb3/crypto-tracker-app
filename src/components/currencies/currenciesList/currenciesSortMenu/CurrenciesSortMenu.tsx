@@ -1,10 +1,10 @@
-import { currenciesActions } from "../../../../store/currencies/currencies-slice";
-import { watchlistActions } from "../../../../store/watchlist/watchlist-slice";
+import { currenciesActions } from "@/store/currencies/currencies-slice";
+import { watchlistActions } from "@/store/watchlist/watchlist-slice";
 import { useDispatch, useSelector } from "react-redux";
 import classes from "./CurrenciesSortMenu.module.scss";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { useState } from "react";
-import { RootState } from "../../../../store/store";
+import { RootState } from "@/store/store";
 
 export const CurrenciesSortMenu = ({ page }: { page: string }) => {
   const [sortActiveIcon, setSortActiveIcon] = useState({

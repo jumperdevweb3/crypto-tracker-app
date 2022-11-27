@@ -1,5 +1,5 @@
 import classes from "./CurrencyStats.module.scss";
-import { ICoin } from "../../../../types/types";
+import { ICoin } from "@/types/types";
 import { BoxHeader } from "../boxHeader/BoxHeader";
 import { CoinStatistic } from "../coinStatistic/CoinStatistic";
 import { CoinLinks } from "../coinLinks/CoinLinks";

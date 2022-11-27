@@ -1,4 +1,4 @@
-import { ICompaniesItems } from "../../../../types/types";
+import { ICompaniesItems } from "@/types/types";
 import classes from "./CompaniesList.module.scss";
 
 interface Props {

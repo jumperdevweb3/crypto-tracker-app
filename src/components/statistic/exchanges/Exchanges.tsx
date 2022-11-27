@@ -1,7 +1,7 @@
 import classes from "./Exchanges.module.scss";
 import style from "../ContainerStyles.module.scss";
 import { useState } from "react";
-import { IExchangesItems } from "../../../types/types";
+import { IExchangesItems } from "@/types/types";
 import { Modal } from "../../ui/modals/Modal";
 import { Exchange } from "./exchange/Exchange";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";

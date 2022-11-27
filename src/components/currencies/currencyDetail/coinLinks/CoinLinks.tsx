@@ -1,4 +1,4 @@
-import { ICoin } from "../../../../types/types";
+import { ICoin } from "@/types/types";
 import classes from "./CoinLinks.module.scss";
 
 export const CoinLinks = ({ item }: { item: ICoin }) => {
