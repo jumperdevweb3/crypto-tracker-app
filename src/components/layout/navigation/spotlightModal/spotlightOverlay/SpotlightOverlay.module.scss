@@ -5,16 +5,15 @@
   overflow-y: auto;
   max-width: 768px;
   border-radius: 4px;
-  background-color: rgb(37, 38, 43);
+  background-color: var(--background-light-gray);
   z-index: 30;
   animation: slide-down 150ms ease forwards;
   font-size: 0.8rem;
   min-width: 30rem;
   min-height: 15rem;
   transform: scale(0.5);
-  box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px, rgb(0 0 0 / 10%) 0px 20px 25px -5px,
-    rgb(0 0 0 / 10%) 0px 10px 10px -5px;
-  color: rgb(193, 194, 197);
+  box-shadow: var(--box-shadow-dark);
+  color: var(--color-light-gray);
 
   @media (max-width: 767px) {
     width: 80%;
