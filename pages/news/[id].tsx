@@ -3,7 +3,7 @@ import { NewsDetails } from "@/components/news/newsDetails/NewsDetails";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { InferGetStaticPropsType } from "next";
 //types
-import { INewsItems } from "@/types/types";
+import { INewsItems } from "@/components/news/types";
 import { IParams } from "@/types/types";
 
 const DetialPage: NextPage = ({
