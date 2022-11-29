@@ -27,7 +27,7 @@ export const CurrenciesList = () => {
             keepPreviousData: true,
             refetchInterval: 35000,
         }
-    );-
+    );
 
     useEffect(() => {
         const params = getParams();
