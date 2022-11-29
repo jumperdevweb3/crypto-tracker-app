@@ -1,4 +1,4 @@
-import { ICoin } from "../../../../types/types";
+import { ICoin } from "@/types/types";
 import classes from "./Community.module.scss";
 import { BsTwitter, BsReddit } from "react-icons/bs";
 

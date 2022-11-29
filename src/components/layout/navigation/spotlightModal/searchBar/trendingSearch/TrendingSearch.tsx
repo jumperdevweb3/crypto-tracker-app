@@ -1,4 +1,4 @@
-import { trendingVariablesChange } from "../helpers/trendingVariablesChange";
+import { trendingVariablesChange } from "../utils/trendingVariablesChange";
 import { SearchItem } from "../searchItem/SearchItem";
 import { ITrendingCoin } from "../types";
 

@@ -1,4 +1,4 @@
-import { ICoin } from "../../../types/types";
+import { ICoin } from "@/types/types";
 import classes from "./CurrenciesDetail.module.scss";
 import { CurrencyStats } from "./currencyStats/CurrencyStats";
 import { NextSeo } from "next-seo";

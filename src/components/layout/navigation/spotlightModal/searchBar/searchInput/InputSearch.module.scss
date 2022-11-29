@@ -11,11 +11,11 @@
     padding-left: 0;
     border: none;
     outline: none;
-    color: rgb(193, 194, 197);
+    color: var(--color-light-gray);
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     background-color: transparent;
-    caret-color: rgb(193, 194, 197);
+    caret-color: var(--color-light-gray);
     font-size: 1rem;
     min-width: 4rem;
 
@@ -24,7 +24,7 @@
       font-size: 1rem;
       letter-spacing: 1px;
       font-weight: 500;
-      color: rgb(193, 194, 197);
+      color: var(--color-light-gray);
     }
   }
   .search {

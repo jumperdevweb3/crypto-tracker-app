@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { ModalProps } from "../../../types/types";
+import { ModalProps } from "@/types/types";
 import { Backdrop } from "../backdrop/Backdrop";
 import { ModalOverlay } from "../modalOverlay/ModalOverlay";
 
