@@ -1,6 +1,6 @@
 import { memo } from "react";
 import useColorChange from "use-color-change";
-import { currencyValueFormat } from "../../../../helpers/numberFromat";
+import { currencyValueFormat } from "@/helpers/numberFromat";
 
 const Price = ({ price }: { price: number }) => {
   const colorStyle = useColorChange(price, {

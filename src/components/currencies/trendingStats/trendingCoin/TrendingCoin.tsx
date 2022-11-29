@@ -1,6 +1,6 @@
 import classes from "./TrendingCoin.module.scss";
 import Link from "next/link";
-import { getWordCount } from "../../../../helpers/wordCount";
+import { getWordCount } from "@/helpers/wordCount";
 import { memo } from "react";
 import Image from "next/image";
 

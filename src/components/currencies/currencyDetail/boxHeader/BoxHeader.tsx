@@ -1,6 +1,6 @@
 import classes from "./BoxHeader.module.scss";
 import Image from "next/image";
-import { ICoin } from "../../../../types/types";
+import { ICoin } from "@/types/types";
 import Price from "../../../cards/coinCard/price/PriceChange";
 
 export const BoxHeader = ({ item }: { item: ICoin }) => {

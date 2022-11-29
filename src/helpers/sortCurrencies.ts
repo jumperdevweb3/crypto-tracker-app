@@ -1,4 +1,4 @@
-import { ICurrencyItem } from "../types/types";
+import { ICurrencyItem } from "@/types/types";
 
 export const sortCurrencies = (
   items: ICurrencyItem[],

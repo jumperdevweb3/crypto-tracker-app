@@ -1,4 +1,4 @@
-import { INewsItems } from "../../types/types";
+import { INewsItems } from "./types";
 
 export const getNewsData = async () => {
   try {

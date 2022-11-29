@@ -1,4 +1,4 @@
-import { Watchlist } from "../../src/components/watchlist/Watchlist";
+import { Watchlist } from "@/components/watchlist/Watchlist";
 import Head from "next/head";
 
 export default function WatchlistPage() {
