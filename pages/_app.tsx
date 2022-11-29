@@ -6,8 +6,10 @@ import store from "@/store/store";
 import { Layout } from "@/components/layout/Layout";
 import { MantineProvider } from "@mantine/core";
 import { QueryClient, QueryClientProvider } from "react-query";
+
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
+    
   return (
     <>
       <Head>
