@@ -11,7 +11,7 @@ import { getCurrenecies } from "./getCurrencies";
 import { ICurrencyItem } from "../../../types/types";
 import { changeDataVariables } from "./changeDataVariables";
 import { sortCurrencies } from "../../../helpers/sortCurrencies";
-
+import { useRouter } from "next/router";
 export const CurrenciesList = () => {
   const [page, setPage] = useState(1);
   const router = useRouter();
