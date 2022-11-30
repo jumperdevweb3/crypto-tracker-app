@@ -9,9 +9,11 @@ import { CompaniesList } from "./companiesList/CompaniesList";
 import { useQuery } from "react-query";
 import { getCompanies } from "../fetchStatistic";
 
-export const Companies = () => {
+export const Companies = ({ initItems }: { initItems: [] | null }) => {
   const [modalActive, setModalActive] = useState(false);
   const [company, setCompany] = useState<ICompaniesItems>();
+  const initItemsExist = initItems && !!initItems.length;
+
   const {
     data: items,
     isLoading,
@@ -19,6 +21,7 @@ export const Companies = () => {
     status,
   } = useQuery<ICompaniesItems[]>("companies", getCompanies, {
     refetchOnWindowFocus: false,
+    initialData: initItemsExist ? initItems : undefined,
   });
   const onModalActive = (item?: ICompaniesItems) => {
     setModalActive((state) => !state);
@@ -30,11 +33,11 @@ export const Companies = () => {
     setModalActive(false);
   };
 
-  const LoadingContent = isLoading && <LoadingSpinner />;
-  const ErrorContent = isError && (
+  const LoadingContent = isLoading && !initItemsExist && <LoadingSpinner />;
+  const ErrorContent = (isError || !items?.length) && !isLoading && (
     <p className="center">Problem with CoinGeco API response.</p>
   );
-  const CompaniesContent = status === "success" && (
+  const CompaniesContent = status === "success" && !!items.length && (
     <>
       <div className={classes["list-description"]}>
         <p>Company</p>
