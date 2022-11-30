@@ -1,13 +1,13 @@
 import classes from "./TrendingStats.module.scss";
 import TrendingStatsBox from "./trendingStatsBox/TrendingStatsBox";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { RootState } from "../../../store/store";
 import { getItems } from "./fetchItems";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
-import { currenciesActions } from "@/store/currencies/currencies-slice";
+import { currenciesActions } from "../../../store/currencies/currencies-slice";
 import { changeDataVariables } from "../currenciesList/changeDataVariables";
-import { ICurrencyItem } from "@/types/types";
+import { ICurrencyItem } from "../../../types/types";
 
 export const TrendingStats = () => {
   const dispatch = useDispatch();

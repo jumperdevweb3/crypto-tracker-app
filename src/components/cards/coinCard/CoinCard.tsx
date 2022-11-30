@@ -2,12 +2,12 @@ import classes from "./CoinCard.module.scss";
 import PriceTimeChange from "./price/PriceTimeChange";
 import { WatchlistButton } from "./WatchlistButton";
 import Link from "next/link";
-import { currencyValueFormat } from "@/helpers/numberFromat";
+import { currencyValueFormat } from "../../../helpers/numberFromat";
 import Price from "./price/PriceChange";
 import Image from "next/image";
 import { memo } from "react";
 //types
-import { ICurrencyItem } from "@/types/types";
+import { ICurrencyItem } from "../../../types/types";
 
 const CoinCard = ({ item }: { item: ICurrencyItem }) => {
   const {

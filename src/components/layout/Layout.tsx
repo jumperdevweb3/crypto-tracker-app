@@ -1,6 +1,6 @@
 import { Navigation } from "./navigation/Navigation";
 import classes from "./Layout.module.scss";
-import { PropsChildren } from "@/types/types";
+import { PropsChildren } from "../../types/types";
 import { RootActions } from "../root/RootActions";
 import { Footer } from "./footer/Footer";
 

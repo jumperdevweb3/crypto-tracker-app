@@ -1,4 +1,4 @@
-import { PropsChildren } from "@/types/types";
+import { PropsChildren } from "../../../../types/types";
 import classes from "./StatsModal.module.scss";
 
 export const StatsModal = ({ children }: PropsChildren) => {

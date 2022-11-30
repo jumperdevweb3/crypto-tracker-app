@@ -5,7 +5,7 @@ import { FcFlashOn, FcRightDown, FcRightUp } from "react-icons/fc";
 import { Modal } from "../../../ui/modals/Modal";
 import { StatsModal } from "../statsModal/StatsModal";
 //types
-import { ICurrencyItem } from "@/types/types";
+import { ICurrencyItem } from "../../../../types/types";
 
 interface Props {
   kind: string;

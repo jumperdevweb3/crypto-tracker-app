@@ -10,13 +10,13 @@
   cursor: pointer;
 
   &:hover {
-    background-color: var(--hover-light-gray);
+    background-color: rgb(55, 58, 64);
   }
   .coin-data {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--color-light-gray);
+    color: rgb(193, 194, 197);
 
     .image {
       padding: 0.3rem;

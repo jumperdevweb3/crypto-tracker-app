@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { BiStar } from "react-icons/bi";
-import { AppDispatch, RootState } from "@/store/store";
+import { AppDispatch, RootState } from "../../../store/store";
 import { AiFillStar } from "react-icons/ai";
-import { watchlistActions } from "@/store/watchlist/watchlist-slice";
-import { ICurrencyItem } from "@/types/types";
+import { watchlistActions } from "../../../store/watchlist/watchlist-slice";
+import { ICurrencyItem } from "../../../types/types";
 
 interface Props {
   classes: any;

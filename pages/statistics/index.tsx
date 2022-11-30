@@ -1,5 +1,4 @@
-import { Statistics } from "@/components/statistic/Statistics";
-
+import { Statistics } from "../../src/components/statistic/Statistics";
 import Head from "next/head";
 export default function StatisticPage() {
   return (

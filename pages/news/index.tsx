@@ -1,6 +1,6 @@
-import { News } from "@/components/news/News";
-import { getNewsData } from "@/components/news/fetchNews";
-import { INewsItems } from "@/components/news/types";
+import { News } from "../../src/components/news/News";
+import { getNewsData } from "../../src/components/news/fetchNews";
+import { INewsItems } from "../../src/types/types";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 

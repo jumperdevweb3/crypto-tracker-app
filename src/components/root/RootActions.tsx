@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { AppDispatch, RootState } from "@/store/store";
+import { AppDispatch, RootState } from "../../store/store";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { watchlistActions } from "@/store/watchlist/watchlist-slice";
-import { PropsChildren } from "@/types/types";
+import { watchlistActions } from "../../store/watchlist/watchlist-slice";
+import { PropsChildren } from "../../types/types";
 
 export const RootActions = ({ children }: PropsChildren) => {
   const dispatch = useDispatch<AppDispatch>();

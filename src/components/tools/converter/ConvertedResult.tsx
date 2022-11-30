@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import classes from "./Converter.module.scss";
-import { RootState } from "@/store/store";
+import { RootState } from "../../../store/store";
 export const ConvertedResult = () => {
   const interNumberFormat = new Intl.NumberFormat("en-US");
   const {

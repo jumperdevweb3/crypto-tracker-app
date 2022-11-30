@@ -1,6 +1,6 @@
 import classes from "./ModalOverlay.module.scss";
 //types
-import { ModalProps } from "@/types/types";
+import { ModalProps } from "../../../types/types";
 
 export const ModalOverlay = (props: ModalProps) => {
   return (

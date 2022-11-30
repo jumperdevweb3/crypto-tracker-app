@@ -1,16 +1,16 @@
 import Link from "next/link";
 import classes from "./Navigation.module.scss";
-import { uiActions } from "@/store/ui/ui-slice";
+import { uiActions } from "../../../store/ui/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
-import { useWindowSize } from "@/hooks/use-windowSize";
+import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";
 import { NavLinks } from "./navLinks/NavLinks";
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
 import { SpotlightModal } from "./spotlightModal/SpotlightModal";
 //types
-import { AppDispatch } from "@/store/store";
-import { RootState } from "@/store/store";
+import { AppDispatch } from "../../../store/store";
+import { RootState } from "../../../store/store";
 
 export const Navigation = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);

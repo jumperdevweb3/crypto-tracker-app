@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IExchangesItems } from "../../types";
+import { IExchangesItems } from "../../../../types/types";
 import classes from "../../CommonBoxStyle.module.scss";
 import Image from "next/image";
 

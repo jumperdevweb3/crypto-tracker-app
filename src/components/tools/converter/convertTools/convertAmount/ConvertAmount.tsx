@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { convertActions } from "@/store/converter/convert-slice";
+import { convertActions } from "../../../../../store/converter/convert-slice";
 import classes from "../convertItem/ConvertItem.module.scss";
 import { FormEvent } from "react";
 //types
-import { AppDispatch } from "@/store/store";
-import { RootState } from "@/store/store";
+import { AppDispatch } from "../../../../../store/store";
+import { RootState } from "../../../../../store/store";
 
 export const ConvertAmount = () => {
   const amount = useSelector((state: RootState) => state.convert.quantity);

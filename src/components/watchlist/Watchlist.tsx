@@ -1,6 +1,6 @@
 //types
-import { ICurrencyItem } from "@/types/types";
-import { RootState } from "@/store/store";
+import { ICurrencyItem } from "../../types/types";
+import { RootState } from "../../store/store";
 //components
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
@@ -8,10 +8,10 @@ import { useQuery } from "react-query";
 import { changeDataVariables } from "../currencies/currenciesList/changeDataVariables";
 import { LoadingSpinner } from "../ui/loadingSpinner/LoadingSpinner";
 import { getWatchItems } from "./fetchWatchItems";
-import { watchlistActions } from "@/store/watchlist/watchlist-slice";
+import { watchlistActions } from "../../store/watchlist/watchlist-slice";
 import { useEffect } from "react";
 import { WatchItemsList } from "./WatchItemsList";
-import { sortCurrencies } from "@/helpers/sortCurrencies";
+import { sortCurrencies } from "../../helpers/sortCurrencies";
 
 export const Watchlist = () => {
   const dispatch = useDispatch();

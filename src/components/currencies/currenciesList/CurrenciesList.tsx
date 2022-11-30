@@ -4,14 +4,13 @@ import { CurrenciesSortMenu } from "./currenciesSortMenu/CurrenciesSortMenu";
 import CoinCard from "../../cards/coinCard/CoinCard";
 import { LoadingSpinner } from "../../ui/loadingSpinner/LoadingSpinner";
 import classes from "./CurrenciesList.module.scss";
-import { RootState } from "@/store/store";
+import { RootState } from "../../../store/store";
 import { PaginationBar } from "../paginationBar/PaginationBar";
 import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
-import { useRouter } from "next/router";
-import { ICurrencyItem } from "@/types/types";
+import { ICurrencyItem } from "../../../types/types";
 import { changeDataVariables } from "./changeDataVariables";
-import { sortCurrencies } from "@/helpers/sortCurrencies";
+import { sortCurrencies } from "../../../helpers/sortCurrencies";
 
 export const CurrenciesList = () => {
   const [page, setPage] = useState(1);
