@@ -51,16 +51,16 @@ export const CurrenciesList = () => {
     <CurrenciesSortMenu page={"home"} />
   );
   const CurrenciesContent = !isLoading && ItemsRender;
-  const NotFoundContent = !sortItems.length && !isLoading && !isError && (
+  const notFoundContent = !sortItems.length && !isLoading && !isError && (
     <p className="center">Not found items.</p>
   );
-  const ErrorContent = isError && <p className="center">Fetch data faild.</p>;
+  const errorContent = isError && <p className="center">Fetch data faild.</p>;
 
   const MarketListContent = data?.length && (
     <div className={classes["market-list"]}>
       {SortMenu}
-      {NotFoundContent}
-      {ErrorContent}
+      {notFoundContent}
+      {errorContent}
       {CurrenciesContent}
     </div>
   );
