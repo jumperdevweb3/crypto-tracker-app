@@ -6,6 +6,7 @@
   width: 62.5rem;
   margin: 2rem auto 0 auto;
   animation: show-slowly 300ms linear;
+  min-height: 40rem;
 
   @media (max-width: 1023px) {
     width: 90%;
