@@ -2,7 +2,7 @@ import classes from "./SearchBar.module.scss";
 import { InputSearch } from "./searchInput/InputSearch";
 import React, { useState } from "react";
 import { SearchItem } from "./searchItem/SearchItem";
-import { useDebounce } from "../../../../../hooks/useDebounce";
+import { useDebounce } from "../../../../../hooks/use-debounce";
 import { fetchCoinByQuery } from "./utils/fetchCoinByQuery";
 import { useQuery } from "react-query";
 import { ITrendingCoin } from "./types";
