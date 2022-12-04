@@ -17,15 +17,18 @@ export default function StatisticPage({
   companiesData,
   exchangesData,
 }: IProps) {
+  const initNfts = !!nftsData.length ? nftsData : null;
+  const initCompanies = !!companiesData.length ? companiesData : null;
+  const initExchanges = !!exchangesData.length ? exchangesData : null;
   return (
     <>
       <Head>
         <title>Statistic | Crypto Tracker</title>
       </Head>
       <Statistics
-        initNfts={!!nftsData.length ? nftsData : null}
-        initCompanies={!!companiesData.length ? companiesData : null}
-        initExchanges={!!exchangesData.length ? exchangesData : null}
+        initNfts={initNfts}
+        initCompanies={initCompanies}
+        initExchanges={initExchanges}
       />
     </>
   );
