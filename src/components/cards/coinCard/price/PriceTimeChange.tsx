@@ -21,7 +21,7 @@ const PriceTimeChange = ({
       {timeIcon}
     </>
   );
-  const TimeContent = time ? TimeValue : <p style={{ color: "#fff" }}>?</p>;
-  return <div className={timeStyle}>{TimeContent}</div>;
+  const timeContent = time ? TimeValue : <p style={{ color: "#fff" }}>?</p>;
+  return <div className={timeStyle}>{timeContent}</div>;
 };
 export default memo(PriceTimeChange);

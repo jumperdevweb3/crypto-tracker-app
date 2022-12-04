@@ -25,35 +25,35 @@ export const CoinStatistic = ({ item }: { item: ICoin }) => {
     ? circulating_supply.toFixed(3)
     : 0;
 
-  const GenesisDateContent = !!genesis_date && (
+  const genesisDateContent = !!genesis_date && (
     <div className={classes.wrapper}>
       <p> Genesis date:</p> <span>{genesis_date}</span>
     </div>
   );
-  const MarketCapContent = !!marketCap && (
+  const marketCapContent = !!marketCap && (
     <div className={classes.wrapper}>
       <p> Market Cap:</p> <span>{currencyValueFormat.format(marketCap)}</span>
     </div>
   );
-  const TotalSupplyContent = !!totalSupply && (
+  const totalSupplyContent = !!totalSupply && (
     <div className={classes.wrapper}>
       <p>Total supply: </p>
       <span>{totalSupply + " " + symbol.toUpperCase()}</span>
     </div>
   );
-  const MaxSupplyContent = !!maxSupply && (
+  const maxSupplyContent = !!maxSupply && (
     <div className={classes.wrapper}>
       <p>Max supply:</p>
       <span>{max_supply + " " + symbol.toUpperCase()}</span>
     </div>
   );
-  const CirculatingSupplyContent = !!circulatingSupply && (
+  const circulatingSupplyContent = !!circulatingSupply && (
     <div className={classes.wrapper}>
       <p> Circulating Supply:</p>{" "}
       <span>{circulatingSupply + " " + symbol.toUpperCase()}</span>
     </div>
   );
-  const AthContent = !!ath && (
+  const athContent = !!ath && (
     <div className={classes.wrapper}>
       <p>All Time High:</p>
       <span>
@@ -63,13 +63,13 @@ export const CoinStatistic = ({ item }: { item: ICoin }) => {
       </span>
     </div>
   );
-  const AthPercentageContent = !!athPercent && (
+  const athPercentageContent = !!athPercent && (
     <div className={classes.wrapper}>
       <p>Price change from ATH:</p>
       <PriceTimeChange time={athPercent} classes={classes} />
     </div>
   );
-  const LastUpdateContent = !!lastUpdate && (
+  const lastUpdateContent = !!lastUpdate && (
     <div className={classes["date-box"]}>
       <p>Last update date (UTC): </p>
       <span className={classes.date}>
@@ -79,14 +79,14 @@ export const CoinStatistic = ({ item }: { item: ICoin }) => {
   );
   return (
     <div className={classes["stats-box"]}>
-      {GenesisDateContent}
-      {MarketCapContent}
-      {TotalSupplyContent}
-      {MaxSupplyContent}
-      {CirculatingSupplyContent}
-      {AthContent}
-      {AthPercentageContent}
-      {LastUpdateContent}
+      {genesisDateContent}
+      {marketCapContent}
+      {totalSupplyContent}
+      {maxSupplyContent}
+      {circulatingSupplyContent}
+      {athContent}
+      {athPercentageContent}
+      {lastUpdateContent}
     </div>
   );
 };

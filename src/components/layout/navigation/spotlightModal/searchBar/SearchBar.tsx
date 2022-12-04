@@ -41,16 +41,16 @@ export const SearchBar = ({ trendingSearch: items }: IProps) => {
     setInputValue(newValue.toLowerCase());
   };
 
-  const LoadingContent = isLoading && (
+  const loadingContent = isLoading && (
     <li className={classes["result-info"]}>Loading ...</li>
   );
-  const NotFoundContent = status === "success" && !data.length && (
+  const notFoundContent = status === "success" && !data.length && (
     <li className={classes["result-info"]}>Not found items.</li>
   );
-  const ErrorContent = isError && (
+  const errorContent = isError && (
     <li className={classes["result-info"]}>Problem with CoinGeco API.</li>
   );
-  const TrendingSearchContent = !inputValue && (
+  const trendingSearchContent = !inputValue && (
     <li className={classes["result-info"]}>Trending search 🔥</li>
   );
 
@@ -62,11 +62,11 @@ export const SearchBar = ({ trendingSearch: items }: IProps) => {
     <div className={classes["result-box"]}>
       <ul className={classes.list}>
         {SearchItems}
-        {TrendingSearchContent}
+        {trendingSearchContent}
         {ShowInitialItems}
-        {LoadingContent}
-        {NotFoundContent}
-        {ErrorContent}
+        {loadingContent}
+        {notFoundContent}
+        {errorContent}
       </ul>
     </div>
   );

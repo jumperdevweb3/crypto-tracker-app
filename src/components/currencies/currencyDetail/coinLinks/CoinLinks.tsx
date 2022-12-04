@@ -12,7 +12,7 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
     (i) => i.trim().length
   );
 
-  const ForumLinks = existForumLinks
+  const forumLinks = existForumLinks
     ? existForumLinks.map((i) => (
         <a href={i} key={i}>
           {i}
@@ -20,7 +20,7 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
       ))
     : null;
 
-  const HomepageLinks = existHompageLinks
+  const homepageLinks = existHompageLinks
     ? existHompageLinks.map((i) => (
         <a href={i} key={i}>
           {i}
@@ -28,7 +28,7 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
       ))
     : null;
 
-  const BlokchainLinks = existBlokchainLinks
+  const blokchainLinks = existBlokchainLinks
     ? existBlokchainLinks.map((i) => (
         <a href={i} key={i}>
           {i}
@@ -41,29 +41,29 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
     existBlokchainLinks.length > 0 ||
     existForumLinks.length > 0;
 
-  const BlokchainLinksContent = existBlokchainLinks.length > 0 && (
+  const blokchainLinksContent = existBlokchainLinks.length > 0 && (
     <div className={classes.wrapper}>
       <p className={classes.title}>Blokchain: </p>
-      <div className={classes.links}>{BlokchainLinks}</div>
+      <div className={classes.links}>{blokchainLinks}</div>
     </div>
   );
-  const HompageLinksContent = existHompageLinks.length > 0 && (
+  const hompageLinksContent = existHompageLinks.length > 0 && (
     <div className={classes.wrapper}>
       <p className={classes.title}>Homepage:</p>
-      <div className={classes.links}>{HomepageLinks}</div>
+      <div className={classes.links}>{homepageLinks}</div>
     </div>
   );
-  const ForumLinksContent = existForumLinks.length > 0 && (
+  const forumLinksContent = existForumLinks.length > 0 && (
     <div className={classes.wrapper}>
       <p className={classes.title}>Official Forum:</p>
-      <div className={classes.links}>{ForumLinks}</div>
+      <div className={classes.links}>{forumLinks}</div>
     </div>
   );
   const LinksContent = linksExist && (
     <div className={classes["links-box"]}>
-      {BlokchainLinksContent}
-      {HompageLinksContent}
-      {ForumLinksContent}
+      {blokchainLinksContent}
+      {hompageLinksContent}
+      {forumLinksContent}
     </div>
   );
   return <>{LinksContent}</>;

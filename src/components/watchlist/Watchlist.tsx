@@ -56,13 +56,13 @@ export const Watchlist = () => {
   const WatchlistContent = !!watchItems.length && !isLoading && (
     <WatchItemsList items={watchItems} />
   );
-  const NoItemsContent = !watchItems.length && !isError && (
+  const noItemsContent = !watchItems.length && !isError && (
     <p className="center-item xl">
       No items, you can add coin from <Link href="/">Home Page</Link> to your
       watchlist.
     </p>
   );
-  const ErrorContent = isError && (
+  const errorContent = isError && (
     <p className="center-item xl">
       Problem with CoinGeco API - try again late.
     </p>
@@ -71,9 +71,9 @@ export const Watchlist = () => {
   return (
     <>
       {WatchlistContent}
-      {NoItemsContent}
+      {noItemsContent}
       {LoadingContent}
-      {ErrorContent}
+      {errorContent}
     </>
   );
 };

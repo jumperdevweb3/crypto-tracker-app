@@ -38,7 +38,7 @@ export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
     },
   ];
 
-  const PriceTableContent = priceTable.map((item) => (
+  const priceTableContent = priceTable.map((item) => (
     <div className={classes["table-row"]} key={item.title}>
       <p className={classes["row-title"]}>{item.title}</p>
       <PriceTimeChange time={item.price} classes={classes} key={item.price} />
@@ -46,7 +46,7 @@ export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
   ));
   return (
     <div className={classes.container}>
-      <div className={classes.table}>{PriceTableContent}</div>
+      <div className={classes.table}>{priceTableContent}</div>
     </div>
   );
 };

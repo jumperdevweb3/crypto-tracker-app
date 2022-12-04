@@ -35,7 +35,7 @@ export const Nfts = ({ initItems }: { initItems: [] | null }) => {
   };
 
   const LoadingContent = isLoading && !initItemsExist && <LoadingSpinner />;
-  const ItemsContent = status === "success" && !!items.length && (
+  const itemsContent = status === "success" && !!items.length && (
     <>
       <div className={classes["list-description"]}>
         <p>Name</p>
@@ -46,7 +46,7 @@ export const Nfts = ({ initItems }: { initItems: [] | null }) => {
       </ul>
     </>
   );
-  const ErrorContent = (isError || !items?.length) && !isLoading && (
+  const errorContent = (isError || !items?.length) && !isLoading && (
     <p className="center">Problem with CoinGeco response.</p>
   );
   const ModalContent = modalOpen && (
@@ -58,8 +58,8 @@ export const Nfts = ({ initItems }: { initItems: [] | null }) => {
     <div className={style.container}>
       <p className={style.title}>Top 24h volume Nft`s List</p>
       {LoadingContent}
-      {ItemsContent}
-      {ErrorContent}
+      {itemsContent}
+      {errorContent}
       {ModalContent}
     </div>
   );

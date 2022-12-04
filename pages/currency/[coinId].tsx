@@ -18,16 +18,16 @@ export default function CoinDetailPage() {
     }
   );
 
-  const NotFoundContent = item?.error && <p className="center">{item.error}</p>;
-  const CoinDetialsContent = !item?.error && item && (
+  const notFoundContent = item?.error && <p className="center">{item.error}</p>;
+  const coinDetialsContent = !item?.error && item && (
     <CurrenciesDetail item={item} />
   );
   const LoadingContent = isLoading && <LoadingSpinner />;
   return (
     <>
-      {NotFoundContent}
+      {notFoundContent}
       {LoadingContent}
-      {CoinDetialsContent}
+      {coinDetialsContent}
     </>
   );
 }

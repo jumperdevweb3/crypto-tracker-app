@@ -34,10 +34,10 @@ export const Companies = ({ initItems }: { initItems: [] | null }) => {
   };
 
   const LoadingContent = isLoading && !initItemsExist && <LoadingSpinner />;
-  const ErrorContent = (isError || !items?.length) && !isLoading && (
+  const errorContent = (isError || !items?.length) && !isLoading && (
     <p className="center">Problem with CoinGeco API response.</p>
   );
-  const CompaniesContent = status === "success" && !!items.length && (
+  const companiesContent = status === "success" && !!items.length && (
     <>
       <div className={classes["list-description"]}>
         <p>Company</p>
@@ -57,8 +57,8 @@ export const Companies = ({ initItems }: { initItems: [] | null }) => {
     <div className={style.container}>
       <p className={style.title}>Companies</p>
       {LoadingContent}
-      {CompaniesContent}
-      {ErrorContent}
+      {companiesContent}
+      {errorContent}
       {ModalContent}
     </div>
   );

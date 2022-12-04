@@ -18,7 +18,7 @@ export const Community = ({ item }: { item: ICoin }) => {
     !!redditAveragePost ||
     !!redditAverageComments;
 
-  const RedditSubsContent = !!redditSubs && (
+  const redditSubsContent = !!redditSubs && (
     <p>
       <BsReddit color="#FF4500" fontSize={"1.5rem"} />
       Reddit subscribers
@@ -30,7 +30,7 @@ export const Community = ({ item }: { item: ICoin }) => {
       </span>
     </p>
   );
-  const TwitterContent = !!twitter && (
+  const twitterContent = !!twitter && (
     <p>
       <BsTwitter color="#1DA1F2" fontSize={"1.5rem"} />
       Follow{"`"}s{" "}
@@ -41,7 +41,7 @@ export const Community = ({ item }: { item: ICoin }) => {
       </span>
     </p>
   );
-  const RedditAccountsContent = !!redditAccountsActive && (
+  const redditAccountsContent = !!redditAccountsActive && (
     <p>
       <BsReddit color="#FF4500" fontSize={"1.5rem"} />
       Reddit accounts active (48h)
@@ -52,7 +52,7 @@ export const Community = ({ item }: { item: ICoin }) => {
       </span>
     </p>
   );
-  const RedditAveragePostsContent = !!redditAveragePost && (
+  const redditAveragePostsContent = !!redditAveragePost && (
     <p>
       <BsReddit color="#FF4500" fontSize={"1.5rem"} />
       Reddit average posts (48h)
@@ -64,7 +64,7 @@ export const Community = ({ item }: { item: ICoin }) => {
       </span>
     </p>
   );
-  const RedditAverageCommentsContent = !!redditAverageComments && (
+  const redditAverageCommentsContent = !!redditAverageComments && (
     <p>
       <BsReddit color="#FF4500" fontSize={"1.5rem"} />
       Reddit average comments (48h)
@@ -76,16 +76,16 @@ export const Community = ({ item }: { item: ICoin }) => {
       </span>
     </p>
   );
-  const CommunnityContent = communityExist && (
+  const communnityContent = communityExist && (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        {TwitterContent}
-        {RedditSubsContent}
-        {RedditAccountsContent}
-        {RedditAveragePostsContent}
-        {RedditAverageCommentsContent}
+        {twitterContent}
+        {redditSubsContent}
+        {redditAccountsContent}
+        {redditAveragePostsContent}
+        {redditAverageCommentsContent}
       </div>
     </div>
   );
-  return <>{CommunnityContent}</>;
+  return <>{communnityContent}</>;
 };
