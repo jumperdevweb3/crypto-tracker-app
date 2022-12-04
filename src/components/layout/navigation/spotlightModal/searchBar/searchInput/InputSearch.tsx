@@ -18,6 +18,7 @@ export const InputSearch = ({ placeholder, onChange, value }: IProps) => {
         onChange={onChange}
         value={value}
         autoFocus
+        aria-label="Search input"
       />
     </div>
   );
