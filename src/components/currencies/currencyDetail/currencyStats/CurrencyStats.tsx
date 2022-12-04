@@ -19,11 +19,11 @@ export const CurrencyStats = ({ item }: IProps) => {
       <div className={classes["box-wrapper"]}>
         <div className={classes.detials}>
           <CoinStatistic item={item} />
-          <CoinLinks item={item} />
+          <CoinLinks links={item.links} />
         </div>
         <Chart id={item.id} />
       </div>
-      <Community item={item} />
+      <Community community={item.community_data} />
       <CoinDescription description={item.description.en} />
     </div>
   );
