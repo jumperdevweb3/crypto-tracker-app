@@ -31,6 +31,9 @@ const CoinCard = ({ item }: { item: ICurrencyItem }) => {
     ? currencyValueFormat.format(total_volume)
     : "?";
   const marketRankContent = !!market_cap_rank ? market_cap_rank : "?";
+
+  const img = image.length < 20 ? "/missing_large.png" : image;
+
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${id}`}>
@@ -41,7 +44,7 @@ const CoinCard = ({ item }: { item: ICurrencyItem }) => {
         <p>{marketRankContent}</p>
       </div>
       <div className={classes.name}>
-        <Image src={image} alt={name} width={"21px"} height={"21px"} />
+        <Image src={img} alt={name} width={"21px"} height={"21px"} />
         <p className={classes.title}>{name}</p>
       </div>
       <div className={classes.symbol}>
