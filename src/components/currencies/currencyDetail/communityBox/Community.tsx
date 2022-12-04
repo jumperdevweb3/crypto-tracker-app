@@ -2,14 +2,16 @@ import { ICoin } from "@/types/types";
 import classes from "./Community.module.scss";
 import { BsTwitter, BsReddit } from "react-icons/bs";
 
-export const Community = ({ item }: { item: ICoin }) => {
-  const { community_data } = item;
-
-  const twitter = community_data.twitter_followers;
-  const redditAccountsActive = community_data.reddit_accounts_active_48h;
-  const redditSubs = community_data.reddit_subscribers;
-  const redditAveragePost = community_data.reddit_average_posts_48h;
-  const redditAverageComments = community_data.reddit_average_comments_48h;
+export const Community = ({
+  community,
+}: {
+  community: ICoin["community_data"];
+}) => {
+  const twitter = community.twitter_followers;
+  const redditAccountsActive = community.reddit_accounts_active_48h;
+  const redditSubs = community.reddit_subscribers;
+  const redditAveragePost = community.reddit_average_posts_48h;
+  const redditAverageComments = community.reddit_average_comments_48h;
 
   const communityExist =
     !!twitter ||
