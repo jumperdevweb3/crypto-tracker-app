@@ -1,6 +1,6 @@
 import classes from "./NftDetails.module.scss";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { currencyValueFormat } from "@/helpers/numberFromat";
+import { currencyValueFormat } from "src/utils/numberFromat";
 import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import Image from "next/image";
 import { INft } from "../../types";

@@ -5,13 +5,13 @@ import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { useQuery } from "react-query";
-import { changeDataVariables } from "../currencies/currenciesList/changeDataVariables";
+import { changeDataVariables } from "../../utils/changeDataVariables";
 import { LoadingSpinner } from "../ui/loadingSpinner/LoadingSpinner";
 import { getWatchItems } from "./fetchWatchItems";
 import { watchlistActions } from "@/store/watchlist/watchlist-slice";
 import { useEffect } from "react";
 import { WatchItemsList } from "./WatchItemsList";
-import { sortCurrencies } from "@/helpers/sortCurrencies";
+import { sortCurrencies } from "src/utils/sortCurrencies";
 
 export const Watchlist = () => {
   const dispatch = useDispatch();

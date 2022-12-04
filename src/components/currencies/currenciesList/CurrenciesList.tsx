@@ -10,8 +10,8 @@ import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
 import { useRouter } from "next/router";
 import { ICurrencyItem } from "@/types/types";
-import { changeDataVariables } from "./changeDataVariables";
-import { sortCurrencies } from "@/helpers/sortCurrencies";
+import { changeDataVariables } from "../../../utils/changeDataVariables";
+import { sortCurrencies } from "src/utils/sortCurrencies";
 
 export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const [page, setPage] = useState(1);

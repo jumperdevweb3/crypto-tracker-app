@@ -1,6 +1,6 @@
 import { ICompaniesItems } from "../../types";
 import classes from "../../CommonBoxStyle.module.scss";
-import { currencyValueFormat } from "@/helpers/numberFromat";
+import { currencyValueFormat } from "src/utils/numberFromat";
 
 export const Company = ({ item }: { item: ICompaniesItems }) => {
   const {

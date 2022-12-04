@@ -6,7 +6,7 @@ import { getItems } from "./fetchItems";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { currenciesActions } from "@/store/currencies/currencies-slice";
-import { changeDataVariables } from "../currenciesList/changeDataVariables";
+import { changeDataVariables } from "../../../utils/changeDataVariables";
 import { ICurrencyItem } from "@/types/types";
 
 export const TrendingStats = () => {

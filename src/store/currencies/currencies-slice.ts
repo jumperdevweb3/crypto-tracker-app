@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ICurrencyItem } from "@/types/types";
-import { sortCurrencies } from "@/helpers/sortCurrencies";
+import { sortCurrencies } from "src/utils/sortCurrencies";
 
 interface CurrenciesState {
   trendingItems: ICurrencyItem[];

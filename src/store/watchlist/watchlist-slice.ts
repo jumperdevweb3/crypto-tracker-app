@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sortCurrencies } from "@/helpers/sortCurrencies";
+import { sortCurrencies } from "src/utils/sortCurrencies";
 import { ICurrencyItem } from "@/types/types";
 
 interface WatchlistState {

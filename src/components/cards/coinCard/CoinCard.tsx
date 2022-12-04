@@ -1,8 +1,8 @@
 import classes from "./CoinCard.module.scss";
 import PriceTimeChange from "./price/PriceTimeChange";
-import { WatchlistButton } from "./WatchlistButton";
+import { WatchlistButton } from "./watchlistButton/WatchlistButton";
 import Link from "next/link";
-import { currencyValueFormat } from "@/helpers/numberFromat";
+import { currencyValueFormat } from "src/utils/numberFromat";
 import Price from "./price/PriceChange";
 import Image from "next/image";
 import { memo } from "react";
