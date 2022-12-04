@@ -1,16 +1,12 @@
+import { ICoin } from "@/types/types";
 import PriceTimeChange from "../../../cards/coinCard/price/PriceTimeChange";
 import classes from "./PriceChangeTable.module.scss";
 
-interface IProps {
-  price_change_percentage_24h: number;
-  price_change_percentage_7d: number;
-  price_change_percentage_14d: number;
-  price_change_percentage_30d: number;
-  price_change_percentage_60d: number;
-  price_change_percentage_200d: number;
-  price_change_percentage_1y: number;
-}
-export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
+export const PriceChangeTable = ({
+  market_data,
+}: {
+  market_data: ICoin["market_data"];
+}) => {
   const priceTable = [
     {
       title: "24h",

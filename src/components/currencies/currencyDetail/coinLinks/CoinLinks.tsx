@@ -1,8 +1,8 @@
 import { ICoin } from "@/types/types";
+import { InstanceOf } from "reselect/es/types";
 import classes from "./CoinLinks.module.scss";
 
-export const CoinLinks = ({ item }: { item: ICoin }) => {
-  const { links } = item;
+export const CoinLinks = ({ links }: { links: ICoin["links"] }) => {
   const existHompageLinks = links.homepage.filter((i) => i.trim().length);
   const existBlokchainLinks = links.blockchain_site.filter(
     (i) => i.trim().length
