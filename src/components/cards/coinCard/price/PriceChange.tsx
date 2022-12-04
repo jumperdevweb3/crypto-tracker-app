@@ -8,10 +8,12 @@ const Price = ({ price }: { price: number }) => {
     lower: "red",
     duration: 3500,
   });
-  const coinPrice =
-    currencyValueFormat.format(price) === "$0.00"
+  const priceExist = price ? true : false;
+  const coinPrice = priceExist
+    ? currencyValueFormat.format(price) === "$0.00"
       ? "$" + price.toFixed(9)
-      : currencyValueFormat.format(price);
+      : currencyValueFormat.format(price)
+    : "?";
   return <p style={colorStyle}>{coinPrice}</p>;
 };
 
