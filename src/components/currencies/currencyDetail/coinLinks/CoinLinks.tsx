@@ -3,7 +3,6 @@ import classes from "./CoinLinks.module.scss";
 
 export const CoinLinks = ({ item }: { item: ICoin }) => {
   const { links } = item;
-
   const existHompageLinks = links.homepage.filter((i) => i.trim().length);
   const existBlokchainLinks = links.blockchain_site.filter(
     (i) => i.trim().length
@@ -12,10 +11,14 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
     (i) => i.trim().length
   );
 
+  const splitLink = (url: string) => {
+    return url.split("/")[2];
+  };
+
   const forumLinks = existForumLinks
     ? existForumLinks.map((i) => (
         <a href={i} key={i}>
-          {i}
+          {splitLink(i)}
         </a>
       ))
     : null;
@@ -23,7 +26,7 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
   const homepageLinks = existHompageLinks
     ? existHompageLinks.map((i) => (
         <a href={i} key={i}>
-          {i}
+          {splitLink(i)}
         </a>
       ))
     : null;
@@ -31,7 +34,7 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
   const blokchainLinks = existBlokchainLinks
     ? existBlokchainLinks.map((i) => (
         <a href={i} key={i}>
-          {i}
+          {splitLink(i)}
         </a>
       ))
     : null;
@@ -59,12 +62,12 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
       <div className={classes.links}>{forumLinks}</div>
     </div>
   );
-  const LinksContent = linksExist && (
+  const linksContent = linksExist && (
     <div className={classes["links-box"]}>
       {blokchainLinksContent}
       {hompageLinksContent}
       {forumLinksContent}
     </div>
   );
-  return <>{LinksContent}</>;
+  return <>{linksContent}</>;
 };
