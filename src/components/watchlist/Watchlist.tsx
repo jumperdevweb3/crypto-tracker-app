@@ -5,13 +5,13 @@ import { RootState } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { useQuery } from "react-query";
-import { changeDataVariables } from "../currencies/currenciesList/changeDataVariables";
+import { changeDataVariables } from "../../utils/changeDataVariables";
 import { LoadingSpinner } from "../ui/loadingSpinner/LoadingSpinner";
 import { getWatchItems } from "./fetchWatchItems";
 import { watchlistActions } from "../../store/watchlist/watchlist-slice";
 import { useEffect } from "react";
 import { WatchItemsList } from "./WatchItemsList";
-import { sortCurrencies } from "../../helpers/sortCurrencies";
+import { sortCurrencies } from "src/utils/sortCurrencies";
 
 export const Watchlist = () => {
   const dispatch = useDispatch();
@@ -56,13 +56,13 @@ export const Watchlist = () => {
   const WatchlistContent = !!watchItems.length && !isLoading && (
     <WatchItemsList items={watchItems} />
   );
-  const NoItemsContent = !watchItems.length && !isError && (
+  const noItemsContent = !watchItems.length && !isError && !isLoading && (
     <p className="center-item xl">
       No items, you can add coin from <Link href="/">Home Page</Link> to your
       watchlist.
     </p>
   );
-  const ErrorContent = isError && (
+  const errorContent = isError && (
     <p className="center-item xl">
       Problem with CoinGeco API - try again late.
     </p>
@@ -71,9 +71,9 @@ export const Watchlist = () => {
   return (
     <>
       {WatchlistContent}
-      {NoItemsContent}
+      {noItemsContent}
       {LoadingContent}
-      {ErrorContent}
+      {errorContent}
     </>
   );
 };

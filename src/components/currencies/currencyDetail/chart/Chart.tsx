@@ -20,10 +20,10 @@ export const Chart = ({ id }: { id: string }) => {
     keepPreviousData: true,
   });
   const LoadingContent = isLoading && <LoadingSpinner />;
-  const ErrorContent = isError && (
+  const errorContent = isError && (
     <p className="center">Chart is not available</p>
   );
-  const ChartContent = status === "success" && (
+  const chartContent = status === "success" && (
     <>
       <TradingViewChart chartData={chartData} />
       <p className={classes["chart-info"]}>
@@ -38,9 +38,9 @@ export const Chart = ({ id }: { id: string }) => {
     <>
       <div className={classes["chart-box"]}>
         <div id="chart">
-          {ChartContent}
+          {chartContent}
           {LoadingContent}
-          {ErrorContent}
+          {errorContent}
         </div>
       </div>
     </>

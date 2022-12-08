@@ -1,6 +1,6 @@
 import classes from "./NftDetails.module.scss";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { currencyValueFormat } from "../../../../helpers/numberFromat";
+import { currencyValueFormat } from "src/utils/numberFromat";
 import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import Image from "next/image";
 import { INft } from "../../../../types/types";
@@ -15,12 +15,12 @@ export const NftDetials = ({ id }: { id: string }) => {
     status,
   } = useQuery<INft>([`nft`, id], () => getSingleNft(id));
 
-  const ErrorContent = isError && (
+  const errorContent = isError && (
     <p className="center">Problem with CoinGeco response.</p>
   );
   const LoadingContent = isLoading && <LoadingSpinner />;
 
-  const ItemContent = status === "success" && (
+  const itemContent = status === "success" && (
     <div className={classes.container}>
       <div className={classes["name-box"]}>
         {item.image.small && (
@@ -112,8 +112,8 @@ export const NftDetials = ({ id }: { id: string }) => {
   return (
     <>
       {LoadingContent}
-      {ItemContent}
-      {ErrorContent}
+      {itemContent}
+      {errorContent}
     </>
   );
 };

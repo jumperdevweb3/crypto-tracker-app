@@ -18,8 +18,8 @@ export const ConvertedResult = () => {
           ${interNumberFormat.format(result)} 
           ${itemToData.name}`
       : "Please Select Data";
-  const ResultContent = warning ? "Incorrect value!" : resultView;
-  const WarningContent = warning && (
+  const resultContent = warning ? "Incorrect value!" : resultView;
+  const warningContent = warning && (
     <p className={classes["result-warning"]}>
       {` * Max length amount = 21 and Number can't be < 0.`}
     </p>
@@ -27,8 +27,8 @@ export const ConvertedResult = () => {
   return (
     <div className={classes.result}>
       <p>Converted Result:</p>
-      <p className={classes["result-number"]}>{ResultContent}</p>
-      {WarningContent}
+      <p className={classes["result-number"]}>{resultContent}</p>
+      {warningContent}
     </div>
   );
 };

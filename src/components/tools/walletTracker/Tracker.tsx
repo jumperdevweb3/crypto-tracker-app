@@ -40,7 +40,7 @@ export const Tracker = () => {
     setInputValue("");
   };
   const LoadingContent = isLoading && <LoadingSpinner />;
-  const ResultContent = result.amount ? (
+  const resultContent = result.amount ? (
     <p>
       Entered Wallet have a{" "}
       <span className={classes.amount}>{result.amount.toFixed(10)}</span> ETH
@@ -48,7 +48,7 @@ export const Tracker = () => {
   ) : (
     "Search to show wallet ETH balance."
   );
-  const ErrorContent = result.error && (
+  const errorContent = result.error && (
     <p className={classes.error}>{result.error}</p>
   );
   return (
@@ -66,8 +66,8 @@ export const Tracker = () => {
         </button>
       </form>
       {LoadingContent}
-      <div className={classes.result}>{ResultContent}</div>
-      {ErrorContent}
+      <div className={classes.result}>{resultContent}</div>
+      {errorContent}
       <p className={classes.description}>
         *You can use test wallet address -
         0x0D992fF8cd5c417Ce6c935A6d36e027f91119Ccf

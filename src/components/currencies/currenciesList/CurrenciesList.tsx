@@ -8,22 +8,28 @@ import { RootState } from "../../../store/store";
 import { PaginationBar } from "../paginationBar/PaginationBar";
 import { useQuery } from "react-query";
 import { getCurrenecies } from "./getCurrencies";
-import { ICurrencyItem } from "../../../types/types";
-import { changeDataVariables } from "./changeDataVariables";
-import { sortCurrencies } from "../../../helpers/sortCurrencies";
 import { useRouter } from "next/router";
-export const CurrenciesList = () => {
+import { ICurrencyItem } from "@/types/types";
+import { changeDataVariables } from "../../../utils/changeDataVariables";
+import { sortCurrencies } from "src/utils/sortCurrencies";
+
+export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const [page, setPage] = useState(1);
   const router = useRouter();
   const { sortActive } = useSelector((state: RootState) => state.currencies);
+  const initDataExist = initItems && !!initItems.length;
 
-  const { data, isError, isLoading, status, isPreviousData } = useQuery<
-    ICurrencyItem[]
-  >(["currencies", page], () => getCurrenecies(page, 100), {
-    keepPreviousData: true,
-    refetchInterval: 35000,
-  });
-
+  const { data, isError, isLoading, status, isPreviousData, isFetching } =
+    useQuery<ICurrencyItem[]>(
+      ["currencies", page],
+      () => getCurrenecies(page, 100),
+      {
+        keepPreviousData: true,
+        refetchInterval: 35000,
+        initialData: initDataExist ? initItems : undefined,
+      }
+    );
+  const dataExist = !!data?.length;
   useEffect(() => {
     if (typeof router.query.page === "string") {
       setPage(+router.query.page);
@@ -33,7 +39,9 @@ export const CurrenciesList = () => {
     }
   }, [router]);
 
-  const LoadingContent = isLoading && !isPreviousData && <LoadingSpinner />;
+  const LoadingContent = !initDataExist && isLoading && !isPreviousData && (
+    <LoadingSpinner />
+  );
 
   const sortItems =
     status === "success"
@@ -50,20 +58,21 @@ export const CurrenciesList = () => {
     <CurrenciesSortMenu page={"home"} />
   );
   const CurrenciesContent = !isLoading && ItemsRender;
-  const NotFoundContent = !sortItems.length && !isLoading && !isError && (
+  const notFoundContent = !sortItems.length && !isLoading && !isError && (
     <p className="center">Not found items.</p>
   );
-  const ErrorContent = isError && <p className="center">Fetch data faild.</p>;
+  const errorContent = (isError || !dataExist) && !isLoading && !isFetching && (
+    <p className="center">Cannot load data.</p>
+  );
 
-  const MarketListContent = data?.length && (
+  const MarketListContent = dataExist && (
     <div className={classes["market-list"]}>
       {SortMenu}
-      {NotFoundContent}
-      {ErrorContent}
+      {notFoundContent}
       {CurrenciesContent}
     </div>
   );
-  const PaginationContent = !isError && !isLoading && (
+  const PaginationContent = !isError && !isLoading && dataExist && (
     <PaginationBar
       isLoading={isLoading}
       disabled={isPreviousData || !data}
@@ -73,6 +82,7 @@ export const CurrenciesList = () => {
   return (
     <>
       {LoadingContent}
+      {errorContent}
       {MarketListContent}
       {PaginationContent}
     </>

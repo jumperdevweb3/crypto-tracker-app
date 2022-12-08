@@ -1,6 +1,6 @@
 import { ICompaniesItems } from "../../../../types/types";
 import classes from "../../CommonBoxStyle.module.scss";
-import { currencyValueFormat } from "../../../../helpers/numberFromat";
+import { currencyValueFormat } from "src/utils/numberFromat";
 
 export const Company = ({ item }: { item: ICompaniesItems }) => {
   const {
@@ -13,34 +13,34 @@ export const Company = ({ item }: { item: ICompaniesItems }) => {
     percentage_of_total_supply,
   } = item;
 
-  const SymbolContent = !!symbol && (
+  const symbolContent = !!symbol && (
     <p>
       Symbol: <span>{symbol}</span>
     </p>
   );
-  const CountryContent = !!country && (
+  const countryContent = !!country && (
     <p>
       Country: <span>{country}</span>
     </p>
   );
-  const TotalHoldingsContent = !!total_holdings && (
+  const totalHoldingsContent = !!total_holdings && (
     <p>
       Total holdings: <span>{total_holdings} BTC</span>
     </p>
   );
-  const SupplyPercentContent = !!percentage_of_total_supply && (
+  const supplyPercentContent = !!percentage_of_total_supply && (
     <p className={classes.volume}>
       Percentage of total supply:{" "}
       <span>{percentage_of_total_supply.toFixed(4)} BTC</span>
     </p>
   );
-  const EntryValueContent = !!total_entry_value_usd && (
+  const entryValueContent = !!total_entry_value_usd && (
     <p>
       Total entry value USD:{" "}
       <span>{currencyValueFormat.format(total_entry_value_usd)}</span>
     </p>
   );
-  const CurrentValueContent = !!total_current_value_usd && (
+  const currentValueContent = !!total_current_value_usd && (
     <p>
       Total Current value USD:{" "}
       <span>{currencyValueFormat.format(total_current_value_usd)}</span>
@@ -52,12 +52,12 @@ export const Company = ({ item }: { item: ICompaniesItems }) => {
         <p>{name} </p>
       </div>
       <div className={classes["data-box"]}>
-        {SymbolContent}
-        {CountryContent}
-        {TotalHoldingsContent}
-        {SupplyPercentContent}
-        {EntryValueContent}
-        {CurrentValueContent}
+        {symbolContent}
+        {countryContent}
+        {totalHoldingsContent}
+        {supplyPercentContent}
+        {entryValueContent}
+        {currentValueContent}
       </div>
     </div>
   );

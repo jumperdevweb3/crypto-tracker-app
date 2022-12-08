@@ -1,16 +1,12 @@
+import { ICoin } from "@/types/types";
 import PriceTimeChange from "../../../cards/coinCard/price/PriceTimeChange";
 import classes from "./PriceChangeTable.module.scss";
 
-interface IProps {
-  price_change_percentage_24h: number;
-  price_change_percentage_7d: number;
-  price_change_percentage_14d: number;
-  price_change_percentage_30d: number;
-  price_change_percentage_60d: number;
-  price_change_percentage_200d: number;
-  price_change_percentage_1y: number;
-}
-export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
+export const PriceChangeTable = ({
+  market_data,
+}: {
+  market_data: ICoin["market_data"];
+}) => {
   const priceTable = [
     {
       title: "24h",
@@ -38,7 +34,7 @@ export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
     },
   ];
 
-  const PriceTableContent = priceTable.map((item) => (
+  const priceTableContent = priceTable.map((item) => (
     <div className={classes["table-row"]} key={item.title}>
       <p className={classes["row-title"]}>{item.title}</p>
       <PriceTimeChange time={item.price} classes={classes} key={item.price} />
@@ -46,7 +42,7 @@ export const PriceChangeTable = ({ market_data }: { market_data: IProps }) => {
   ));
   return (
     <div className={classes.container}>
-      <div className={classes.table}>{PriceTableContent}</div>
+      <div className={classes.table}>{priceTableContent}</div>
     </div>
   );
 };

@@ -59,12 +59,12 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
   }, [quantity, itemFrom, itemTo]);
 
   const firstView = !wasSelected;
-  const SelectContent = firstView && (
+  const selectContent = firstView && (
     <option className={classes.option} value="">
       Please select currency
     </option>
   );
-  const ErrorContent = isError && <option value={0}>Data load problem</option>;
+  const errorContent = isError && <option value={0}>Data load problem</option>;
   return (
     <div className={classes.box}>
       <div className={classes.selects}>
@@ -76,9 +76,9 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
           value={nameInputValue}
         >
           <optgroup label="Cryptocurrencies">
-            {SelectContent}
+            {selectContent}
             {currenciesData && OptionItems}
-            {ErrorContent}
+            {errorContent}
           </optgroup>
         </select>
       </div>

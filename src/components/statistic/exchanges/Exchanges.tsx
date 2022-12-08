@@ -9,10 +9,10 @@ import { ExchangesList } from "./exchangesList/ExchangesList";
 import { useQuery } from "react-query";
 import { getExchanges } from "../fetchStatistic";
 
-export const Exchanges = () => {
+export const Exchanges = ({ initItems }: { initItems: [] | null }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [item, setItem] = useState<IExchangesItems>();
-
+  const initItemsExist = initItems && !!initItems.length;
   const {
     data: items,
     isError,
@@ -20,6 +20,7 @@ export const Exchanges = () => {
     status,
   } = useQuery<IExchangesItems[]>("exchanges", getExchanges, {
     refetchOnWindowFocus: false,
+    initialData: initItemsExist ? initItems : undefined,
   });
 
   const onModalActive = (item?: IExchangesItems) => {
@@ -36,8 +37,8 @@ export const Exchanges = () => {
   return (
     <div className={style.container}>
       <p className={style.title}>Exchanges</p>
-      {isLoading && <LoadingSpinner />}
-      {status === "success" && (
+      {isLoading && !initItemsExist && <LoadingSpinner />}
+      {status === "success" && !!items.length && (
         <>
           <div className={classes["list-description"]}>
             <p>Name</p>
@@ -48,7 +49,9 @@ export const Exchanges = () => {
           </ul>
         </>
       )}
-      {isError && <p className="center">Problem with CoinGeco response.</p>}
+      {(isError || !items?.length) && !isLoading && (
+        <p className="center">Problem with CoinGeco response.</p>
+      )}
 
       {modalOpen && item && (
         <Modal onClose={onCloseModal}>

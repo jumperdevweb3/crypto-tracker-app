@@ -23,7 +23,8 @@
   &:nth-of-type(3) {
     flex-basis: 100%;
     max-width: 100%;
-    max-height: calc(45vh);
+    height: 45vh;
+    min-height: 30rem;
     margin: 1rem 0 0 0;
 
     @media (max-width: 767px) {

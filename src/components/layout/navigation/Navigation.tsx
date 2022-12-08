@@ -29,7 +29,7 @@ export const Navigation = () => {
   const toggleNav = () => {
     dispatch(uiActions.showNavigation(!showNav));
   };
-  const SearchButton = (
+  const searchButton = (
     <button
       className={classes["search-btn"]}
       onClick={() => setModalActive((state) => !state)}
@@ -37,26 +37,26 @@ export const Navigation = () => {
       <ImSearch fontSize={"1.2rem"} fill="rgb(75, 185, 167)" />
     </button>
   );
-  const MobileButton = mobile && (
+  const mobileButton = mobile && (
     <div className={classes["btn-box"]}>
-      {SearchButton}
+      {searchButton}
       <button onClick={toggleNav} className={classes.hamburger}>
         <FiMenu fontSize={"2rem"} color="#fff" />
       </button>
     </div>
   );
-  const MobileNavContent = mobile && (
+  const mobileNavContent = mobile && (
     <nav className={navClass}>
       <ul className={classes["mobile-list"]}>
         <NavLinks toggle={toggleNav} />
       </ul>
     </nav>
   );
-  const DesktopNavContent = desktop && (
+  const desktopNavContent = desktop && (
     <nav className={classes["desktop-nav"]}>
       <ul className={classes["links-list"]}>
         <NavLinks toggle={toggleNav} />
-        {SearchButton}
+        {searchButton}
       </ul>
     </nav>
   );
@@ -72,10 +72,10 @@ export const Navigation = () => {
               <a>Crypto Tracker </a>
             </Link>
           </h1>
-          {MobileButton}
+          {mobileButton}
         </div>
-        {MobileNavContent}
-        {DesktopNavContent}
+        {mobileNavContent}
+        {desktopNavContent}
         {Spotlight}
       </div>
     </header>

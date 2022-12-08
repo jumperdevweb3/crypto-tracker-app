@@ -1,9 +1,8 @@
-import { ICoin } from "../../../../types/types";
+import { ICoin } from "@/types/types";
+import { InstanceOf } from "reselect/es/types";
 import classes from "./CoinLinks.module.scss";
 
-export const CoinLinks = ({ item }: { item: ICoin }) => {
-  const { links } = item;
-
+export const CoinLinks = ({ links }: { links: ICoin["links"] }) => {
   const existHompageLinks = links.homepage.filter((i) => i.trim().length);
   const existBlokchainLinks = links.blockchain_site.filter(
     (i) => i.trim().length
@@ -12,26 +11,30 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
     (i) => i.trim().length
   );
 
-  const ForumLinks = existForumLinks
+  const splitLink = (url: string) => {
+    return url.split("/")[2];
+  };
+
+  const forumLinks = existForumLinks
     ? existForumLinks.map((i) => (
         <a href={i} key={i}>
-          {i}
+          {splitLink(i)}
         </a>
       ))
     : null;
 
-  const HomepageLinks = existHompageLinks
+  const homepageLinks = existHompageLinks
     ? existHompageLinks.map((i) => (
         <a href={i} key={i}>
-          {i}
+          {splitLink(i)}
         </a>
       ))
     : null;
 
-  const BlokchainLinks = existBlokchainLinks
+  const blokchainLinks = existBlokchainLinks
     ? existBlokchainLinks.map((i) => (
         <a href={i} key={i}>
-          {i}
+          {splitLink(i)}
         </a>
       ))
     : null;
@@ -41,30 +44,30 @@ export const CoinLinks = ({ item }: { item: ICoin }) => {
     existBlokchainLinks.length > 0 ||
     existForumLinks.length > 0;
 
-  const BlokchainLinksContent = existBlokchainLinks.length > 0 && (
+  const blokchainLinksContent = existBlokchainLinks.length > 0 && (
     <div className={classes.wrapper}>
       <p className={classes.title}>Blokchain: </p>
-      <div className={classes.links}>{BlokchainLinks}</div>
+      <div className={classes.links}>{blokchainLinks}</div>
     </div>
   );
-  const HompageLinksContent = existHompageLinks.length > 0 && (
+  const hompageLinksContent = existHompageLinks.length > 0 && (
     <div className={classes.wrapper}>
       <p className={classes.title}>Homepage:</p>
-      <div className={classes.links}>{HomepageLinks}</div>
+      <div className={classes.links}>{homepageLinks}</div>
     </div>
   );
-  const ForumLinksContent = existForumLinks.length > 0 && (
+  const forumLinksContent = existForumLinks.length > 0 && (
     <div className={classes.wrapper}>
       <p className={classes.title}>Official Forum:</p>
-      <div className={classes.links}>{ForumLinks}</div>
+      <div className={classes.links}>{forumLinks}</div>
     </div>
   );
-  const LinksContent = linksExist && (
+  const linksContent = linksExist && (
     <div className={classes["links-box"]}>
-      {BlokchainLinksContent}
-      {HompageLinksContent}
-      {ForumLinksContent}
+      {blokchainLinksContent}
+      {hompageLinksContent}
+      {forumLinksContent}
     </div>
   );
-  return <>{LinksContent}</>;
+  return <>{linksContent}</>;
 };

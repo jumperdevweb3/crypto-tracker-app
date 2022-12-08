@@ -15,33 +15,33 @@ export const Exchange = ({ item }: { item: IExchangesItems }) => {
     trust_score_rank,
   } = item;
 
-  const DescriptionContent = !!description && (
+  const descriptionContent = !!description && (
     <p className={classes.description}>{description}</p>
   );
-  const CountryContent = !!country && (
+  const countryContent = !!country && (
     <p>
       Country: <span>{country ? country : "No data"}</span>
     </p>
   );
-  const YearEstablishedContent = !!year_established && (
+  const yearEstablishedContent = !!year_established && (
     <p>
       Year established:{" "}
       <span>{year_established ? year_established : "No data"}</span>
     </p>
   );
-  const TradeVolumeContent = !!trade_volume_24h_btc_normalized && (
+  const tradeVolumeContent = !!trade_volume_24h_btc_normalized && (
     <p className={classes.volume}>
       Trade Volume 24h:{" "}
       <span>{trade_volume_24h_btc_normalized.toFixed(4)} BTC</span>
     </p>
   );
-  const TrustScoreContent = !!trust_score_rank && (
+  const trustScoreContent = !!trust_score_rank && (
     <p>
       Trust Score Rank: <span>{trust_score_rank}</span>
     </p>
   );
 
-  const ExchangeUrlContent = !!url && (
+  const exchangeUrlContent = !!url && (
     <p>
       View Exchange:{" "}
       <Link href={url} passHref>
@@ -56,12 +56,12 @@ export const Exchange = ({ item }: { item: IExchangesItems }) => {
         <p>{name} </p>
       </div>
       <div className={classes["data-box"]}>
-        {CountryContent}
-        {YearEstablishedContent}
-        {TradeVolumeContent}
-        {TrustScoreContent}
-        {ExchangeUrlContent}
-        {DescriptionContent}
+        {countryContent}
+        {yearEstablishedContent}
+        {tradeVolumeContent}
+        {trustScoreContent}
+        {exchangeUrlContent}
+        {descriptionContent}
       </div>
     </div>
   );

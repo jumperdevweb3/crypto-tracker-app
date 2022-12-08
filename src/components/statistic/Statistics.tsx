@@ -4,7 +4,16 @@ import classes from "./Statistic.module.scss";
 import { Nfts } from "./nft/Nfts";
 import Link from "next/link";
 
-export const Statistics = () => {
+interface IProps {
+  initNfts: [] | null;
+  initCompanies: [] | null;
+  initExchanges: [] | null;
+}
+export const Statistics = ({
+  initNfts,
+  initCompanies,
+  initExchanges,
+}: IProps) => {
   return (
     <>
       <p className={classes.title}>
@@ -14,9 +23,9 @@ export const Statistics = () => {
         </Link>
       </p>
       <div className={classes.statistic}>
-        <Exchanges />
-        <Companies />
-        <Nfts />
+        <Exchanges initItems={initExchanges} />
+        <Companies initItems={initCompanies} />
+        <Nfts initItems={initNfts} />
       </div>
     </>
   );

@@ -8,9 +8,10 @@ import { NftsList } from "./nftsList/NftsList";
 import { useQuery } from "react-query";
 import { getNfts } from "../fetchStatistic";
 
-export const Nfts = () => {
+export const Nfts = ({ initItems }: { initItems: [] | null }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [itemId, setItemId] = useState("");
+  const initItemsExist = initItems && !!initItems.length;
 
   const {
     data: items,
@@ -19,6 +20,7 @@ export const Nfts = () => {
     isError,
   } = useQuery("nfts", getNfts, {
     refetchOnWindowFocus: false,
+    initialData: initItemsExist ? initItems : undefined,
   });
 
   const onModalActive = (id?: string) => {
@@ -32,8 +34,8 @@ export const Nfts = () => {
     setItemId("");
   };
 
-  const LoadingContent = isLoading && <LoadingSpinner />;
-  const ItemsContent = status === "success" && (
+  const LoadingContent = isLoading && !initItemsExist && <LoadingSpinner />;
+  const itemsContent = status === "success" && !!items.length && (
     <>
       <div className={classes["list-description"]}>
         <p>Name</p>
@@ -44,7 +46,7 @@ export const Nfts = () => {
       </ul>
     </>
   );
-  const ErrorContent = isError && (
+  const errorContent = (isError || !items?.length) && !isLoading && (
     <p className="center">Problem with CoinGeco response.</p>
   );
   const ModalContent = modalOpen && (
@@ -56,8 +58,8 @@ export const Nfts = () => {
     <div className={style.container}>
       <p className={style.title}>Top 24h volume Nft`s List</p>
       {LoadingContent}
-      {ItemsContent}
-      {ErrorContent}
+      {itemsContent}
+      {errorContent}
       {ModalContent}
     </div>
   );

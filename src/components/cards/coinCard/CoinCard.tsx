@@ -1,8 +1,8 @@
 import classes from "./CoinCard.module.scss";
 import PriceTimeChange from "./price/PriceTimeChange";
-import { WatchlistButton } from "./WatchlistButton";
+import { WatchlistButton } from "./watchlistButton/WatchlistButton";
 import Link from "next/link";
-import { currencyValueFormat } from "../../../helpers/numberFromat";
+import { currencyValueFormat } from "src/utils/numberFromat";
 import Price from "./price/PriceChange";
 import Image from "next/image";
 import { memo } from "react";
@@ -23,14 +23,17 @@ const CoinCard = ({ item }: { item: ICurrencyItem }) => {
     total_volume,
     market_cap,
   } = item;
-  const SymbolContent = symbol.length < 30 ? symbol.toUpperCase() : "?";
-  const MarketCapContent = !!market_cap
+  const symbolContent = symbol.length < 30 ? symbol.toUpperCase() : "?";
+  const marketCapContent = !!market_cap
     ? currencyValueFormat.format(market_cap)
     : "?";
-  const TotalVolumeContent = !!total_volume
+  const totalVolumeContent = !!total_volume
     ? currencyValueFormat.format(total_volume)
     : "?";
-  const MarketRankContent = !!market_cap_rank ? market_cap_rank : "?";
+  const marketRankContent = !!market_cap_rank ? market_cap_rank : "?";
+
+  const img = image.length < 20 ? "/missing_large.png" : image;
+
   return (
     <div className={classes.coin}>
       <Link href={`/currency/${id}`}>
@@ -38,14 +41,14 @@ const CoinCard = ({ item }: { item: ICurrencyItem }) => {
       </Link>
       <WatchlistButton classes={classes} id={id} item={item} />
       <div className={classes.rank}>
-        <p>{MarketRankContent}</p>
+        <p>{marketRankContent}</p>
       </div>
       <div className={classes.name}>
-        <Image src={image} alt={name} width={"21px"} height={"21px"} />
+        <Image src={img} alt={name} width={"21px"} height={"21px"} />
         <p className={classes.title}>{name}</p>
       </div>
       <div className={classes.symbol}>
-        <span>{SymbolContent}</span>
+        <span>{symbolContent}</span>
       </div>
       <div className={classes.price}>
         <Price price={current_price} />
@@ -54,10 +57,10 @@ const CoinCard = ({ item }: { item: ICurrencyItem }) => {
       <PriceTimeChange time={price_change_24h} classes={classes} />
       <PriceTimeChange time={price_change_7d} classes={classes} />
       <div>
-        <p>{MarketCapContent}</p>
+        <p>{marketCapContent}</p>
       </div>
       <div className={classes.volume}>
-        <p>{TotalVolumeContent}</p>
+        <p>{totalVolumeContent}</p>
       </div>
     </div>
   );
