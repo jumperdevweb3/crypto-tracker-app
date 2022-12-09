@@ -10,6 +10,7 @@ export const LoadingFire = () => {
         width={48}
         height={48}
         alt="Loading fire gif from 1inch"
+        unoptimized
       />
     </div>
   );
