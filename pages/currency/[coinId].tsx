@@ -1,9 +1,9 @@
 import { CurrenciesDetail } from "../../src/components/currencies/currencyDetail/CurrenciesDetail";
 import { useRouter } from "next/router";
 import { fetchCurrency } from "../api/fetchCurrency";
-import { LoadingSpinner } from "../../src/components/ui/loadingSpinner/LoadingSpinner";
 import { useQuery } from "react-query";
 import { ICoin } from "../../src/types/types";
+import { LoadingFire } from "@/components/ui/loadingFire/LoadingFire";
 
 export default function CoinDetailPage() {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function CoinDetailPage() {
   const coinDetialsContent = !item?.error && item && (
     <CurrenciesDetail item={item} />
   );
-  const LoadingContent = isLoading && <LoadingSpinner />;
+  const LoadingContent = isLoading && <LoadingFire />;
   return (
     <>
       {notFoundContent}
