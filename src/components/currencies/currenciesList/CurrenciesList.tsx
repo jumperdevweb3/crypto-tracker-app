@@ -12,6 +12,7 @@ import { useRouter } from "next/router";
 import { ICurrencyItem } from "@/types/types";
 import { changeDataVariables } from "../../../utils/changeDataVariables";
 import { sortCurrencies } from "src/utils/sortCurrencies";
+import { LoadingFire } from "@/components/ui/loadingFire/LoadingFire";
 
 export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const [page, setPage] = useState(1);
@@ -30,6 +31,7 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
       }
     );
   const dataExist = !!data?.length;
+
   useEffect(() => {
     if (typeof router.query.page === "string") {
       setPage(+router.query.page);
@@ -42,7 +44,6 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const LoadingContent = !initDataExist && isLoading && !isPreviousData && (
     <LoadingSpinner />
   );
-
   const sortItems =
     status === "success"
       ? sortCurrencies(
@@ -64,9 +65,16 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const errorContent = (isError || !dataExist) && !isLoading && !isFetching && (
     <p className="center">Cannot load data.</p>
   );
-
+  const isNewDataFetching = isFetching && isPreviousData;
+  const switchPageLoader = isNewDataFetching && (
+    <div className={classes.overlay}>
+      <LoadingFire />
+    </div>
+  );
+  const enableScroll = isNewDataFetching ? "hidden" : "auto";
   const MarketListContent = dataExist && (
-    <div className={classes["market-list"]}>
+    <div className={classes["market-list"]} style={{ overflow: enableScroll }}>
+      {switchPageLoader}
       {SortMenu}
       {notFoundContent}
       {CurrenciesContent}
