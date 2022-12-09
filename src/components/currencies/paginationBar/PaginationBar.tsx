@@ -12,7 +12,7 @@ export const PaginationBar = ({ isLoading, disabled, page }: Props) => {
   const router = useRouter();
 
   const changePage = (event: number) => {
-    router.push(`/?page=${event}`, undefined, { scroll: false });
+    router.push(`/?page=${event}`, undefined, { scroll: true });
   };
   const PaginationBar = (
     <Pagination
