@@ -68,12 +68,14 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const isNewDataFetching = isFetching && isPreviousData;
   const switchPageLoader = isNewDataFetching && (
     <div className={classes.overlay}>
-      <LoadingFire />
+      <div className={classes["gif-wrapper"]}>
+        <LoadingFire />
+      </div>
     </div>
   );
   const enableScroll = isNewDataFetching ? "hidden" : "auto";
   const MarketListContent = dataExist && (
-    <div className={classes["market-list"]} style={{ overflow: enableScroll }}>
+    <div className={classes["market-list"]} style={{ overflowX: enableScroll }}>
       {switchPageLoader}
       {SortMenu}
       {notFoundContent}
