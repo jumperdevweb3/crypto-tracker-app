@@ -31,7 +31,7 @@ export const ConvertItem = ({ kind }: { kind: string }) => {
   const OptionItems =
     status === "success" &&
     currenciesData.map((item) => (
-      <option value={item.id} key={Math.random() * 100}>
+      <option value={item.id} key={item.id}>
         {item.name}
       </option>
     ));

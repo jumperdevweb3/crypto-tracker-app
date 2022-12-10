@@ -7,6 +7,8 @@ import { fetchCoinByQuery } from "./helpers/fetchCoinByQuery";
 import { useQuery } from "react-query";
 import { ITrendingCoin } from "./types";
 import { TrendingSearch } from "./trendingSearch/TrendingSearch";
+import Image from "next/image";
+import { LoadingFire } from "@/components/ui/loadingFire/LoadingFire";
 
 interface Item {
   id: string;
@@ -42,7 +44,9 @@ export const SearchBar = ({ trendingSearch: items }: IProps) => {
   };
 
   const loadingContent = isLoading && (
-    <li className={classes["result-info"]}>Loading ...</li>
+    <li className={classes["result-info"]}>
+      <LoadingFire />
+    </li>
   );
   const notFoundContent = status === "success" && !data.length && (
     <li className={classes["result-info"]}>Not found items.</li>

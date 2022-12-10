@@ -68,6 +68,12 @@
         display: flex;
         align-items: center;
         margin-right: 1rem;
+
+        svg {
+          &:hover {
+            fill: rgb(60, 222, 82);
+          }
+        }
       }
     }
 

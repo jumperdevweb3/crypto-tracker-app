@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { LoadingSpinner } from "../../../ui/loadingSpinner/LoadingSpinner";
 import classes from "./Chart.module.scss";
 import dynamic from "next/dynamic";
 import { useQuery } from "react-query";
 import { getChart } from "./getChart";
+import { LoadingFire } from "@/components/ui/loadingFire/LoadingFire";
 
 const TradingViewChart = dynamic(() => import("./TradingViewChart"), {
   ssr: false,
@@ -19,7 +19,7 @@ export const Chart = ({ id }: { id: string }) => {
     refetchInterval: 35000,
     keepPreviousData: true,
   });
-  const LoadingContent = isLoading && <LoadingSpinner />;
+  const LoadingContent = isLoading && <LoadingFire />;
   const errorContent = isError && (
     <p className="center">Chart is not available</p>
   );
