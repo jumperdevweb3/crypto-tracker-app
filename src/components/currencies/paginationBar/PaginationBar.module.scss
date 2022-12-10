@@ -1,10 +1,47 @@
-.pagination {
-  margin: 2rem 0;
+.wrapper {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 
-  button {
-    background-color: #222642;
-    border: none;
-    color: var(--color-white);
+  .pagination {
+    margin: 2rem 0 0 0;
+    justify-content: center;
+
+    button {
+      background-color: #222642;
+      border: none;
+      color: var(--color-white);
+    }
+  }
+  .controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+
+    .button,
+    .input {
+      background-color: #222642;
+      border: none;
+      height: 32px;
+      min-width: 32px;
+      padding: 0 8px;
+      font-size: 16px;
+      border-radius: 4px;
+
+      color: #fff;
+    }
+    .input {
+      outline: none;
+      caret-color: #fff;
+      min-width: 40px;
+      text-align: center;
+    }
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
