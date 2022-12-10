@@ -23,7 +23,7 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const { data, isError, isLoading, status, isPreviousData, isFetching } =
     useQuery<ICurrencyItem[]>(
       ["currencies", page],
-      () => getCurrenecies(page, 100),
+      () => getCurrenecies(page, 50),
       {
         keepPreviousData: true,
         refetchInterval: 35000,
