@@ -13,11 +13,11 @@
 <table>
 <tr>
   <td>
-    <a href="https://crypto-app-tracker.vercel.app/"><img height="450em" src="https://i.ibb.co/W0rXPX4/crypto-tracker-app-1.jpg" alt="app view"/></a>
+    <a href="https://crypto-app-tracker.vercel.app/"><img height="450em" src="https://i.postimg.cc/X7Td1RWx/Zrzut-ekranu-2022-12-11-o-19-19-15.png" alt="app view"/></a>
   </td>
    <td>
    <a href="https://crypto-app-tracker.vercel.app/statistics">
-   <img height="450em" src="https://i.ibb.co/QjLj148/crypto-tracker-app-2.jpg" alt="app view 2"/>
+   <img height="450em" src="https://i.postimg.cc/q7rn42z3/Zrzut-ekranu-2022-12-11-o-19-19-31.png" alt="app view 2"/>
    </a>
     
   </td>
