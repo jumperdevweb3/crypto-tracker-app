@@ -5,24 +5,25 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 
 export default function NewsPage({ ...props }) {
-  const items = props.news;
+  // const items = props.news;
 
   return (
     <>
       <Head>
         <title>News | Crypto Tracker</title>
       </Head>
-      <News items={items} />
+      {/* <News items={items} /> */}
+      <h2>It will back soon 😊</h2>
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const news: INewsItems[] = await getNewsData();
+// export const getStaticProps: GetStaticProps = async () => {
+//   const news: INewsItems[] = await getNewsData();
 
-  return {
-    props: {
-      news: news,
-    },
-  };
-};
+//   return {
+//     props: {
+//       news: news,
+//     },
+//   };
+// };

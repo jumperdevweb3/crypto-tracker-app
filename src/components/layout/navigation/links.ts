@@ -3,5 +3,4 @@ export const links = [
   { name: "Watchlist", path: "/watchlist" },
   { name: "Statistics", path: "/statistics" },
   { name: "Tools", path: "/tools" },
-  { name: "News", path: "/news" },
 ];
