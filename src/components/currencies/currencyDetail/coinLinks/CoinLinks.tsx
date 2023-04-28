@@ -3,7 +3,7 @@ import { InstanceOf } from "reselect/es/types";
 import classes from "./CoinLinks.module.scss";
 
 export const CoinLinks = ({ links }: { links: ICoin["links"] }) => {
-  const existHompageLinks = links.homepage.filter((i) => i.trim().length);
+  const existHomepageLinks = links.homepage.filter((i) => i.trim().length);
   const existBlokchainLinks = links.blockchain_site.filter(
     (i) => i.trim().length
   );
@@ -23,8 +23,8 @@ export const CoinLinks = ({ links }: { links: ICoin["links"] }) => {
       ))
     : null;
 
-  const homepageLinks = existHompageLinks
-    ? existHompageLinks.map((i) => (
+  const homepageLinks = existHomepageLinks
+    ? existHomepageLinks.map((i) => (
         <a href={i} key={i}>
           {splitLink(i)}
         </a>
@@ -40,28 +40,17 @@ export const CoinLinks = ({ links }: { links: ICoin["links"] }) => {
     : null;
 
   const linksExist =
-    existHompageLinks.length > 0 ||
+    existHomepageLinks.length > 0 ||
     existBlokchainLinks.length > 0 ||
     existForumLinks.length > 0;
 
   const blokchainLinksContent = existBlokchainLinks.length > 0 && (
-    <div className={classes.wrapper}>
-      <p className={classes.title}>Blokchain: </p>
-      <div className={classes.links}>{blokchainLinks}</div>
-    </div>
+    <>{blokchainLinks}</>
   );
-  const hompageLinksContent = existHompageLinks.length > 0 && (
-    <div className={classes.wrapper}>
-      <p className={classes.title}>Homepage:</p>
-      <div className={classes.links}>{homepageLinks}</div>
-    </div>
+  const hompageLinksContent = existHomepageLinks.length > 0 && (
+    <>{homepageLinks}</>
   );
-  const forumLinksContent = existForumLinks.length > 0 && (
-    <div className={classes.wrapper}>
-      <p className={classes.title}>Official Forum:</p>
-      <div className={classes.links}>{forumLinks}</div>
-    </div>
-  );
+  const forumLinksContent = existForumLinks.length > 0 && <>{forumLinks}</>;
   const linksContent = linksExist && (
     <div className={classes["links-box"]}>
       {blokchainLinksContent}

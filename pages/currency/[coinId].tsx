@@ -15,6 +15,9 @@ export default function CoinDetailPage() {
     () => fetchCurrency(query),
     {
       enabled: !!query && router.isReady,
+      retry: 0,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
     }
   );
 

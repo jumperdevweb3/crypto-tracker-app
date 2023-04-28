@@ -16,8 +16,11 @@ export const Chart = ({ id }: { id: string }) => {
     isLoading,
     status,
   } = useQuery<[]>([`chart`, id], () => getChart(id), {
-    refetchInterval: 35000,
+    // refetchInterval: 35000,
     keepPreviousData: true,
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
   const LoadingContent = isLoading && <LoadingFire />;
   const errorContent = isError && (

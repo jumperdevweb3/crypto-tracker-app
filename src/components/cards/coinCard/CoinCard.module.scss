@@ -13,15 +13,14 @@
   width: 62rem;
   color: var(--color-white);
   margin: 0 auto;
-  border-top: 1px solid var(--border-dark-blue);
-  border-bottom: 1px solid var(--border-dark-blue);
+  border-top: 2px solid var(--background-gray);
   gap: 0.7rem;
   font-family: Inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto,
     Helvetica, Arial, sans-serif;
   font-size: 14px;
   min-height: 5rem;
   max-height: 5rem;
-  background-color: var(--background-dark);
+  background-color: var(--background-main);
 
   .overlay {
     position: absolute;
@@ -35,7 +34,7 @@
     transition: 0.1s;
 
     &:hover {
-      background-color: rgb(33 79 157 / 14%);
+      background-color: var(--special-hover);
     }
   }
 
@@ -43,7 +42,8 @@
     position: sticky;
     top: 0;
     left: 0;
-    background-color: var(--background-dark);
+    background-color: var(--background-main);
+
     display: grid;
     grid-template-columns: 1.6rem 1fr;
     align-items: center;
@@ -93,8 +93,11 @@
     cursor: pointer;
     padding: 0.5rem 0;
     z-index: 1;
-    &:hover svg {
-      color: var(--color-purple) !important;
+
+    svg {
+      transition: 0.3s;
+
+      color: var(--color-special) !important;
     }
   }
 }

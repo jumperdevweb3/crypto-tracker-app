@@ -17,11 +17,11 @@
     margin: 1rem 0;
   }
   h3 {
-    color: var(--color-text-green);
+    color: var(--color-green);
   }
   h4,
   h5 {
-    color: var(--color-price-green);
+    color: var(--color-green);
   }
 
   p,
@@ -32,7 +32,7 @@
   }
 
   h2 {
-    color: var(--color-purple);
+    color: var(--color-special);
   }
 
   ul,
@@ -43,7 +43,7 @@
     list-style: square;
     padding: 0.5rem 0;
     padding-left: 2rem;
-    border-left: 4px solid var(--border-dark-gray);
+    border-left: 4px solid var(--background-gray);
 
     li {
       margin-left: 1rem;
@@ -55,7 +55,7 @@
   }
 
   a {
-    color: var(--color-purple);
+    color: var(--color-special);
     font-weight: bold;
   }
   img {

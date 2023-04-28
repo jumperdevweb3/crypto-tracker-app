@@ -14,17 +14,22 @@ interface IProps {
 export const CurrencyStats = ({ item }: IProps) => {
   return (
     <div className={classes["box-container"]}>
-      <BoxHeader item={item} />
-      <PriceChangeTable market_data={item.market_data} />
-      <div className={classes["box-wrapper"]}>
-        <div className={classes.detials}>
-          <CoinStatistic item={item} />
+      <div className={classes.test1}>
+        <div className={classes.test}>
+          <BoxHeader item={item} />
           <CoinLinks links={item.links} />
         </div>
-        <Chart id={item.id} />
+        <div className={classes.details}>
+          <CoinStatistic item={item} />
+          <PriceChangeTable market_data={item.market_data} />
+        </div>
       </div>
-      <Community community={item.community_data} />
-      <CoinDescription description={item.description.en} />
+
+      <Chart id={item.id} />
+      <div className={classes.test2}>
+        <CoinDescription description={item.description.en} />
+        <Community community={item.community_data} />
+      </div>
     </div>
   );
 };

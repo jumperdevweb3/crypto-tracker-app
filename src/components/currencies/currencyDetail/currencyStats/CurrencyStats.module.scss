@@ -11,6 +11,38 @@
   overflow-y: auto;
   gap: 1rem;
 
+  .test2 {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+
+    @media (max-width: 63.9375rem) {
+      flex-direction: column;
+    }
+  }
+  .test1 {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 63.9375rem) {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+  .test {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media (max-width: 63.9375rem) {
+      flex-direction: row;
+    }
+    @media (max-width: 31.25rem) {
+      flex-direction: column;
+    }
+  }
   .box-wrapper {
     display: flex;
     flex-direction: column;
@@ -18,21 +50,20 @@
     align-items: center;
     overflow: hidden;
 
-    .detials {
-      display: flex;
-      gap: 1rem;
-      width: 90%;
-      justify-content: space-between;
-
-      @media (max-width: 1023px) {
-        width: 100%;
-        flex-direction: column;
-      }
-    }
-
     @media (max-width: 1023px) {
       flex-direction: column;
       gap: 1rem;
+    }
+  }
+  .details {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    gap: 3rem;
+    min-width: 50%;
+
+    @media (max-width: 63.9375rem) {
+      align-self: auto;
     }
   }
 

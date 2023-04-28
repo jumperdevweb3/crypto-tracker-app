@@ -3,14 +3,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.7rem 0.5rem;
-  border-bottom: 1px solid var(--border-dark-gray);
+  border-bottom: 1px solid var(--color-white-opacity);
   transition: 0.2s;
   cursor: pointer;
 
   &:hover {
-    background-color: var(--background-hover);
-    border-radius: 10px;
-    border-bottom: 1px solid transparent;
+    background-color: var(--background-gray);
   }
 
   .name-box {
@@ -23,7 +21,7 @@
     gap: 0.5rem;
     font-size: 0.9rem;
     font-weight: bold;
-    color: var(--color-purple);
+    color: var(--color-special);
   }
 
   @media (max-width: 767px) {

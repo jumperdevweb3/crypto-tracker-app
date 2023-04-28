@@ -19,9 +19,9 @@ export const WatchlistButton = ({ classes, id, item }: Props) => {
   });
 
   const isWatchIcon = isItemWatch ? (
-    <AiFillStar fontSize="1.25rem" fill="gold" />
+    <AiFillStar fontSize="1.25rem" fill="#df710c" />
   ) : (
-    <BiStar color="#8d9904" fontSize="1.25rem" />
+    <BiStar color="#df710c" fontSize="1.25rem" />
   );
   const addToWatchlistHandler = () => {
     dispatch(watchlistActions.updateIds(item.id));

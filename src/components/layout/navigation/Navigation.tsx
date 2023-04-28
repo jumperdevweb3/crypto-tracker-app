@@ -11,6 +11,7 @@ import { SpotlightModal } from "./spotlightModal/SpotlightModal";
 //types
 import { AppDispatch } from "../../../store/store";
 import { RootState } from "../../../store/store";
+import { BiCommand } from "react-icons/bi";
 
 export const Navigation = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);
@@ -30,12 +31,18 @@ export const Navigation = () => {
     dispatch(uiActions.showNavigation(!showNav));
   };
   const searchButton = (
-    <button
-      className={classes["search-btn"]}
-      onClick={() => setModalActive((state) => !state)}
-    >
-      <ImSearch fontSize={"1.2rem"} fill="rgb(75, 185, 167)" />
-    </button>
+    <div className={classes["input-box"]}>
+      <input
+        placeholder="Search currencies"
+        className={classes["search-input"]}
+        // onClick={() => setModalActive((state) => !state)}
+      />
+      <ImSearch fontSize={"1rem"} className={classes.search} />
+      <div className={classes["shortcut-box"]}>
+        <BiCommand fontSize={"1rem"} className={classes.command} />
+        <span>K</span>
+      </div>
+    </div>
   );
   const mobileButton = mobile && (
     <div className={classes["btn-box"]}>
@@ -65,6 +72,7 @@ export const Navigation = () => {
   );
   return (
     <header className={classes.header}>
+      <div className={classes.underfill}></div>
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <h1 className={classes.logo}>

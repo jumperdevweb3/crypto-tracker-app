@@ -15,10 +15,11 @@ export const TrendingStats = () => {
     "trendItems",
     getItems,
     {
-      refetchInterval: 600000,
-      refetchOnWindowFocus: false,
+      // refetchInterval: 600000,
       keepPreviousData: true,
+      retry: 0,
       refetchOnMount: false,
+      refetchOnWindowFocus: false,
     }
   );
   const { losersItems, gainersItems, trendingItems } = useSelector(

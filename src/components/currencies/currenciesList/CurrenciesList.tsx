@@ -28,6 +28,9 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
         keepPreviousData: true,
         refetchInterval: 35000,
         initialData: initDataExist ? initItems : undefined,
+        retry: 0,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
       }
     );
   const dataExist = !!data?.length;
@@ -67,11 +70,7 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   );
   const isNewDataFetching = isFetching && isPreviousData;
   const switchPageLoader = isNewDataFetching && (
-    <div className={classes.overlay}>
-      <div className={classes["gif-wrapper"]}>
-        <LoadingFire />
-      </div>
-    </div>
+    <div className={classes.overlay} />
   );
   const enableScroll = isNewDataFetching ? "hidden" : "auto";
   const MarketListContent = dataExist && (
