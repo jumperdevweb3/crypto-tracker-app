@@ -73,20 +73,24 @@ export const CoinStatistic = ({ item }: { item: ICoin }) => {
     <div className={classes["date-box"]}>
       <p>Last update date (UTC): </p>
       <span className={classes.date}>
-        {lastUpdate.replace(/(\d{4})-(\d{2})-(\d{2})T(.{8}).*/, "$2.$3.$1, $4")}
+        {lastUpdate.replace(/(\d{4})-(\d{2})-(\d{2})T(.{8}).*/, "$4")}
       </span>
     </div>
   );
   return (
     <div className={classes["stats-box"]}>
-      {genesisDateContent}
-      {marketCapContent}
-      {totalSupplyContent}
-      {maxSupplyContent}
-      {circulatingSupplyContent}
-      {athContent}
-      {athPercentageContent}
-      {lastUpdateContent}
+      <div className={classes.box}>
+        {genesisDateContent}
+        {marketCapContent}
+        {totalSupplyContent}
+        {maxSupplyContent}
+      </div>
+      <div className={classes.box}>
+        {circulatingSupplyContent}
+        {athContent}
+        {athPercentageContent}
+        {lastUpdateContent}
+      </div>
     </div>
   );
 };

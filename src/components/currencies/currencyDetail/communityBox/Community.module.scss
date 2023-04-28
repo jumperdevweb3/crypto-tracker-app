@@ -1,13 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-details-box);
+  background-color: var(--background-dark-gray);
   padding: 1rem 1rem;
-  border-radius: 10px;
-  width: 90%;
-  align-self: center;
+  border-radius: 6px;
+  width: max-content;
   box-sizing: border-box;
-  border: 2px solid var(--color-white);
+  border: 2px solid var(--color-special);
+  height: min-content;
 
   .wrapper {
     display: flex;
@@ -35,5 +35,6 @@
   }
   @media (max-width: 1023px) {
     width: 100%;
+    align-self: center;
   }
 }

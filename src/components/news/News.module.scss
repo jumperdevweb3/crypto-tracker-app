@@ -7,12 +7,12 @@
 
   span {
     letter-spacing: 1px;
-    color: var(--color-purple);
+    color: var(--color-special);
     font-size: 0.9rem;
     font-family: sans-serif;
   }
   a {
-    color: var(--color-text-green);
+    color: var(--color-special);
   }
 }
 .container {
@@ -31,7 +31,7 @@
   max-width: 1024px;
   gap: 2rem;
   padding: 1rem;
-  border: 2px solid var(--color-purple);
+  border: 2px solid var(--color-special);
   border-radius: 10px;
 
   .head {
@@ -46,7 +46,7 @@
     }
     .title {
       padding: 0.5rem 0;
-      color: var(--color-purple);
+      color: var(--color-special);
     }
   }
   a {
@@ -66,12 +66,12 @@
       letter-spacing: 1px;
       .author {
         font-weight: bold;
-        color: var(--color-oceanic);
+        color: var(--color-gray);
       }
       .keywords {
         font-weight: bold;
         font-style: italic;
-        color: var(--color-oceanic);
+        color: var(--color-gray);
       }
     }
   }
@@ -87,7 +87,7 @@
     text-decoration: none;
 
     &:hover {
-      background-color: var(--background-blue);
+      background-color: var(--background-dark-gray);
     }
   }
 }

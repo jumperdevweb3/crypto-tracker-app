@@ -87,7 +87,11 @@ const TrendingStatsBox = ({ kind, title, items }: Props) => {
           <h2>{title}</h2>
           {icon}
         </div>
-        <button onClick={moreStatsHandler} disabled={buttonState}>
+        <button
+          onClick={moreStatsHandler}
+          disabled={buttonState}
+          className={classes["more-button"]}
+        >
           More
         </button>
       </div>

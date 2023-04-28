@@ -5,7 +5,7 @@
   align-items: center;
   width: 80%;
   max-width: 1024px;
-  background-color: var(--background-light-blue);
+  background-color: var(--background-dark-gray);
   border-radius: 15px;
   margin: 3rem auto;
   animation: show-slowly 300ms linear;
@@ -37,13 +37,13 @@
   .title {
     margin: 3rem 0;
     color: var(--color-white);
-    border: 2px solid var(--color-purple);
+    border: 2px solid var(--color-special);
     border-radius: 10px;
     padding: 10px 15px;
     text-align: center;
   }
   .result-number {
-    color: var(--color-purple);
+    color: var(--color-special);
     margin: 0.5rem 0;
   }
   .result-warning {
@@ -54,7 +54,7 @@
     margin: 2rem 0 1rem 0;
     border: none;
     .sub-title {
-      color: var(--color-purple);
+      color: var(--color-special);
     }
   }
 }

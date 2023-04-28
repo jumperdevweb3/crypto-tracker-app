@@ -14,7 +14,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-dark);
+  background-color: var(--background-main);
   overflow-x: hidden;
 }
 
@@ -56,7 +56,7 @@ button {
   font-weight: bold;
 
   span {
-    color: var(--color-purple);
+    color: var(--color-special);
   }
   a {
     color: var(--color-text-green);
@@ -84,18 +84,18 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 3px;
+  height: 3px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-strong-blue);
+  background: var(--color-black);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-purple);
+  background: var(--color-special);
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--background-blue);
+  background: var(--color-white);
 }
 
 input::-webkit-outer-spin-button,

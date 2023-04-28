@@ -5,7 +5,6 @@
   overflow-y: auto;
   max-width: 768px;
   color: var(--color-white);
-  background-color: var(--background-modal-transparent);
   backdrop-filter: blur(40px) saturate(1.5);
   padding: 1.5rem 1rem;
   border-radius: 14px;
@@ -24,7 +23,7 @@
 
     .close-button {
       font-weight: bold;
-      border: 2px solid var(--color-purple);
+      border: 2px solid var(--color-special);
       color: var(--color-purple);
       padding: 5px 10px;
       border-radius: 7.5px;
@@ -33,7 +32,7 @@
       transition: 0.2s;
 
       &:hover {
-        background-color: var(--color-purple);
+        background-color: var(--color-special);
         color: #fff;
       }
     }

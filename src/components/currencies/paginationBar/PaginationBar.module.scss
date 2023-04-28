@@ -10,9 +10,10 @@
     justify-content: center;
 
     button {
-      background-color: #222642;
+      background-color: var(--background-special);
       border: none;
       color: var(--color-white);
+      font-weight: bold;
     }
   }
   .controls {
@@ -22,14 +23,14 @@
 
     .button,
     .input {
-      background-color: #222642;
+      background-color: var(--background-special);
       border: none;
       height: 32px;
       min-width: 32px;
       padding: 0 8px;
       font-size: 16px;
       border-radius: 4px;
-
+      font-weight: bold;
       color: #fff;
     }
     .input {

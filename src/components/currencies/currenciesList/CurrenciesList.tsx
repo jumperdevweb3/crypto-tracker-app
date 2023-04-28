@@ -7,12 +7,11 @@ import classes from "./CurrenciesList.module.scss";
 import { RootState } from "../../../store/store";
 import { PaginationBar } from "../paginationBar/PaginationBar";
 import { useQuery } from "react-query";
-import { getCurrenecies } from "./getCurrencies";
+import { getCurrencies } from "./getCurrencies";
 import { useRouter } from "next/router";
 import { ICurrencyItem } from "@/types/types";
 import { changeDataVariables } from "../../../utils/changeDataVariables";
 import { sortCurrencies } from "src/utils/sortCurrencies";
-import { LoadingFire } from "@/components/ui/loadingFire/LoadingFire";
 
 export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const [page, setPage] = useState(1);
@@ -23,11 +22,14 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   const { data, isError, isLoading, status, isPreviousData, isFetching } =
     useQuery<ICurrencyItem[]>(
       ["currencies", page],
-      () => getCurrenecies(page, 50),
+      () => getCurrencies(page, 50),
       {
         keepPreviousData: true,
-        refetchInterval: 35000,
+        // refetchInterval: 35000,
         initialData: initDataExist ? initItems : undefined,
+        retry: 0,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false,
       }
     );
   const dataExist = !!data?.length;
@@ -67,11 +69,7 @@ export const CurrenciesList = ({ initItems }: { initItems: [] | null }) => {
   );
   const isNewDataFetching = isFetching && isPreviousData;
   const switchPageLoader = isNewDataFetching && (
-    <div className={classes.overlay}>
-      <div className={classes["gif-wrapper"]}>
-        <LoadingFire />
-      </div>
-    </div>
+    <div className={classes.overlay} />
   );
   const enableScroll = isNewDataFetching ? "hidden" : "auto";
   const MarketListContent = dataExist && (

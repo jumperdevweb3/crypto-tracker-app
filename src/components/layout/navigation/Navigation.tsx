@@ -6,15 +6,71 @@ import { useWindowSize } from "../../../hooks/use-windowSize";
 import { FiMenu } from "react-icons/fi";
 import { NavLinks } from "./navLinks/NavLinks";
 import { ImSearch } from "react-icons/im";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SpotlightModal } from "./spotlightModal/SpotlightModal";
 //types
 import { AppDispatch } from "../../../store/store";
 import { RootState } from "../../../store/store";
+import { BiCommand } from "react-icons/bi";
+
+const useKeyPress = (targetKeys: string[]) => {
+  const [keyPressed, setKeyPressed] = useState(false);
+
+  const keyDownHandler = ({ code }: KeyboardEvent) => {
+    if (targetKeys.includes(code)) {
+      setKeyPressed(true);
+    }
+  };
+
+  const keyUpHandler = ({ code }: KeyboardEvent) => {
+    if (targetKeys.includes(code)) {
+      setKeyPressed(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", keyDownHandler);
+    document.addEventListener("keyup", keyUpHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+      document.removeEventListener("keyup", keyUpHandler);
+    };
+  }, []);
+
+  return keyPressed;
+};
 
 export const Navigation = () => {
   const showNav = useSelector((state: RootState) => state.uiSlice.showNav);
   const [modalActive, setModalActive] = useState(false);
+
+  const isCmdOrCtrlPressed = useKeyPress([
+    "ControlLeft",
+    "ControlRight",
+    "MetaLeft",
+    "MetaRight",
+  ]);
+
+  const handleToggle = () => {
+    setModalActive((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (isCmdOrCtrlPressed) {
+      const handleKeyDown = ({ code }: KeyboardEvent) => {
+        if (code === "KeyK") {
+          handleToggle();
+        }
+      };
+
+      document.addEventListener("keydown", handleKeyDown);
+
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }
+  }, [isCmdOrCtrlPressed]);
 
   const dispatch = useDispatch<AppDispatch>();
   const { width } = useWindowSize();
@@ -30,12 +86,18 @@ export const Navigation = () => {
     dispatch(uiActions.showNavigation(!showNav));
   };
   const searchButton = (
-    <button
-      className={classes["search-btn"]}
-      onClick={() => setModalActive((state) => !state)}
-    >
-      <ImSearch fontSize={"1.2rem"} fill="rgb(75, 185, 167)" />
-    </button>
+    <div className={classes["input-box"]} onClick={handleToggle}>
+      <input
+        placeholder="Search currencies"
+        className={classes["search-input"]}
+        disabled
+      />
+      <ImSearch fontSize={"1rem"} className={classes.search} />
+      <div className={classes["shortcut-box"]}>
+        <BiCommand fontSize={"1rem"} className={classes.command} />
+        <span>K</span>
+      </div>
+    </div>
   );
   const mobileButton = mobile && (
     <div className={classes["btn-box"]}>
@@ -65,6 +127,7 @@ export const Navigation = () => {
   );
   return (
     <header className={classes.header}>
+      <div className={classes.underfill}></div>
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <h1 className={classes.logo}>

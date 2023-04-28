@@ -6,7 +6,8 @@
   padding: 1rem;
   border-radius: 5px;
   font-size: 12px;
-  background-color: var(--background-light-blue);
+  background-color: var(--background-gray);
+  border: 2px solid var(--color-special);
 
   @media (max-width: 1023px) {
     width: 100%;
@@ -19,10 +20,17 @@
     align-items: center;
     margin: 0.2rem 0 0.7rem 0;
 
-    button {
-      color: var(--color-oceanic);
-      padding: 0.5rem 0.2rem;
-
+    .more-button {
+      background-color: var(--background-special);
+      color: var(--color-white);
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: 0.3s;
+      &:hover {
+        background-color: var(--background-gray);
+      }
       &:disabled {
         cursor: no-drop;
       }

@@ -10,15 +10,14 @@
     9rem;
   grid-template-rows: 1fr;
   align-items: center;
-  border-top: 1px solid var(--border-dark-blue);
-  border-bottom: 1px solid var(--border-dark-blue);
+  border-top: 1px solid var(--background-gray);
   width: 62rem;
   margin: 0 auto;
   padding: 0.5rem 0px;
   color: var(--color-white);
   gap: 0.7rem;
   font-size: 0.9rem;
-  background-color: var(--background-dark);
+  background-color: var(--background-main);
   min-height: 3rem;
   max-height: 3rem;
   z-index: 2;
@@ -42,14 +41,14 @@
     top: 0;
     left: 0;
     padding-left: 0.3rem;
-    background-color: var(--background-dark);
+    background-color: var(--background-main);
   }
 
   .option-btn {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    color: var(--color-purple);
+    color: var(--color-special);
     text-align: left;
     padding: 0.5rem 0;
   }
