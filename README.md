@@ -6,7 +6,7 @@
 
 > State management method - Redux
 
-> The project is constantly being developed and improved
+> This project is no longer being developed - from 28.04 [*]
 
 ### ✨ [See this project live](https://crypto-app-tracker.vercel.app/)
 
