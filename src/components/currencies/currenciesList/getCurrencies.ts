@@ -1,4 +1,4 @@
-export const getCurrenecies = async (
+export const getCurrencies = async (
   page: number | string | string[],
   perPage?: number
 ) => {

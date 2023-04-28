@@ -75,51 +75,6 @@
         flex-basis: 70%;
         gap: 0 1.5rem;
       }
-
-      .input-box {
-        position: relative;
-
-        .search-input {
-          display: flex;
-          align-items: center;
-          margin-right: 1rem;
-          background-color: transparent;
-          padding: 0.5rem 1.8rem;
-          border: 1px solid rgb(255, 255, 255, 0.4);
-          border-radius: 5px;
-          font-size: 0.9rem;
-          color: #fff;
-          outline: none;
-        }
-
-        .search {
-          fill: rgb(255, 255, 255, 0.4);
-          position: absolute;
-          top: 50%;
-          left: 0.5rem;
-          transform: translateY(-50%);
-          &:hover {
-            fill: rgb(255, 255, 255, 0.8);
-          }
-        }
-        .shortcut-box {
-          display: flex;
-          align-items: center;
-          gap: 0.3rem;
-          color: rgb(255, 255, 255, 0.4);
-          position: absolute;
-          top: 50%;
-          right: 1.5rem;
-          transform: translateY(-50%);
-        }
-        .command {
-          fill: rgb(255, 255, 255, 0.4);
-
-          &:hover {
-            fill: rgb(255, 255, 255, 0.8);
-          }
-        }
-      }
     }
 
     .mobile-nav {
@@ -128,7 +83,7 @@
       left: 0;
       width: 100%;
       transition: 0.3s;
-      background-color: var(--background-strong-gray);
+      background: var(--background-main);
       z-index: 3;
 
       &.active {
@@ -156,6 +111,64 @@
           color: var(--color-special);
         }
       }
+    }
+  }
+}
+.input-box {
+  position: relative;
+
+  .search-input {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    background-color: transparent;
+    padding: 0.5rem 1.8rem;
+    border: 1px solid rgb(255, 255, 255, 0.4);
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #fff;
+    outline: none;
+
+    @media (max-width: 43.75rem) {
+      display: none;
+    }
+  }
+
+  .search {
+    fill: rgb(255, 255, 255, 0.4);
+    position: absolute;
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    &:hover {
+      fill: rgb(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 43.75rem) {
+      position: static;
+      transform: none;
+    }
+  }
+  .shortcut-box {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: rgb(255, 255, 255, 0.4);
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    @media (max-width: 43.75rem) {
+      display: none;
+    }
+  }
+  .command {
+    fill: rgb(255, 255, 255, 0.4);
+    @media (max-width: 43.75rem) {
+      display: none;
+    }
+    &:hover {
+      fill: rgb(255, 255, 255, 0.8);
     }
   }
 }
