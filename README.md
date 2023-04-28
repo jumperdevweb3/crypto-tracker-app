@@ -1,4 +1,6 @@
-<h1 align="center">Welcome to crypto-tracker-app 👋</h1>
+<h1>This project is no longer being developed - 28.04 [*] </h1>
+
+<h2 align="center">Welcome to crypto-tracker-app 👋</h2>
 
 > App with currently cryptocurrencies stats and subpages with usefull tools in crypto.
 
@@ -6,7 +8,6 @@
 
 > State management method - Redux
 
-> This project is no longer being developed - from 28.04 [*]
 
 ### ✨ [See this project live](https://crypto-app-tracker.vercel.app/)
 
